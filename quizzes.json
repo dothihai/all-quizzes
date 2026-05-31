@@ -1,0 +1,32 @@
+[
+  {
+    "id": "ab-730",
+    "title": "Microsoft AI Business Professional",
+    "icon": "🤖",
+    "count": 46
+  },
+  {
+    "id": "aif-c01",
+    "title": "AWS Certified AI Practitioner (AIF-C01)",
+    "icon": "🧠",
+    "count": 294
+  },
+  {
+    "id": "aip-c01",
+    "title": "AWS AI Practitioner (AIP-C01)",
+    "icon": "☁️",
+    "count": 97
+  },
+  {
+    "id": "gh-300",
+    "title": "GitHub Copilot (GH-300)",
+    "icon": "🐙",
+    "count": 154
+  },
+  {
+    "id": "saa-c03",
+    "title": "AWS Solutions Architect Associate (SAA-C03)",
+    "icon": "🏗️",
+    "count": 1018
+  }
+]

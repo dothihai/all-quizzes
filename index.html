@@ -3,21 +3,102 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Microsoft AI Business Professional</title>
+    <title>Quiz Library</title>
     <style>
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
-        
+
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             min-height: 100vh;
             padding: 20px;
         }
-        
+
+        /* ===== MENU STYLES ===== */
+        .menu-wrapper {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .menu-header {
+            text-align: center;
+            color: white;
+            padding: 40px 20px 30px;
+        }
+
+        .menu-header h1 {
+            font-size: 2.2em;
+            margin-bottom: 10px;
+        }
+
+        .menu-header p {
+            font-size: 1.1em;
+            opacity: 0.85;
+        }
+
+        .quiz-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+            gap: 20px;
+            padding-bottom: 40px;
+        }
+
+        .quiz-card {
+            background: white;
+            border-radius: 12px;
+            padding: 24px;
+            cursor: pointer;
+            transition: transform 0.2s, box-shadow 0.2s;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            text-decoration: none;
+            color: inherit;
+            display: block;
+        }
+
+        .quiz-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+        }
+
+        .quiz-card-icon {
+            font-size: 2.5em;
+            margin-bottom: 12px;
+        }
+
+        .quiz-card-title {
+            font-size: 1.05em;
+            font-weight: 700;
+            color: #333;
+            margin-bottom: 8px;
+            line-height: 1.3;
+        }
+
+        .quiz-card-desc {
+            font-size: 0.875em;
+            color: #666;
+            margin-bottom: 14px;
+            line-height: 1.5;
+        }
+
+        .quiz-card-count {
+            font-size: 0.85em;
+            color: #667eea;
+            font-weight: 600;
+        }
+
+        .menu-status {
+            grid-column: 1 / -1;
+            text-align: center;
+            color: white;
+            font-size: 1.1em;
+            padding: 40px;
+        }
+
+        /* ===== QUIZ STYLES ===== */
         .container {
             max-width: 900px;
             margin: 0 auto;
@@ -26,18 +107,39 @@
             box-shadow: 0 10px 40px rgba(0,0,0,0.2);
             overflow: hidden;
         }
-        
+
         .header {
             background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             color: white;
-            padding: 30px;
+            padding: 20px 30px 30px;
             text-align: center;
         }
-        
-        .header h1 {
-            margin-bottom: 10px;
+
+        .back-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 5px;
+            background: rgba(255,255,255,0.2);
+            color: white;
+            border: none;
+            padding: 7px 16px;
+            border-radius: 20px;
+            cursor: pointer;
+            font-size: 13px;
+            font-weight: 500;
+            text-decoration: none;
+            margin-bottom: 16px;
+            transition: background 0.2s;
         }
-        
+
+        .back-link:hover {
+            background: rgba(255,255,255,0.35);
+        }
+
+        .header h1 {
+            margin-bottom: 8px;
+        }
+
         .stats {
             display: flex;
             justify-content: space-around;
@@ -45,38 +147,38 @@
             background: #f8f9fa;
             border-bottom: 2px solid #e9ecef;
         }
-        
+
         .stat {
             text-align: center;
         }
-        
+
         .stat-value {
             font-size: 24px;
             font-weight: bold;
             color: #667eea;
         }
-        
+
         .stat-label {
             font-size: 12px;
             color: #6c757d;
             text-transform: uppercase;
         }
-        
+
         .quiz-content {
             padding: 30px;
         }
-        
+
         .question-card {
             margin-bottom: 30px;
         }
-        
+
         .question-header {
             display: flex;
             justify-content: space-between;
             align-items: center;
             margin-bottom: 15px;
         }
-        
+
         .question-number {
             background: #667eea;
             color: white;
@@ -84,20 +186,21 @@
             border-radius: 20px;
             font-weight: bold;
         }
-        
+
         .question-text {
             font-size: 18px;
             line-height: 1.6;
             margin-bottom: 20px;
             color: #333;
+            white-space: pre-wrap;
         }
-        
+
         .options {
             display: flex;
             flex-direction: column;
             gap: 10px;
         }
-        
+
         .option {
             padding: 15px 20px;
             border: 2px solid #e9ecef;
@@ -107,33 +210,33 @@
             display: flex;
             align-items: center;
         }
-        
+
         .option:hover {
             border-color: #667eea;
             background: #f8f9fa;
         }
-        
+
         .option input[type="radio"],
         .option input[type="checkbox"] {
             margin-right: 10px;
             cursor: pointer;
         }
-        
+
         .option.correct {
             background: #d4edda;
             border-color: #28a745;
         }
-        
+
         .option.incorrect {
             background: #f8d7da;
             border-color: #dc3545;
         }
-        
+
         .option.disabled {
             cursor: not-allowed;
             opacity: 0.7;
         }
-        
+
         .check-button {
             background: #667eea;
             color: white;
@@ -145,39 +248,39 @@
             margin-top: 15px;
             transition: background 0.3s;
         }
-        
+
         .check-button:hover {
             background: #5568d3;
         }
-        
+
         .check-button:disabled {
             background: #ccc;
             cursor: not-allowed;
         }
-        
+
         .result {
             margin-top: 15px;
             padding: 15px;
             border-radius: 8px;
             display: none;
         }
-        
+
         .result.show {
             display: block;
         }
-        
+
         .result.correct {
             background: #d4edda;
             color: #155724;
             border: 1px solid #c3e6cb;
         }
-        
+
         .result.incorrect {
             background: #f8d7da;
             color: #721c24;
             border: 1px solid #f5c6cb;
         }
-        
+
         .navigation {
             display: flex;
             justify-content: space-between;
@@ -275,18 +378,6 @@
             color: white;
         }
 
-        .view-toggle-info {
-            font-size: 13px;
-            color: #6c757d;
-        }
-
-        .empty-state {
-            text-align: center;
-            padding: 40px 20px;
-            color: #6c757d;
-            font-size: 16px;
-        }
-        
         .nav-button {
             background: #6c757d;
             color: white;
@@ -296,11 +387,11 @@
             cursor: pointer;
             transition: background 0.3s;
         }
-        
+
         .nav-button:hover:not(:disabled) {
             background: #5a6268;
         }
-        
+
         .nav-button:disabled {
             background: #ccc;
             cursor: not-allowed;
@@ -308,123 +399,227 @@
     </style>
 </head>
 <body>
-    <div class="container">
-        <div class="header">
-            <h1 id="quiz-title"></h1>
-            <p>Test your knowledge with practice questions</p>
-        </div>
-        
-        <div class="view-toggle">
-            <button class="view-toggle-button active" id="view-all-button" onclick="setViewMode('all')">All Questions</button>
-            <button class="view-toggle-button" id="view-fav-button" onclick="setViewMode('favorites')">★ Favorites (<span id="fav-count">0</span>)</button>
-        </div>
 
-        <div class="stats">
-            <div class="stat">
-                <div class="stat-value" id="total-questions">0</div>
-                <div class="stat-label">Total Questions</div>
+    <!-- ===== MENU SECTION ===== -->
+    <div id="menu-section" style="display:none">
+        <div class="menu-wrapper">
+            <div class="menu-header">
+                <h1>📚 Quiz Library</h1>
+                <p>Chọn bộ câu hỏi để bắt đầu học</p>
             </div>
-            <div class="stat">
-                <div class="stat-value" id="correct-count">0</div>
-                <div class="stat-label">Correct</div>
-            </div>
-            <div class="stat">
-                <div class="stat-value" id="incorrect-count">0</div>
-                <div class="stat-label">Incorrect</div>
-            </div>
-            <div class="stat">
-                <div class="stat-value" id="accuracy">0%</div>
-                <div class="stat-label">Accuracy</div>
-            </div>
-        </div>
-        
-        <div class="quiz-content">
-            <div id="question-container">
-                <div class="question-card">
-                    <div class="question-header">
-                        <span class="question-header-left">
-                            <span class="question-number" id="question-number">Question 1</span>
-                            <button type="button" class="fav-button" id="fav-button" onclick="toggleFavorite()" title="Toggle favorite">☆</button>
-                        </span>
-                        <span class="question-progress">
-                            <input type="number" id="question-jump" min="1" class="question-jump-input" />
-                            <span> / <span id="question-total">0</span></span>
-                        </span>
-                    </div>
-                    <div class="question-text" id="question-text"></div>
-                    <div class="options" id="options-container"></div>
-                    <button class="check-button" id="check-button" onclick="checkAnswer()">Check Answer</button>
-                    <div class="result" id="result"></div>
-                </div>
-            </div>
-        </div>
-        
-        <div class="navigation">
-            <button class="nav-button" id="prev-button" onclick="previousQuestion()">← Previous</button>
-            <div class="nav-right">
-                <button class="nav-button" id="next-button" onclick="nextQuestion()">Next →</button>
-                <button class="nav-button" id="last-button" onclick="lastQuestion()">Last ⇥</button>
+            <div id="quiz-list" class="quiz-list">
+                <div class="menu-status">Đang tải danh sách bài học...</div>
             </div>
         </div>
     </div>
-    
+
+    <!-- ===== QUIZ SECTION ===== -->
+    <div id="quiz-section" style="display:none">
+        <div class="container">
+            <div class="header">
+                <div style="text-align:left">
+                    <a href="./" class="back-link">← Danh sách bài học</a>
+                </div>
+                <h1 id="quiz-title"></h1>
+                <p>Test your knowledge with practice questions</p>
+            </div>
+
+            <div class="view-toggle">
+                <button class="view-toggle-button active" id="view-all-button" onclick="setViewMode('all')">All Questions</button>
+                <button class="view-toggle-button" id="view-fav-button" onclick="setViewMode('favorites')">★ Favorites (<span id="fav-count">0</span>)</button>
+            </div>
+
+            <div class="stats">
+                <div class="stat">
+                    <div class="stat-value" id="total-questions">0</div>
+                    <div class="stat-label">Total Questions</div>
+                </div>
+                <div class="stat">
+                    <div class="stat-value" id="correct-count">0</div>
+                    <div class="stat-label">Correct</div>
+                </div>
+                <div class="stat">
+                    <div class="stat-value" id="incorrect-count">0</div>
+                    <div class="stat-label">Incorrect</div>
+                </div>
+                <div class="stat">
+                    <div class="stat-value" id="accuracy">0%</div>
+                    <div class="stat-label">Accuracy</div>
+                </div>
+            </div>
+
+            <div class="quiz-content">
+                <div id="question-container">
+                    <div class="question-card">
+                        <div class="question-header">
+                            <span class="question-header-left">
+                                <span class="question-number" id="question-number">Question 1</span>
+                                <button type="button" class="fav-button" id="fav-button" onclick="toggleFavorite()" title="Toggle favorite">☆</button>
+                            </span>
+                            <span class="question-progress">
+                                <input type="number" id="question-jump" min="1" class="question-jump-input" />
+                                <span> / <span id="question-total">0</span></span>
+                            </span>
+                        </div>
+                        <div class="question-text" id="question-text"></div>
+                        <div class="options" id="options-container"></div>
+                        <button class="check-button" id="check-button" onclick="checkAnswer()">Check Answer</button>
+                        <div class="result" id="result"></div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="navigation">
+                <button class="nav-button" id="prev-button" onclick="previousQuestion()">← Previous</button>
+                <div class="nav-right">
+                    <button class="nav-button" id="next-button" onclick="nextQuestion()">Next →</button>
+                    <button class="nav-button" id="last-button" onclick="lastQuestion()">Last ⇥</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <script>
-        document.getElementById('quiz-title').textContent = "🧪 " + document.title;
-        // Load question data from qa.json synchronously at the start
-        const questionDataRes = (function() {
-            try {
-                const xhr = new XMLHttpRequest();
-                xhr.open('GET', 'data/quiz.json', false); // synchronous
-                xhr.send(null);
-                if (xhr.status === 200) {
-                    return JSON.parse(xhr.responseText);
-                } else {
-                    console.error('Failed to load quiz.json, using fallback data. Status:', xhr.status);
-                    return [];
-                }
-            } catch (err) {
-                console.error('Failed to load quiz.json, using fallback data.', err);
-                return [];
+        // ===== ROUTER =====
+
+        function getQuizIdFromUrl() {
+            return new URLSearchParams(window.location.search).get('quiz');
+        }
+
+        window.addEventListener('load', function () {
+            const quizId = getQuizIdFromUrl();
+            if (quizId) {
+                loadAndShowQuiz(quizId);
+            } else {
+                showMenu();
             }
-        })();
-        /* 
-            Question data format example:
-            [
-                {
-                    "id": "1",
-                    "question": "Sample example\nHello?",
-                    "options": {
-                        "A": "Answer A",
-                        "B": "Answer B",
-                        "C": "Answer C",
-                        "D": "Answer D"
-                    },
-                    "correct_answer": "BC"
-                }
-            ];
-        */
-        const questionsData = questionDataRes.map((q, idx) => {
-            q.id = `${idx + 1}`;
-            return q;
         });
-        const allQuestions = questionsData;
-        let questions = allQuestions;
+
+        // ===== MENU =====
+
+        function showMenu() {
+            document.getElementById('menu-section').style.display = '';
+            document.getElementById('quiz-section').style.display = 'none';
+            document.title = 'Quiz Library';
+            loadMenuData();
+        }
+
+        async function loadMenuData() {
+            const listEl = document.getElementById('quiz-list');
+            try {
+                const res = await fetch('quizzes.json');
+                if (!res.ok) throw new Error('HTTP ' + res.status);
+                const quizzes = await res.json();
+                renderQuizCards(listEl, quizzes);
+            } catch (e) {
+                listEl.innerHTML = '<div class="menu-status">Không thể tải danh sách bài học.</div>';
+            }
+        }
+
+        function renderQuizCards(container, quizzes) {
+            if (!quizzes || quizzes.length === 0) {
+                container.innerHTML = '<div class="menu-status">Không có bài học nào.</div>';
+                return;
+            }
+            container.innerHTML = quizzes.map(function (q) {
+                const countText = q.count != null ? q.count + ' câu hỏi' : '';
+                const icon = q.icon || '📝';
+                const desc = q.description || '';
+                const id = encodeURIComponent(q.id);
+                const title = escapeHtml(q.title);
+                return `<a class="quiz-card" href="?quiz=${id}">
+                    <div class="quiz-card-icon">${icon}</div>
+                    <div class="quiz-card-title">${title}</div>
+                    <div class="quiz-card-desc">${escapeHtml(desc)}</div>
+                    <div class="quiz-card-count">${escapeHtml(countText)}</div>
+                </a>`;
+            }).join('');
+        }
+
+        function escapeHtml(str) {
+            return String(str)
+                .replace(/&/g, '&amp;')
+                .replace(/</g, '&lt;')
+                .replace(/>/g, '&gt;')
+                .replace(/"/g, '&quot;');
+        }
+
+        // ===== QUIZ LOADER =====
+
+        let currentQuizId = null;
+        let allQuestions = [];
+        let questions = [];
         let currentQuestionIndex = 0;
         let viewMode = 'all';
         let favorites = new Set();
-        let stats = {
-            correct: 0,
-            incorrect: 0,
-            answered: new Set()
-        };
+        let stats = { correct: 0, incorrect: 0, answered: new Set() };
 
-        const STORAGE_KEY = 'quiz-current-question-id';
-        const FAV_STORAGE_KEY = 'quiz-favorites';
-        const VIEW_MODE_STORAGE_KEY = 'quiz-view-mode';
+        function storageKey(suffix) {
+            return 'quiz-' + currentQuizId + '-' + suffix;
+        }
 
-        function initQuiz() {
+        function loadAndShowQuiz(quizId) {
+            // Prevent path traversal
+            if (!/^[a-zA-Z0-9_\-]+$/.test(quizId)) {
+                showMenu();
+                return;
+            }
+
+            currentQuizId = quizId;
+            let questionsData = [];
             try {
-                const favRaw = localStorage.getItem(FAV_STORAGE_KEY);
+                const xhr = new XMLHttpRequest();
+                xhr.open('GET', 'questions/' + quizId + '.json', false);
+                xhr.send(null);
+                if (xhr.status === 200) {
+                    const raw = JSON.parse(xhr.responseText);
+                    questionsData = raw.map(function (q, idx) {
+                        q.id = String(idx + 1);
+                        return q;
+                    });
+                } else {
+                    console.error('Failed to load quiz, status:', xhr.status);
+                }
+            } catch (err) {
+                console.error('Failed to load quiz:', err);
+            }
+
+            document.getElementById('menu-section').style.display = 'none';
+            document.getElementById('quiz-section').style.display = '';
+
+            // Set a preliminary title, then update once metadata loads
+            document.title = quizId;
+            document.getElementById('quiz-title').textContent = '🧪 ' + quizId;
+            fetchQuizMeta(quizId);
+
+            initQuiz(questionsData);
+        }
+
+        async function fetchQuizMeta(quizId) {
+            try {
+                const res = await fetch('quizzes.json');
+                if (!res.ok) return;
+                const quizzes = await res.json();
+                const meta = quizzes.find(function (q) { return q.id === quizId; });
+                if (meta && meta.title) {
+                    document.title = meta.title;
+                    document.getElementById('quiz-title').textContent = '🧪 ' + meta.title;
+                }
+            } catch (e) { /* ignore */ }
+        }
+
+        // ===== QUIZ LOGIC =====
+
+        function initQuiz(questionsData) {
+            allQuestions = questionsData;
+            currentQuestionIndex = 0;
+            viewMode = 'all';
+            favorites = new Set();
+            stats = { correct: 0, incorrect: 0, answered: new Set() };
+            updateStats();
+
+            try {
+                const favRaw = localStorage.getItem(storageKey('favs'));
                 if (favRaw) {
                     const arr = JSON.parse(favRaw);
                     if (Array.isArray(arr)) favorites = new Set(arr);
@@ -432,32 +627,30 @@
             } catch (e) { /* ignore */ }
 
             try {
-                const savedMode = localStorage.getItem(VIEW_MODE_STORAGE_KEY);
-                if (savedMode === 'favorites' || savedMode === 'all') {
-                    viewMode = savedMode;
-                }
+                const savedMode = localStorage.getItem(storageKey('view'));
+                if (savedMode === 'favorites' || savedMode === 'all') viewMode = savedMode;
             } catch (e) { /* ignore */ }
 
             applyViewMode();
 
-            let savedId = null;
             try {
-                const raw = localStorage.getItem(STORAGE_KEY);
-                if (raw !== null) savedId = parseInt(raw, 10);
+                const raw = localStorage.getItem(storageKey('pos'));
+                if (raw !== null) {
+                    const savedId = parseInt(raw, 10);
+                    if (!isNaN(savedId)) {
+                        const idx = questions.findIndex(function (q) { return parseInt(q.id, 10) === savedId; });
+                        if (idx >= 0) currentQuestionIndex = idx;
+                    }
+                }
             } catch (e) { /* ignore */ }
 
-            if (savedId !== null && !isNaN(savedId)) {
-                const idx = questions.findIndex(q => q.id === savedId);
-                if (idx >= 0) currentQuestionIndex = idx;
-            }
-
+            // Re-attach jump input listeners (clone to clear any old ones)
             const jumpInput = document.getElementById('question-jump');
-            jumpInput.addEventListener('change', handleJump);
-            jumpInput.addEventListener('keydown', (e) => {
-                if (e.key === 'Enter') {
-                    handleJump();
-                    jumpInput.blur();
-                }
+            const newJump = jumpInput.cloneNode(true);
+            jumpInput.parentNode.replaceChild(newJump, jumpInput);
+            newJump.addEventListener('change', handleJump);
+            newJump.addEventListener('keydown', function (e) {
+                if (e.key === 'Enter') { handleJump(); newJump.blur(); }
             });
 
             updateFavCount();
@@ -467,7 +660,7 @@
 
         function applyViewMode() {
             if (viewMode === 'favorites') {
-                questions = allQuestions.filter(q => favorites.has(q.id));
+                questions = allQuestions.filter(function (q) { return favorites.has(q.id); });
             } else {
                 questions = allQuestions;
             }
@@ -480,12 +673,11 @@
             if (mode === viewMode) return;
             const currentId = questions[currentQuestionIndex] && questions[currentQuestionIndex].id;
             viewMode = mode;
-            try { localStorage.setItem(VIEW_MODE_STORAGE_KEY, mode); } catch (e) { /* ignore */ }
+            try { localStorage.setItem(storageKey('view'), mode); } catch (e) { /* ignore */ }
             applyViewMode();
             if (currentId != null) {
-                const idx = questions.findIndex(q => q.id === currentId);
-                if (idx >= 0) currentQuestionIndex = idx;
-                else currentQuestionIndex = 0;
+                const idx = questions.findIndex(function (q) { return q.id === currentId; });
+                currentQuestionIndex = idx >= 0 ? idx : 0;
             } else {
                 currentQuestionIndex = 0;
             }
@@ -504,7 +696,7 @@
 
         function saveFavorites() {
             try {
-                localStorage.setItem(FAV_STORAGE_KEY, JSON.stringify(Array.from(favorites)));
+                localStorage.setItem(storageKey('favs'), JSON.stringify(Array.from(favorites)));
             } catch (e) { /* ignore */ }
         }
 
@@ -522,7 +714,7 @@
             if (viewMode === 'favorites') {
                 const currentId = question.id;
                 applyViewMode();
-                const idx = questions.findIndex(q => q.id === currentId);
+                const idx = questions.findIndex(function (q) { return q.id === currentId; });
                 if (idx >= 0) {
                     currentQuestionIndex = idx;
                 } else if (currentQuestionIndex >= questions.length) {
@@ -548,18 +740,13 @@
         function saveProgress() {
             const question = questions[currentQuestionIndex];
             if (!question) return;
-            try {
-                localStorage.setItem(STORAGE_KEY, String(question.id));
-            } catch (e) { /* ignore */ }
+            try { localStorage.setItem(storageKey('pos'), question.id); } catch (e) { /* ignore */ }
         }
 
         function handleJump() {
             const jumpInput = document.getElementById('question-jump');
             let val = parseInt(jumpInput.value, 10);
-            if (isNaN(val)) {
-                jumpInput.value = currentQuestionIndex + 1;
-                return;
-            }
+            if (isNaN(val)) { jumpInput.value = currentQuestionIndex + 1; return; }
             val = Math.max(1, Math.min(questions.length, val));
             currentQuestionIndex = val - 1;
             displayQuestion();
@@ -569,7 +756,7 @@
             currentQuestionIndex = questions.length - 1;
             displayQuestion();
         }
-        
+
         function displayQuestion() {
             document.getElementById('total-questions').textContent = questions.length;
             document.getElementById('question-total').textContent = questions.length;
@@ -580,7 +767,10 @@
                 document.getElementById('question-number').textContent = 'No questions';
                 jumpInput.value = '';
                 jumpInput.disabled = true;
-                document.getElementById('question-text').textContent = 'No favorite questions yet. Star a question to add it here.';
+                document.getElementById('question-text').textContent =
+                    viewMode === 'favorites'
+                        ? 'No favorite questions yet. Star a question to add it here.'
+                        : 'No questions available.';
                 document.getElementById('options-container').innerHTML = '';
                 document.getElementById('check-button').disabled = true;
                 document.getElementById('result').className = 'result';
@@ -593,25 +783,32 @@
             jumpInput.disabled = false;
 
             const question = questions[currentQuestionIndex];
-            document.getElementById('question-number').textContent = `Question ${question.id}`;
+            document.getElementById('question-number').textContent = 'Question ' + question.id;
             jumpInput.value = currentQuestionIndex + 1;
             document.getElementById('question-text').textContent = question.question;
-            
+
             const optionsContainer = document.getElementById('options-container');
             optionsContainer.innerHTML = '';
-            
+
             const isMultiple = question.correct_answer.length > 1;
             const inputType = isMultiple ? 'checkbox' : 'radio';
             for (const [key, value] of Object.entries(question.options)) {
                 const option = document.createElement('label');
                 option.className = 'option';
-                option.innerHTML = `
-                    <input type="${inputType}" name="answer" value="${key}">
-                    <span><strong>${key}.</strong> ${value}</span>
-                `;
+                const input = document.createElement('input');
+                input.type = inputType;
+                input.name = 'answer';
+                input.value = key;
+                const span = document.createElement('span');
+                const strong = document.createElement('strong');
+                strong.textContent = key + '.';
+                span.appendChild(strong);
+                span.appendChild(document.createTextNode(' ' + value));
+                option.appendChild(input);
+                option.appendChild(span);
                 optionsContainer.appendChild(option);
             }
-            
+
             document.getElementById('result').className = 'result';
             document.getElementById('check-button').disabled = false;
             document.getElementById('prev-button').disabled = currentQuestionIndex === 0;
@@ -620,101 +817,84 @@
             updateFavButton();
             saveProgress();
         }
-        
+
         function checkAnswer() {
             const question = questions[currentQuestionIndex];
             const isMultiple = question.correct_answer.length > 1;
             let answer;
             if (isMultiple) {
                 const checked = document.querySelectorAll('input[name="answer"]:checked');
-                if (checked.length === 0) {
-                    alert('Please select an answer!');
-                    return;
-                }
-                answer = Array.from(checked).map(cb => cb.value).sort().join('');
+                if (checked.length === 0) { alert('Please select an answer!'); return; }
+                answer = Array.from(checked).map(function (cb) { return cb.value; }).sort().join('');
             } else {
                 const selectedOption = document.querySelector('input[name="answer"]:checked');
-                if (!selectedOption) {
-                    alert('Please select an answer!');
-                    return;
-                }
+                if (!selectedOption) { alert('Please select an answer!'); return; }
                 answer = selectedOption.value;
             }
             const isCorrect = answer === question.correct_answer;
-            
+
             if (!stats.answered.has(question.id)) {
                 stats.answered.add(question.id);
-                if (isCorrect) {
-                    stats.correct++;
-                } else {
-                    stats.incorrect++;
-                }
+                if (isCorrect) { stats.correct++; } else { stats.incorrect++; }
                 updateStats();
             }
-            
+
             const resultDiv = document.getElementById('result');
-            resultDiv.className = `result show ${isCorrect ? 'correct' : 'incorrect'}`;
+            resultDiv.className = 'result show ' + (isCorrect ? 'correct' : 'incorrect');
+
             const baseMsg = isCorrect
                 ? '✅ Correct! Well done!'
-                : `❌ Incorrect. The correct answer is <strong>${question.correct_answer}</strong>`;
+                : '❌ Incorrect. The correct answer is <strong>' + escapeHtml(question.correct_answer) + '</strong>';
+
             const optionsText = Object.entries(question.options)
-                .map(([k, v]) => `${k}. ${v}`)
-                .join('\n');
-            const promptText = `Dịch vào giải thích đáp án: ${question.question}\n${optionsText}\nĐáp án đúng: ${question.correct_answer}`;
-            const chatgptUrl = `https://chatgpt.com/?prompt=${encodeURIComponent(promptText)}`;
-            resultDiv.innerHTML = `${baseMsg}<br><a href="${chatgptUrl}" target="_blank" rel="noopener noreferrer" class="explain-button">💬 Giải thích bằng ChatGPT</a>`;
-            
+                .map(function ([k, v]) { return k + '. ' + v; }).join('\n');
+            const promptText = 'Dịch vào giải thích đáp án: ' + question.question + '\n' + optionsText + '\nĐáp án đúng: ' + question.correct_answer;
+            const chatgptUrl = 'https://chatgpt.com/?prompt=' + encodeURIComponent(promptText);
+            resultDiv.innerHTML = baseMsg + '<br><a href="' + chatgptUrl + '" target="_blank" rel="noopener noreferrer" class="explain-button">💬 Giải thích bằng ChatGPT</a>';
+
             const correctLetters = new Set(question.correct_answer.split(''));
-            const options = document.querySelectorAll('.option');
-            options.forEach(option => {
+            document.querySelectorAll('.option').forEach(function (option) {
                 const input = option.querySelector('input');
                 option.classList.add('disabled');
                 input.disabled = true;
-                
                 if (correctLetters.has(input.value)) {
                     option.classList.add('correct');
                 } else if (input.checked) {
                     option.classList.add('incorrect');
                 }
             });
-            
+
             document.getElementById('check-button').disabled = true;
         }
-        
+
         function updateStats() {
             document.getElementById('correct-count').textContent = stats.correct;
             document.getElementById('incorrect-count').textContent = stats.incorrect;
             const total = stats.correct + stats.incorrect;
-            const accuracy = total > 0 ? Math.round((stats.correct / total) * 100) : 0;
-            document.getElementById('accuracy').textContent = accuracy + '%';
+            document.getElementById('accuracy').textContent =
+                (total > 0 ? Math.round((stats.correct / total) * 100) : 0) + '%';
         }
-        
+
         function nextQuestion() {
             if (currentQuestionIndex < questions.length - 1) {
                 currentQuestionIndex++;
                 displayQuestion();
             }
         }
-        
+
         function previousQuestion() {
             if (currentQuestionIndex > 0) {
                 currentQuestionIndex--;
                 displayQuestion();
             }
         }
-        
-        document.addEventListener('keydown', (e) => {
-            if (e.target && (e.target.tagName === 'INPUT' || e.target.tagName === 'TEXTAREA')) {
-                return;
-            }
-            if (e.key === 'ArrowRight' && currentQuestionIndex < questions.length - 1) {
-                nextQuestion();
-            } else if (e.key === 'ArrowLeft' && currentQuestionIndex > 0) {
-                previousQuestion();
-            }
+
+        document.addEventListener('keydown', function (e) {
+            if (e.target && (e.target.tagName === 'INPUT' || e.target.tagName === 'TEXTAREA')) return;
+            if (document.getElementById('quiz-section').style.display === 'none') return;
+            if (e.key === 'ArrowRight' && currentQuestionIndex < questions.length - 1) nextQuestion();
+            else if (e.key === 'ArrowLeft' && currentQuestionIndex > 0) previousQuestion();
         });
-        
-        window.addEventListener('load', initQuiz);
     </script>
 </body>
 </html>

@@ -1,3 +1,3 @@
-# AB-730
+# All quizzes
 
 Online: https://dothihai.github.io/all-quizzes/
