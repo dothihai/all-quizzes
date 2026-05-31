@@ -28,6 +28,54 @@
     "category": "Chứng chỉ"
   },
   {
+    "id": "ja_bunpo_1",
+    "title": "Tiếng Nhật — Ngữ pháp N1",
+    "icon": "✍️",
+    "count": 1385,
+    "category": "Ngoại ngữ",
+    "description": "Ngữ pháp cấp 1 ~ N1"
+  },
+  {
+    "id": "ja_bunpo_2",
+    "title": "Tiếng Nhật — Ngữ pháp N2 & N3",
+    "icon": "✍️",
+    "count": 1009,
+    "category": "Ngoại ngữ",
+    "description": "Ngữ pháp cấp 2 ~ N2 & N3"
+  },
+  {
+    "id": "ja_bunpo_3",
+    "title": "Tiếng Nhật — Ngữ pháp N4",
+    "icon": "✍️",
+    "count": 1147,
+    "category": "Ngoại ngữ",
+    "description": "Ngữ pháp cấp 3 ~ N4"
+  },
+  {
+    "id": "ja_goi_1",
+    "title": "Tiếng Nhật — Từ vựng N1",
+    "icon": "📖",
+    "count": 462,
+    "category": "Ngoại ngữ",
+    "description": "Từ vựng cấp 1 ~ N1"
+  },
+  {
+    "id": "ja_goi_2",
+    "title": "Tiếng Nhật — Từ vựng N2 & N3",
+    "icon": "📖",
+    "count": 915,
+    "category": "Ngoại ngữ",
+    "description": "Từ vựng cấp 2 ~ N2 & N3"
+  },
+  {
+    "id": "ja_goi_3",
+    "title": "Tiếng Nhật — Từ vựng N4",
+    "icon": "📖",
+    "count": 362,
+    "category": "Ngoại ngữ",
+    "description": "Từ vựng cấp 3 ~ N4"
+  },
+  {
     "id": "saa-c03",
     "title": "AWS Solutions Architect Associate (SAA-C03)",
     "icon": "🏗️",
