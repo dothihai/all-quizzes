@@ -3,37 +3,43 @@
     "id": "ab-730",
     "title": "Microsoft AI Business Professional",
     "icon": "🤖",
-    "count": 77
+    "count": 77,
+    "category": "Chứng chỉ"
   },
   {
     "id": "aif-c01",
     "title": "AWS Certified AI Practitioner (AIF-C01)",
     "icon": "🧠",
-    "count": 294
+    "count": 294,
+    "category": "Chứng chỉ"
   },
   {
     "id": "aip-c01",
     "title": "AWS AI Practitioner (AIP-C01)",
     "icon": "☁️",
-    "count": 97
+    "count": 97,
+    "category": "Chứng chỉ"
   },
   {
     "id": "gh-300",
     "title": "GitHub Copilot (GH-300)",
     "icon": "🐙",
-    "count": 154
+    "count": 154,
+    "category": "Chứng chỉ"
   },
   {
     "id": "saa-c03",
     "title": "AWS Solutions Architect Associate (SAA-C03)",
     "icon": "🏗️",
-    "count": 1018
+    "count": 1018,
+    "category": "Chứng chỉ"
   },
   {
     "id": "pinyin",
     "title": "Học Pinyin",
     "icon": "🀄",
     "description": "Luyện phát âm tiếng Trung",
-    "url": "https://dothihai.github.io/pinyin/"
+    "url": "https://dothihai.github.io/pinyin/",
+    "category": "Ngoại ngữ"
   }
 ]
