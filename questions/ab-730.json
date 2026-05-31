@@ -531,7 +531,7 @@
       "C": "Sign in to the Copilot app using a personal account.",
       "D": "From Microsoft Edge, sign in to https://copilot.microsoft.com using your work account."
     },
-    "correct_answer": "A"
+    "correct_answer": "B"
   },
   {
     "question": "What is the role of machine learning in a business environment?",
@@ -551,7 +551,7 @@
       "C": "Create an agent that includes your organization's editorial standards and use that agent to verify the citations.",
       "D": "Create a notebook containing all reference materials and use that notebook to verify the citations."
     },
-    "correct_answer": "B"
+    "correct_answer": "A"
   },
   {
     "question": "You are a merchandiser planning for the next season.\nYou instruct Microsoft 365 Copilot to suggest which products to stock based on past sales data. Without reviewing the suggestions or researching current market trends, you place a large order based solely on Copilot's output.\nWhat is this an example of?",
@@ -632,7 +632,7 @@
       "C": "A specific knowledge source to ground the response",
       "D": "A brief instruction on how to process the proposal"
     },
-    "correct_answer": "BC"
+    "correct_answer": "CD"
   },
   {
     "question": "In a Microsoft 365 Copilot conversation, you generate a report and then edit the report on a page.\nYou need to collaborate with a colleague on creating the report.\nWhat are two ways to achieve the goal? Each correct answer presents a complete solution.\nNote: Each correct answer is worth 1 point.",
@@ -642,7 +642,7 @@
       "C": "Share the page link.",
       "D": "Add the page to a notebook."
     },
-    "correct_answer": "BC"
+    "correct_answer": "AC"
   },
   {
     "question": "A colleague from another company shares a link to a prompt with you.\nWhen you select the link, you receive the response: 'Prompt not found. Sorry, it seems the prompt is currently unavailable.' What is the most likely cause of this response?",
@@ -653,7 +653,7 @@
       "D": "The prompt is a scheduled prompt.",
       "E": "The prompt contains a file with a sensitivity label applied."
     },
-    "correct_answer": "C"
+    "correct_answer": "B"
   },
   {
     "question": "In Microsoft 365 Copilot, you save a prompt.\nWhat are two operations you can perform on saved prompts? Each correct answer presents a complete solution.\nNote: Each correct answer is worth 1 point.",
