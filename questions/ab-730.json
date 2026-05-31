@@ -717,16 +717,6 @@
     "correct_answer": "D"
   },
   {
-    "question": "You are using Microsoft 365 Copilot to improve your productivity in Microsoft Word.\nWhat are two tasks that can be accomplished using Copilot in Word? Each correct answer presents a complete solution.\nNote: Each correct answer is worth 1 point.",
-    "options": {
-      "A": "Insert a table of contents based on the document's headings.",
-      "B": "Customize page margins to match company document standards.",
-      "C": "Generate a summary of the key points in the document.",
-      "D": "Insert a custom watermark with specific text and formatting."
-    },
-    "correct_answer": "CD"
-  },
-  {
     "question": "You are using Microsoft 365 Copilot to improve your productivity in Microsoft Teams.\nWhat are two tasks that can be accomplished using Copilot in Teams? Each correct answer presents a complete solution.\nNote: Each correct answer is worth 1 point.",
     "options": {
       "A": "Mute and unmute meeting participants based on their location.",
