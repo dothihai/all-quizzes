@@ -90,6 +90,16 @@
             font-weight: 600;
         }
 
+        .quiz-card-ext-badge {
+            display: inline-block;
+            font-size: 0.78em;
+            color: #888;
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            padding: 2px 8px;
+            margin-top: 2px;
+        }
+
         .menu-status {
             grid-column: 1 / -1;
             text-align: center;
@@ -522,11 +532,20 @@
                 return;
             }
             container.innerHTML = quizzes.map(function (q) {
-                const countText = q.count != null ? q.count + ' câu hỏi' : '';
                 const icon = q.icon || '📝';
                 const desc = q.description || '';
-                const id = encodeURIComponent(q.id);
                 const title = escapeHtml(q.title);
+                if (q.url) {
+                    const href = encodeURI(q.url);
+                    return `<a class="quiz-card" href="${href}" target="_blank" rel="noopener noreferrer">
+                        <div class="quiz-card-icon">${icon}</div>
+                        <div class="quiz-card-title">${title}</div>
+                        <div class="quiz-card-desc">${escapeHtml(desc)}</div>
+                        <div class="quiz-card-ext-badge">↗ liên kết ngoài</div>
+                    </a>`;
+                }
+                const countText = q.count != null ? q.count + ' câu hỏi' : '';
+                const id = encodeURIComponent(q.id);
                 return `<a class="quiz-card" href="?quiz=${id}">
                     <div class="quiz-card-icon">${icon}</div>
                     <div class="quiz-card-title">${title}</div>

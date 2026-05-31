@@ -28,5 +28,12 @@
     "title": "AWS Solutions Architect Associate (SAA-C03)",
     "icon": "🏗️",
     "count": 1018
+  },
+  {
+    "id": "pinyin",
+    "title": "Học Pinyin",
+    "icon": "🀄",
+    "description": "Luyện phát âm tiếng Trung",
+    "url": "https://dothihai.github.io/pinyin/"
   }
 ]
