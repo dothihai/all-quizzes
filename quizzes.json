@@ -1,31 +1,43 @@
 [
   {
-    "id": "ab-730",
-    "title": "Microsoft AI Business Professional (AB-730)",
-    "icon": "🤖",
-    "count": 77,
-    "category": "Chứng chỉ"
-  },
-  {
     "id": "aif-c01",
     "title": "AWS Certified AI Practitioner (AIF-C01)",
     "icon": "🧠",
     "count": 294,
-    "category": "Chứng chỉ"
+    "category": "Chứng chỉ",
+    "subcategory": "AWS"
   },
   {
     "id": "aip-c01",
     "title": "AWS Certified Generative AI Developer - Professional (AIP-C01)",
     "icon": "☁️",
     "count": 97,
-    "category": "Chứng chỉ"
+    "category": "Chứng chỉ",
+    "subcategory": "AWS"
+  },
+  {
+    "id": "saa-c03",
+    "title": "AWS Solutions Architect Associate (SAA-C03)",
+    "icon": "🏗️",
+    "count": 1018,
+    "category": "Chứng chỉ",
+    "subcategory": "AWS"
+  },
+  {
+    "id": "ab-730",
+    "title": "Microsoft AI Business Professional (AB-730)",
+    "icon": "🤖",
+    "count": 77,
+    "category": "Chứng chỉ",
+    "subcategory": "Microsoft"
   },
   {
     "id": "gh-300",
     "title": "GitHub Copilot (GH-300)",
     "icon": "🐙",
     "count": 154,
-    "category": "Chứng chỉ"
+    "category": "Chứng chỉ",
+    "subcategory": "GitHub"
   },
   {
     "id": "ja_bunpo_1",
@@ -33,6 +45,7 @@
     "icon": "✍️",
     "count": 1385,
     "category": "Ngoại ngữ",
+    "subcategory": "Tiếng Nhật",
     "description": "Ngữ pháp cấp 1 ~ N1"
   },
   {
@@ -41,6 +54,7 @@
     "icon": "✍️",
     "count": 1009,
     "category": "Ngoại ngữ",
+    "subcategory": "Tiếng Nhật",
     "description": "Ngữ pháp cấp 2 ~ N2 & N3"
   },
   {
@@ -49,6 +63,7 @@
     "icon": "✍️",
     "count": 1147,
     "category": "Ngoại ngữ",
+    "subcategory": "Tiếng Nhật",
     "description": "Ngữ pháp cấp 3 ~ N4"
   },
   {
@@ -57,6 +72,7 @@
     "icon": "📖",
     "count": 462,
     "category": "Ngoại ngữ",
+    "subcategory": "Tiếng Nhật",
     "description": "Từ vựng cấp 1 ~ N1"
   },
   {
@@ -65,6 +81,7 @@
     "icon": "📖",
     "count": 915,
     "category": "Ngoại ngữ",
+    "subcategory": "Tiếng Nhật",
     "description": "Từ vựng cấp 2 ~ N2 & N3"
   },
   {
@@ -73,14 +90,8 @@
     "icon": "📖",
     "count": 362,
     "category": "Ngoại ngữ",
+    "subcategory": "Tiếng Nhật",
     "description": "Từ vựng cấp 3 ~ N4"
-  },
-  {
-    "id": "saa-c03",
-    "title": "AWS Solutions Architect Associate (SAA-C03)",
-    "icon": "🏗️",
-    "count": 1018,
-    "category": "Chứng chỉ"
   },
   {
     "id": "pinyin",
@@ -88,6 +99,7 @@
     "icon": "🀄",
     "description": "Luyện phát âm tiếng Trung",
     "url": "https://dothihai.github.io/pinyin/",
-    "category": "Ngoại ngữ"
+    "category": "Ngoại ngữ",
+    "subcategory": "Tiếng Trung"
   }
 ]

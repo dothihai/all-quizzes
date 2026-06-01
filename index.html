@@ -158,6 +158,26 @@
             padding-top: 4px;
         }
 
+        .quiz-subsection-title {
+            grid-column: 1 / -1;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 20px 0 6px;
+            font-size: 0.7em;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: rgba(255, 255, 255, 0.45);
+        }
+
+        .quiz-subsection-title::after {
+            content: '';
+            flex: 1;
+            height: 1px;
+            background: rgba(255, 255, 255, 0.07);
+        }
+
         .menu-status {
             grid-column: 1 / -1;
             text-align: center;
@@ -660,21 +680,30 @@
                 container.innerHTML = '<div class="menu-status">Không có bài học nào.</div>';
                 return;
             }
-            // Group by category, preserving insertion order
-            const groups = {};
-            const order = [];
+            // Group by category then subcategory, preserving insertion order
+            const catGroups = {};
+            const catOrder = [];
             quizzes.forEach(function (q) {
                 const cat = q.category || '';
-                if (!groups[cat]) { groups[cat] = []; order.push(cat); }
-                groups[cat].push(q);
+                const sub = q.subcategory || '';
+                if (!catGroups[cat]) { catGroups[cat] = { subOrder: [], subGroups: {} }; catOrder.push(cat); }
+                if (!catGroups[cat].subGroups[sub]) { catGroups[cat].subGroups[sub] = []; catGroups[cat].subOrder.push(sub); }
+                catGroups[cat].subGroups[sub].push(q);
             });
-            const hasCategories = order.some(function (c) { return c !== ''; });
+            const hasCategories = catOrder.some(function (c) { return c !== ''; });
             let html = '';
-            order.forEach(function (cat) {
+            catOrder.forEach(function (cat) {
                 if (hasCategories && cat) {
                     html += '<div class="quiz-section-title">' + escapeHtml(cat) + '</div>';
                 }
-                groups[cat].forEach(function (q) { html += renderCard(q); });
+                const { subOrder, subGroups } = catGroups[cat];
+                const hasSubs = subOrder.some(function (s) { return s !== ''; });
+                subOrder.forEach(function (sub) {
+                    if (hasSubs && sub) {
+                        html += '<div class="quiz-subsection-title">' + escapeHtml(sub) + '</div>';
+                    }
+                    subGroups[sub].forEach(function (q) { html += renderCard(q); });
+                });
             });
             container.innerHTML = html;
         }
