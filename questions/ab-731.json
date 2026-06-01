@@ -1,0 +1,524 @@
+[
+  {
+    "id": "1",
+    "question": "Your company plans to build a generative AI solution based on internal data.\nYou recommend using Microsoft Foundry as a starting point to develop and manage the solution.\nWhat is a key benefit of using Microsoft Foundry for this project?",
+    "options": {
+      "A": "Provides a scalable platform for developing and deploying generative AI solutions.",
+      "B": "Removes the need to select or configure the underlying AI model.",
+      "C": "Enables business users to build generative AI solutions.",
+      "D": "Offers a low-code platform for developing generative AI solutions."
+    },
+    "correct_answer": "A"
+  },
+  {
+    "id": "2",
+    "question": "Which business requirement most closely relates to grounding a generative AI model?",
+    "options": {
+      "A": "supporting multiple languages",
+      "B": "measuring the number of user interactions per day",
+      "C": "enabling users to interact by using natural language queries",
+      "D": "ensuring that verified company data sources are used for response generation"
+    },
+    "correct_answer": "D"
+  },
+  {
+    "id": "3",
+    "question": "You need to create a custom Azure Machine Learning model. The data used to train the model is consistent and uniform.\nWhat should you do first?",
+    "options": {
+      "A": "Prepare the training data.",
+      "B": "Evaluate the model.",
+      "C": "Train the model.",
+      "D": "Tune hyperparameters.",
+      "E": "Deploy the model."
+    },
+    "correct_answer": "A"
+  },
+  {
+    "id": "4",
+    "question": "Your company uses a non-reasoning generative AI model to create textual content.\nYou discover that the model’s responses are inconsistent and do NOT meet expectations.\nYou need to improve the prompts.\nWhat should you do? More than one answer choice may achieve the goal. Select the BEST answer.",
+    "options": {
+      "A": "Provide the prompts with extensive examples of the expected output.",
+      "B": "Add the context, sources, and expectations to the prompts.",
+      "C": "Use technical terms in the prompts to enhance AI comprehension.",
+      "D": "Add only a single concise requirement to the prompts."
+    },
+    "correct_answer": "B"
+  },
+  {
+    "id": "5",
+    "question": "Your company plans to use generative AI to help project managers and engineers work with construction blueprints stored as PDF files.\nYou need to recommend a generative AI solution that meets the following business requirements:\nProcesses both images and text -\nSummarizes the design of a building\nAnswers user questions about a building’s design\nExtracts information from blueprints, such as the location of electrical, heating, and plumbing systems\nWhat should you recommend?",
+    "options": {
+      "A": "a multi-modal solution",
+      "B": "an optical character recognition (OCR) solution",
+      "C": "a text completion solution",
+      "D": "a document summarization solution"
+    },
+    "correct_answer": "A"
+  },
+  {
+    "id": "6",
+    "question": "In which scenario is Azure Machine Learning most likely to deliver strategic value for an organization?",
+    "options": {
+      "A": "Using historical sales data to forecast demand across product categories.",
+      "B": "Digitizing a paper-based process to reduce errors.",
+      "C": "Entering customer feedback into a spreadsheet to understand sentiment.",
+      "D": "Sending personalized emails to customers based on the customer location."
+    },
+    "correct_answer": "A"
+  },
+  {
+    "id": "7",
+    "question": "Your company uses a generative AI solution.\nYou need to improve the quality of responses by using grounding.\nWhich statement accurately describes how grounding improves accuracy and relevancy?",
+    "options": {
+      "A": "references a diverse set of people, disciplines, and perspectives",
+      "B": "explains how and why AI models generate content",
+      "C": "anchors the responses in specific data sources",
+      "D": "specifies the strengths and weaknesses of the AI model"
+    },
+    "correct_answer": "C"
+  },
+  {
+    "id": "8",
+    "question": "You plan to meet with a group of stakeholders to discuss how generative AI can benefit your company. You need to provide the stakeholders with a relevant description of generative AI during the meeting. Which description should you use?",
+    "options": {
+      "A": "Generative AI is designed to translate documents into other languages.",
+      "B": "Generative AI is designed to predict future trends based on historical data.",
+      "C": "Generative AI is designed to generate responses based on a user's natural language prompts.",
+      "D": "Generative AI is designed to recommend products based on user behavior."
+    },
+    "correct_answer": "C"
+  },
+  {
+    "id": "9",
+    "question": "Which statement accurately describes the difference between a pretrained generative AI model and a fine-tuned generative AI model?",
+    "options": {
+      "A": "A pretrained model requires labeled data, while a fine-tuned model does not.",
+      "B": "A pretrained model is faster to train than a fine-tuned model because the pretrained model uses fewer parameters.",
+      "C": "A pretrained model is trained on broad datasets, while a fine-tuned model is adapted to perform well on a narrower, domain-specific dataset.",
+      "D": "A pretrained model is optimized for a specific task, while a fine-tuned model is designed for general-purpose use."
+    },
+    "correct_answer": "C"
+  },
+  {
+    "id": "10",
+    "question": "Your company creates a custom Azure Machine Learning model that uses a generative AI assistant.\nThe model initially delivers strong results. However, six months later, the model predictions become noticeably less accurate.\nWhat is a possible cause of the issue?",
+    "options": {
+      "A": "The model requires additional compute resources.",
+      "B": "The input data changed over time.",
+      "C": "The model was trained incorrectly."
+    },
+    "correct_answer": "B"
+  },
+  {
+    "id": "11",
+    "question": "You have a large language model (LLM) that was pretrained by using public data.\nYou want the LLM to generate responses that incorporate frequently updated proprietary content, such as internal documents and knowledge bases.\nYou need to recommend a solution to ensure that the LLM uses the most current information without retraining the model.\nWhat should you include in the recommendation?",
+    "options": {
+      "A": "Retrieval Augmented Generation (RAG)",
+      "B": "prompt engineering",
+      "C": "content filtering",
+      "D": "model fine-tuning"
+    },
+    "correct_answer": "A"
+  },
+  {
+    "id": "12",
+    "question": "Your company plans to use generative AI to help build a website that will showcase various existing products.\nWhich capability best describes a benefit of using generative AI for this project? More than one answer choice may achieve the goal. Select the BEST answer.",
+    "options": {
+      "A": "creating product descriptions based on product specifications",
+      "B": "designing a new product based on customer requirements",
+      "C": "translating product descriptions into a different language",
+      "D": "analyzing product sales to identify patterns and trends"
+    },
+    "correct_answer": "A"
+  },
+  {
+    "id": "13",
+    "question": "Your company sells hiking and camping gear online.\nYou need a generative AI solution that can interact with customers, ask questions about their needs, and escalate to a human agent if necessary.\nWhat solution should you use?",
+    "options": {
+      "A": "a chatbot",
+      "B": "predictive AI",
+      "C": "a recommendation engine",
+      "D": "computer vision"
+    },
+    "correct_answer": "A"
+  },
+  {
+    "id": "14",
+    "question": "Your company receives thousands of scanned invoices each month.\nYou need to recommend an AI solution that can automatically extract key details, such as invoice numbers, vendor names, and total amounts.\nWhat is the best solution to recommend? More than one answer choice may achieve the goal. Select the BEST answer.",
+    "options": {
+      "A": "Azure Document Intelligence in Foundry Tools",
+      "B": "Azure Vision in Foundry Tools",
+      "C": "Azure AI Search",
+      "D": "Azure Machine Learning"
+    },
+    "correct_answer": "A"
+  },
+  {
+    "id": "15",
+    "question": "Your company discovers that several employees use personal ChatGPT accounts to assist with work tasks. You are concerned about proprietary data being shared externally.\nYou need to evaluate the business value of rolling out Microsoft 365 Copilot.\nWhich capability is a key benefit of using Copilot instead of a personal ChatGPT account?",
+    "options": {
+      "A": "analyzing and producing reports based on complex data",
+      "B": "generating ideas and solving issues",
+      "C": "drafting documents, emails, presentations, and marketing materials",
+      "D": "accessing internal data in accordance with existing Microsoft 365 policies"
+    },
+    "correct_answer": "D"
+  },
+  {
+    "id": "16",
+    "question": "Your company stores thousands of reports and documents across multiple systems.\nYou recommend using Azure AI Search as part of a new generative AI solution to improve information discovery.\nWhat is a key benefit of using Azure AI Search in this scenario?",
+    "options": {
+      "A": "generates responses to customer questions without referencing the existing data",
+      "B": "queries and retrieves information from large collections of data by using natural language",
+      "C": "automates document workflows based on the document content",
+      "D": "improves model accuracy by fine-tuning organizational data"
+    },
+    "correct_answer": "B"
+  },
+  {
+    "id": "17",
+    "question": "You are exploring how Microsoft 365 Copilot uses Microsoft Graph to deliver AI-powered experiences.\nWhich information in Microsoft Graph can Copilot use by default?",
+    "options": {
+      "A": "emails, files, meetings, and chats in Microsoft 365",
+      "B": "data stored in a file share",
+      "C": "social media activity",
+      "D": "content from public websites"
+    },
+    "correct_answer": "A"
+  },
+  {
+    "id": "18",
+    "question": "You need to recommend a service that supports indexing information and knowledge mining by extracting insights from documents.\nWhat should you recommend?",
+    "options": {
+      "A": "Microsoft Foundry",
+      "B": "Azure Vision in Foundry Tools",
+      "C": "Azure Document Intelligence in Foundry Tools",
+      "D": "Azure AI Search"
+    },
+    "correct_answer": "D"
+  },
+  {
+    "id": "19",
+    "question": "Your company is preparing to adopt Microsoft 365 Copilot and wants to follow Microsoft responsible AI principles.\nAs a business leader, you propose establishing an AI governance council to ensure alignment with the responsible AI principles.\nWhat is the primary purpose of the council? More than one answer choice may achieve the goal. Select the BEST answer.",
+    "options": {
+      "A": "to monitor user behavior and enforce compliance with internal IT policies",
+      "B": "to train employees on how to use Copilot features effectively",
+      "C": "to oversee implementation, manage technical performance, and ensure successful AI deployment",
+      "D": "to guide strategy, provide oversight, and ensure cross-functional alignment for responsible AI adoption"
+    },
+    "correct_answer": "D"
+  },
+  {
+    "id": "20",
+    "question": "Your company sells hiking and camping gear online.\nYou need a generative AI solution that can interact with customers and ask questions about their needs.\nWhat should you include in the solution?",
+    "options": {
+      "A": "a chatbot",
+      "B": "predictive AI",
+      "C": "computer vision",
+      "D": "a recommendation engine"
+    },
+    "correct_answer": "A"
+  },
+  {
+    "id": "21",
+    "question": "You have a historical dataset that contains 1,000 records.\nYou need an AI solution that can analyze the data to identify patterns and predict future outcomes.\nWhat should you include in the solution?",
+    "options": {
+      "A": "Microsoft Foundry",
+      "B": "Azure Document Intelligence in Foundry Tools",
+      "C": "Azure Machine Learning",
+      "D": "Azure Content Understanding in Foundry Tools"
+    },
+    "correct_answer": "C"
+  },
+  {
+    "id": "22",
+    "question": "Your company manages an online catalog of office supplies.\nYou plan to use a generative AI solution to create product descriptions for your company’s website. The solution must meet the following requirements:\nEnsure that the descriptions can be posted immediately after they are created.\nEnable the selection and inclusion of product details in each description.\nBe fast and simple for non-technical staff to use.\nWhat is the best type of solution to use? More than one answer choice may achieve the goal. Select the BEST answer.",
+    "options": {
+      "A": "custom Azure Machine Learning model",
+      "B": "the Researcher agent in Microsoft 365 Copilot",
+      "C": "an interactive AI agent",
+      "D": "a fine-tuned large language model (LLM)"
+    },
+    "correct_answer": "C"
+  },
+  {
+    "id": "23",
+    "question": "Your company has an AI solution that uses a prebuilt Azure OpenAI model to generate content.\nYou need to reduce the cost of solution while minimizing the impact on the quality of the generated output.\nWhich two actions should you perform? Each correct answer presents part of the solution.\nNOTE: Each correct selection is worth one point.",
+    "options": {
+      "A": "Switch to an alternate model.",
+      "B": "Apply content moderation.",
+      "C": "Optimize the prompts.",
+      "D": "Decrease the number of hosting hours for the model.",
+      "E": "Fine-tune the existing model."
+    },
+    "correct_answer": "AC"
+  },
+  {
+    "id": "24",
+    "question": "Your company purchases Microsoft 365 Copilot for its sales department.\nThe sales department needs to find and summarize information across internal documents quickly.\nFrom which two data sources can the sales department obtain results by default? Each correct answer presents part of the solution.\nNOTE: Each correct selection is worth one point.",
+    "options": {
+      "A": "Microsoft OneDrive",
+      "B": "an on-premises file share",
+      "C": "Microsoft SharePoint",
+      "D": "Microsoft Sway",
+      "E": "a custom customer relationship management (CRM) system"
+    },
+    "correct_answer": "AC"
+  },
+  {
+    "id": "25",
+    "question": "Your company’s HR department spends a large amount time answering repetitive questions and updating policy documents.\nYou need a solution that can automate employee interactions, respond to HR-related questions, and connect to internal business data sources.\nWhat solution should you recommend?",
+    "options": {
+      "A": "Microsoft Security Copilot",
+      "B": "Microsoft Copilot Studio",
+      "C": "Microsoft 365 Copilot",
+      "D": "Microsoft Copilot in Azure"
+    },
+    "correct_answer": "B"
+  },
+  {
+    "id": "26",
+    "question": "Your company manages a website that publishes daily news articles.\nYou need to recommend an AI solution that can analyze text and identify the main people, locations, and companies mentioned in the articles.\nWhat should you include in the recommendation?",
+    "options": {
+      "A": "Azure Language in Foundry Tools",
+      "B": "Azure Vision in Foundry Tools",
+      "C": "Content Safety in Foundry Control Plane",
+      "D": "Azure Speech in Foundry Tools"
+    },
+    "correct_answer": "A"
+  },
+  {
+    "id": "27",
+    "question": "Your company is evaluating the use of Microsoft Copilot Studio to support business process automation and employee self-service. Which two capabilities are directly supported in Copilot Studio? Each correct answer presents a complete solution. NOTE: Each correct selection is worth one point.",
+    "options": {
+      "A": "Using agents to identify and respond to security incidents",
+      "B": "configuring document security",
+      "C": "drafting and summarizing files in Microsoft Word and PowerPoint",
+      "D": "building agents that connect to business data and automate user interactions",
+      "E": "customizing agent behavior and responses"
+    },
+    "correct_answer": "DE"
+  },
+  {
+    "id": "28",
+    "question": "Your company plans to adopt AI across multiple business units.\nYou need to ensure that all AI projects align with the company’s business strategy and are implemented responsibly.\nWhat is the best approach to achieve the goal? More than one answer choice may achieve the goal. Select the BEST answer.",
+    "options": {
+      "A": "Allow each department to deploy its own AI tools and workflows.",
+      "B": "Delegate AI decision-making to the company’s IT department.",
+      "C": "Outsource AI development to an external vendor.",
+      "D": "Establish an AI council to provide guidance, oversight, and coordination."
+    },
+    "correct_answer": "D"
+  },
+  {
+    "id": "29",
+    "question": "Your company has a Microsoft 365 subscription and uses Microsoft 365 Copilot Chat.\nSome users need to build and use declarative agents that can access work data.\nWhich type of license should you recommend for the users?",
+    "options": {
+      "A": "a Microsoft 365 Copilot add-on license",
+      "B": "Microsoft Copilot Studio user license",
+      "C": "a Copilot Chat pay-as-you-go plan"
+    },
+    "correct_answer": "B"
+  },
+  {
+    "id": "30",
+    "question": "Your company plans to implement a proof of concept (PoC) agent that uses Azure OpenAI.\nThe solution must start small and provide flexibility to scale usage as demand grows.\nWhich pricing model should you use?",
+    "options": {
+      "A": "Microsoft 365 Copilot",
+      "B": "Batch API",
+      "C": "Provisioned (PTUs)",
+      "D": "Standard (On-Demand)"
+    },
+    "correct_answer": "D"
+  },
+  {
+    "id": "31",
+    "question": "Your company deploys an AI-powered loan approval solution that enables applicants to request an explanation as to why their loan application was denied.\nWhich Microsoft responsible AI principle is this an example of?",
+    "options": {
+      "A": "fairness",
+      "B": "privacy and security",
+      "C": "transparency",
+      "D": "inclusiveness"
+    },
+    "correct_answer": "C"
+  },
+  {
+    "id": "32",
+    "question": "Your company wants to ensure that AI solutions are used responsibly and align with company values and compliance requirements.\nYou need to establish governance principles for AI use.\nWhich two actions should you perform? Select the two BEST answers. Each correct answer presents a complete solution.\nNOTE: Each correct selection is worth one point.",
+    "options": {
+      "A": "Allow each department to tailor governance processes for its own AI initiatives.",
+      "B": "Define accountability norms for AI decisions across business and technical teams.",
+      "C": "Create a process to review AI initiatives for responsible AI alignment.",
+      "D": "Assign governance ownership primarily to the AI engineering and data science teams.",
+      "E": "Focus governance efforts on AI systems that handle regulated or sensitive data."
+    },
+    "correct_answer": "BC"
+  },
+  {
+    "id": "33",
+    "question": "Your company is deploying Microsoft 365 Copilot. The deployment must provide users with access to the Researcher agent to search across data in Microsoft SharePoint.\nYou need to recommend a licensing plan for the solution.\nWhat should you recommend?",
+    "options": {
+      "A": "a Microsoft 365 Copilot per-user add-on license",
+      "B": "pay-as-you-go",
+      "C": "a Microsoft 365 subscription entitlement",
+      "D": "a usage-based consumption license in Azure"
+    },
+    "correct_answer": "A"
+  },
+  {
+    "id": "34",
+    "question": "What is considered a best practice when forming an AI adoption team in an enterprise environment?",
+    "options": {
+      "A": "Include primarily IT and project management staff initially to streamline deployment, adding governance and compliance roles later.",
+      "B": "Include procurement and vendor management specialists early to evaluate AI tools, involving business teams once a platform is selected.",
+      "C": "Include representatives from legal, leadership, and business units to align AI initiatives with organizational priorities.",
+      "D": "Include only data scientists and engineers at first to validate technical feasibility, then add other stakeholders later."
+    },
+    "correct_answer": "C"
+  },
+  {
+    "id": "35",
+    "question": "Your company is developing an AI-powered customer support agent.\nYou need to ensure that the solution follows Microsoft responsible AI principles.\nWhich two actions should you perform? Select the two BEST answers. Each correct answer presents part of the solution.\nNOTE: Each correct selection is worth one point.",
+    "options": {
+      "A": "Retain all customer conversations.",
+      "B": "Test the agent to ensure that responses are inclusive and culturally sensitive.",
+      "C": "Enable the agent to operate independently.",
+      "D": "Ensure that the agent can be used for multiple purposes.",
+      "E": "Provide a clear disclaimer that users are interacting with an AI solution."
+    },
+    "correct_answer": "BE"
+  },
+  {
+    "id": "36",
+    "question": "Your company uses a fine-tuned generative AI solution trained on data that is representative of the general population.\nYou discover that some of the generated responses include inappropriate or exclusionary language based on ableist assumptions.\nYou need to prevent the inappropriate responses. Your solution must minimize costs.\nWhat should you do?",
+    "options": {
+      "A": "Apply a newer version of the generative AI model.",
+      "B": "Apply a content-moderation filter.",
+      "C": "Create a new version of the solution that is trained on only inclusive and representative content.",
+      "D": "Create a new version of the solution that is trained on only exclusionary content."
+    },
+    "correct_answer": "B"
+  },
+  {
+    "id": "37",
+    "question": "Your company plans to use an AI-powered solution to analyze customer feedback for insights related to future product designs.\nYou need to mitigate the privacy risks associated with the solution.\nWhat is the best approach to achieve the goal? More than one answer choice may achieve the goal. Select the BEST answer.",
+    "options": {
+      "A": "Delete all the feedback data immediately after analysis.",
+      "B": "Ensure that feedback is attributable to the customer so that it can be deleted upon request.",
+      "C": "Limit privacy reviews to the final stage of the AI project lifecycle.",
+      "D": "Anonymize the source data to remove customer Personally Identifiable Information (PII) from the feedback."
+    },
+    "correct_answer": "D"
+  },
+  {
+    "id": "38",
+    "question": "Your company is building a portfolio of AI-powered business solutions.\nCompany executives want to understand how Microsoft responsible AI principles can support the company’s long-term goals.\nWhich benefit best demonstrates the importance of responsible AI? More than one answer choice may achieve the goal. Select the BEST answer.",
+    "options": {
+      "A": "reduces the need for executive oversight in AI decision-making",
+      "B": "enhances stakeholder trust and fosters sustainable AI adoption throughout the organization",
+      "C": "guarantees that AI models provide accurate and relevant responses",
+      "D": "reduces the need for data protection policies and governance"
+    },
+    "correct_answer": "B"
+  },
+  {
+    "id": "39",
+    "question": "You have a business unit that uses an AI solution to process loan applications. You discover that the solution rejects the application of all applicants that are older than 60 years of age. Which Microsoft responsible AI principle is this violating?",
+    "options": {
+      "A": "accountability",
+      "B": "transparency",
+      "C": "fairness",
+      "D": "reliability and safety"
+    },
+    "correct_answer": "C"
+  },
+  {
+    "id": "40",
+    "question": "Your company is reviewing a new AI solution before deploying it. The company wants to ensure that the solution follows Microsoft responsible AI principles.\nWhat is the best approach to achieve the goal? More than one answer choice may achieve the goal. Select the BEST answer.",
+    "options": {
+      "A": "Design the AI solution to automatically approve or reject customer loan applications.",
+      "B": "Test the AI solution to identify and mitigate potential unfair or inconsistent outcomes in its outputs.",
+      "C": "Prioritize model performance when tuning the AI solution.",
+      "D": "Enable the AI solution to collect and store personal data."
+    },
+    "correct_answer": "B"
+  },
+  {
+    "id": "41",
+    "question": "Your company uses generative AI to assist with content creation and customer interactions.\nYou need to evaluate whether Azure Machine Learning can add value to the current customer management.\nFor which use case should you use Machine Learning?",
+    "options": {
+      "A": "predicting customer retention",
+      "B": "creating product descriptions from images",
+      "C": "generating marketing campaigns",
+      "D": "summarizing customer service transcripts"
+    },
+    "correct_answer": "A"
+  },
+  {
+    "id": "42",
+    "question": "Your company stores hundreds of internal business reports.\nYou need to recommend a generative AI solution that uses an agent to answer questions based on the content in the reports.\nWhat should you include in the recommendation?",
+    "options": {
+      "A": "natural language processing",
+      "B": "Azure Machine Learning",
+      "C": "Retrieval Augmented Generation (RAG)",
+      "D": "Generative Adversarial Network (GAN)"
+    },
+    "correct_answer": "C"
+  },
+  {
+    "id": "43",
+    "question": "Your company plans to use generative AI to help summarize and analyze internal business documents.\nYou need to recommend a solution to prevent generative AI from accessing confidential or classified information.\nWhat should you include in the recommendation?",
+    "options": {
+      "A": "an information barrier (IB) policy",
+      "B": "communication monitoring",
+      "C": "a data retention policy",
+      "D": "data governance"
+    },
+    "correct_answer": "D"
+  },
+  {
+    "id": "44",
+    "question": "Your company uses Microsoft 365 Copilot.\nYou identify several business processes that require custom workflows and specialized automation.\nYou need to recommend a solution that extends Copilot capabilities while minimizing development effort and costs.\nWhat should you recommend?",
+    "options": {
+      "A": "Create an agent by using Microsoft Foundry.",
+      "B": "Deploy a Copilot connector.",
+      "C": "Build a custom agent by using the full experience of Microsoft Copilot Studio.",
+      "D": "Build a declarative agent by using the lite experience of Microsoft Copilot Studio."
+    },
+    "correct_answer": "D"
+  },
+  {
+    "id": "45",
+    "question": "What is a key feature of Microsoft 365 Copilot that aligns with the Microsoft responsible AI principles of transparency, reliability, and safety?",
+    "options": {
+      "A": "Automatically approves AI-generated content for company-wide publishing.",
+      "B": "Removes the need for a human to review AI-generated outputs.",
+      "C": "Provides grounded, verifiable responses based on organizational data.",
+      "D": "Enables users to select from an authorized catalog of AI models."
+    },
+    "correct_answer": "C"
+  },
+  {
+    "id": "46",
+    "question": "Your company is developing an AI-powered customer support agent. You need to ensure that the solution follows Microsoft responsible AI principles. Which two actions should you perform? Select the two BEST answers. Each correct answer presents part of the solution.",
+    "options": {
+      "A": "Retain all customer conversations.",
+      "B": "Test the agent to ensure that responses are inclusive and culturally sensitive.",
+      "C": "Enable the agent to operate independently.",
+      "D": "Ensure that the agent can be used for multiple purposes.",
+      "E": "Provide a clear disclaimer that users are interacting with an AI solution."
+    },
+    "correct_answer": "BE"
+  },
+  {
+    "id": "47",
+    "question": "Your company uses a non-reasoning generative AI model to create textual content. You discover that the model's responses are inconsistent and do NOT meet expectations. You need to improve the prompts. What should you do? More than one answer choice may achieve the goal. Select the BEST answer.",
+    "options": {
+      "A": "Provide the prompts with extensive examples of the expected output.",
+      "B": "Add the context, sources, and expectations to the prompts.",
+      "C": "Use technical terms in the prompts to enhance AI comprehension.",
+      "D": "Add only a single concise requirement to the prompts."
+    },
+    "correct_answer": "AB"
+  }
+]
