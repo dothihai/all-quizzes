@@ -13,7 +13,7 @@
   "categories": ["education", "games"],
   "icons": [
     {
-      "src": "icon.svg",
+      "src": "assets/icon.svg",
       "sizes": "any",
       "type": "image/svg+xml",
       "purpose": "any maskable"
