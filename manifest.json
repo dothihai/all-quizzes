@@ -1,0 +1,22 @@
+{
+  "name": "Doha Quizzes",
+  "short_name": "Doha Quizzes",
+  "description": "A library of quizzes for various topics",
+  "start_url": "./index.html",
+  "scope": "./",
+  "display": "standalone",
+  "prefer_related_applications": false,
+  "background_color": "#0f0c29",
+  "theme_color": "#302b63",
+  "orientation": "portrait-primary",
+  "lang": "vi",
+  "categories": ["education", "games"],
+  "icons": [
+    {
+      "src": "icon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ]
+}
