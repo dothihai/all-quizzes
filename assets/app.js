@@ -367,6 +367,10 @@ function lastQuestion() {
     displayQuestion();
 }
 
+function isValidHotAreaQuestion(question) {
+    return question.type === 'hotarea' && question.options && Array.isArray(question.options.statements);
+}
+
 function displayQuestion() {
     document.getElementById('total-questions').textContent = questions.length;
     document.getElementById('question-total').textContent = questions.length;
@@ -401,23 +405,60 @@ function displayQuestion() {
     const optionsContainer = document.getElementById('options-container');
     optionsContainer.innerHTML = '';
 
-    const isMultiple = question.correct_answer.length > 1;
-    const inputType = isMultiple ? 'checkbox' : 'radio';
-    for (const [key, value] of Object.entries(question.options)) {
-        const option = document.createElement('label');
-        option.className = 'option';
-        const input = document.createElement('input');
-        input.type = inputType;
-        input.name = 'answer';
-        input.value = key;
-        const span = document.createElement('span');
-        const strong = document.createElement('strong');
-        strong.textContent = key + '.';
-        span.appendChild(strong);
-        span.appendChild(document.createTextNode(' ' + value));
-        option.appendChild(input);
-        option.appendChild(span);
-        optionsContainer.appendChild(option);
+    if (isValidHotAreaQuestion(question)) {
+        const statements = question.options.statements;
+        const choices = Array.isArray(question.options.choices_per_statement) ? question.options.choices_per_statement : ['Yes', 'No'];
+        statements.forEach(function (statement, index) {
+            const optionRow = document.createElement('div');
+            optionRow.className = 'option hotarea-statement';
+            optionRow.dataset.statementIndex = index;
+
+            const textEl = document.createElement('div');
+            textEl.className = 'hotarea-statement-text';
+            textEl.textContent = (index + 1) + '. ' + statement;
+            optionRow.appendChild(textEl);
+
+            const choiceRow = document.createElement('div');
+            choiceRow.className = 'hotarea-choice-row';
+            choices.forEach(function (choice) {
+                const label = document.createElement('label');
+                label.className = 'hotarea-choice-label';
+
+                const input = document.createElement('input');
+                input.type = 'radio';
+                input.name = 'answer-' + index;
+                input.value = choice;
+
+                const span = document.createElement('span');
+                span.textContent = choice;
+
+                label.appendChild(input);
+                label.appendChild(span);
+                choiceRow.appendChild(label);
+            });
+
+            optionRow.appendChild(choiceRow);
+            optionsContainer.appendChild(optionRow);
+        });
+    } else {
+        const isMultiple = question.correct_answer.length > 1;
+        const inputType = isMultiple ? 'checkbox' : 'radio';
+        for (const [key, value] of Object.entries(question.options)) {
+            const option = document.createElement('label');
+            option.className = 'option';
+            const input = document.createElement('input');
+            input.type = inputType;
+            input.name = 'answer';
+            input.value = key;
+            const span = document.createElement('span');
+            const strong = document.createElement('strong');
+            strong.textContent = key + '.';
+            span.appendChild(strong);
+            span.appendChild(document.createTextNode(' ' + value));
+            option.appendChild(input);
+            option.appendChild(span);
+            optionsContainer.appendChild(option);
+        }
     }
 
     document.getElementById('result').className = 'result';
@@ -432,18 +473,45 @@ function displayQuestion() {
 
 function checkAnswer() {
     const question = questions[currentQuestionIndex];
-    const isMultiple = question.correct_answer.length > 1;
     let answer;
-    if (isMultiple) {
-        const checked = document.querySelectorAll('input[name="answer"]:checked');
-        if (checked.length === 0) { alert('Please select an answer!'); return; }
-        answer = Array.from(checked).map(function (cb) { return cb.value; }).sort().join('');
+    let isCorrect = false;
+    let optionsText = '';
+    let correctDisplay = question.correct_answer;
+
+    if (isValidHotAreaQuestion(question)) {
+        const selected = [];
+        const rows = document.querySelectorAll('.hotarea-statement');
+        for (let i = 0; i < rows.length; i++) {
+            const input = rows[i].querySelector('input[name="answer-' + i + '"]:checked');
+            if (!input) { alert('Please select an answer for every statement!'); return; }
+            selected.push(input.value);
+        }
+        answer = selected;
+        isCorrect = Array.isArray(question.correct_answer)
+            && selected.length === question.correct_answer.length
+            && selected.every(function (value, index) { return value === question.correct_answer[index]; });
+
+        optionsText = question.options.statements.map(function (statement, index) {
+            const choices = Array.isArray(question.options.choices_per_statement) ? question.options.choices_per_statement.join('/') : 'Yes/No';
+            return 'Statement ' + (index + 1) + ': ' + statement + ' — ' + choices;
+        }).join('\n');
+        correctDisplay = Array.isArray(question.correct_answer) ? question.correct_answer.join(', ') : question.correct_answer;
     } else {
-        const selectedOption = document.querySelector('input[name="answer"]:checked');
-        if (!selectedOption) { alert('Please select an answer!'); return; }
-        answer = selectedOption.value;
+        const isMultiple = question.correct_answer.length > 1;
+        if (isMultiple) {
+            const checked = document.querySelectorAll('input[name="answer"]:checked');
+            if (checked.length === 0) { alert('Please select an answer!'); return; }
+            answer = Array.from(checked).map(function (cb) { return cb.value; }).sort().join('');
+        } else {
+            const selectedOption = document.querySelector('input[name="answer"]:checked');
+            if (!selectedOption) { alert('Please select an answer!'); return; }
+            answer = selectedOption.value;
+        }
+        isCorrect = answer === question.correct_answer;
+        optionsText = Object.entries(question.options)
+            .map(function ([k, v]) { return k + '. ' + v; }).join('\n');
+        correctDisplay = question.correct_answer;
     }
-    const isCorrect = answer === question.correct_answer;
 
     if (!stats.answered.has(question.id)) {
         stats.answered.add(question.id);
@@ -456,25 +524,38 @@ function checkAnswer() {
 
     const baseMsg = isCorrect
         ? '✅ Correct! Well done!'
-        : '❌ Incorrect. The correct answer is <strong>' + escapeHtml(question.correct_answer) + '</strong>';
-
-    const optionsText = Object.entries(question.options)
-        .map(function ([k, v]) { return k + '. ' + v; }).join('\n');
-    const promptText = 'Dịch vào giải thích đáp án: ' + question.question + '\n' + optionsText + '\nĐáp án đúng: ' + question.correct_answer;
+        : '❌ Incorrect. The correct answer is <strong>' + escapeHtml(correctDisplay) + '</strong>';
+    const promptText = 'Dịch vào giải thích đáp án: ' + question.question + '\n' + optionsText + '\nĐáp án đúng: ' + correctDisplay;
     const chatgptUrl = 'https://chatgpt.com/?prompt=' + encodeURIComponent(promptText);
     resultDiv.innerHTML = baseMsg + '<br><a href="' + chatgptUrl + '" target="_blank" rel="noopener noreferrer" class="explain-button">💬 Giải thích bằng ChatGPT</a>';
 
-    const correctLetters = new Set(question.correct_answer.split(''));
-    document.querySelectorAll('.option').forEach(function (option) {
-        const input = option.querySelector('input');
-        option.classList.add('disabled');
-        input.disabled = true;
-        if (correctLetters.has(input.value)) {
-            option.classList.add('correct');
-        } else if (input.checked) {
-            option.classList.add('incorrect');
-        }
-    });
+    if (isValidHotAreaQuestion(question)) {
+        const expected = question.correct_answer;
+        document.querySelectorAll('.hotarea-statement').forEach(function (row, index) {
+            const selectedInput = row.querySelector('input[name="answer-' + index + '"]:checked');
+            row.querySelectorAll('input').forEach(function (input) { input.disabled = true; });
+            const choiceLabel = selectedInput ? selectedInput.closest('label') : null;
+            if (choiceLabel) {
+                if (selectedInput.value === expected[index]) {
+                    choiceLabel.classList.add('correct');
+                } else {
+                    choiceLabel.classList.add('incorrect');
+                }
+            }
+        });
+    } else {
+        const correctLetters = new Set(question.correct_answer.split(''));
+        document.querySelectorAll('.option').forEach(function (option) {
+            const input = option.querySelector('input');
+            option.classList.add('disabled');
+            input.disabled = true;
+            if (correctLetters.has(input.value)) {
+                option.classList.add('correct');
+            } else if (input.checked) {
+                option.classList.add('incorrect');
+            }
+        });
+    }
 
     document.getElementById('check-button').disabled = true;
 }
