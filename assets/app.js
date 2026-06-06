@@ -1,6 +1,6 @@
 // ===== AUTH =====
 
-const _AK = '2af95d32474da3080656fa4ed0d9043a00daf8b21cf521c30f3cdb40709072f6';
+const _AK = 'bdfd8b046ea0311283b375f032e16f1b09360b05c5600653a11f329fd1b64b3a';
 const _S = 'hX9!mQ3#wZ';
 
 function _hash(s) {
