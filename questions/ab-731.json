@@ -522,54 +522,6 @@
     "source": "Pass4Success"
   },
   {
-    "question": "HOTSPOT\n-\nFor each of the following statements, select Yes if the statement is true. Otherwise, select No.\nNOTE: Each correct selection is worth one point.",
-    "options": {
-      "statements": [
-        "Users that want to reason over work data by using a natural language prompt in Microsoft 365",
-        "Copilot must have a Copilot add-on license.",
-        "Microsoft 365 Copilot is included in Microsoft 365 E3 and Microsoft 365 E5 licenses.",
-        "Some Microsoft 365 Copilot services are available through a pay-as-you-go plan."
-      ],
-      "choices_per_statement": [
-        "Yes",
-        "No"
-      ]
-    },
-    "type": "hotarea",
-    "correct_answer": [
-      "Yes",
-      "Yes",
-      "No",
-      "Yes"
-    ],
-    "source": "ExamTopics"
-  },
-  {
-    "question": "HOTSPOT\n-\nSelect the answer that correctly completes the sentence.",
-    "options": {
-      "statements": [
-        "‘When Microsoft 365 Copilot accesses company data using the principle of least privilege. this is an example of a Y_ control.",
-        "data classification",
-        "data compliance",
-        "data loss prevention (DLP)",
-        "data security"
-      ],
-      "choices_per_statement": [
-        "Yes",
-        "No"
-      ]
-    },
-    "type": "hotarea",
-    "correct_answer": [
-      "Yes",
-      "?",
-      "?",
-      "?",
-      "?"
-    ],
-    "source": "ExamTopics"
-  },
-  {
     "question": "You need to extract structured data from forms and invoices.\nWhich Azure AI service in Foundry Tools should you use?",
     "options": {
       "A": "Azure Language in Foundry Tools",
@@ -721,5 +673,863 @@
     },
     "correct_answer": "A",
     "source": "itexams"
+  },
+  {
+    "type": "hotarea",
+    "question": "For each statement, select Yes if the statement is true. Otherwise, select No.",
+    "options": {
+      "statements": [
+        "Microsoft Foundry helps organizations securely build and manage generative AI solutions in a governed",
+        "Microsoft Foundry provides built-in scalability to enable organizations to expand AI workloads as usage increases.",
+        "Microsoft Foundry can be used for image recognition and computer vision tasks"
+      ],
+      "choices_per_statement": [
+        "Yes",
+        "No"
+      ]
+    },
+    "correct_answer": [
+      "Yes",
+      "Yes",
+      "Yes"
+    ],
+    "source": "et_image1.png"
+  },
+  {
+    "type": "hotarea",
+    "question": "For each statement, select Yes if the statement is true. Otherwise, select No.",
+    "options": {
+      "statements": [
+        "Users that want to reason over work data by using a natural language prompt in Microsoft 365 Copilot must have a Copilot add-on license",
+        "Microsoft 365 Copilot is included in Microsoft 365 E3 and Microsoft 365 E5 licenses",
+        "Some Microsoft 365 Copilot services are available through a pay-as-you-go plan"
+      ],
+      "choices_per_statement": [
+        "Yes",
+        "No"
+      ]
+    },
+    "correct_answer": [
+      "Yes",
+      "No",
+      "No"
+    ],
+    "source": "et_image101.png"
+  },
+  {
+    "type": "dropdown",
+    "question": "An organization's AI champions program includes [dropdown1]",
+    "options": {
+      "dropdown1": [
+        "technical teams responsible for designing advanced analytics solutions to track adoption.",
+        "users who advocate for the value of AI by learning, sharing, and identifying use cases.",
+        "users who are dedicated to building the infrastructure required to support AI across the organization.",
+        "users who come together and define the organization's overall AI strategy."
+      ]
+    },
+    "correct_answer": {
+      "dropdown1": 1
+    },
+    "source": "et_image103.png"
+  },
+  {
+    "type": "dropdown",
+    "question": "When Microsoft 365 Copilot accesses company data using the principle of least privilege, this is an example of a [dropdown1] control.",
+    "options": {
+      "dropdown1": [
+        "data classification",
+        "data compliance",
+        "data loss prevention (DLP)",
+        "data security"
+      ]
+    },
+    "correct_answer": {
+      "dropdown1": 3
+    },
+    "source": "et_image109.png"
+  },
+  {
+    "question": "When a generative AI model produces output that seems realistic but contains incorrect information, the behavior is known as",
+    "options": {
+      "A": "data leakage.",
+      "B": "model inaccuracy.",
+      "C": "overreliance.",
+      "D": "prompt injection."
+    },
+    "correct_answer": "B",
+    "source": "et_image15.png"
+  },
+  {
+    "type": "hotarea",
+    "question": "For each statement, select Yes if the statement is true. Otherwise, select No.",
+    "options": {
+      "statements": [
+        "A generative AI solution is well-suited to predict next-quarter sales trends",
+        "A generative AI solution can summarize lengthy policy documents",
+        "A generative AI solution can create product descriptions from product specifications"
+      ],
+      "choices_per_statement": [
+        "Yes",
+        "No"
+      ]
+    },
+    "correct_answer": [
+      "No",
+      "Yes",
+      "Yes"
+    ],
+    "source": "et_image17.png"
+  },
+  {
+    "type": "hotarea",
+    "question": "For each statement, select Yes if the statement is true. Otherwise, select No.",
+    "options": {
+      "statements": [
+        "Retrieval Augmented Generation (RAG) requires model fine-tuning",
+        "Retrieval Augmented Generation (RAG) is helpful when you need a generative AI solution that can access current, verifiable information",
+        "Retrieval Augmented Generation (RAG) enables you to get more relevant responses based on your [dropdown1] organization's documents without retraining the base model"
+      ],
+      "choices_per_statement": [
+        "Yes",
+        "No"
+      ]
+    },
+    "correct_answer": [
+      "No",
+      "Yes",
+      "Yes"
+    ],
+    "source": "et_image19.png"
+  },
+  {
+    "type": "hotarea",
+    "question": "For each statement, select Yes if the statement is true. Otherwise, select No.",
+    "options": {
+      "statements": [
+        "To use Microsoft 365 Copilot Chat, you must have a Microsoft 365 Copilot license",
+        "Microsoft 365 Copilot Chat provides context-aware assistance in Microsoft 365 apps",
+        "Microsoft 365 Copilot Chat can only access information in open files and read emails"
+      ],
+      "choices_per_statement": [
+        "Yes",
+        "No"
+      ]
+    },
+    "correct_answer": [
+      "No",
+      "Yes",
+      "No"
+    ],
+    "source": "et_image21.png"
+  },
+  {
+    "type": "dropdown",
+    "question": "The Researcher agent in Microsoft 365 Copilot [dropdown1]",
+    "options": {
+      "dropdown1": [
+        "creates visual dashboards from structured data in Microsoft Excel and Power BI.",
+        "generates a pivot table and performs time series forecasting.",
+        "performs complex, multi-step, data analysis and code execution tasks over arbitrary datasets.",
+        "uses reasoning capabilities to generate deep insights based on organizational data and the web."
+      ]
+    },
+    "correct_answer": {
+      "dropdown1": 3
+    },
+    "source": "et_image25.png"
+  },
+  {
+    "type": "hotarea",
+    "question": "For each statement, select Yes if the statement is true. Otherwise, select No.",
+    "options": {
+      "statements": [
+        "A manufacturer can use Azure Vision in Foundry Tools to identify product defects on an assembly line",
+        "A logistics company can use Azure Vision in Foundry Tools to recognize package shipping labels",
+        "The HR department at your company can only use Azure Vision in Foundry Tools to extract written content from Microsoft Word files"
+      ],
+      "choices_per_statement": [
+        "Yes",
+        "No"
+      ]
+    },
+    "correct_answer": [
+      "Yes",
+      "Yes",
+      "No"
+    ],
+    "source": "et_image29.png"
+  },
+  {
+    "type": "dropdown",
+    "question": "You use [dropdown1] to train a model that will forecast product demand based on historical sales data,",
+    "options": {
+      "dropdown1": [
+        "Azure Machine Learning",
+        "Azure AI Search",
+        "Azure OpenAI",
+        "Microsoft Foundry"
+      ]
+    },
+    "correct_answer": {
+      "dropdown1": 0
+    },
+    "source": "et_image3.png"
+  },
+  {
+    "type": "dropdown",
+    "question": "When you use Microsoft 365 Copilot connectors to connect external content to [dropdown1] , your users can find, summarize, and learn from line-of-business (LOB) data by using natural language prompts.",
+    "options": {
+      "dropdown1": [
+        "Azure AI Search",
+        "Microsoft Graph",
+        "Microsoft Purview",
+        "Microsoft SharePoint"
+      ]
+    },
+    "correct_answer": {
+      "dropdown1": 1
+    },
+    "source": "et_image31.png"
+  },
+  {
+    "type": "hotarea",
+    "question": "For each statement, select Yes if the statement is true. Otherwise, select No.",
+    "options": {
+      "statements": [
+        "Microsoft 365 Copilot connectors enable you to index data from multiple sources to make the data available",
+        "You can build a custom Microsoft 365 Copilot connector when the available connectors do NOT meet your data integration requirements",
+        "To use Microsoft 365 Copilot connectors, you need a Microsoft Copilot Studio license"
+      ],
+      "choices_per_statement": [
+        "Yes",
+        "No"
+      ]
+    },
+    "correct_answer": [
+      "Yes",
+      "Yes",
+      "No"
+    ],
+    "source": "et_image33.png"
+  },
+  {
+    "type": "hotarea",
+    "question": "For each statement, select Yes if the statement is true. Otherwise, select No.",
+    "options": {
+      "statements": [
+        "Microsoft Copilot provides a single AI app that has identical features and experiences across all Microsoft",
+        "Microsoft 365 Copilot delivers AI capabilities for business users that use Microsoft 365 apps",
+        "Microsoft Security Copilot helps companies understand risks and the organizational security posture"
+      ],
+      "choices_per_statement": [
+        "Yes",
+        "No"
+      ]
+    },
+    "correct_answer": [
+      "No",
+      "Yes",
+      "Yes"
+    ],
+    "source": "et_image35.png"
+  },
+  {
+    "type": "hotarea",
+    "question": "For each statement, select Yes if the statement is true. Otherwise, select No.",
+    "options": {
+      "statements": [
+        "Azure Vision in Foundry Tools can extract and analyze key phrases from PDF files",
+        "Azure Vision in Foundry Tools can generate images based on natural language descriptions",
+        "Azure Document Intelligence in Foundry Tools can be used to automate the processing of invoices and"
+      ],
+      "choices_per_statement": [
+        "Yes",
+        "No"
+      ]
+    },
+    "correct_answer": [
+      "No",
+      "No",
+      "Yes"
+    ],
+    "source": "et_image37.png"
+  },
+  {
+    "type": "hotarea",
+    "question": "For each statement, select Yes if the statement is true. Otherwise, select No.",
+    "options": {
+      "statements": [
+        "Microsoft Foundry provides a unified platform for developers and data professionals to create custom end",
+        "Microsoft Foundry provides a unified platform for low-code developers and business users to create custom end-to-end AI solutions",
+        "You need a Microsoft 365 Copilot license to access Microsoft Foundry services"
+      ],
+      "choices_per_statement": [
+        "Yes",
+        "No"
+      ]
+    },
+    "correct_answer": [
+      "Yes",
+      "Yes",
+      "No"
+    ],
+    "source": "et_image43.png"
+  },
+  {
+    "type": "hotarea",
+    "question": "For each statement, select Yes if the statement is true. Otherwise, select No.",
+    "options": {
+      "statements": [
+        "Microsoft 365 Copilot can amplify existing data governance challenges",
+        "Implementing Microsoft 365 Copilot reduces data management costs",
+        "Microsoft 365 Copilot can help IT teams manage data risks"
+      ],
+      "choices_per_statement": [
+        "Yes",
+        "No"
+      ]
+    },
+    "correct_answer": [
+      "Yes",
+      "No",
+      "Yes"
+    ],
+    "source": "et_image45.png"
+  },
+  {
+    "type": "hotarea",
+    "question": "For each statement, select Yes if the statement is true. Otherwise, select No.",
+    "options": {
+      "statements": [
+        "Microsoft 365 Copilot can amplify existing data governance challenges",
+        "Implementing Microsoft 365 Copilot reduces data management costs."
+      ],
+      "choices_per_statement": [
+        "Yes",
+        "No"
+      ]
+    },
+    "correct_answer": [
+      "Yes",
+      "No"
+    ],
+    "source": "et_image46.png"
+  },
+  {
+    "question": "An organization that runs continuous, large-scale workloads with Azure OpenAI models should choose the ___ pricing model",
+    "options": {
+      "A": "Batch API",
+      "B": "Provisioned (PTUs)",
+      "C": "Standard (On-Demand)"
+    },
+    "correct_answer": "B",
+    "source": "et_image47.png"
+  },
+  {
+    "type": "hotarea",
+    "question": "For each statement, select Yes if the statement is true. Otherwise, select No.",
+    "options": {
+      "statements": [
+        "Content filtering controls can prevent AI-generated responses from exposing confidential and sensitive information",
+        "AI-generated content can unintentionally reveal sensitive information if the generative AI model has access to unsecured data sources",
+        "To prevent data exposure, only the prompts used by users must be protected by using policies."
+      ],
+      "choices_per_statement": [
+        "Yes",
+        "No"
+      ]
+    },
+    "correct_answer": [
+      "Yes",
+      "Yes",
+      "No"
+    ],
+    "source": "et_image49.png"
+  },
+  {
+    "type": "hotarea",
+    "question": "For each statement, select Yes if the statement is true. Otherwise, select No.",
+    "options": {
+      "statements": [
+        "A generative AI model guarantees factually accurate responses if the model is trained on a large dataset",
+        "Content filtering and responsible AI safeguards help a generative AI model generate safe and inoffensive content",
+        "A generative AI model always produces fair and unbiased results when the training data has been properly prepared and reviewed for fairness"
+      ],
+      "choices_per_statement": [
+        "Yes",
+        "No"
+      ]
+    },
+    "correct_answer": [
+      "No",
+      "Yes",
+      "No"
+    ],
+    "source": "et_image5.png"
+  },
+  {
+    "type": "hotarea",
+    "question": "For each statement, select Yes if the statement is true. Otherwise, select No.",
+    "options": {
+      "statements": [
+        "For a user to access organizational data from a mobile device, the user needs a Microsoft 365 Copilot",
+        "To reason over your organizational data by using Microsoft Graph, you need a Microsoft 365 Copilot license",
+        "To use the Analyst agent, you need a Microsoft 365 Copilot license"
+      ],
+      "choices_per_statement": [
+        "Yes",
+        "No"
+      ]
+    },
+    "correct_answer": [
+      "No",
+      "Yes",
+      "Yes"
+    ],
+    "source": "et_image51.png"
+  },
+  {
+    "type": "hotarea",
+    "question": "For each statement, select Yes if the statement is true. Otherwise, select No.",
+    "options": {
+      "statements": [
+        "Allowing AI models to make autonomous decisions supports the Microsoft responsible AI principles",
+        "Regularly testing AI models for fairness and inclusiveness helps ensure they align with Microsoft's",
+        "Regularly testing AI models for fairness and inclusiveness helps ensure they align with Microsoft's Responsible AI principles",
+        "Regularly testing AI models for fairness and inclusiveness helps ensure they align with Microsoft's Responsible AI principles"
+      ],
+      "choices_per_statement": [
+        "Yes",
+        "No"
+      ]
+    },
+    "correct_answer": [
+      "No",
+      "Yes",
+      "Yes"
+    ],
+    "source": "et_image53.png"
+  },
+  {
+    "question": "To ensure that your organization follows trustworthy AI principles, the organization should establish an AI governance council to",
+    "options": {
+      "A": "configure and deploy AI models in the organization's Azure environment.",
+      "B": "guide AI strategy, ensure responsible AI oversight, and promote alignment across business units.",
+      "C": "manage day-to-day model training and labeling tasks for AI development teams."
+    },
+    "correct_answer": "B",
+    "source": "et_image55.png"
+  },
+  {
+    "type": "hotarea",
+    "question": "For each statement, select Yes if the statement is true. Otherwise, select No.",
+    "options": {
+      "statements": [
+        "A barrier to AI adoption can include data limitations and a lack of AI readiness and skills",
+        "Organizations often struggle with AI adoption because they prioritize technology selection before defining clear business use cases",
+        "A lack of cross-functional collaboration is a common barrier to AI adoption"
+      ],
+      "choices_per_statement": [
+        "Yes",
+        "No"
+      ]
+    },
+    "correct_answer": [
+      "Yes",
+      "Yes",
+      "Yes"
+    ],
+    "source": "et_image57.png"
+  },
+  {
+    "type": "hotarea",
+    "question": "For each statement, select Yes if the statement is true. Otherwise, select No.",
+    "options": {
+      "statements": [
+        "Larger datasets can increase the cost of a generative AI solution that uses an Azure Machine Learning",
+        "The cost of consuming Azure OpenAI models is primarily identified by the number of input and output",
+        "The cost of custom generative AI solutions always remains the same regardless of the model version or"
+      ],
+      "choices_per_statement": [
+        "Yes",
+        "No"
+      ]
+    },
+    "correct_answer": [
+      "Yes",
+      "Yes",
+      "No"
+    ],
+    "source": "et_image59.png"
+  },
+  {
+    "type": "hotarea",
+    "question": "For each statement, select Yes if the statement is true. Otherwise, select No.",
+    "options": {
+      "statements": [
+        "Using incomplete or poor-quality data during generative AI model training can increase costs",
+        "AI models rely on training data to learn patterns and identify relationships to produce outputs",
+        "Generative AI models trained on non-representative datasets can produce inaccurate or unbalanced results"
+      ],
+      "choices_per_statement": [
+        "Yes",
+        "No"
+      ]
+    },
+    "correct_answer": [
+      "Yes",
+      "Yes",
+      "Yes"
+    ],
+    "source": "et_image61.png"
+  },
+  {
+    "type": "hotarea",
+    "question": "For each statement, select Yes if the statement is true. Otherwise, select No.",
+    "options": {
+      "statements": [
+        "Lack of trust in the security and accuracy of AI solutions is a common barrier to AI adoption",
+        "AI adoption efforts often fail when organizations overlook the importance of high-quality data.",
+        "AI adoption is most successful when implemented with business and compliance stakeholders"
+      ],
+      "choices_per_statement": [
+        "Yes",
+        "No"
+      ]
+    },
+    "correct_answer": [
+      "Yes",
+      "Yes",
+      "Yes"
+    ],
+    "source": "et_image63.png"
+  },
+  {
+    "type": "hotarea",
+    "question": "For each statement, select Yes if the statement is true. Otherwise, select No.",
+    "options": {
+      "statements": [
+        "Generative AI can be used in the automation of complex workflows",
+        "Generative AI can be used to generate new content, such as text, images, and music",
+        "Generative AI is best suited to perform mathematical calculations and solve equations"
+      ],
+      "choices_per_statement": [
+        "Yes",
+        "No"
+      ]
+    },
+    "correct_answer": [
+      "Yes",
+      "Yes",
+      "No"
+    ],
+    "source": "et_image65.png"
+  },
+  {
+    "type": "hotarea",
+    "question": "For each statement, select Yes if the statement is true. Otherwise, select No.",
+    "options": {
+      "statements": [
+        "Generative AI can be used in the automation of complex workflows",
+        "Generative AI can be used to generate new content, such as text, images, and music"
+      ],
+      "choices_per_statement": [
+        "Yes",
+        "No"
+      ]
+    },
+    "correct_answer": [
+      "Yes",
+      "Yes"
+    ],
+    "source": "et_image66.png"
+  },
+  {
+    "type": "hotarea",
+    "question": "For each statement, select Yes if the statement is true. Otherwise, select No.",
+    "options": {
+      "statements": [
+        "Retrieval Augmented Generation (RAG) architectures require that a large language model (LLM) be retrained",
+        "Retrieval-Augmented Generation (RAG) grounds a language model to produce more factual and context-aware responses",
+        "Retrieval Augmented Generation (RAG) retrieves information from external knowledge sources at runtime instead of relying solely on the knowledge of a generative AI model"
+      ],
+      "choices_per_statement": [
+        "Yes",
+        "No"
+      ]
+    },
+    "correct_answer": [
+      "No",
+      "Yes",
+      "Yes"
+    ],
+    "source": "et_image67.png"
+  },
+  {
+    "type": "hotarea",
+    "question": "For each statement, select Yes if the statement is true. Otherwise, select No.",
+    "options": {
+      "statements": [
+        "A text-to-image generator can be used to translate content into other languages",
+        "A predictive analytics model can generate new marketing content for a company's online ads",
+        "A generative AI chatbot can engage customers in personalized conversations and recommend products"
+      ],
+      "choices_per_statement": [
+        "Yes",
+        "No"
+      ]
+    },
+    "correct_answer": [
+      "No",
+      "No",
+      "Yes"
+    ],
+    "source": "et_image69.png"
+  },
+  {
+    "type": "dropdown",
+    "question": "A [dropdown1] AI solution recognizes patterns in large and complex datasets to create new and original content.",
+    "options": {
+      "dropdown1": [
+        "prescriptive",
+        "predictive",
+        "generative"
+      ]
+    },
+    "correct_answer": {
+      "dropdown1": 2
+    },
+    "source": "et_image7.png"
+  },
+  {
+    "type": "hotarea",
+    "question": "For each statement, select Yes if the statement is true. Otherwise, select No.",
+    "options": {
+      "statements": [
+        "Prompt engineering changes how a generative AI model was trained",
+        "Prompt engineering focuses on designing clear, concise, and context-rich instructions",
+        "Effective prompt engineering involves maximizing the number of tokens used in each request"
+      ],
+      "choices_per_statement": [
+        "Yes",
+        "No"
+      ]
+    },
+    "correct_answer": [
+      "No",
+      "Yes",
+      "No"
+    ],
+    "source": "et_image71.png"
+  },
+  {
+    "type": "dropdown",
+    "question": "Effective prompt engineering increases the [dropdown1]",
+    "options": {
+      "dropdown1": [
+        "storage capacity required for AI data.",
+        "training time required for generative AI models.",
+        "accuracy and relevance of AI-generated responses."
+      ]
+    },
+    "correct_answer": {
+      "dropdown1": 2
+    },
+    "source": "et_image73.png"
+  },
+  {
+    "type": "hotarea",
+    "question": "For each statement, select Yes if the statement is true. Otherwise, select No.",
+    "options": {
+      "statements": [
+        "Prompt engineering involves specifying guidelines that help a generative AI model generate useful and",
+        "The instruction is the part of the prompt that includes examples to show the AI what its response should be",
+        "The context is the part of the prompt that helps a generative AI model understand which information to use when generating a response"
+      ],
+      "choices_per_statement": [
+        "Yes",
+        "No"
+      ]
+    },
+    "correct_answer": [
+      "Yes",
+      "No",
+      "Yes"
+    ],
+    "source": "et_image75.png"
+  },
+  {
+    "type": "dropdown",
+    "question": "The main difference between generative AI and predictive AI is that generative AI [dropdown1]",
+    "options": {
+      "dropdown1": [
+        "uses a smaller dataset.",
+        "produces more accurate results.",
+        "can produce new and original content."
+      ]
+    },
+    "correct_answer": {
+      "dropdown1": 2
+    },
+    "source": "et_image77.png"
+  },
+  {
+    "type": "hotarea",
+    "question": "For each statement, select Yes if the statement is true. Otherwise, select No.",
+    "options": {
+      "statements": [
+        "Microsoft Copilot in Outlook can automatically send follow-up replies to emails",
+        "Microsoft Copilot in Outlook can identify and surface tasks mentioned in your emails",
+        "Microsoft Copilot in Outlook can summarize long email threads and highlight action items and deadlines"
+      ],
+      "choices_per_statement": [
+        "Yes",
+        "No"
+      ]
+    },
+    "correct_answer": [
+      "No",
+      "Yes",
+      "Yes"
+    ],
+    "source": "et_image81.png"
+  },
+  {
+    "type": "hotarea",
+    "question": "For each statement, select Yes if the statement is true. Otherwise, select No.",
+    "options": {
+      "statements": [
+        "Microsoft 365 Copilot helps users create and analyze content in Microsoft 365 apps",
+        "Microsoft Copilot Studio can only be used to customize Microsoft 365 Copilot",
+        "Microsoft Security Copilot uses AI to assign sensitivity labels to documents"
+      ],
+      "choices_per_statement": [
+        "Yes",
+        "No"
+      ]
+    },
+    "correct_answer": [
+      "Yes",
+      "No",
+      "No"
+    ],
+    "source": "et_image83.png"
+  },
+  {
+    "type": "hotarea",
+    "question": "For each statement, select Yes if the statement is true. Otherwise, select No.",
+    "options": {
+      "statements": [
+        "Microsoft 365 Copilot helps users create and analyze content in Microsoft 365 apps",
+        "Microsoft Copilot Studio can only be used to customize Microsoft 365 Copilot"
+      ],
+      "choices_per_statement": [
+        "Yes",
+        "No"
+      ]
+    },
+    "correct_answer": [
+      "Yes",
+      "No"
+    ],
+    "source": "et_image84.png"
+  },
+  {
+    "type": "hotarea",
+    "question": "For each statement, select Yes if the statement is true. Otherwise, select No.",
+    "options": {
+      "statements": [
+        "Microsoft 365 Copilot can help users compose professional emails and summarize conversations",
+        "When prompted, Microsoft 365 Copilot can autonomously update a spreadsheet that contains sales data. c",
+        "Microsoft 365 Copilot can summarize recent updates in business documents, spreadsheets, and"
+      ],
+      "choices_per_statement": [
+        "Yes",
+        "No"
+      ]
+    },
+    "correct_answer": [
+      "Yes",
+      "No",
+      "Yes"
+    ],
+    "source": "et_image85.png"
+  },
+  {
+    "question": "___ can analyze internal documents to detect Personally Identifiable Information (PII) and redact the PII from the output.",
+    "options": {
+      "A": "Azure Language in Foundry Tools",
+      "B": "Azure AI Search",
+      "C": "Azure Vision in Foundry Tools",
+      "D": "Azure Document Intelligence in Foundry Tools"
+    },
+    "correct_answer": "A",
+    "source": "et_image87.png"
+  },
+  {
+    "type": "hotarea",
+    "question": "For each statement, select Yes if the statement is true. Otherwise, select No.",
+    "options": {
+      "statements": [
+        "Microsoft 365 Copilot enables users to search across emails, files, chats, meetings, and connected apps, by using natural language queries",
+        "Microsoft 365 Copilot provides data protection, and helps ensure that user prompts and chat data are protected.",
+        "Microsoft 365 Copilot is included in all Microsoft 365 subscriptions"
+      ],
+      "choices_per_statement": [
+        "Yes",
+        "No"
+      ]
+    },
+    "correct_answer": [
+      "Yes",
+      "Yes",
+      "No"
+    ],
+    "source": "et_image91.png"
+  },
+  {
+    "question": "___ is a unified platform for enterprise AI development, where you can build, customize, evaluate, and manage AI apps and models.",
+    "options": {
+      "A": "Microsoft Foundry",
+      "B": "Microsoft Power Platform",
+      "C": "Azure Machine Learning"
+    },
+    "correct_answer": "A",
+    "source": "et_image93.png"
+  },
+  {
+    "type": "hotarea",
+    "question": "For each statement, select Yes if the statement is true. Otherwise, select No.",
+    "options": {
+      "statements": [
+        "You can use Azure Language in Foundry Tools to analyze the sentiment of customer reviews",
+        "You can use Azure Language in Foundry Tools to translate internal reports into multiple languages.",
+        "You can use Azure Language in Foundry Tools to extract text from scanned documents"
+      ],
+      "choices_per_statement": [
+        "Yes",
+        "No"
+      ]
+    },
+    "correct_answer": [
+      "Yes",
+      "Yes",
+      "No"
+    ],
+    "source": "et_image95.png"
+  },
+  {
+    "type": "dropdown",
+    "question": "An effective way to scale AI proficiency and adoption amongst employees is to [dropdown1] and launch an internal campaign to promote AI awareness. offer a self-paced online training course for employees.",
+    "options": {
+      "dropdown1": [
+        "define performance metrics for AI tool usage.",
+        "establish a champions program for your company."
+      ]
+    },
+    "correct_answer": {
+      "dropdown1": 1
+    },
+    "source": "et_image97.png"
   }
 ]

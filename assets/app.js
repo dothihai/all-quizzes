@@ -371,6 +371,24 @@ function isValidHotAreaQuestion(question) {
     return question.type === 'hotarea' && question.options && Array.isArray(question.options.statements);
 }
 
+function isValidDropdownQuestion(question) {
+    return question.type === 'dropdown' && question.options && typeof question.correct_answer === 'object' && !Array.isArray(question.correct_answer);
+}
+
+function renderDropdownText(question) {
+    const escapedQuestion = escapeHtml(question.question).replace(/\n/g, '<br>');
+    return escapedQuestion.replace(/\[(dropdown[^\]]+)\]/g, function (_, key) {
+        const values = Array.isArray(question.options[key]) ? question.options[key] : [];
+        let html = '<select class="dropdown-select" data-dropdown-key="' + escapeHtml(key) + '">';
+        html += '<option value="">-- Chọn --</option>';
+        values.forEach(function (value, idx) {
+            html += '<option value="' + idx + '">' + escapeHtml(value) + '</option>';
+        });
+        html += '</select>';
+        return '<span class="dropdown-wrapper">' + html + '</span>';
+    });
+}
+
 function displayQuestion() {
     document.getElementById('total-questions').textContent = questions.length;
     document.getElementById('question-total').textContent = questions.length;
@@ -400,7 +418,12 @@ function displayQuestion() {
     const question = questions[currentQuestionIndex];
     document.getElementById('question-number').textContent = 'Question ' + question.id;
     jumpInput.value = currentQuestionIndex + 1;
-    document.getElementById('question-text').textContent = question.question;
+    const questionText = document.getElementById('question-text');
+    if (isValidDropdownQuestion(question)) {
+        questionText.innerHTML = renderDropdownText(question);
+    } else {
+        questionText.textContent = question.question;
+    }
 
     const optionsContainer = document.getElementById('options-container');
     optionsContainer.innerHTML = '';
@@ -440,7 +463,7 @@ function displayQuestion() {
             optionRow.appendChild(choiceRow);
             optionsContainer.appendChild(optionRow);
         });
-    } else {
+    } else if (!isValidDropdownQuestion(question)) {
         const isMultiple = question.correct_answer.length > 1;
         const inputType = isMultiple ? 'checkbox' : 'radio';
         for (const [key, value] of Object.entries(question.options)) {
@@ -496,6 +519,29 @@ function checkAnswer() {
             return 'Statement ' + (index + 1) + ': ' + statement + ' — ' + choices;
         }).join('\n');
         correctDisplay = Array.isArray(question.correct_answer) ? question.correct_answer.join(', ') : question.correct_answer;
+    } else if (isValidDropdownQuestion(question)) {
+        const dropdowns = document.querySelectorAll('.dropdown-select');
+        const selected = {};
+        const values = question.options;
+        for (let i = 0; i < dropdowns.length; i++) {
+            const select = dropdowns[i];
+            const key = select.dataset.dropdownKey;
+            if (!select.value) { alert('Please choose a value for every dropdown.'); return; }
+            selected[key] = parseInt(select.value, 10);
+        }
+        answer = selected;
+        isCorrect = Object.keys(question.correct_answer).every(function (key) {
+            return selected.hasOwnProperty(key) && selected[key] === question.correct_answer[key];
+        });
+
+        optionsText = Object.keys(question.options).map(function (key) {
+            return key + ': ' + question.options[key].join('/');
+        }).join('\n');
+        correctDisplay = Object.keys(question.correct_answer).map(function (key) {
+            const idx = question.correct_answer[key];
+            const valuesForKey = question.options[key];
+            return valuesForKey && valuesForKey[idx] ? valuesForKey[idx] : '';
+        }).join(', ');
     } else {
         const isMultiple = question.correct_answer.length > 1;
         if (isMultiple) {
@@ -541,6 +587,17 @@ function checkAnswer() {
                 } else {
                     choiceLabel.classList.add('incorrect');
                 }
+            }
+        });
+    } else if (isValidDropdownQuestion(question)) {
+        document.querySelectorAll('.dropdown-select').forEach(function (select) {
+            const key = select.dataset.dropdownKey;
+            const correctIndex = question.correct_answer[key];
+            const selectedOptionIndex = parseInt(select.value, 10);
+            select.disabled = true;
+            const wrapper = select.closest('.dropdown-wrapper');
+            if (wrapper) {
+                wrapper.classList.add(selectedOptionIndex === correctIndex ? 'correct' : 'incorrect');
             }
         });
     } else {

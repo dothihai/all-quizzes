@@ -364,6 +364,37 @@ body {
     cursor: pointer;
 }
 
+.dropdown-wrapper {
+    display: inline-flex;
+    align-items: center;
+    margin: 0 4px;
+}
+
+.dropdown-select {
+    min-width: 160px;
+    max-width: 240px;
+    padding: 10px 12px;
+    border: 2px solid #d1d5db;
+    border-radius: 10px;
+    background: white;
+    font-size: 0.95rem;
+    transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.dropdown-select:focus {
+    outline: none;
+    border-color: #667eea;
+    box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.18);
+}
+
+.dropdown-wrapper.correct .dropdown-select {
+    border-color: #28a745;
+}
+
+.dropdown-wrapper.incorrect .dropdown-select {
+    border-color: #dc3545;
+}
+
 .check-button {
     background: #667eea;
     color: white;
