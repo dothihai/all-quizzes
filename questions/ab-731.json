@@ -1094,9 +1094,8 @@
     "options": {
       "statements": [
         "Allowing AI models to make autonomous decisions supports the Microsoft responsible AI principles",
-        "Regularly testing AI models for fairness and inclusiveness helps ensure they align with Microsoft's",
         "Regularly testing AI models for fairness and inclusiveness helps ensure they align with Microsoft's Responsible AI principles",
-        "Regularly testing AI models for fairness and inclusiveness helps ensure they align with Microsoft's Responsible AI principles"
+        "Protecting user data and limiting access to personal information supports the Microsoft responsible AI principles of privacy and security."
       ],
       "choices_per_statement": [
         "Yes",
