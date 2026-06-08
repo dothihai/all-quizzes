@@ -1272,5 +1272,90 @@
       "D": "Speech"
     },
     "correct_answer": "B"
+  },
+  {
+    "question": "For each of the following statements, select Yes if the statement is true. Otherwise, select No.",
+    "options": {
+      "statements": [
+        "Forecasting housing prices based on historical data is an example of anomaly detection.",
+        "Identifying suspicious sign-ins by looking for deviations from usual patterns is an example of anomaly detection.",
+        "Predicting whether a patient will develop diabetes based on the patient's medical history is an example of anomaly detection."
+      ],
+      "choices_per_statement": ["Yes", "No"]
+    },
+    "type": "hotarea",
+    "correct_answer": ["No", "Yes", "No"],
+    "source": "ExamTopics - Question 5"
+  },
+  {
+    "question": "For each of the following statements regarding AI principles, select Yes if the statement is true. Otherwise, select No.",
+    "options": {
+      "statements": [
+        "Ensuring an AI system generalizes well across different human groups is an example of inclusiveness.",
+        "A data holder is obligated to protect data security, which represents the principle of accountability.",
+        "Inclusive design practices make sure that everyone benefits from intelligent technology."
+      ],
+      "choices_per_statement": ["Yes", "No"]
+    },
+    "type": "hotarea",
+    "correct_answer": ["Yes", "No", "Yes"],
+    "source": "ExamTopics - Question 19"
+  },
+  {
+    "question": "For each of the following statements regarding Automated Machine Learning (AutoML), select Yes if the statement is true. Otherwise, select No.",
+    "options": {
+      "statements": [
+        "AutoML automates time-consuming, iterative tasks of machine learning model development.",
+        "AutoML can only be used for regression workloads.",
+        "AutoML runs multiple pipelines in parallel trying different algorithms and parameters.",
+        "The label column is not required when configuring an AutoML experiment."
+      ],
+      "choices_per_statement": ["Yes", "No"]
+    },
+    "type": "hotarea",
+    "correct_answer": ["Yes", "No", "Yes", "No"],
+    "source": "ExamTopics - Question 32"
+  },
+  {
+    "question": "For each of the following statements regarding Machine Learning Concepts, select Yes if the statement is true. Otherwise, select No.",
+    "options": {
+      "statements": [
+        "Data labeling refers to tagging or annotating raw data to show the target answer.",
+        "Unlabeled data is typically used in supervised machine learning algorithms.",
+        "Accuracy is always the best metric to evaluate unbalanced datasets."
+      ],
+      "choices_per_statement": ["Yes", "No"]
+    },
+    "type": "hotarea",
+    "correct_answer": ["Yes", "No", "No"],
+    "source": "ExamTopics - Question 34"
+  },
+  {
+    "question": "For each of the following statements regarding Azure Machine Learning Designer, select Yes if the statement is true. Otherwise, select No.",
+    "options": {
+      "statements": [
+        "Azure Machine Learning designer lets you visually connect datasets and modules on an interactive canvas.",
+        "As you edit a pipeline in the designer, your progress is saved as a pipeline draft.",
+        "You can deploy a designer pipeline as a web service directly without training."
+      ],
+      "choices_per_statement": ["Yes", "No"]
+    },
+    "type": "hotarea",
+    "correct_answer": ["Yes", "Yes", "No"],
+    "source": "ExamTopics - Question 40"
+  },
+  {
+    "question": "For each of the following statements regarding Validation Datasets, select Yes if the statement is true. Otherwise, select No.",
+    "options": {
+      "statements": [
+        "The validation dataset is exactly identical to the test dataset.",
+        "A validation dataset is used to provide an estimate of model skill while tuning hyperparameters.",
+        "The validation set is used to provide an unbiased evaluation of the final model fit."
+      ],
+      "choices_per_statement": ["Yes", "No"]
+    },
+    "type": "hotarea",
+    "correct_answer": ["No", "Yes", "No"],
+    "source": "ExamTopics - Question 50"
   }
 ]
