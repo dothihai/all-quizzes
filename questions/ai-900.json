@@ -1,0 +1,252 @@
+[
+  {
+    "question": "A company employs a team of customer service agents to provide telephone and email support to customers.\nThe company develops a webchat bot to provide automated answers to common customer queries.\nWhich business benefit should the company expect as a result of creating the webchat bot solution?",
+    "options": {
+      "A": "increased sales",
+      "B": "a reduced workload for the customer service agents",
+      "C": "improved product reliability"
+    },
+    "correct_answer": "B"
+  },
+  {
+    "question": "For a machine learning progress, how should you split data for training and evaluation?",
+    "options": {
+      "A": "Use features for training and labels for evaluation.",
+      "B": "Randomly split the data into rows for training and rows for evaluation.",
+      "C": "Use labels for training and features for evaluation.",
+      "D": "Randomly split the data into columns for training and columns for evaluation."
+    },
+    "correct_answer": "B"
+  },
+  {
+    "question": "You are building an AI system.\nWhich task should you include to ensure that the service meets the Microsoft transparency principle for responsible AI?",
+    "options": {
+      "A": "Ensure that all visuals have an associated text that can be read by a screen reader.",
+      "B": "Enable autoscaling to ensure that a service scales based on demand.",
+      "C": "Provide documentation to help developers debug code.",
+      "D": "Ensure that a training dataset is representative of the population."
+    },
+    "correct_answer": "C"
+  },
+  {
+    "question": "You have a dataset that contains information about taxi journeys that occurred during a given period.\nYou need to train a model to predict the fare of a taxi journey.\nWhat should you use as a feature?",
+    "options": {
+      "A": "the number of taxi journeys in the dataset",
+      "B": "the trip distance of individual taxi journeys",
+      "C": "the fare of individual taxi journeys",
+      "D": "the trip ID of individual taxi journeys"
+    },
+    "correct_answer": "B"
+  },
+  {
+    "question": "You are evaluating whether to use a basic workspace or an enterprise workspace in Azure Machine Learning.\nWhat are two tasks that require an enterprise workspace? Each correct answer presents a complete solution.\nNOTE: Each correct selection is worth one point.",
+    "options": {
+      "A": "Use a graphical user interface (GUI) to run automated machine learning experiments.",
+      "B": "Create a compute instance to use as a workstation.",
+      "C": "Use a graphical user interface (GUI) to define and run machine learning experiments from Azure Machine Learning designer.",
+      "D": "Create a dataset from a comma-separated value (CSV) file."
+    },
+    "correct_answer": "AC"
+  },
+  {
+    "question": "You need to develop a mobile app for employees to scan and store their expenses while travelling.\nWhich type of computer vision should you use?",
+    "options": {
+      "A": "semantic segmentation",
+      "B": "image classification",
+      "C": "object detection",
+      "D": "optical character recognition (OCR)"
+    },
+    "correct_answer": "D"
+  },
+  {
+    "question": "You use drones to identify where weeds grow between rows of crops to send an instruction for the removal of the weeds.\nThis is an example of which type of computer vision?",
+    "options": {
+      "A": "object detection",
+      "B": "optical character recognition (OCR)",
+      "C": "scene segmentation"
+    },
+    "correct_answer": "A"
+  },
+  {
+    "question": "You need to determine the location of cars in an image so that you can estimate the distance between the cars.\nWhich type of computer vision should you use?",
+    "options": {
+      "A": "optical character recognition (OCR)",
+      "B": "object detection",
+      "C": "image classification",
+      "D": "face detection"
+    },
+    "correct_answer": "B"
+  },
+  {
+    "question": "What are two tasks that can be performed by using the Computer Vision service? Each correct answer presents a complete solution.\nNOTE: Each correct selection is worth one point.",
+    "options": {
+      "A": "Train a custom image classification model.",
+      "B": "Detect faces in an image.",
+      "C": "Recognize handwritten text.",
+      "D": "Translate the text in an image between languages."
+    },
+    "correct_answer": "BC"
+  },
+  {
+    "question": "You need to build an image tagging solution for social media that tags images of your friends automatically.\nWhich Azure Cognitive Services service should you use?",
+    "options": {
+      "A": "Face",
+      "B": "Form Recognizer",
+      "C": "Text Analytics",
+      "D": "Computer Vision"
+    },
+    "correct_answer": "A"
+  },
+  {
+    "question": "Which service should you use to extract text, key/value pairs, and table data automatically from scanned documents?",
+    "options": {
+      "A": "Custom Vision",
+      "B": "Face",
+      "C": "Form Recognizer",
+      "D": "Language"
+    },
+    "correct_answer": "C"
+  },
+  {
+    "question": "You use natural language processing to process text from a Microsoft news story.\nYou receive the output shown in the following exhibit.\nWhich type of natural languages processing was performed?",
+    "options": {
+      "A": "entity recognition",
+      "B": "key phrase extraction",
+      "C": "sentiment analysis",
+      "D": "translation"
+    },
+    "correct_answer": "A"
+  },
+  {
+    "question": "You build a QnA Maker bot by using a frequently asked questions (FAQ) page.\nYou need to add professional greetings and other responses to make the bot more user friendly.\nWhat should you do?",
+    "options": {
+      "A": "Increase the confidence threshold of responses",
+      "B": "Enable active learning",
+      "C": "Create multi-turn questions",
+      "D": "Add chit-chat"
+    },
+    "correct_answer": "D"
+  },
+  {
+    "question": "You need to develop a chatbot for a website. The chatbot must answer users' questions based on the information in the following documents:\n✑ A product troubleshooting guide in a Microsoft Word document\n✑ A frequently asked questions (FAQ) list on a webpage\nWhich service should you use to process the documents?",
+    "options": {
+      "A": "Azure Bot Service",
+      "B": "Language Understanding",
+      "C": "Text Analytics",
+      "D": "QnA Maker"
+    },
+    "correct_answer": "D"
+  },
+  {
+    "question": "You have an AI solution that provides users with the ability to control smart devices by using verbal commands.\nWhich two types of natural language processing (NLP) workloads does the solution use? Each correct answer presents part of the solution.\nNOTE: Each correct selection is worth one point.",
+    "options": {
+      "A": "text-to-speech",
+      "B": "key phrase extraction",
+      "C": "speech-to-text",
+      "D": "language modeling",
+      "E": "translation"
+    },
+    "correct_answer": "CD"
+  },
+  {
+    "question": "You have insurance claim reports that are stored as text.\nYou need to extract key terms from the reports to generate summaries.\nWhich type of AI workload should you use?",
+    "options": {
+      "A": "anomaly detection",
+      "B": "natural language processing",
+      "C": "computer vision",
+      "D": "knowledge mining"
+    },
+    "correct_answer": "B"
+  },
+  {
+    "question": "You are developing a conversational AI solution that will communicate with users through multiple channels including email, Microsoft Teams, and webchat.\nWhich service should you use?",
+    "options": {
+      "A": "Text Analytics",
+      "B": "Azure Bot Service",
+      "C": "Translator",
+      "D": "Form Recognizer"
+    },
+    "correct_answer": "B"
+  },
+  {
+    "question": "You have a dataset.\nYou need to build an Azure Machine Learning classification model that will identify defective products.\nWhat should you do first?",
+    "options": {
+      "A": "Load the dataset.",
+      "B": "Create a clustering model.",
+      "C": "Split the data into training and testing datasets.",
+      "D": "Create a classification model."
+    },
+    "correct_answer": "A"
+  },
+  {
+    "question": "You need to create a customer support solution to help customers access information. The solution must support email, phone, and live chat channels.\nWhich type of Al solution should you use?",
+    "options": {
+      "A": "machine learning",
+      "B": "computer vision",
+      "C": "chatbot",
+      "D": "natural language processing (NLP)"
+    },
+    "correct_answer": "C"
+  },
+  {
+    "question": "You need to create a clustering model and evaluate the model by using Azure Machine Learning designer.\nWhat should you do?",
+    "options": {
+      "A": "Split the original dataset into a dataset for training and a dataset for testing. Use the testing dataset for evaluation.",
+      "B": "Use the original dataset for training and evaluation.",
+      "C": "Split the original dataset into a dataset for features and a dataset for labels. Use the features dataset for evaluation.",
+      "D": "Split the original dataset into a dataset for training and a dataset for testing. Use the training dataset for evaluation."
+    },
+    "correct_answer": "B"
+  },
+  {
+    "question": "You are building a chatbot that will use natural language processing (NLP) to perform the following actions based on the text input of a user.\n• Accept customer orders.\n• Retrieve support documents.\n• Retrieve order status updates.\nWhich type of NLP should you use?",
+    "options": {
+      "A": "sentiment analysis",
+      "B": "named entity recognition",
+      "C": "translation",
+      "D": "language modeling"
+    },
+    "correct_answer": "D"
+  },
+  {
+    "question": "For which two workloads can you use computer vision? Each correct answer presents a complete solution.\nNOTE: Each correct selection is worth one point.",
+    "options": {
+      "A": "assigning the color pixels in an image to object names",
+      "B": "detecting inconsistencies and anomalies in a stream of data",
+      "C": "creating visual representations of numerical data",
+      "D": "creating photorealistic images by using three-dimensional models",
+      "E": "describing the contents of an image"
+    },
+    "correct_answer": "AE"
+  },
+  {
+    "question": "You are building a Language Understanding model for an e-commerce business.\nYou need to ensure that the model detects when utterances are outside the intended scope of the model.\nWhat should you do?",
+    "options": {
+      "A": "Export the model",
+      "B": "Add utterances to the None intent",
+      "C": "Create a prebuilt task entity",
+      "D": "Create a new model"
+    },
+    "correct_answer": "B"
+  },
+  {
+    "question": "You need to identify street names based on street signs in photographs.\nWhich type of computer vision should you use?",
+    "options": {
+      "A": "object detection",
+      "B": "optical character recognition (OCR)",
+      "C": "image classification",
+      "D": "facial recognition"
+    },
+    "correct_answer": "B"
+  },
+  {
+    "question": "You have a bot that identifies the brand names of products in images of supermarket shelves.\nWhich service does the bot use?",
+    "options": {
+      "A": "AI enrichment for Azure Search capabilities",
+      "B": "Computer Vision Image Analysis capabilities",
+      "C": "Custom Vision Image Classification capabilities",
+      "D": "Language Understanding capabilities"
+    },
+    "correct_answer": "B"
+  }
+]

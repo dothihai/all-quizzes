@@ -48,6 +48,14 @@
     "subcategory": "Microsoft"
   },
   {
+    "id": "ai-900",
+    "title": "Microsoft Azure AI Fundamentals (AI-900)",
+    "icon": "🤖",
+    "count": 25,
+    "category": "Chứng chỉ",
+    "subcategory": "Microsoft"
+  },
+  {
     "id": "ab-100",
     "title": "Microsoft Certified: Agentic AI Business Solutions Architect (AB-100)",
     "icon": "☁️",
