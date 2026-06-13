@@ -375,6 +375,12 @@ function isValidDropdownQuestion(question) {
     return question.type === 'dropdown' && question.options && typeof question.correct_answer === 'object' && !Array.isArray(question.correct_answer);
 }
 
+function isValidDragdropQuestion(question) {
+    return question.type === 'dragdrop' && question.options && 
+           Array.isArray(question.options.items) && Array.isArray(question.options.categories) &&
+           Array.isArray(question.correct_answer);
+}
+
 function renderDropdownText(question) {
     const escapedQuestion = escapeHtml(question.question).replace(/\n/g, '<br>');
     return escapedQuestion.replace(/\[(dropdown[^\]]+)\]/g, function (_, key) {
@@ -428,7 +434,94 @@ function displayQuestion() {
     const optionsContainer = document.getElementById('options-container');
     optionsContainer.innerHTML = '';
 
-    if (isValidHotAreaQuestion(question)) {
+    if (isValidDragdropQuestion(question)) {
+        const items = question.options.items;
+        const categories = question.options.categories;
+        
+        const dragdropContainer = document.createElement('div');
+        dragdropContainer.className = 'dragdrop-container';
+        
+        // Left side: drop zones for items
+        const itemsSection = document.createElement('div');
+        itemsSection.className = 'dragdrop-items-section';
+        const itemsLabel = document.createElement('div');
+        itemsLabel.className = 'dragdrop-section-label';
+        itemsLabel.textContent = 'Items to match:';
+        itemsSection.appendChild(itemsLabel);
+        
+        const itemsList = document.createElement('div');
+        itemsList.className = 'dragdrop-items-list';
+        items.forEach(function (item, index) {
+            const itemWrapper = document.createElement('div');
+            itemWrapper.className = 'dragdrop-item-wrapper';
+            itemWrapper.dataset.itemIndex = index;
+            
+            const itemText = document.createElement('div');
+            itemText.className = 'dragdrop-item-text';
+            itemText.textContent = item;
+            itemWrapper.appendChild(itemText);
+            
+            const itemDropZone = document.createElement('div');
+            itemDropZone.className = 'dragdrop-item-drop-zone';
+            itemDropZone.dataset.itemIndex = index;
+            itemDropZone.textContent = 'Drop category here';
+            
+            itemDropZone.addEventListener('dragover', function (e) {
+                e.preventDefault();
+                e.dataTransfer.dropEffect = 'move';
+                itemDropZone.classList.add('dragover');
+            });
+            
+            itemDropZone.addEventListener('dragleave', function () {
+                itemDropZone.classList.remove('dragover');
+            });
+            
+            itemDropZone.addEventListener('drop', function (e) {
+                e.preventDefault();
+                itemDropZone.classList.remove('dragover');
+                const catIndex = parseInt(e.dataTransfer.getData('categoryIndex'), 10);
+                const categoryName = categories[catIndex];
+                if (categoryName) {
+                    itemDropZone.textContent = categoryName;
+                    itemDropZone.dataset.categoryIndex = catIndex;
+                }
+            });
+            
+            itemWrapper.appendChild(itemDropZone);
+            itemsList.appendChild(itemWrapper);
+        });
+        itemsSection.appendChild(itemsList);
+        dragdropContainer.appendChild(itemsSection);
+        
+        // Right side: draggable categories
+        const categoriesSection = document.createElement('div');
+        categoriesSection.className = 'dragdrop-categories-section';
+        const catLabel = document.createElement('div');
+        catLabel.className = 'dragdrop-section-label';
+        catLabel.textContent = 'Categories (drag to items):';
+        categoriesSection.appendChild(catLabel);
+        
+        const categoriesList = document.createElement('div');
+        categoriesList.className = 'dragdrop-categories-list';
+        categories.forEach(function (category, catIndex) {
+            const categoryEl = document.createElement('div');
+            categoryEl.className = 'dragdrop-category';
+            categoryEl.draggable = true;
+            categoryEl.dataset.categoryIndex = catIndex;
+            categoryEl.textContent = category;
+            
+            categoryEl.addEventListener('dragstart', function (e) {
+                e.dataTransfer.effectAllowed = 'move';
+                e.dataTransfer.setData('categoryIndex', catIndex);
+            });
+            
+            categoriesList.appendChild(categoryEl);
+        });
+        categoriesSection.appendChild(categoriesList);
+        dragdropContainer.appendChild(categoriesSection);
+        
+        optionsContainer.appendChild(dragdropContainer);
+    } else if (isValidHotAreaQuestion(question)) {
         const statements = question.options.statements;
         const choices = Array.isArray(question.options.choices_per_statement) ? question.options.choices_per_statement : ['Yes', 'No'];
         statements.forEach(function (statement, index) {
@@ -501,7 +594,36 @@ function checkAnswer() {
     let optionsText = '';
     let correctDisplay = question.correct_answer;
 
-    if (isValidHotAreaQuestion(question)) {
+    if (isValidDragdropQuestion(question)) {
+        const items = question.options.items;
+        const categories = question.options.categories;
+        const itemDropZones = document.querySelectorAll('.dragdrop-item-drop-zone');
+        const selected = [];
+        
+        // Check if all items have a category assigned
+        itemDropZones.forEach(function (dropZone) {
+            const itemIndex = parseInt(dropZone.dataset.itemIndex, 10);
+            const catIndex = parseInt(dropZone.dataset.categoryIndex, 10);
+            if (typeof catIndex === 'number' && !isNaN(catIndex)) {
+                selected[itemIndex] = catIndex;
+            }
+        });
+        
+        // Ensure all items have a category assigned
+        for (let i = 0; i < items.length; i++) {
+            if (typeof selected[i] === 'undefined') {
+                alert('Please assign a category to all items!');
+                return;
+            }
+        }
+        
+        answer = selected;
+        isCorrect = selected.length === question.correct_answer.length &&
+                   selected.every(function (value, index) { return value === question.correct_answer[index]; });
+        
+        optionsText = 'Items: ' + items.join(', ') + '\nCategories: ' + categories.join(', ');
+        correctDisplay = question.correct_answer.map(function (catIdx) { return categories[catIdx]; }).join(', ');
+    } else if (isValidHotAreaQuestion(question)) {
         const selected = [];
         const rows = document.querySelectorAll('.hotarea-statement');
         for (let i = 0; i < rows.length; i++) {
@@ -575,7 +697,26 @@ function checkAnswer() {
     const chatgptUrl = 'https://chatgpt.com/?prompt=' + encodeURIComponent(promptText);
     resultDiv.innerHTML = baseMsg + '<br><a href="' + chatgptUrl + '" target="_blank" rel="noopener noreferrer" class="explain-button">💬 Giải thích bằng ChatGPT</a>';
 
-    if (isValidHotAreaQuestion(question)) {
+    if (isValidDragdropQuestion(question)) {
+        const items = question.options.items;
+        const categories = question.options.categories;
+        const itemDropZones = document.querySelectorAll('.dragdrop-item-drop-zone');
+        const expected = question.correct_answer;
+        
+        itemDropZones.forEach(function (dropZone) {
+            const itemIndex = parseInt(dropZone.dataset.itemIndex, 10);
+            const catIndex = parseInt(dropZone.dataset.categoryIndex, 10);
+            if (typeof catIndex === 'number' && !isNaN(catIndex)) {
+                const isCorrect = (itemIndex < expected.length && expected[itemIndex] === catIndex);
+                dropZone.classList.add(isCorrect ? 'correct' : 'incorrect');
+            }
+        });
+        
+        // Disable dragging categories after checking
+        document.querySelectorAll('.dragdrop-category').forEach(function (category) {
+            category.draggable = false;
+        });
+    } else if (isValidHotAreaQuestion(question)) {
         const expected = question.correct_answer;
         document.querySelectorAll('.hotarea-statement').forEach(function (row, index) {
             const selectedInput = row.querySelector('input[name="answer-' + index + '"]:checked');
