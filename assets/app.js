@@ -437,11 +437,12 @@ function displayQuestion() {
     if (isValidDragdropQuestion(question)) {
         const items = question.options.items;
         const categories = question.options.categories;
+        const isMobile = window.matchMedia('(max-width: 768px)').matches || ('ontouchstart' in window);
         
         const dragdropContainer = document.createElement('div');
         dragdropContainer.className = 'dragdrop-container';
         
-        // Left side: drop zones for items
+        // Left side: items with selection UI
         const itemsSection = document.createElement('div');
         itemsSection.className = 'dragdrop-items-section';
         const itemsLabel = document.createElement('div');
@@ -451,74 +452,112 @@ function displayQuestion() {
         
         const itemsList = document.createElement('div');
         itemsList.className = 'dragdrop-items-list';
-        items.forEach(function (item, index) {
-            const itemWrapper = document.createElement('div');
-            itemWrapper.className = 'dragdrop-item-wrapper';
-            itemWrapper.dataset.itemIndex = index;
-            
-            const itemText = document.createElement('div');
-            itemText.className = 'dragdrop-item-text';
-            itemText.textContent = item;
-            itemWrapper.appendChild(itemText);
-            
-            const itemDropZone = document.createElement('div');
-            itemDropZone.className = 'dragdrop-item-drop-zone';
-            itemDropZone.dataset.itemIndex = index;
-            itemDropZone.textContent = 'Drop category here';
-            
-            itemDropZone.addEventListener('dragover', function (e) {
-                e.preventDefault();
-                e.dataTransfer.dropEffect = 'move';
-                itemDropZone.classList.add('dragover');
+        
+        if (isMobile) {
+            // Mobile: Use select dropdowns
+            items.forEach(function (item, index) {
+                const itemWrapper = document.createElement('div');
+                itemWrapper.className = 'dragdrop-item-wrapper mobile';
+                itemWrapper.dataset.itemIndex = index;
+                
+                const itemText = document.createElement('div');
+                itemText.className = 'dragdrop-item-text';
+                itemText.textContent = item;
+                itemWrapper.appendChild(itemText);
+                
+                const select = document.createElement('select');
+                select.className = 'dragdrop-select-mobile';
+                select.dataset.itemIndex = index;
+                
+                const defaultOption = document.createElement('option');
+                defaultOption.value = '';
+                defaultOption.textContent = '-- Select category --';
+                select.appendChild(defaultOption);
+                
+                categories.forEach(function (cat, catIdx) {
+                    const option = document.createElement('option');
+                    option.value = catIdx;
+                    option.textContent = cat;
+                    select.appendChild(option);
+                });
+                
+                itemWrapper.appendChild(select);
+                itemsList.appendChild(itemWrapper);
             });
-            
-            itemDropZone.addEventListener('dragleave', function () {
-                itemDropZone.classList.remove('dragover');
+        } else {
+            // Desktop: Drag and drop
+            items.forEach(function (item, index) {
+                const itemWrapper = document.createElement('div');
+                itemWrapper.className = 'dragdrop-item-wrapper';
+                itemWrapper.dataset.itemIndex = index;
+                
+                const itemText = document.createElement('div');
+                itemText.className = 'dragdrop-item-text';
+                itemText.textContent = item;
+                itemWrapper.appendChild(itemText);
+                
+                const itemDropZone = document.createElement('div');
+                itemDropZone.className = 'dragdrop-item-drop-zone';
+                itemDropZone.dataset.itemIndex = index;
+                itemDropZone.textContent = 'Drop category here';
+                
+                itemDropZone.addEventListener('dragover', function (e) {
+                    e.preventDefault();
+                    e.dataTransfer.dropEffect = 'move';
+                    itemDropZone.classList.add('dragover');
+                });
+                
+                itemDropZone.addEventListener('dragleave', function () {
+                    itemDropZone.classList.remove('dragover');
+                });
+                
+                itemDropZone.addEventListener('drop', function (e) {
+                    e.preventDefault();
+                    itemDropZone.classList.remove('dragover');
+                    const catIndex = parseInt(e.dataTransfer.getData('categoryIndex'), 10);
+                    const categoryName = categories[catIndex];
+                    if (categoryName) {
+                        itemDropZone.textContent = categoryName;
+                        itemDropZone.dataset.categoryIndex = catIndex;
+                    }
+                });
+                
+                itemWrapper.appendChild(itemDropZone);
+                itemsList.appendChild(itemWrapper);
             });
-            
-            itemDropZone.addEventListener('drop', function (e) {
-                e.preventDefault();
-                itemDropZone.classList.remove('dragover');
-                const catIndex = parseInt(e.dataTransfer.getData('categoryIndex'), 10);
-                const categoryName = categories[catIndex];
-                if (categoryName) {
-                    itemDropZone.textContent = categoryName;
-                    itemDropZone.dataset.categoryIndex = catIndex;
-                }
-            });
-            
-            itemWrapper.appendChild(itemDropZone);
-            itemsList.appendChild(itemWrapper);
-        });
+        }
+        
         itemsSection.appendChild(itemsList);
         dragdropContainer.appendChild(itemsSection);
         
-        // Right side: draggable categories
-        const categoriesSection = document.createElement('div');
-        categoriesSection.className = 'dragdrop-categories-section';
-        const catLabel = document.createElement('div');
-        catLabel.className = 'dragdrop-section-label';
-        catLabel.textContent = 'Categories (drag to items):';
-        categoriesSection.appendChild(catLabel);
-        
-        const categoriesList = document.createElement('div');
-        categoriesList.className = 'dragdrop-categories-list';
-        categories.forEach(function (category, catIndex) {
-            const categoryEl = document.createElement('div');
-            categoryEl.className = 'dragdrop-category';
-            categoryEl.draggable = true;
-            categoryEl.dataset.categoryIndex = catIndex;
-            categoryEl.textContent = category;
+        // Right side: draggable categories (desktop only)
+        if (!isMobile) {
+            const categoriesSection = document.createElement('div');
+            categoriesSection.className = 'dragdrop-categories-section';
+            const catLabel = document.createElement('div');
+            catLabel.className = 'dragdrop-section-label';
+            catLabel.textContent = 'Categories (drag to items):';
+            categoriesSection.appendChild(catLabel);
             
-            categoryEl.addEventListener('dragstart', function (e) {
-                e.dataTransfer.effectAllowed = 'move';
-                e.dataTransfer.setData('categoryIndex', catIndex);
+            const categoriesList = document.createElement('div');
+            categoriesList.className = 'dragdrop-categories-list';
+            categories.forEach(function (category, catIndex) {
+                const categoryEl = document.createElement('div');
+                categoryEl.className = 'dragdrop-category';
+                categoryEl.draggable = true;
+                categoryEl.dataset.categoryIndex = catIndex;
+                categoryEl.textContent = category;
+                
+                categoryEl.addEventListener('dragstart', function (e) {
+                    e.dataTransfer.effectAllowed = 'move';
+                    e.dataTransfer.setData('categoryIndex', catIndex);
+                });
+                
+                categoriesList.appendChild(categoryEl);
             });
-            
-            categoriesList.appendChild(categoryEl);
-        });
-        categoriesSection.appendChild(categoriesList);
-        dragdropContainer.appendChild(categoriesSection);
+            categoriesSection.appendChild(categoriesList);
+            dragdropContainer.appendChild(categoriesSection);
+        }
         
         optionsContainer.appendChild(dragdropContainer);
     } else if (isValidHotAreaQuestion(question)) {
@@ -597,23 +636,46 @@ function checkAnswer() {
     if (isValidDragdropQuestion(question)) {
         const items = question.options.items;
         const categories = question.options.categories;
-        const itemDropZones = document.querySelectorAll('.dragdrop-item-drop-zone');
+        const isMobile = window.matchMedia('(max-width: 768px)').matches || ('ontouchstart' in window);
         const selected = [];
         
-        // Check if all items have a category assigned
-        itemDropZones.forEach(function (dropZone) {
-            const itemIndex = parseInt(dropZone.dataset.itemIndex, 10);
-            const catIndex = parseInt(dropZone.dataset.categoryIndex, 10);
-            if (typeof catIndex === 'number' && !isNaN(catIndex)) {
+        if (isMobile) {
+            // Mobile: Check select values
+            const selects = document.querySelectorAll('.dragdrop-select-mobile');
+            selects.forEach(function (select) {
+                const itemIndex = parseInt(select.dataset.itemIndex, 10);
+                const catIndex = parseInt(select.value, 10);
+                if (select.value === '' || isNaN(catIndex)) {
+                    alert('Please select a category for all items!');
+                    return;
+                }
                 selected[itemIndex] = catIndex;
+            });
+            
+            // Check all items have selection
+            for (let i = 0; i < items.length; i++) {
+                if (typeof selected[i] === 'undefined') {
+                    alert('Please select a category for all items!');
+                    return;
+                }
             }
-        });
-        
-        // Ensure all items have a category assigned
-        for (let i = 0; i < items.length; i++) {
-            if (typeof selected[i] === 'undefined') {
-                alert('Please assign a category to all items!');
-                return;
+        } else {
+            // Desktop: Check drop zones
+            const itemDropZones = document.querySelectorAll('.dragdrop-item-drop-zone');
+            itemDropZones.forEach(function (dropZone) {
+                const itemIndex = parseInt(dropZone.dataset.itemIndex, 10);
+                const catIndex = parseInt(dropZone.dataset.categoryIndex, 10);
+                if (typeof catIndex === 'number' && !isNaN(catIndex)) {
+                    selected[itemIndex] = catIndex;
+                }
+            });
+            
+            // Ensure all items have a category assigned
+            for (let i = 0; i < items.length; i++) {
+                if (typeof selected[i] === 'undefined') {
+                    alert('Please assign a category to all items!');
+                    return;
+                }
             }
         }
         
@@ -700,22 +762,36 @@ function checkAnswer() {
     if (isValidDragdropQuestion(question)) {
         const items = question.options.items;
         const categories = question.options.categories;
-        const itemDropZones = document.querySelectorAll('.dragdrop-item-drop-zone');
+        const isMobile = window.matchMedia('(max-width: 768px)').matches || ('ontouchstart' in window);
         const expected = question.correct_answer;
         
-        itemDropZones.forEach(function (dropZone) {
-            const itemIndex = parseInt(dropZone.dataset.itemIndex, 10);
-            const catIndex = parseInt(dropZone.dataset.categoryIndex, 10);
-            if (typeof catIndex === 'number' && !isNaN(catIndex)) {
+        if (isMobile) {
+            // Mobile: Disable and highlight selects
+            const selects = document.querySelectorAll('.dragdrop-select-mobile');
+            selects.forEach(function (select) {
+                select.disabled = true;
+                const itemIndex = parseInt(select.dataset.itemIndex, 10);
+                const catIndex = parseInt(select.value, 10);
                 const isCorrect = (itemIndex < expected.length && expected[itemIndex] === catIndex);
-                dropZone.classList.add(isCorrect ? 'correct' : 'incorrect');
-            }
-        });
-        
-        // Disable dragging categories after checking
-        document.querySelectorAll('.dragdrop-category').forEach(function (category) {
-            category.draggable = false;
-        });
+                select.classList.add(isCorrect ? 'correct' : 'incorrect');
+            });
+        } else {
+            // Desktop: Highlight drop zones
+            const itemDropZones = document.querySelectorAll('.dragdrop-item-drop-zone');
+            itemDropZones.forEach(function (dropZone) {
+                const itemIndex = parseInt(dropZone.dataset.itemIndex, 10);
+                const catIndex = parseInt(dropZone.dataset.categoryIndex, 10);
+                if (typeof catIndex === 'number' && !isNaN(catIndex)) {
+                    const isCorrect = (itemIndex < expected.length && expected[itemIndex] === catIndex);
+                    dropZone.classList.add(isCorrect ? 'correct' : 'incorrect');
+                }
+            });
+            
+            // Disable dragging categories after checking
+            document.querySelectorAll('.dragdrop-category').forEach(function (category) {
+                category.draggable = false;
+            });
+        }
     } else if (isValidHotAreaQuestion(question)) {
         const expected = question.correct_answer;
         document.querySelectorAll('.hotarea-statement').forEach(function (row, index) {
