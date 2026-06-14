@@ -224,7 +224,7 @@
       "C": "coefficient of determination (R2)",
       "D": "root mean squared error (RMSE)"
     },
-    "correct_answer": "T"
+    "correct_answer": "A"
   },
   {
     "question": "Which two components can you drag onto a canvas in Azure Machine Learning designer? Each correct answer presents a complete solution.\nNOTE: Each correct selection is worth one point.",
@@ -594,7 +594,7 @@
       "C": "Create a prebuilt task entity",
       "D": "Create a new model"
     },
-    "correct_answer": "T"
+    "correct_answer": "B"
   },
   {
     "question": "Which two scenarios are examples of a natural language processing workload? Each correct answer presents a complete solution.\nNOTE: Each correct selection is worth one point.",
@@ -645,7 +645,7 @@
       "C": "Speech",
       "D": "Personalizer"
     },
-    "correct_answer": "T"
+    "correct_answer": "C"
   },
   {
     "question": "You have a webchat bot that provides responses from a QnA Maker knowledge base.\nYou need to ensure that the bot uses user feedback to improve the relevance of the responses over time.\nWhat should you use?",
@@ -655,7 +655,7 @@
       "C": "business logic",
       "D": "active learning"
     },
-    "correct_answer": "T"
+    "correct_answer": "D"
   },
   {
     "question": "You are developing a conversational AI solution that will communicate with users through multiple channels including email, Microsoft Teams, and webchat.\nWhich service should you use?",
@@ -701,12 +701,12 @@
   {
     "question": "Which two scenarios are examples of a conversational AI workload? Each correct answer presents a complete solution.\nNOTE: Each correct selection is worth one point.",
     "options": {
-      "A": "a smart device in the home that responds to questions such as ג€What will the weather be like today?ג€",
+      "A": "a smart device in the home that responds to questions such as What will the weather be like today?",
       "B": "a website that uses a knowledge base to interactively respond to users' questions",
       "C": "assembly line machinery that autonomously inserts headlamps into cars",
       "D": "monitoring the temperature of machinery to turn on a fan when the temperature reaches a specific threshold"
     },
-    "correct_answer": "T"
+    "correct_answer": "AB"
   },
   {
     "question": "You have the process shown in the following exhibit.\nWhich type of AI solution is shown in the diagram?",
@@ -726,7 +726,7 @@
       "C": "Translator Text",
       "D": "Face"
     },
-    "correct_answer": "T"
+    "correct_answer": "B"
   },
   {
     "question": "Which AI service should you use to create a bot from a frequently asked questions (FAQ) document?",
@@ -736,7 +736,7 @@
       "C": "Text Analytics",
       "D": "Speech"
     },
-    "correct_answer": "T"
+    "correct_answer": "A"
   },
   {
     "question": "Which scenario is an example of a webchat bot?",
@@ -766,7 +766,7 @@
       "C": "Answer questions from multiple users simultaneously.",
       "D": "Provide customers with return materials authorization (RMA) numbers."
     },
-    "correct_answer": "T"
+    "correct_answer": "C"
   },
   {
     "question": "You have an Azure Machine Learning pipeline that contains a Split Data module.\nThe Split Data module outputs to a Train Model module and a Score Model module.\nWhat is the function of the Split Data module?",
