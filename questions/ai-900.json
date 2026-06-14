@@ -709,16 +709,6 @@
     "correct_answer": "AB"
   },
   {
-    "question": "You have the process shown in the following exhibit.\nWhich type of AI solution is shown in the diagram?",
-    "options": {
-      "A": "a sentiment analysis solution",
-      "B": "a chatbot",
-      "C": "a machine learning model",
-      "D": "a computer vision application"
-    },
-    "correct_answer": "B"
-  },
-  {
     "question": "You need to develop a web-based AI solution for a customer support system. Users must be able to interact with a web app that will guide them to the best resource or answer.\nWhich service should you use?",
     "options": {
       "A": "Custom Vision",
