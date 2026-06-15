@@ -91,15 +91,6 @@
     "correct_answer": "BC"
   },
   {
-    "question": "You have the Predicted vs. True chart shown in the following exhibit.\nWhich type of model is the chart used to evaluate?",
-    "options": {
-      "A": "classification",
-      "B": "regression",
-      "C": "clustering"
-    },
-    "correct_answer": "B"
-  },
-  {
     "question": "Which type of machine learning should you use to predict the number of gift cards that will be sold next month?",
     "options": {
       "A": "classification",
@@ -545,16 +536,6 @@
       "D": "entity recognition"
     },
     "correct_answer": "B"
-  },
-  {
-    "question": "You use natural language processing to process text from a Microsoft news story.\nYou receive the output shown in the following exhibit.\nWhich type of natural languages processing was performed?",
-    "options": {
-      "A": "entity recognition",
-      "B": "key phrase extraction",
-      "C": "sentiment analysis",
-      "D": "translation"
-    },
-    "correct_answer": "A"
   },
   {
     "question": "You are authoring a Language Understanding (LUIS) application to support a music festival.\nYou want users to be able to ask questions about scheduled shows, such as: `Which act is playing on the main stage?`\nThe question `Which act is playing on the main stage?` is an example of which type of element?",
