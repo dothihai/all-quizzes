@@ -64,6 +64,22 @@
     "subcategory": "Microsoft"
   },
   {
+    "id": "generative_ai_leader",
+    "title": "Google Cloud Certified — Generative AI Leader",
+    "icon": "☁️",
+    "count": 73,
+    "category": "Chứng chỉ",
+    "subcategory": "Google Cloud"
+  },
+  {
+    "id": "ai-103",
+    "title": "Microsoft Certified: Azure AI Apps and Agents Developer Associate (AI-103)",
+    "icon": "🤖",
+    "count": 58,
+    "category": "Chứng chỉ",
+    "subcategory": "Microsoft"
+  },
+  {
     "id": "ja_bunpo_1",
     "title": "Tiếng Nhật — Ngữ pháp N1",
     "icon": "✍️",
