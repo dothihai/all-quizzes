@@ -80,6 +80,22 @@
     "subcategory": "Microsoft"
   },
   {
+    "id": "ai_103_certlab",
+    "title": "Microsoft Certified: Azure AI Apps and Agents Developer Associate (AI-103) - CertLab",
+    "icon": "🤖",
+    "count": 66,
+    "category": "Chứng chỉ",
+    "subcategory": "Microsoft"
+  },
+  {
+    "id": "ab_100_certlab",
+    "title": "Microsoft Certified: Agentic AI Business Solutions Architect (AB-100) - CertLab",
+    "icon": "☁️",
+    "count": 122,
+    "category": "Chứng chỉ",
+    "subcategory": "Microsoft"
+  },
+  {
     "id": "ja_bunpo_1",
     "title": "Tiếng Nhật — Ngữ pháp N1",
     "icon": "✍️",
