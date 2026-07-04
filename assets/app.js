@@ -431,6 +431,16 @@ function displayQuestion() {
         questionText.textContent = question.question;
     }
 
+    const imgContainer = document.getElementById('question-image-container');
+    const imgEl = document.getElementById('question-image');
+    if (question.image) {
+        imgEl.src = escapeHtml(question.image);
+        imgContainer.style.display = '';
+    } else {
+        imgEl.src = '';
+        imgContainer.style.display = 'none';
+    }
+
     const optionsContainer = document.getElementById('options-container');
     optionsContainer.innerHTML = '';
 
@@ -757,7 +767,10 @@ function checkAnswer() {
         : '❌ Incorrect. The correct answer is <strong>' + escapeHtml(correctDisplay) + '</strong>';
     const promptText = 'Dịch vào giải thích đáp án: ' + question.question + '\n' + optionsText + '\nĐáp án đúng: ' + correctDisplay;
     const chatgptUrl = 'https://chatgpt.com/?prompt=' + encodeURIComponent(promptText);
-    resultDiv.innerHTML = baseMsg + '<br><a href="' + chatgptUrl + '" target="_blank" rel="noopener noreferrer" class="explain-button">💬 Giải thích bằng ChatGPT</a>';
+    const explanationHtml = question.explanation
+        ? '<div class="explanation"><strong>📖 Giải thích:</strong> ' + escapeHtml(question.explanation) + '</div>'
+        : '';
+    resultDiv.innerHTML = baseMsg + explanationHtml + '<br><a href="' + chatgptUrl + '" target="_blank" rel="noopener noreferrer" class="explain-button">💬 Giải thích bằng ChatGPT</a>';
 
     if (isValidDragdropQuestion(question)) {
         const items = question.options.items;
