@@ -54,30 +54,30 @@
                     <a href="./" class="back-link">← Danh sách bài học</a>
                 </div>
                 <h1 id="quiz-title"></h1>
-                <p>Test your knowledge with practice questions</p>
+                <p>Kiểm tra kiến thức với các câu hỏi thực hành</p>
             </div>
 
             <div class="view-toggle">
-                <button class="view-toggle-button active" id="view-all-button" onclick="setViewMode('all')">All Questions</button>
-                <button class="view-toggle-button" id="view-fav-button" onclick="setViewMode('favorites')">★ Favorites (<span id="fav-count">0</span>)</button>
+                <button class="view-toggle-button active" id="view-all-button" onclick="setViewMode('all')">Tất cả câu hỏi</button>
+                <button class="view-toggle-button" id="view-fav-button" onclick="setViewMode('favorites')">★ Yêu thích (<span id="fav-count">0</span>)</button>
             </div>
 
             <div class="stats">
                 <div class="stat">
                     <div class="stat-value" id="total-questions">0</div>
-                    <div class="stat-label">Total Questions</div>
+                    <div class="stat-label">Tổng số câu</div>
                 </div>
                 <div class="stat">
                     <div class="stat-value" id="correct-count">0</div>
-                    <div class="stat-label">Correct</div>
+                    <div class="stat-label">Đúng</div>
                 </div>
                 <div class="stat">
                     <div class="stat-value" id="incorrect-count">0</div>
-                    <div class="stat-label">Incorrect</div>
+                    <div class="stat-label">Sai</div>
                 </div>
                 <div class="stat">
                     <div class="stat-value" id="accuracy">0%</div>
-                    <div class="stat-label">Accuracy</div>
+                    <div class="stat-label">Tỷ lệ đúng</div>
                 </div>
             </div>
 
@@ -86,7 +86,7 @@
                     <div class="question-card">
                         <div class="question-header">
                             <span class="question-header-left">
-                                <span class="question-number" id="question-number">Question 1</span>
+                                <span class="question-number" id="question-number">Câu 1</span>
                                 <button type="button" class="fav-button" id="fav-button" onclick="toggleFavorite()" title="Toggle favorite">☆</button>
                             </span>
                             <span class="question-progress">
@@ -99,18 +99,18 @@
                             <img id="question-image" src="" alt="Question image" class="question-image" />
                         </div>
                         <div class="options" id="options-container"></div>
-                        <button class="check-button" id="check-button" onclick="checkAnswer()">Check Answer</button>
+                        <button class="check-button" id="check-button" onclick="checkAnswer()">Kiểm tra đáp án</button>
                         <div class="result" id="result"></div>
                     </div>
                 </div>
             </div>
 
             <div class="navigation">
-                <button class="nav-button" id="prev-button" onclick="previousQuestion()"><span class="btn-icon">⬅️</span><span class="btn-text">&nbsp;Previous</span></button>
+                <button class="nav-button" id="prev-button" onclick="previousQuestion()"><span class="btn-icon">⬅️</span><span class="btn-text">&nbsp;Trước</span></button>
                 <div class="nav-right">
-                    <button class="nav-button" id="random-button" onclick="randomQuestion()" title="Câu ngẫu nhiên"><span class="btn-icon">🔀</span><span class="btn-text">&nbsp;Random</span></button>
-                    <button class="nav-button" id="next-button" onclick="nextQuestion()"><span class="btn-text">Next&nbsp;</span><span class="btn-icon">➡️</span></button>
-                    <button class="nav-button" id="last-button" onclick="lastQuestion()"><span class="btn-text">Last&nbsp;</span><span class="btn-icon">⏭️</span></button>
+                    <button class="nav-button" id="random-button" onclick="randomQuestion()" title="Câu ngẫu nhiên"><span class="btn-icon">🔀</span><span class="btn-text">&nbsp;Ngẫu nhiên</span></button>
+                    <button class="nav-button" id="next-button" onclick="nextQuestion()"><span class="btn-text">Tiếp&nbsp;</span><span class="btn-icon">➡️</span></button>
+                    <button class="nav-button" id="last-button" onclick="lastQuestion()"><span class="btn-text">Cuối&nbsp;</span><span class="btn-icon">⏭️</span></button>
                 </div>
             </div>
         </div>

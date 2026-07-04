@@ -74,7 +74,7 @@ window.addEventListener('load', function () {
 function showMenu() {
     document.getElementById('menu-section').style.display = '';
     document.getElementById('quiz-section').style.display = 'none';
-    document.title = 'Quiz Library';
+    document.title = 'Thư viện Quiz';
     loadMenuData();
 }
 
@@ -402,13 +402,13 @@ function displayQuestion() {
     jumpInput.max = Math.max(1, questions.length);
 
     if (questions.length === 0) {
-        document.getElementById('question-number').textContent = 'No questions';
+        document.getElementById('question-number').textContent = 'Không có câu hỏi';
         jumpInput.value = '';
         jumpInput.disabled = true;
         document.getElementById('question-text').textContent =
             viewMode === 'favorites'
-                ? 'No favorite questions yet. Star a question to add it here.'
-                : 'No questions available.';
+                ? 'Chưa có câu hỏi yêu thích. Nhấn ★ để thêm vào đây.'
+                : 'Không có câu hỏi nào.';
         document.getElementById('options-container').innerHTML = '';
         document.getElementById('check-button').disabled = true;
         document.getElementById('result').className = 'result';
@@ -422,7 +422,7 @@ function displayQuestion() {
     jumpInput.disabled = false;
 
     const question = questions[currentQuestionIndex];
-    document.getElementById('question-number').textContent = 'Question ' + question.id;
+    document.getElementById('question-number').textContent = 'Câu ' + question.id;
     jumpInput.value = currentQuestionIndex + 1;
     const questionText = document.getElementById('question-text');
     if (isValidDropdownQuestion(question)) {
@@ -457,7 +457,7 @@ function displayQuestion() {
         itemsSection.className = 'dragdrop-items-section';
         const itemsLabel = document.createElement('div');
         itemsLabel.className = 'dragdrop-section-label';
-        itemsLabel.textContent = 'Items to match:';
+        itemsLabel.textContent = 'Các mục cần ghép:';
         itemsSection.appendChild(itemsLabel);
         
         const itemsList = document.createElement('div');
@@ -481,7 +481,7 @@ function displayQuestion() {
                 
                 const defaultOption = document.createElement('option');
                 defaultOption.value = '';
-                defaultOption.textContent = '-- Select category --';
+                defaultOption.textContent = '-- Chọn danh mục --';
                 select.appendChild(defaultOption);
                 
                 categories.forEach(function (cat, catIdx) {
@@ -509,7 +509,7 @@ function displayQuestion() {
                 const itemDropZone = document.createElement('div');
                 itemDropZone.className = 'dragdrop-item-drop-zone';
                 itemDropZone.dataset.itemIndex = index;
-                itemDropZone.textContent = 'Drop category here';
+                itemDropZone.textContent = 'Thả danh mục vào đây';
                 
                 itemDropZone.addEventListener('dragover', function (e) {
                     e.preventDefault();
@@ -546,7 +546,7 @@ function displayQuestion() {
             categoriesSection.className = 'dragdrop-categories-section';
             const catLabel = document.createElement('div');
             catLabel.className = 'dragdrop-section-label';
-            catLabel.textContent = 'Categories (drag to items):';
+            catLabel.textContent = 'Danh mục (kéo vào mục):';
             categoriesSection.appendChild(catLabel);
             
             const categoriesList = document.createElement('div');
@@ -656,7 +656,7 @@ function checkAnswer() {
                 const itemIndex = parseInt(select.dataset.itemIndex, 10);
                 const catIndex = parseInt(select.value, 10);
                 if (select.value === '' || isNaN(catIndex)) {
-                    alert('Please select a category for all items!');
+                    alert('Vui lòng chọn danh mục cho tất cả mục!');
                     return;
                 }
                 selected[itemIndex] = catIndex;
@@ -665,7 +665,7 @@ function checkAnswer() {
             // Check all items have selection
             for (let i = 0; i < items.length; i++) {
                 if (typeof selected[i] === 'undefined') {
-                    alert('Please select a category for all items!');
+                    alert('Vui lòng chọn danh mục cho tất cả mục!');
                     return;
                 }
             }
@@ -683,7 +683,7 @@ function checkAnswer() {
             // Ensure all items have a category assigned
             for (let i = 0; i < items.length; i++) {
                 if (typeof selected[i] === 'undefined') {
-                    alert('Please assign a category to all items!');
+                    alert('Vui lòng gán danh mục cho tất cả mục!');
                     return;
                 }
             }
@@ -700,7 +700,7 @@ function checkAnswer() {
         const rows = document.querySelectorAll('.hotarea-statement');
         for (let i = 0; i < rows.length; i++) {
             const input = rows[i].querySelector('input[name="answer-' + i + '"]:checked');
-            if (!input) { alert('Please select an answer for every statement!'); return; }
+            if (!input) { alert('Vui lòng chọn đáp án cho mỗi câu!'); return; }
             selected.push(input.value);
         }
         answer = selected;
@@ -720,7 +720,7 @@ function checkAnswer() {
         for (let i = 0; i < dropdowns.length; i++) {
             const select = dropdowns[i];
             const key = select.dataset.dropdownKey;
-            if (!select.value) { alert('Please choose a value for every dropdown.'); return; }
+            if (!select.value) { alert('Vui lòng chọn giá trị cho mỗi ô thả xuống.'); return; }
             selected[key] = parseInt(select.value, 10);
         }
         answer = selected;
@@ -740,11 +740,11 @@ function checkAnswer() {
         const isMultiple = question.correct_answer.length > 1;
         if (isMultiple) {
             const checked = document.querySelectorAll('input[name="answer"]:checked');
-            if (checked.length === 0) { alert('Please select an answer!'); return; }
+            if (checked.length === 0) { alert('Vui lòng chọn đáp án!'); return; }
             answer = Array.from(checked).map(function (cb) { return cb.value; }).sort().join('');
         } else {
             const selectedOption = document.querySelector('input[name="answer"]:checked');
-            if (!selectedOption) { alert('Please select an answer!'); return; }
+            if (!selectedOption) { alert('Vui lòng chọn đáp án!'); return; }
             answer = selectedOption.value;
         }
         isCorrect = answer === question.correct_answer;
@@ -763,8 +763,8 @@ function checkAnswer() {
     resultDiv.className = 'result show ' + (isCorrect ? 'correct' : 'incorrect');
 
     const baseMsg = isCorrect
-        ? '✅ Correct! Well done!'
-        : '❌ Incorrect. The correct answer is <strong>' + escapeHtml(correctDisplay) + '</strong>';
+        ? '✅ Chính xác! Làm tốt lắm!'
+        : '❌ Sai rồi. Đáp án đúng là <strong>' + escapeHtml(correctDisplay) + '</strong>';
     const promptText = 'Dịch vào giải thích đáp án: ' + question.question + '\n' + optionsText + '\nĐáp án đúng: ' + correctDisplay;
     const chatgptUrl = 'https://chatgpt.com/?prompt=' + encodeURIComponent(promptText);
     const explanationHtml = question.explanation
