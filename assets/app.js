@@ -157,6 +157,7 @@ function escapeHtml(str) {
 // ===== QUIZ LOADER =====
 
 let currentQuizId = null;
+let currentQuizTitle = '';
 let allQuestions = [];
 let questions = [];
 let currentQuestionIndex = 0;
@@ -176,6 +177,7 @@ function loadAndShowQuiz(quizId) {
     }
 
     currentQuizId = quizId;
+    currentQuizTitle = quizId;
     let questionsData = [];
     try {
         const xhr = new XMLHttpRequest();
@@ -212,6 +214,7 @@ async function fetchQuizMeta(quizId) {
         const quizzes = await res.json();
         const meta = quizzes.find(function (q) { return q.id === quizId; });
         if (meta && meta.title) {
+            currentQuizTitle = meta.title;
             document.title = meta.title;
             document.getElementById('quiz-title').textContent = '🧪 ' + meta.title;
         }
@@ -765,7 +768,20 @@ function checkAnswer() {
     const baseMsg = isCorrect
         ? '✅ Chính xác! Làm tốt lắm!'
         : '❌ Sai rồi. Đáp án đúng là <strong>' + escapeHtml(correctDisplay) + '</strong>';
-    const promptText = 'Dịch vào giải thích đáp án: ' + question.question + '\n' + optionsText + '\nĐáp án đúng: ' + correctDisplay;
+    const certContext = currentQuizTitle ? ('Trong khuôn khổ chứng chỉ ' + currentQuizTitle + '. ' ) : '';
+    let numAnswersHint;
+    if (isValidDragdropQuestion(question)) {
+        numAnswersHint = 'Ghép ' + question.options.items.length + ' mục vào các danh mục phù hợp.';
+    } else if (isValidHotAreaQuestion(question)) {
+        const hintChoices = Array.isArray(question.options.choices_per_statement) ? question.options.choices_per_statement.join('/') : 'Yes/No';
+        numAnswersHint = 'Với mỗi câu, chọn ' + hintChoices + '.';
+    } else if (isValidDropdownQuestion(question)) {
+        numAnswersHint = 'Chọn giá trị cho ' + Object.keys(question.correct_answer).length + ' ô thả xuống.';
+    } else {
+        const n = question.correct_answer.length;
+        numAnswersHint = 'Chọn ' + n + ' đáp án' + (n > 1 ? ' (nhiều lựa chọn)' : '') + '.';
+    }
+    const promptText = certContext + 'Dịch và giải thích' + ': ' + question.question + '\n' + optionsText + '\n' + numAnswersHint;
     const chatgptUrl = 'https://chatgpt.com/?prompt=' + encodeURIComponent(promptText);
     const explanationHtml = question.explanation
         ? '<div class="explanation"><strong>📖 Giải thích:</strong> ' + escapeHtml(question.explanation) + '</div>'
