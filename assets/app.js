@@ -783,10 +783,11 @@ function checkAnswer() {
     }
     const promptText = certContext + 'Dịch và giải thích' + ': ' + question.question + '\n' + optionsText + '\n' + numAnswersHint;
     const chatgptUrl = 'https://chatgpt.com/?prompt=' + encodeURIComponent(promptText);
+    const claudeUrl = 'https://claude.ai/new/?q=' + encodeURIComponent(promptText);
     const explanationHtml = question.explanation
         ? '<div class="explanation"><strong>📖 Giải thích:</strong> ' + escapeHtml(question.explanation) + '</div>'
         : '';
-    resultDiv.innerHTML = baseMsg + explanationHtml + '<br><a href="' + chatgptUrl + '" target="_blank" rel="noopener noreferrer" class="explain-button">💬 Giải thích bằng ChatGPT</a>';
+    resultDiv.innerHTML = baseMsg + explanationHtml + '<br><a href="' + chatgptUrl + '" target="_blank" rel="noopener noreferrer" class="explain-button">💬 Giải thích bằng ChatGPT</a> <a href="' + claudeUrl + '" target="_blank" rel="noopener noreferrer" class="explain-button explain-button-claude">✨ Giải thích bằng Claude</a>';
 
     if (isValidDragdropQuestion(question)) {
         const items = question.options.items;
