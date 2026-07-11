@@ -126,7 +126,7 @@
     "question": "HOTSPOT - \nYou have a Microsoft Foundry project that contains an agent named PaymentAgent. PaymentAgent includes a function tool that issues customer refunds by using an external API. You are creating a workflow in YAML. You need to ensure that the workflow pauses for human approval and continues with the refund step only after approval is granted. How should you complete the workflow definition? To answer, select the appropriate options in the answer area. NOTE: Each correct selection is worth one point.",
     "image": "images/certlab_ai103_11_236ac2.png",
     "options": {
-      "A": "type: ask_question\ncondition: approval == \"approved\"",
+      "A": "type: ask_question\ncondition: propose_refund.output != null",
       "B": "type: ask_question\ncondition: approval == \"approved\"",
       "C": "type: ask_question\ncondition: true",
       "D": "type: data_transformation\ncondition: propose_refund.output != null"
