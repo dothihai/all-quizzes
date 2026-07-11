@@ -379,7 +379,7 @@
       ]
     },
     "correct_answer": {
-      "dropdown1": 2,
+      "dropdown1": 0,
       "dropdown2": 2
     },
     "source": "https://www.examtopics.com/discussions/microsoft/view/412467-exam-ai-103-topic-1-question-35-discussion/",
@@ -724,7 +724,7 @@
       "C": "Personally identifiable information (PII) Detection",
       "D": "violence content filtering"
     },
-    "correct_answer": "C",
+    "correct_answer": "D",
     "source": "https://www.itexams.com/exam/AI-103"
   }
 ]
