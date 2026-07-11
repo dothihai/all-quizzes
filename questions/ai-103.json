@@ -14,7 +14,7 @@
       ]
     },
     "correct_answer": {
-      "dropdown1": 0,
+      "dropdown1": 1,
       "dropdown2": 1
     },
     "source": "https://www.examtopics.com/discussions/microsoft/view/412433-exam-ai-103-topic-1-question-1-discussion/",
@@ -136,7 +136,7 @@
       "C": "tool_choice={“type”:“knowledge_base”}",
       "D": "tool_choice ={“type”:“mcp”}"
     },
-    "correct_answer": "A",
+    "correct_answer": "D",
     "source": "https://www.examtopics.com/discussions/microsoft/view/412446-exam-ai-103-topic-1-question-14-discussion/"
   },
   {
