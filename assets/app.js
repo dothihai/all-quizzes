@@ -434,6 +434,25 @@ function displayQuestion() {
         questionText.textContent = question.question;
     }
 
+    // Handle source link
+    const sourceContainer = document.getElementById('question-source-container');
+    sourceContainer.innerHTML = '';
+    if (question.source) {
+        const sourceText = document.createElement('div');
+        sourceText.className = 'question-source';
+        const link = document.createElement('a');
+        link.href = escapeHtml(question.source);
+        link.target = '_blank';
+        link.rel = 'noopener noreferrer';
+        link.textContent = question.source;
+        sourceText.appendChild(document.createTextNode('Nguồn: '));
+        sourceText.appendChild(link);
+        sourceContainer.appendChild(sourceText);
+        sourceContainer.style.display = '';
+    } else {
+        sourceContainer.style.display = 'none';
+    }
+
     const imgContainer = document.getElementById('question-images-container');
     imgContainer.innerHTML = '';
     if (question.images && Array.isArray(question.images) && question.images.length > 0) {
