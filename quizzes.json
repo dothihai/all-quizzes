@@ -80,6 +80,14 @@
     "subcategory": "Microsoft"
   },
   {
+    "id": "ai_102",
+    "title": "Microsoft Certified: Designing and Implementing a Microsoft Azure AI Solution (AI-102)",
+    "icon": "🤖",
+    "count": 178,
+    "category": "Chứng chỉ",
+    "subcategory": "Microsoft"
+  },
+  {
     "id": "ai_103_certlab",
     "title": "Microsoft Certified: Azure AI Apps and Agents Developer Associate (AI-103) - CertLab",
     "icon": "🤖",
