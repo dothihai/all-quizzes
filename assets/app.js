@@ -434,13 +434,27 @@ function displayQuestion() {
         questionText.textContent = question.question;
     }
 
-    const imgContainer = document.getElementById('question-image-container');
-    const imgEl = document.getElementById('question-image');
-    if (question.image) {
+    const imgContainer = document.getElementById('question-images-container');
+    imgContainer.innerHTML = '';
+    if (question.images && Array.isArray(question.images) && question.images.length > 0) {
+        // Display multiple images
+        question.images.forEach(function (img) {
+            const imgEl = document.createElement('img');
+            imgEl.src = escapeHtml(img);
+            imgEl.alt = 'Question image';
+            imgEl.className = 'question-image';
+            imgContainer.appendChild(imgEl);
+        });
+        imgContainer.style.display = '';
+    } else if (question.image) {
+        // Display single image (backward compatibility)
+        const imgEl = document.createElement('img');
         imgEl.src = escapeHtml(question.image);
+        imgEl.alt = 'Question image';
+        imgEl.className = 'question-image';
+        imgContainer.appendChild(imgEl);
         imgContainer.style.display = '';
     } else {
-        imgEl.src = '';
         imgContainer.style.display = 'none';
     }
 
