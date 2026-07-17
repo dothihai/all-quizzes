@@ -72,6 +72,14 @@
     "subcategory": "Google Cloud"
   },
   {
+    "id": "cc_generative_ai_leader",
+    "title": "Google Cloud Certified — Generative AI Leader (CC)",
+    "icon": "☁️",
+    "count": 62,
+    "category": "Chứng chỉ",
+    "subcategory": "Google Cloud"
+  },
+  {
     "id": "ai-103",
     "title": "Microsoft Certified: Azure AI Apps and Agents Developer Associate (AI-103)",
     "icon": "🤖",
