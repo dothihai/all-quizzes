@@ -792,6 +792,17 @@
     "source": "https://www.examtopics.com/discussions/google/view/310202-exam-generative-ai-leader-topic-4-question-6-discussion/"
   },
   {
+    "question": "A sales manager wants to responsibly use generative AI (gen AI) to increase efficiency with their existing tasks. They want to allow the sales team to focus on building customer relationships and closing deals. How should the sales team use gen AI?",
+    "options": {
+      "A": "To automate creative content like blog posts and social media updates to attract new leads.",
+      "B": "To draft emails and provide real-time insights about customer needs.",
+      "C": "To analyze customer interactions on social media and automatically generate sales pitches tailored to their public profiles.",
+      "D": "To replace the sales team’s CRM system with a more intuitive and user-friendly interface."
+    },
+    "correct_answer": "B",
+    "source": "https://www.examtopics.com/discussions/google/view/379898-exam-generative-ai-leader-topic-4-question-7-discussion/"
+  },
+  {
     "question": "A home loan company is deploying a generative AI system to automate initial loan application reviews. Several applicants have been unexpectedly rejected, leading to customer complaints and potential bias concerns. They need to ensure responsible and fair lending practices. What aspect of the AI system should they prioritize?",
     "options": {
       "A": "Implementing stricter data security measures to protect applicants’ financial information from unauthorized access.",
