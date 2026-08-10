@@ -2153,5 +2153,27 @@
       "D": "Return structured error metadata in MCP responses."
     },
     "correct_answer": "D"
+  },
+  {
+    "question": "Your control_device tool manages smart home devices through external APIs. When a device doesn’t respond within the timeout period, the tool returns an error. Production logs show that the agent simply tells users “the device is not responding” without offering helpful next steps. Which error response structure would best enable the agent to provide useful follow-up?",
+    "options": {
+      "A": "Set is_error: true with a structured technical error containing the device ID, timeout duration, and raw API response code for debugging purposes.",
+      "B": "Set is_error: true with a brief “Device offline” message and provide a separate tool the agent can call to retrieve context-specific troubleshooting suggestions.",
+      "C": "Set is_error: false with an optimistic message indicating the command was dispatched successfully but device acknowledgment is still pending.",
+      "D": "Set is_error: true with a message explaining the likely cause and suggesting troubleshooting steps the agent can offer the user."
+    },
+    "correct_answer": "D",
+    "source": "https://www.examtopics.com/discussions/anthropic/view/419228-exam-cca-f-topic-1-question-27-discussion/"
+  },
+  {
+    "question": "After 30+ turns, your conversational assistant shows noticeably slower responses and occasionally produces less coherent outputs. Investigation reveals: (1) average conversations reach 50,000 tokens by turn 35, (2) production logs show 94% of user messages only reference the previous 3-5 exchanges, (3) the 6% of queries referencing earlier context typically ask about information the user could easily re-state. Your goal is to improve response speed and quality while maintaining good user experience. What’s the most effective approach?",
+    "options": {
+      "A": "Enable prompt caching and continue sending the complete conversation history, using cached prefixes to reduce per-request costs while preserving all context.",
+      "B": "Build a retrieval system that stores all conversation turns and uses semantic search to pull in relevant historical context only when the current query appears to reference past information.",
+      "C": "Implement a summarization layer that progressively compresses older conversation turns into a running summary while keeping the most recent 5-6 turns verbatim, maintaining full historical context in condensed form.",
+      "D": "Implement a sliding window keeping only the system prompt and last 8-10 turns. When users reference earlier context, acknowledge the limitation and ask them to re-state the relevant information."
+    },
+    "correct_answer": "D",
+    "source": "https://www.examtopics.com/discussions/anthropic/view/419250-exam-cca-f-topic-1-question-38-discussion/"
   }
 ]
