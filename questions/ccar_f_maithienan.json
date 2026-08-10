@@ -1942,5 +1942,216 @@
     "correct_answer": "C",
     "source": "https://maithienan.com/certifications/ccar-f/quiz/practice",
     "explanation": "The best approach is to Add venue server to .mcp.json and playlist server to ~/.claude.json. This most directly addresses the failure or constraint described in the scenario and is more reliable than weaker, more ambiguous alternatives."
+  },
+  {
+    "question": "Your multi-agent research pipeline crashed after processing 12 of 28 documents. The web search agent had identified relevant sources, the document analyzer had partially completed extraction, and the synthesizer had begun pattern identification. You need to resume processing without repeating work or losing fidelity of prior findings. What state management approach best balances information fidelity with context efficiency when restoring agent state?",
+    "options": {
+      "A": "Have each agent maintain its own persistent state file and reload it independently at the start of each session.",
+      "B": "Persist the coordinator's conversation log containing all task delegations and responses, providing this to agents when resuming.",
+      "C": "Index all agent outputs in a shared vector store. When resuming, each agent queries the store using semantic search to retrieve relevant prior findings.",
+      "D": "Have each agent persist a structured export to a known location. On resume, the coordinator loads the manifest and injects relevant state into agent prompts."
+    },
+    "correct_answer": "D",
+    "explanation": "Anthropic's multi-agent best practices recommend persisting structured artifacts to external storage and having the orchestrator selectively re-inject only the relevant state into each subagent's context. This preserves fidelity (lossless structured exports plus a manifest of completed work) while staying context-efficient, whereas A lacks coordinated resume logic, B floods agents with an entire conversation log, and C's semantic search is lossy and may miss or garble prior findings."
+  },
+  {
+    "question": "Analysis reveals the coordinator invokes the web search subagent, waits for its response, then invokes the document analysis subagent and waits again. These tasks are independent—neither requires the other's output. How should you modify the system to run these subagents concurrently?",
+    "options": {
+      "A": "Switch both subagents to use a Haiku-tier model instead of Sonnet to reduce their individual execution time.",
+      "B": "Create an async orchestration layer outside the agent that spawns parallel threads, each running a separate coordinator-subagent pair, then aggregates results.",
+      "C": "Structure the coordinator to emit both Task tool calls (for web search and document analysis) in a single response message rather than across separate conversation turns.",
+      "D": "Add detailed instructions to the coordinator's system prompt explaining the performance benefits of parallel execution and requesting it invoke both subagents at the same time."
+    },
+    "correct_answer": "C",
+    "explanation": "In Claude's agent architecture, subagents run concurrently when the coordinator emits multiple Task tool calls in a single assistant message — the harness executes parallel tool_use blocks from the same turn simultaneously. Option A only speeds up each serial step, B adds unnecessary external infrastructure duplicating what the agent loop already supports, and D merely explains/requests parallelism without ensuring the structural mechanism (same-message tool calls) that actually produces concurrent execution."
+  },
+  {
+    "question": "A landmark case citing 12 precedents takes over 3 minutes to analyze completely. What's the most effective way to reduce this latency while preserving the coordinator's ability to monitor and debug the system?",
+    "options": {
+      "A": "Have the coordinator spawn parallel document analysis subagents, each handling a subset of precedents, then aggregate results before synthesis",
+      "B": "Enable the document analysis subagent to spawn its own specialized subagents dynamically when it encounters cases with many citations",
+      "C": "Create a recursive agent hierarchy where analysis agents subdivide work among child agents until reaching single-precedent granularity",
+      "D": "Implement a message queue where precedent analysis tasks are processed asynchronously by a pool of worker agents"
+    },
+    "correct_answer": "A",
+    "explanation": "Anthropic's recommended multi-agent design is the orchestrator-worker pattern with a flat hierarchy: the coordinator itself spawns parallel subagents and aggregates their results, which cuts latency through parallelism while keeping all spawning, monitoring, and debugging centralized in one place. Options B and C create nested/recursive agent hierarchies that severely degrade observability and debuggability, and D introduces asynchronous queue infrastructure that decouples work from the coordinator's direct visibility."
+  },
+  {
+    "question": "Investigation shows that while the web search and document analysis agents correctly attach citations to their outputs, the synthesis agent loses track of which sources support which conclusions when combining findings. What's the most effective architectural change?",
+    "options": {
+      "A": "Have the coordinator inject source identifier prefixes into text before each handoff, then parse these prefixes at report generation to reconstruct citations.",
+      "B": "Maintain complete transcripts of all subagent interactions and add a citation-resolution agent to analyze logs and determine attributions before report generation.",
+      "C": "Require all subagents to output structured claim-source mappings that the synthesis agent must preserve and merge when combining findings from multiple sources.",
+      "D": "Add a verification step where the report generator uses semantic similarity matching against original sources to reconstruct which claims came from which documents."
+    },
+    "correct_answer": "C",
+    "explanation": "The failure is information loss at the synthesis stage, so the fix is to carry attribution as structured data end-to-end: subagents emit explicit claim-source mappings and the synthesis agent is required to preserve and merge them. This matches Anthropic's multi-agent best practice of structured outputs over fragile text-prefix conventions (A), costly post-hoc log analysis (B), or unreliable semantic-similarity reconstruction (D)."
+  },
+  {
+    "question": "The coordinator provides detailed step-by-step instructions to the web search subagent, specifying exact search queries, source priorities, and date filters. Production monitoring reveals three issues: (1) the subagent reports \"insufficient results\" rather than trying alternative approaches when pre-specified searches fail, (2) research quality drops for emerging topics that don't match expected patterns, and (3) the subagent rarely surfaces valuable tangential sources. What's the most effective way to improve subagent adaptability?",
+    "options": {
+      "A": "Specify research goals and quality criteria (coverage breadth, source diversity, recency) rather than procedural steps, letting the subagent determine its search strategy.",
+      "B": "Remove procedural details entirely, delegating with simple goals like \"research X thoroughly\" and relying on the subagent's general capabilities.",
+      "C": "Add explicit fallback directives to the detailed instructions: \"If specified searches yield fewer than N results, attempt alternative query formulations before reporting failure.\"",
+      "D": "Implement a topic classification step where the coordinator categorizes requests as \"well-defined\" or \"exploratory\" and uses different instruction styles for each category."
+    },
+    "correct_answer": "A",
+    "explanation": "Anthropic's agent and multi-agent research guidance recommends delegating with clear objectives and success/quality criteria rather than prescriptive procedural scripts, letting the capable subagent adapt its own search strategy — which directly fixes all three observed failures. Option B removes necessary guidance entirely (under- specified delegation is a known failure mode), C patches only failure (1), and D adds coordinator complexity while keeping the brittle scripted approach."
+  },
+  {
+    "question": "Production reviews reveal inconsistent handling of uncertainty in final reports. Sometimes conflicting subagent findings are synthesized into a single confident statement (losing nuance), while other times reports over-hedge with excessive qualifications (becoming unhelpful). When the web search agent returns \"industry analysts estimate $50B market size (methodology varies)\" and the document analysis agent returns \"peer-reviewed study estimates 35B(±7B, 95% CI),\" the coordinator either picks one arbitrarily or produces vague statements like \"the market may be 35B−50B depending on factors.\" What systematic approach best addresses this?",
+    "options": {
+      "A": "Configure subagents to only report findings meeting a high-confidence threshold, filtering uncertain information before it reaches the coordinator.",
+      "B": "Implement a confidence calibration layer that normalizes subagent uncertainty expressions to standardized probability scores (0.0-1.0), then weight-average findings by their calibrated confidence.",
+      "C": "Instruct the synthesis agent to structure reports with explicit sections distinguishing well-established findings from contested ones, preserving original source characterizations and methodological context.",
+      "D": "Add a verification subagent that cross-references findings across sources, only passing claims to synthesis that are corroborated by at least two independent sources."
+    },
+    "correct_answer": "C",
+    "explanation": "Why it's correct: C. Correct. Report structure that keeps methodological context and separates settled vs. contested claims is how you get nuance without over-hedging. Option breakdown: • A: Filtering throws away useful-but-uncertain evidence. It doesn't help the synthesis agent reason about conflicts — it just hides them. • B: Collapsing peer-reviewed CIs and analyst estimates into a single averaged number destroys the methodological difference that's the whole point. • C: Correct. Report structure that keeps methodological context and separates settled vs. contested claims is how you get nuance without over-hedging. • D: Two-source minimums drop legitimate single-source findings and don't resolve genuinely conflicting estimates with different methodologies."
+  },
+  {
+    "question": "During testing, agents frequently call tools outside their specialization—the synthesis agent attempts web searches, and the report generator tries to analyze documents. What is the primary cause of this poor tool selection behavior?",
+    "options": {
+      "A": "Choosing from 18 tools instead of 4-5 relevant ones increases decision complexity beyond reliable selection thresholds.",
+      "B": "The coordinator cannot track which capabilities each subagent has, leading to misrouted tasks.",
+      "C": "The agents' role descriptions in their system prompts conflict with having access to tools outside that role.",
+      "D": "The tool definitions consume too much context window space, leaving insufficient room for task content."
+    },
+    "correct_answer": "A",
+    "explanation": "Anthropic's agent best practices recommend giving each subagent only a small, role-relevant tool set, because tool selection accuracy degrades as the number of available (especially irrelevant) tools grows. With all 18 tools exposed to every agent, the model faces a larger decision space and predictably picks tools outside its specialization — the root cause is selection complexity, not coordinator tracking, prompt conflicts, or contextwindow exhaustion."
+  },
+  {
+    "question": "A customer returns 4 hours after their initial session about the same billing dispute. The previous 32-turn session contains lookup_order results showing \"Status: PENDING, Expected resolution: 24-48 hours.\" In testing, you observe that when resuming sessions with stale tool results, the agent often references the outdated data in responses (e.g., \"I see your refund is still being processed\") even after subsequent fresh tool calls return different information. What approach most reliably handles returning customers?",
+    "options": {
+      "A": "Resume with full history but filter out previous tool_result messages before resuming, keeping only the human/assistant turns so the agent must re-fetch needed data.",
+      "B": "Start a new session, inject a structured summary of the previous interaction (issue type, actions taken, resolution status), then make fresh tool calls before engaging.",
+      "C": "Resume with full history and add a system prompt instruction telling the agent to always prefer the most recent tool results when multiple calls to the same tool exist in context.",
+      "D": "Resume with full history and configure the agent to automatically re-call all previously-used tools at session start to ensure data freshness."
+    },
+    "correct_answer": "B",
+    "explanation": "Why it's correct: B. Correct. A clean session with a summary keeps the narrative continuity while guaranteeing the agent isn't reasoning over stale tool results. Option breakdown: • A: Stripping tool_results from the middle of a conversation can leave assistant messages referencing nonexistent results — the transcript becomes internally inconsistent. • B: Correct. A clean session with a summary keeps the narrative continuity while guaranteeing the agent isn't reasoning over stale tool results. • C: Prompt instructions are suggestions. You observed that exact failure mode in testing — the model still references old results. • D: Blanket re-calling is wasteful, slow, and still leaves the old results sitting in context to confuse the model."
+  },
+  {
+    "question": "During a billing dispute resolution, your agent successfully retrieves customer info via get_customer and order details via lookup_order, but when attempting to call process_refund, the tool returns a timeout error. The agent has enough information to explain the charges and verify refund eligibility, but cannot actually process the refund due to the backend failure. What approach best balances first-contact resolution with appropriate error handling?",
+    "options": {
+      "A": "Escalate immediately to a human agent since the refund action cannot be completed",
+      "B": "Implement automatic retries with exponential backoff for process_refund, keeping the conversation open until the refund is successfully processed",
+      "C": "Explain the billing, confirm refund eligibility, acknowledge the system issue preventing immediate processing, and offer escalation or retry later",
+      "D": "Confirm the refund will be processed and close the conversation, since the system has all necessary information to complete it automatically"
+    },
+    "correct_answer": "C",
+    "explanation": "Why it's correct: C. Correct. Deliver the partial value you can (explanation + eligibility), be honest about the failure, and let the customer choose between human escalation or a retry. Classic graceful degradation. Option breakdown: • A: Punts a transient backend issue to a human when the agent could still explain the situation and offer options. • B: Forcing the customer to wait on indefinite retries is poor UX and may never succeed if the outage is long-lived. • C: Correct. Deliver the partial value you can (explanation + eligibility), be honest about the failure, and let the customer choose between human escalation or a retry. Classic graceful degradation. • D: Committing to an outcome that didn't happen is misleading the customer — a bigger failure than the timeout."
+  },
+  {
+    "question": "After integrating a local MCP server providing code analysis tools (analyze_dependencies, find_dead_code, calculate_complexity), you verify the server is healthy and tools appear in the tools/list response. However, you observe that the agent consistently uses Grep to search for import statements instead of calling analyze_dependencies—even when users explicitly ask about \"code dependencies.\" Examining tool definitions reveals: - MCP: analyze_dependencies — \"Analyzes dependency graph\" - Built-in: Grep — \"Search file contents for a pattern using regular expressions. Returns matching lines with line numbers and surrounding context.\" What's the most effective approach to improve the agent's selection of MCP tools?",
+    "options": {
+      "A": "Remove Grep from available tools when the MCP server is connected to eliminate functional overlap.",
+      "B": "Split analyze_dependencies into granular tools (list_imports, resolve_transitive_deps, detect_circular_deps) so each has a focused purpose less likely to overlap with Grep.",
+      "C": "Add routing instructions to the system prompt specifying that dependency-related questions should use MCP tools rather than Grep.",
+      "D": "Expand MCP tool descriptions to detail capabilities and outputs—e.g., \"Builds dependency graph showing direct imports, transitive dependencies, and cycles.\""
+    },
+    "correct_answer": "D",
+    "explanation": "The root cause is the asymmetry in tool descriptions: the MCP tool's vague \"Analyzes dependency graph\" loses to Grep's detailed, concrete description, so the agent picks Grep. Anthropic's tool-use best practices say the tool description is the primary lever for tool selection—writing detailed descriptions of capabilities, outputs, and when to use the tool (option D) fixes selection at the source, whereas removing Grep, fragmenting the tool, or adding brittle system-prompt routing rules are workarounds."
+  },
+  {
+    "question": "An engineer now asks it to understand how the physics engine integrates with rendering for collision debug overlays. You notice recent responses reference \"typical rendering patterns\" rather than the specific VulkanPipeline and FrameGraph classes it discovered earlier. What's the most effective approach?",
+    "options": {
+      "A": "Use /clear to reset context completely, then start fresh with physics exploration using file paths from the project's CLAUDE.md.",
+      "B": "Spawn a sub-agent to explore physics independently, then manually synthesize its findings with the rendering knowledge accumulated in the main conversation.",
+      "C": "Summarize key rendering findings, then spawn a sub-agent for physics exploration with that summary in its initial context.",
+      "D": "Continue in the current context with more targeted prompts referencing the specific classes by name."
+    },
+    "correct_answer": "C",
+    "explanation": "The generic \"typical rendering patterns\" responses signal context degradation from a long, bloated session, so the fix is to compact the valuable rendering knowledge into a summary and hand it to a sub-agent with a fresh context for the physics task. This follows Anthropic's context-management best practice of summarization plus sub-agents with clean contexts, preserving the specific VulkanPipeline/FrameGraph findings that the integration task depends on, unlike A (loses knowledge), B (sub-agent lacks needed rendering context and synthesis happens in the degraded context), or D (continues in a degraded context)."
+  },
+  {
+    "question": "Introduction monitoring shows the research phase takes longer than expected. Analysis reveals the coordinator invokes the web search subagent, waits for its response, then invokes the document analysis subagent and waits again. These tasks are independent - neither requires the other's output. How should you modify the system to run these subagents concurrently?",
+    "options": {
+      "A": "Switch both subagents to use a Haiku tier model instead of to reduce their individual execution time.",
+      "B": "Create an async orchestration layer outside the agent that spawns parallel threads, each running a separate coordinator subagent pair, then aggregates results.",
+      "C": "Add detailed instructions to the coordinator's system prompt explaining the performance benefits of parallel execution and requesting it invoke both subagents at the same",
+      "D": "Structure the coordinator to emit both Task tool calls (for web search and document analysis) in a single response message rather than across separate conversation turns."
+    },
+    "correct_answer": "D"
+  },
+  {
+    "question": "Production reviews reveal inconsistent handling of uncertainty in final reports. Sometimes conflicting subagent findings are synthesized into a single confident statement (losing other times reports over hedge with excessive qualifications (becoming unhelpful). When the web search agent returns \"Industry analysts estimate $50B market size (methodolo the document analysis agent returns \"peer-reviewed study estimates $358 (1578, 95% CI),\" the coordinator either picks one arbitrarily or produces vague statements like \"the ma 6358-6508 depending on factors.\" What systematic approach best addresses this?",
+    "options": {
+      "A": "Configure subagents to only report findings meeting a high confidence threshold, filtering uncertain information before it reaches the coordinator.",
+      "B": "Add a verification subagent that cross-references findings across sources, only passing claims to synthesis that are corroborated by at least two independent sources.",
+      "C": "Instruct the synthesis agent to structure reports with explicit sections distinguishing well-established findings from contested ones, preserving original source characterization and methodological context.",
+      "D": "Implement a confidence calibration layer that normalizes subagent uncertainty expressions to standardized probability scores (0.0-1.0), then weight-average findings by their calculated reliability scores to produce a statistically grounded synthesis."
+    },
+    "correct_answer": "C"
+  },
+  {
+    "question": "In production, you observe that simple fact-checking queries (e.g., \"What year was the Paris Climate Agreement signed?\") traverse all four subagents sequentially, consuming 40+ seconds. While this might be acceptable for complex comparative research benefits from the full pipeline. Your query distribution is diverse and evolving as users discover new applications. What's the most effective approach to optimize for varying query complexity?",
+    "options": {
+      "A": "Implement pattern-based routing that categorizes queries by structure (single-fact vs. comparative vs. analytical) and maps each category to a predefined subagent combination.",
+      "B": "Train a query complexity classifier on labeled historical data to predict optimal subagent combinations, retraining periodically as query patterns evolve.",
+      "C": "Have the coordinator analyze each query and dynamically decide which subagents to invoke based on its assessment of query requirements.",
+      "D": "Create a fast-path for factual questions that bypasses subagents entirely, routing all other queries through the complete pipeline to ensure research thoroughness."
+    },
+    "correct_answer": "C"
+  },
+  {
+    "question": "agent has identified that caching logic spans 15 files including decorators, middleware, and service classes (~8,000 lines total). What's next step for building understanding while managing context constraints?",
+    "options": {
+      "A": "Use Glob to find files matching common caching patterns (cache.py, caching/), prioritize the largest files by reading them first, then check smaller files for gaps.",
+      "B": "Use the Read tool to sequentially load all 15 files, building complete understanding across the full caching implementation.",
+      "C": "Use Grep to search for \"invalidate\" and \"expire\" patterns across all files, then Read only those specific line ranges with minimal surrounding context.",
+      "D": "Analyze imports and class hierarchies to identify the base cache class, Read that file to understand the interface, then trace specific invalidation implementations."
+    },
+    "correct_answer": "D"
+  },
+  {
+    "question": "Today she wants to continue that specific investigation. She's worked on three other codebases since then and knows the session was dive\". How should she resume?",
+    "options": {
+      "A": "Start fresh and re-read the same files",
+      "B": "Use --resume auth-deep-dive to load that specific session by name",
+      "C": "Use --continue to pick up where the most recent conversation left off",
+      "D": "Use --session-id with the UUID from yesterday's session transcript file"
+    },
+    "correct_answer": "B"
+  },
+  {
+    "question": "old_string parameter cannot find unique text to match — the file has repetitive docstrings, variable names, and structural patterns. What is a reliable way to complete this insertion?",
+    "options": {
+      "A": "Use Edit with an extremely long old_string capturing 30+ lines of context to guarantee uniqueness",
+      "B": "Use Read to load the file, add the function at the appropriate location, then Write the updated file",
+      "C": "Use Edit's replace_all parameter to target a common pattern and embed the new function in the replacement text",
+      "D": "Use Bash to append the function definition to the end of the file using heredoc syntax"
+    },
+    "correct_answer": "B"
+  },
+  {
+    "question": "A critical bug is affecting production users. Error logs show exceptions in the OrderProcessing module with a clear stack trace pointing to a specific function. You haven't worked with this module before. What's the most effective approach?",
+    "options": {
+      "A": "Start with direct execution to gather initial information, then switch to plan mode to design a comprehensive solution before implementing any changes.",
+      "B": "Use plan mode to analyze the error in context of the module's design, enumerate potential root causes, and prioritize fixes systematically.",
+      "C": "Enter plan mode to explore the module's architecture and dependencies before attempting any fixes.",
+      "D": "Use direct execution to examine the stack trace, read the relevant code, and implement a fix once you identify the root cause."
+    },
+    "correct_answer": "D"
+  },
+  {
+    "question": "An engineer asks your agent to add comprehensive tests to a legacy codebase with 200 files and minimal existing test coverage. The engineer hasn't spent much time on the codebase, so they ask for help identifying which modules to prioritize. How should the agent decompose this open-ended task?",
+    "options": {
+      "A": "Use Glob and Grep to map codebase structure, identify heavily-coupled modules, create a prioritized plan for high-impact areas, and revise as dependencies are discovered.",
+      "B": "Create a fixed testing schedule upfront based on directory structure, allocating equal effort to each top- level directory regardless of code complexity or importance.",
+      "C": "Systematically read all 200 files to create a complete function inventory before writing any tests, ensuring the testing plan accounts for everything from the beginning.",
+      "D": "Start writing tests for the first module alphabetically, using test failures and imports to discover related files organically."
+    },
+    "correct_answer": "A"
+  },
+  {
+    "question": "Production logs reveal inconsistent error handling. When looking up facts, the agent sometimes retries 5+ times (sadly, when the outer ID doesn't exist), sometimes escalates immediately (prematurely for temporary network issues), and sometimes asks users for clarification (inappropriate when the issue is a backend permission error). Investigation shows your MCP tool returns uniform error responses (\"isError\": true, \"context\": {\"type\": \"text\", \"text\": \"Operation failed.\"}). The agent cannot distinguish between error types. What's the most effective improvement?",
+    "options": {
+      "A": "Implement retry logic with exponential backoff in your MCP service for all errors returning to the agent only after retries are exhausted.",
+      "B": "Create an analyze_error MCP tool that the agent calls after any failure to determine the error category and recommended action.",
+      "C": "Add ten shot examples to the system's conduct_demo training to interpret error message context and select appropriate responses for each.",
+      "D": "Return structured error metadata in MCP responses."
+    },
+    "correct_answer": "D"
   }
 ]
