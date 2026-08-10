@@ -119,6 +119,14 @@
     "category": "Chứng chỉ",
     "subcategory": "Anthropic"
   },
+    {
+    "id": "ccar_f_maithienan_practice",
+    "title": "CCAR-F — Anthropic Claude Certified Architect - Foundations (CCAR-F) Practice",
+    "icon": "🧩",
+    "count": 115,
+    "category": "Chứng chỉ",
+    "subcategory": "Anthropic"
+  },
   {
     "id": "ja_bunpo_1",
     "title": "Tiếng Nhật — Ngữ pháp N1",
