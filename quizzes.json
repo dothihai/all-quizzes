@@ -11,7 +11,15 @@
     "id": "aip-c01",
     "title": "AWS Certified Generative AI Developer - Professional (AIP-C01)",
     "icon": "☁️",
-    "count": 98,
+    "count": 125,
+    "category": "Chứng chỉ",
+    "subcategory": "AWS"
+  },
+    {
+    "id": "aip_c01_certlab",
+    "title": "AWS Certified Generative AI Developer - Professional (AIP-C01) - CertLab",
+    "icon": "☁️",
+    "count": 124,
     "category": "Chứng chỉ",
     "subcategory": "AWS"
   },
