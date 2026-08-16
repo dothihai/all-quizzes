@@ -15,7 +15,7 @@
     "category": "Chứng chỉ",
     "subcategory": "AWS"
   },
-    {
+  {
     "id": "aip_c01_certlab",
     "title": "AWS Certified Generative AI Developer - Professional (AIP-C01) - CertLab",
     "icon": "☁️",
@@ -127,13 +127,21 @@
     "category": "Chứng chỉ",
     "subcategory": "Anthropic"
   },
-    {
+  {
     "id": "ccar_f_maithienan_practice",
     "title": "CCAR-F — Anthropic Claude Certified Architect - Foundations (CCAR-F) Practice",
     "icon": "🧩",
     "count": 115,
     "category": "Chứng chỉ",
     "subcategory": "Anthropic"
+  },
+  {
+    "id": "cpmai_certlab",
+    "title": "Certified Professional in Managing AI (PMI-CPMAI) - CertLab",
+    "icon": "🤖",
+    "count": 240,
+    "category": "Chứng chỉ",
+    "subcategory": "PMI"
   },
   {
     "id": "ja_bunpo_1",
