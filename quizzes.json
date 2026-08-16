@@ -136,6 +136,14 @@
     "subcategory": "Anthropic"
   },
   {
+    "id": "cpmai",
+    "title": "Certified Professional in Managing AI (PMI-CPMAI)",
+    "icon": "🤖",
+    "count": 252,
+    "category": "Chứng chỉ",
+    "subcategory": "PMI"
+  },
+  {
     "id": "cpmai_certlab",
     "title": "Certified Professional in Managing AI (PMI-CPMAI) - CertLab",
     "icon": "🤖",
