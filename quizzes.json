@@ -152,6 +152,14 @@
     "subcategory": "PMI"
   },
   {
+    "id": "ccdv_f_certlab",
+    "title": "CCDV-F Anthropic Claude Certified Developer - Foundations (CCDV-F) - CertLab",
+    "icon": "🧩",
+    "count": 318,
+    "category": "Chứng chỉ",
+    "subcategory": "Anthropic"
+  },
+  {
     "id": "ja_bunpo_1",
     "title": "Tiếng Nhật — Ngữ pháp N1",
     "icon": "✍️",
