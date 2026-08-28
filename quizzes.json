@@ -160,6 +160,22 @@
     "subcategory": "Anthropic"
   },
   {
+    "id": "ccar_p_mapu_certlab",
+    "title": "Anthropic Claude Certified Architect – Professional (CCAR-P) of Matthew Purcell - CertLab",
+    "icon": "🧩",
+    "count": 83,
+    "category": "Chứng chỉ",
+    "subcategory": "Anthropic"
+  },
+  {
+    "id": "ccar_p_certlab",
+    "title": "Anthropic Claude Certified Architect – Professional (CCAR-P) - CertLab",
+    "icon": "🧩",
+    "count": 126,
+    "category": "Chứng chỉ",
+    "subcategory": "Anthropic"
+  },
+  {
     "id": "ja_bunpo_1",
     "title": "Tiếng Nhật — Ngữ pháp N1",
     "icon": "✍️",

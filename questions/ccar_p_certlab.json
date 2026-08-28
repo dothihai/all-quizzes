@@ -1,0 +1,1566 @@
+[
+  {
+    "question": "A research laboratory wants to reduce median sample-intake time. Process data shows that most elapsed time comes from an overnight instrument-availability synchronization, while technicians separately interpret free-form submission notes. Existing chain-of-custody rules and sample-acceptance approvals work as intended. Which proposal best translates the actual business problem into a Claude-based solution?",
+    "options": {
+      "A": "Fix instrument freshness in the laboratory system, pilot Claude for note extraction and routing, retain chain-of-custody controls, and measure synchronization delay separately from technician intake time.",
+      "B": "Keep the overnight synchronization, use Claude to infer likely instrument availability from submission notes, retain sample-acceptance approvals, and measure total intake time plus escalation rate.",
+      "C": "Fix instrument freshness, keep manual note interpretation, and use Claude only to rewrite acceptance notifications, measuring notification clarity and total sample-intake time.",
+      "D": "Keep the overnight synchronization, let Claude reconcile notes with historical instrument schedules, retain acceptance approvals, and measure extraction confidence alongside total sample-intake time."
+    },
+    "correct_answer": "A",
+    "explanation": "Một giải pháp dùng Claude phải xuất phát từ vấn đề kinh doanh đã được đo lường, không nên cố gán mọi nguyên nhân chậm trễ cho mô hình. Hệ thống phòng thí nghiệm cần xử lý nút thắt lớn nhất là dữ liệu thiết bị không được cập nhật kịp thời; Claude chỉ nên hỗ trợ phần đọc hiểu và xử lý ghi chú. Đo riêng từng phần sẽ cho biết giải pháp kết hợp có thực sự cải thiện thời gian tiếp nhận mẫu hay không.",
+    "source": "certlab.io.vn"
+  },
+  {
+    "question": "A commercial-insurance sponsor requests an “autonomous Claude agent” for renewal submissions. The process combines narrative emails and forms, current policy rules, system-of-record eligibility data, and reviewer judgment. A six-week pilot must reduce review time without increasing material omissions. Which solution definition best represents the business problem?",
+    "options": {
+      "A": "Have Claude interpret submissions and decide eligibility, use the policy system only to record results, let reviewers sample completed cases, and track review time plus omission rate.",
+      "B": "Have Claude extract submission facts and flag gaps against approved policy; keep eligibility in current systems, route ambiguous cases to reviewers, and gate on time and omission thresholds.",
+      "C": "Use deterministic templates to extract every submission field, have Claude approve exceptions to policy rules, send incomplete cases to reviewers, and track review time plus omission rate.",
+      "D": "Have Claude summarize submissions from approved sources, keep all comparisons and eligibility checks manual, and gate the pilot on summary readability, review time, and model cost."
+    },
+    "correct_answer": "B",
+    "explanation": "Phương án tốt nhất biến yêu cầu công nghệ chung chung thành một quy trình có phạm vi và trách nhiệm rõ ràng. Claude trích xuất thông tin và phát hiện dữ liệu còn thiếu; hệ thống hiện tại vẫn quyết định điều kiện hợp lệ; người đánh giá xử lý trường hợp chưa rõ. Thử nghiệm phải đạt cả mục tiêu về tốc độ lẫn tỷ lệ bỏ sót.",
+    "source": "certlab.io.vn"
+  },
+  {
+    "question": "A customer-success leader asks for Claude to summarize account calls and “take care of follow-up.” Follow-up may include drafting an email, updating CRM fields, or proposing a contract change that requires approval. The leader wants a proposal next week, but has not defined acceptable quality. Which TWO artifacts should the architect produce before selecting an architecture? Choose 2.",
+    "options": {
+      "A": "A responsibility map separating Claude’s interpretation and drafting work, existing-system validation and recording, and human approval decisions.",
+      "B": "A preferred-model declaration based on the architect’s prior projects, with other models considered only if the pilot fails.",
+      "C": "A multi-agent topology assigning one agent to summaries, one to CRM updates, and one to contract decisions.",
+      "D": "A measurable acceptance set covering summary fidelity, action-item recall, unauthorized-change rate, latency, and cost on representative calls.",
+      "E": "A prompt library containing several tones for follow-up emails, treated as the complete set of solution requirements."
+    },
+    "correct_answer": "AD",
+    "explanation": "Trước khi chọn kiến trúc, cần làm rõ cụm từ ‘xử lý việc theo dõi’ thành các trách nhiệm và kết quả có thể đo được. Bản đồ trách nhiệm giúp tách việc diễn giải, cập nhật hệ thống và phê duyệt. Bộ tiêu chí nghiệm thu giúp kiểm tra chất lượng, hành động trái phép, độ trễ và chi phí. Việc chọn mô hình, cấu trúc agent hay prompt chỉ nên thực hiện sau đó.",
+    "source": "certlab.io.vn"
+  },
+  {
+    "question": "A procurement team reviews narrative vendor questionnaires against current security policies and vendor-master data. It wants faster first-pass analysis, but risk thresholds must be enforced consistently and a procurement officer must accept residual risk. Which division of work is most appropriate?",
+    "options": {
+      "A": "Let Claude interpret the questionnaires, retrieve any needed vendor facts from memory, and update the vendor’s final risk tier when its explanation is confident.",
+      "B": "Use deterministic rules to summarize narrative responses, while Claude executes risk thresholds and approves exceptions expressed in natural language.",
+      "C": "Use Claude to analyze narrative responses and draft cited findings; use existing systems for current vendor facts and threshold enforcement; have the procurement officer decide residual-risk acceptance.",
+      "D": "Create independent agents to vote on each vendor, omit system integrations for the pilot, and measure agreement among agents as the primary business outcome."
+    },
+    "correct_answer": "C",
+    "explanation": "Bài toán có ba nhóm trách nhiệm riêng. Claude phù hợp với việc đọc hiểu và tổng hợp nội dung bảng câu hỏi dạng tự do. Hệ thống hiện có phải tiếp tục là nguồn chính xác cho dữ liệu nhà cung cấp và các ngưỡng cố định. Nhân viên thu mua vẫn là người chấp nhận rủi ro còn lại. Các phương án khác phân công sai trách nhiệm hoặc dùng chỉ số nội bộ của mô hình thay cho kết quả kinh doanh.",
+    "source": "certlab.io.vn"
+  },
+  {
+    "question": "A software company wants Claude to reduce the time spent drafting technical-support replies. Replies must use approved support content, preserve company tone, avoid unsupported troubleshooting steps, meet a four-second p95 latency target, and stay within a per-case cost budget. Which proposal best translates these requirements into a solution?",
+    "options": {
+      "A": "Let Claude answer from its general context, have agents review a daily sample, and select the pilot if average drafting time and per-case cost improve.",
+      "B": "Use fixed response templates without connecting approved support content, ask Claude only to adjust tone, have agents resolve unmatched cases, and gate on unsupported-step rate, latency, and cost.",
+      "C": "Let a Claude agent search public troubleshooting sites and update the support knowledge base, have agents approve replies only on complaints, and gate on tone, latency, and cost.",
+      "D": "Have Claude draft from retrieved approved content, route unsupported cases to agents, keep knowledge changes outside the model, and gate on grounded quality, tone, p95 latency, and cost."
+    },
+    "correct_answer": "D",
+    "explanation": "Giải pháp đầy đủ không chỉ dừng ở việc tạo bộ đánh giá. Claude phải soạn nội dung dựa trên nguồn đã được phê duyệt, tuân thủ quản trị tri thức, có phương án chuyển tiếp khi không đủ dữ liệu và đo cả chất lượng lẫn hiệu quả vận hành. Các lựa chọn khác dùng ngữ cảnh thiếu căn cứ, mẫu không phù hợp, nguồn chưa được duyệt hoặc chỉ kiểm tra sau khi lỗi đã xảy ra.",
+    "source": "certlab.io.vn"
+  },
+  {
+    "question": "A finance team wants Claude to accelerate employee-expense intake. Most fields and policy checks are already structured, but exception justifications are free text. The current policy and cost-center record must be available before a claim can proceed; otherwise the case must return to finance for missing information. Which TWO statements best define the Claude solution scope? Choose 2.",
+    "options": {
+      "A": "Send every structured field and policy calculation to Claude so one generative step owns the complete expense-intake decision.",
+      "B": "Send exception narratives to Claude to classify the reason and draft a policy-grounded request for required evidence.",
+      "C": "Let Claude infer a missing cost center from prior claims so the case can continue without the current record.",
+      "D": "Cache policy monthly, let Claude submit exceptions resembling approved claims, and return only novel cases to finance.",
+      "E": "Keep structured validation in the expense system and return claims to finance whenever current policy or cost-center data is unavailable."
+    },
+    "correct_answer": "BE",
+    "explanation": "Không cần dùng Claude để thay thế toàn bộ quy trình chi phí vốn đã có cấu trúc. Claude chỉ nên đọc các ngoại lệ dạng văn bản tự do và soạn yêu cầu bổ sung bằng chứng dựa trên dữ liệu có căn cứ. Hệ thống chi phí vẫn thực hiện kiểm tra và phải dừng khi thiếu chính sách hoặc mã trung tâm chi phí chính thức. Các phương án khác mở rộng AI quá mức, tự suy đoán dữ liệu còn thiếu hoặc bỏ qua bước dự phòng bắt buộc.",
+    "source": "certlab.io.vn"
+  },
+  {
+    "question": "A product team wants to reduce weekly feedback-review time. Claude may classify comments into a fixed taxonomy and draft themes, but roadmap decisions remain with the product manager and every theme must trace to original comments. The team also values predictable latency and low cost. Which solution definition best fits?",
+    "options": {
+      "A": "Use Claude for classification and theme drafts, retain source links in the intake system, keep roadmap decisions with the product manager, and measure classification quality, review time, latency, and cost.",
+      "B": "Use Claude for classification and theme drafts, let it revise the taxonomy when confidence is low, keep roadmap decisions with the product manager, and measure review time, latency, and cost.",
+      "C": "Use keyword rules for classification, ask Claude only to polish the theme summary, preserve source links, keep roadmap decisions with the product manager, and measure review time, latency, and cost.",
+      "D": "Use Claude for classification and theme drafts, discard individual source links after aggregation, keep roadmap decisions with the product manager, and measure classification quality, review time, latency, and cost."
+    },
+    "correct_answer": "A",
+    "explanation": "Phương án đúng giao việc phân loại và soạn thảo cho Claude, nhưng vẫn giữ quyền quyết định lộ trình sản phẩm cho quản lý sản phẩm và lưu khả năng truy vết trong hệ thống tiếp nhận. Hiệu quả phải được đo ở cả cấp tác vụ và vận hành. Các lựa chọn khác tự ý thay đổi hệ thống phân loại, dùng quy tắc cứng cho bài toán ngôn ngữ hoặc làm mất liên kết đến nguồn.",
+    "source": "certlab.io.vn"
+  },
+  {
+    "question": "An enterprise renewals team needs a daily account brief using current CRM, ticket, and contract data. Flagged accounts can contain conflicting evidence that must remain visible, pricing changes require human approval, and the pilot has strict quality, latency, and cost limits. Which solution boundary best addresses the complete problem?",
+    "options": {
+      "A": "Give Claude a weekly consolidated export, require citations in each brief, let it select the most credible value when sources conflict, keep pricing approval with humans, and gate on quality, latency, and cost.",
+      "B": "Connect the current sources read-only, have Claude produce an attributed brief that preserves conflicting evidence, keep pricing changes in the existing human-approved process, and gate the pilot on quality, latency, and cost.",
+      "C": "Connect the current sources read-only, have Claude choose one value for every conflict and produce the brief, keep pricing approval with humans, and gate the pilot on quality, latency, and cost.",
+      "D": "Connect the current sources, use deterministic rules to suppress flagged accounts from the daily brief, send those accounts to manual research, and gate only the routine path on latency and cost."
+    },
+    "correct_answer": "B",
+    "explanation": "Ranh giới giải pháp đầy đủ phải có dữ liệu hiện hành từ nguồn chính thức, phần tổng hợp vẫn thể hiện các bằng chứng mâu thuẫn, quy trình định giá có con người phê duyệt và các ngưỡng về chất lượng, độ trễ, chi phí. Các phương án khác dùng dữ liệu cũ, để mô hình tự giải quyết xung đột bắt buộc hoặc loại bỏ trường hợp khó khỏi phạm vi đánh giá.",
+    "source": "certlab.io.vn"
+  },
+  {
+    "question": "A manufacturer wants Claude to draft findings from unstructured quality-incident reports. Every finding must be grounded in the current procedure, and the incident commander retains the line-stop decision. Which TWO elements define the solution boundary? Choose 2.",
+    "options": {
+      "A": "Have Claude draft grounded findings while the incident commander retains the line-stop decision.",
+      "B": "Let a grounded finding stop the line automatically and ask the commander to review it at shift end.",
+      "C": "Retrieve the approved procedure, attach its source to the draft, and mark unsupported findings for commander review.",
+      "D": "Keep the commander as decision owner but let Claude use its general knowledge when the procedure is missing.",
+      "E": "Choose the most capable model first and define grounding behavior after users try the pilot."
+    },
+    "correct_answer": "AC",
+    "explanation": "Lựa chọn A giao cho Claude việc soạn thảo có căn cứ nhưng vẫn giữ quyền dừng dây chuyền cho người chỉ huy. Lựa chọn C quy định rõ quy trình đã phê duyệt và cách xử lý khi không đủ căn cứ. Tự động hành động, dựa vào kiến thức chung không có quy trình hỗ trợ hoặc chọn mô hình trước khi xác định bài toán đều vi phạm các ranh giới đã nêu.",
+    "source": "certlab.io.vn"
+  },
+  {
+    "question": "A global account team requests an autonomous assistant for policy questions and customer-record updates. Answers must cite approved knowledge, updates require current CRM state and scoped authorization, material changes need human approval, and the first release has quality, latency, and monthly cost targets. Regional workflows are not yet fully documented. Which proposal is the strongest starting point?",
+    "options": {
+      "A": "Document regional assumptions during a broad pilot, ground policy answers, use one shared CRM role for proposed updates, require weekly human review, and gate the release on adoption, latency, and cost.",
+      "B": "Document regional policies, ground answers in approved content, use periodic CRM exports for updates, let Claude commit non-material changes, and gate the release on quality, latency, and cost.",
+      "C": "Document regional workflows and assumptions, pilot grounded answers with narrowly scoped CRM tools, enforce authorization and material-change approval outside Claude, and expand scope only after quality, latency, and cost gates pass.",
+      "D": "Document regional workflows, keep all CRM changes manual, answer from approved static policy files, and expand after answer-accuracy and latency gates pass within the monthly budget."
+    },
+    "correct_answer": "C",
+    "explanation": "Yêu cầu này bao gồm quy trình khu vực chưa rõ, công việc tri thức cần căn cứ, thao tác trên hệ thống trực tiếp, phân quyền, phê duyệt của con người và nhiều mục tiêu vận hành. Phương án tốt nhất ghi rõ các giả định, quản lý công cụ và phê duyệt ở ngoài Claude, đồng thời chỉ mở rộng khi có bằng chứng. Các lựa chọn khác cấp quyền quá rộng, dùng dữ liệu cũ, đánh giá quá muộn hoặc thiếu hỗ trợ cập nhật trạng thái hiện tại.",
+    "source": "certlab.io.vn"
+  },
+  {
+    "question": "A warranty-intake service receives a customer's narrative and device serial number. Coverage must come from the current warranty system, the case platform requires validated JSON for the next step, and the team wants resolved-case outcomes to improve future releases. Which end-to-end architecture best meets these requirements?",
+    "options": {
+      "A": "Validate the intake; retrieve current coverage through an application-executed client tool; produce and validate case-schema JSON; and send reviewed coverage and routing outcomes to task-specific evaluations.",
+      "B": "Validate serial format, use a nightly coverage snapshot, produce and validate case-schema JSON, archive versioned traces, and evaluate reviewed routing outcomes without a live coverage lookup.",
+      "C": "Validate the intake and fetch live coverage, but publish a free-text route through a parser and evaluate only cases that customers reopen.",
+      "D": "Validate the intake, request live coverage, treat the tool_use block as the coverage result, publish schema-valid routing JSON, and track handling time."
+    },
+    "correct_answer": "A",
+    "explanation": "Kiến trúc đầy đủ phải nối liền mọi ranh giới: đầu vào được kiểm tra, dữ liệu phạm vi bảo hiểm hiện tại được trả về đúng hợp đồng công cụ phía máy khách, đầu ra đúng schema và được ứng dụng xác thực, cùng kết quả thực tế đã được đánh giá để bổ sung vào bộ kiểm thử. Các lựa chọn khác phụ thuộc vào dữ liệu cũ, hợp đồng đầu ra yếu, nhầm yêu cầu gọi công cụ với kết quả hoặc thiếu vòng phản hồi.",
+    "source": "certlab.io.vn"
+  },
+  {
+    "question": "A store-replenishment assistant interprets manager notes and may call an internal ordering API. The API has side effects, transient failures occur, and staff must not be told that stock was ordered until the system confirms it. Which processing and output design is best?",
+    "options": {
+      "A": "Validate notes, have an authorized worker submit the order, notify staff when submission starts, and reconcile rejected orders from the inventory system afterward.",
+      "B": "Define a client tool and authorize retries, but persist its tool_use request as a confirmed order before the ordering API returns.",
+      "C": "Let the application execute the client tool and notify only after success, preserve confirmed orders for review, but keep tool errors outside the Claude loop for staff to resolve manually.",
+      "D": "Define a client tool; have the application authorize and execute it, return success or error as tool_result, handle the next stop explicitly, and notify only after confirmation."
+    },
+    "correct_answer": "D",
+    "explanation": "Với client tool, Claude chỉ yêu cầu thao tác; ứng dụng mới chịu trách nhiệm cấp quyền, thực thi và trả kết quả. Kiến trúc phải phân biệt yêu cầu với thành công đã được xác nhận, đưa lỗi trở lại vòng xử lý và chỉ thông báo cho người dùng sau khi kiểm chứng tác động. Các thiết kế khác thông báo hoặc lưu trạng thái quá sớm, hiểu sai `tool_use` hay không xử lý tiếp lỗi trong vòng lặp.",
+    "source": "certlab.io.vn"
+  },
+  {
+    "question": "A maintenance-recommendation service performs well on its original evaluation set, but production reviews show repeated misses on rare fault codes. Which TWO additions best close the end-to-end feedback loop without treating unverified edits as ground truth? Choose 2.",
+    "options": {
+      "A": "Record the input, relevant tool or retrieval evidence, output, version, and reviewed technician disposition; curate verified failures, including rare codes, into the evaluation set.",
+      "B": "Define task-specific gates for recommendation accuracy, escalation rate, and latency, and rerun normal and edge-case evaluations before releasing changes.",
+      "C": "Copy every technician edit into the system prompt each night and treat it as a correct label unless another technician objects.",
+      "D": "Add an autonomous critic to every production request and ship whenever the critic agrees with the first response.",
+      "E": "Optimize token cost against the original evaluation set and assume rare-code accuracy will improve with a cheaper prompt."
+    },
+    "correct_answer": "AB",
+    "explanation": "Một vòng phản hồi tốt cần cả bằng chứng thực tế có thể truy nguyên và tiêu chí phát hành có thể kiểm thử. Trace có phiên bản cùng kết luận đã được rà soát cho biết lỗi nằm ở đâu; các ca hiếm được tuyển chọn và bộ tiêu chí nhiều chiều cho biết phiên bản mới có tăng độ chính xác mà không làm mức chuyển cấp hoặc độ trễ vượt giới hạn hay không. Chỉnh sửa thô, sự đồng thuận của critic hoặc chỉ tối ưu chi phí không đủ làm bằng chứng.",
+    "source": "certlab.io.vn"
+  },
+  {
+    "question": "A logistics platform needs Claude to return parcel-classification JSON. The downstream service requires fixed fields and types, while valid route codes and maximum weights differ by tenant configuration. Which output layer is most robust?",
+    "options": {
+      "A": "Use output_config.format for fixed fields, publish schema-valid records without checking tenant route or weight rules, and evaluate parsing success.",
+      "B": "Use output_config.format for fixed fields, validate tenant-specific route and weight rules in the application, and evaluate both parsing and routing accuracy.",
+      "C": "Use strict tool input as the parcel record, validate its JSON shape in the application, and publish it without checking tenant-specific rules.",
+      "D": "Use structured output and tenant-rule validation, but treat every accepted record as factually correct and evaluate only parse success."
+    },
+    "correct_answer": "B",
+    "explanation": "Structured output phù hợp với hợp đồng JSON ổn định ở hệ thống phía sau, nhưng cấu hình riêng của từng khách hàng vẫn phải do ứng dụng quản lý. Ứng dụng cần kiểm tra các quy tắc động trước khi xuất bản; lớp phản hồi phải đo độ chính xác của việc định tuyến chứ không chỉ kiểm tra JSON có parse được hay không. Cấu trúc hợp lệ không đồng nghĩa với nội dung đúng sự thật.",
+    "source": "certlab.io.vn"
+  },
+  {
+    "question": "A factory maintenance assistant receives a technician note and a provenance-bearing sensor snapshot assembled by the data platform. Stale or missing readings require clarification, every work order requires technician approval, and the service is judged on false urgent recommendations and latency. Which architecture best connects the stages?",
+    "options": {
+      "A": "Validate snapshot provenance, let Claude estimate missing readings, create a structured draft for approval, route low-confidence drafts to a second technician, and evaluate urgency errors and latency.",
+      "B": "Validate snapshot freshness, create a structured draft, automatically open high-confidence urgent orders, and ask technicians to reverse errors before evaluation.",
+      "C": "Assemble the note and current snapshot, route stale or missing readings to clarification, create a structured draft, require approval, and evaluate urgency errors and latency.",
+      "D": "Validate snapshot freshness, route incomplete inputs to manual review, create a free-text draft for approval, and evaluate only median response time."
+    },
+    "correct_answer": "C",
+    "explanation": "Lớp đầu vào phải giữ thông tin nguồn gốc và quyết định về độ mới của dữ liệu do nền tảng dữ liệu quản lý; không được yêu cầu Claude tự đoán giá trị còn thiếu. Khi bằng chứng chưa đủ, lớp xử lý phải yêu cầu làm rõ. Đầu ra vẫn cần có cấu trúc, được kỹ thuật viên phê duyệt và được đánh giá cả về cảnh báo sai lẫn độ trễ.",
+    "source": "certlab.io.vn"
+  },
+  {
+    "question": "A media network coordinates studio and equipment reservations through client tools. Changes must be authorized and idempotent, tool failures must not become confirmations, the final production plan has a fixed schema, and production failures must improve later releases. Which THREE requirements belong in the design? Choose 3.",
+    "options": {
+      "A": "Continue while stop_reason is tool_use, execute each requested client tool, return its matching tool_result, and explicitly handle every other stop reason.",
+      "B": "Enforce authorization and idempotency, but show a booking as confirmed when Claude emits tool_use while the application completes the request asynchronously.",
+      "C": "Enforce authorization and idempotency before each change, then return either the confirmed reservation or an explicit execution error to Claude.",
+      "D": "Drive the tool loop and validate the final plan schema, but publish a plan without checking its reservations against the latest returned availability.",
+      "E": "Validate the final schema and reservation rules, then curate sanitized traces with confirmed outcomes into representative edge-case evaluations.",
+      "F": "Bound retries and escalate failures, but resume the previously approved plan after recovery without retrieving availability again."
+    },
+    "correct_answer": "ACE",
+    "explanation": "Thiết kế đầu-cuối cần có vòng lặp client tool, cơ chế phân quyền và chống thực thi trùng do ứng dụng quản lý, kết quả hoặc lỗi rõ ràng, cùng lớp xác thực cuối dựa trên kết quả đã được xác nhận. Các lựa chọn khác xác nhận quá sớm, bỏ qua kiểm tra nghiệp vụ hiện tại hoặc tiếp tục bằng trạng thái cũ sau khi khôi phục.",
+    "source": "certlab.io.vn"
+  },
+  {
+    "question": "Editors create a weekly digest from a fixed set of approved documents. The service has no external data lookup or side effects, needs a predictable JSON layout, and receives monthly factual-accuracy decisions from editors. Which end-to-end design is the best starting point?",
+    "options": {
+      "A": "Send approved content in a bounded request, use structured output for the digest schema, validate it in the application, and evaluate sampled editor decisions.",
+      "B": "Use an autonomous agent with web and file tools, validate its JSON, and evaluate editor decisions, even though newly found sources are outside the fixed approved set.",
+      "C": "Summarize each document in separate calls, aggregate into validated JSON, and evaluate fluency without checking factual alignment to the approved sources.",
+      "D": "Encode the digest through a strict client-tool schema, validate the shape, and publish it without connecting editor decisions to evaluations."
+    },
+    "correct_answer": "A",
+    "explanation": "Nội dung đã được phê duyệt và tác vụ không cần tác động ra bên ngoài hay tra cứu thêm, vì vậy một yêu cầu giới hạn là phương án đơn giản và đủ dùng. Structured output tạo hợp đồng cho hệ thống sau; ứng dụng kiểm tra dữ liệu trước khi tích hợp; các quyết định của biên tập viên được lấy mẫu để tạo vòng phản hồi về độ chính xác. Các lựa chọn khác thêm công cụ không cần thiết hoặc không đánh giá độ trung thực của nội dung.",
+    "source": "certlab.io.vn"
+  },
+  {
+    "question": "An enterprise entitlement assistant interprets access requests, must read current roles and contracts, and can propose changes. Privileged changes require manager approval; the identity platform is the only system allowed to execute updates; every result must be auditable and parseable. Which architecture is best?",
+    "options": {
+      "A": "Retrieve current state, generate a structured proposal, obtain manager approval, write the entitlement into the assistant's own store, then synchronize it to the identity platform and read back the result for audit.",
+      "B": "Retrieve current state with read-only tools, generate a structured proposal, enforce scoped approval, let the identity platform execute, then read back state and persist request, approval, result, and reconciliation.",
+      "C": "Generate from cached state, obtain manager approval, retrieve current state immediately before execution, and apply the original proposal without renewed review when the state differs.",
+      "D": "Retrieve current state, create a structured proposal, enforce scoped approval, execute through the identity platform, and store the request and approval without reconciling the resulting state."
+    },
+    "correct_answer": "B",
+    "explanation": "Quy trình cấp quyền cần lấy trạng thái hiện tại từ nguồn chính thức, tạo đề xuất có cấu trúc, xin phê duyệt trước khi nền tảng danh tính thực thi và đối chiếu lại sau khi ghi. Lưu yêu cầu, quyết định phê duyệt, kết quả thực thi và trạng thái đọc lại giúp toàn bộ quá trình có thể kiểm toán. Các phương án khác cập nhật ngoài hệ thống thực thi duy nhất, dùng lại phê duyệt sau khi trạng thái đã đổi hoặc không chứng minh được kết quả thực tế.",
+    "source": "certlab.io.vn"
+  },
+  {
+    "question": "A document-extraction service produces schema-valid JSON, but corrections to amounts and effective dates are not linked to the source input or output version. The team cannot tell whether releases improve the full pipeline. Which TWO additions best connect the output layer to a reliable feedback layer? Choose 2.",
+    "options": {
+      "A": "Have the application store a linked trace containing the input reference, model and output version, extracted fields, field-validation results, and verified corrections.",
+      "B": "Curate those traces into representative edge-case evaluations and gate releases on field accuracy, correction rate, and operational latency.",
+      "C": "Track field accuracy and correction totals only as monthly aggregates, without retaining which input and output version produced each error.",
+      "D": "Append every customer correction to future prompts as ground truth without verification or linkage to the producing version.",
+      "E": "Rerun JSON schema validation on corrected records and use the pass rate as evidence that semantic extraction improved."
+    },
+    "correct_answer": "AB",
+    "explanation": "Lớp đầu ra chỉ trở thành phản hồi hữu ích khi bản sửa đã xác minh có thể truy ngược về đầu vào nguồn và đúng phiên bản đã sinh. Những trace này cần được tuyển chọn thành các trường hợp đại diện rồi đánh giá bằng cả tiêu chí chất lượng ngữ nghĩa và vận hành. Chỉ đếm tổng, tự sửa prompt khi chưa xác minh hoặc lặp lại kiểm tra schema không cho biết khả năng trích xuất có tốt lên hay không.",
+    "source": "certlab.io.vn"
+  },
+  {
+    "question": "An incident-response assistant reads current ownership and runbooks through client tools and may execute a destructive action only after on-call approval. A tool outage can make state and prior approval stale; recovery behavior and post-incident learning are required. Which design is best?",
+    "options": {
+      "A": "Produce validated JSON from current tools and obtain approval, but after an outage resume the approved action against cached state and record the eventual result.",
+      "B": "Pause on an outage and refetch current state after recovery, but execute a changed remediation under the approval granted for the earlier proposal.",
+      "C": "Stop safely on the first tool failure, preserve the case and audit record for responders to restart manually, and report the outage, but keep the failure outside subsequent evaluation cases.",
+      "D": "Pause and escalate without executing; after recovery refetch state, regenerate any changed proposal, require fresh approval, execute through the application, and add the verified outage outcome to evaluations."
+    },
+    "correct_answer": "D",
+    "explanation": "Quy trình khôi phục an toàn không được dùng lại trạng thái hay phê duyệt có thể đã lỗi thời sau sự cố. Ứng dụng phải tạm dừng và chuyển cấp, lấy lại trạng thái mới nhất, tạo lại đề xuất nếu có thay đổi và xin phê duyệt mới trước thao tác phá huỷ. Ghi nhận kết quả sự cố đã xác minh giúp hoàn tất vòng học hỏi sau sự cố.",
+    "source": "certlab.io.vn"
+  },
+  {
+    "question": "A compatibility service processes third-party release notes. It must first extract package names and version ranges, the application must reject records with missing or invalid version syntax, and only validated data may enter a second call that assigns a migration-impact rationale. The stages are fixed, auditability matters, and sequential latency is acceptable. Which pattern is the best fit?",
+    "options": {
+      "A": "Use one augmented LLM call that always returns extracted dependencies and an impact rationale, then have the application inspect version syntax afterward.",
+      "B": "Use an autonomous agent that decides which extraction, validation, and assessment stages to run for each release note.",
+      "C": "Use prompt chaining: dependency extraction, a programmatic version-syntax gate, then impact assessment from the accepted record.",
+      "D": "Run dependency extraction and impact assessment in parallel, then compare their outputs after both finish."
+    },
+    "correct_answer": "C",
+    "explanation": "Chỉ được đánh giá tác động phía sau sau khi phiên bản trích xuất vượt qua kiểm tra của ứng dụng. Prompt chaining giữ đúng quan hệ phụ thuộc này và cho thấy rõ điểm bị từ chối. Gộp chung hoặc chạy song song sẽ đánh giá tác động quá sớm; dùng agent lại tạo thêm quyền điều phối động cho một quy trình vốn đã biết trước các bước.",
+    "source": "certlab.io.vn"
+  },
+  {
+    "question": "A research archive ingests microscopy images, audio interviews, and tabular sensor files. Modality detection is reliable for most inputs, each modality needs different preprocessing and prompts, and unknown or hybrid inputs must not enter an incompatible pipeline. Which TWO design choices best fit?",
+    "options": {
+      "A": "Detect the modality, then route high-confidence inputs to the corresponding specialized processing path.",
+      "B": "Let an autonomous agent invent a new modality and processing sequence separately for every file.",
+      "C": "Quarantine low-confidence or hybrid inputs for explicit fallback handling before any specialized path runs.",
+      "D": "Run every modality pipeline for each file and retain whichever output contains the most extracted fields."
+    },
+    "correct_answer": "AC",
+    "explanation": "Routing phù hợp vì từng loại dữ liệu đầu vào có thể nhận diện sẽ cần một quy trình chuyên biệt khác nhau. Tệp có độ tin cậy cao được đưa vào pipeline tương ứng; tệp không rõ hoặc kết hợp nhiều loại phải có nhánh dự phòng rõ ràng. Tự tạo đường xử lý hoặc chọn kết quả theo kích thước đầu ra không chứng minh được tính tương thích.",
+    "source": "certlab.io.vn"
+  },
+  {
+    "question": "An internal policy assistant must answer from the latest employee handbook, cite the supplied passages, return one read-only response under a tight latency target, and perform no follow-up actions. Which architecture is the best starting point?",
+    "options": {
+      "A": "Use a fixed prompt chain that drafts first, retrieves handbook passages second, and attaches citations last.",
+      "B": "Use an autonomous search agent that continues retrieving until it decides it has enough evidence, without an iteration limit.",
+      "C": "Use a routing workflow that assigns each question to a separate policy-writing agent.",
+      "D": "Use one augmented LLM call supplied with retrieved current handbook passages and explicit citation instructions."
+    },
+    "correct_answer": "D",
+    "explanation": "Tác vụ cần ngữ cảnh nội bộ mới nhất nhưng chỉ tạo một phản hồi giới hạn và không có vòng hành động. Vì vậy, augmented LLM có retrieval là mẫu kiến trúc đơn giản và đủ dùng nhất. Các lựa chọn khác truy xuất quá muộn, thêm quyền tự chủ không giới hạn hoặc thêm routing dù không có các nhóm đầu vào riêng biệt.",
+    "source": "certlab.io.vn"
+  },
+  {
+    "question": "A portfolio review must assess financial exposure, data-handling risk, and operational readiness from the same proposal. The three assessments do not depend on one another, all must finish within a strict latency target, and the application can combine structured findings. Which pattern is the best fit?",
+    "options": {
+      "A": "Run three focused reviews concurrently and aggregate their structured findings into one decision packet.",
+      "B": "Chain the three reviews so each assessment receives and extends the preceding assessment.",
+      "C": "Route each proposal to only one of the three review specialties based on its dominant risk.",
+      "D": "Let an autonomous agent decide which review dimensions to perform and stop when it considers coverage sufficient."
+    },
+    "correct_answer": "A",
+    "explanation": "Đây là dạng parallel sectioning: các phần phân tích bắt buộc đã biết trước, độc lập với nhau và có thể được tổng hợp bằng chương trình. Chaining làm chậm mục tiêu độ trễ; routing có thể bỏ sót chiều phân tích bắt buộc; còn agent tự chủ khiến phạm vi cần bao phủ trở nên khó chắc chắn.",
+    "source": "certlab.io.vn"
+  },
+  {
+    "question": "A publisher investigates royalty-allocation discrepancies. The useful sequence of contract clauses, usage-ledger entries, and payment records cannot be predicted, and each query must follow fresh evidence. Tools are read-only; corrections require finance approval and application execution, and missing evidence or a query limit must stop or escalate the work. Which architecture is best?",
+    "options": {
+      "A": "Use a fixed chain that always reads contracts, then usage ledgers, then payments, and stops if any source is unavailable.",
+      "B": "Use an orchestrator that assigns the same three analyses to workers once, then synthesizes their reports without further evidence queries.",
+      "C": "Use an agent that follows fresh evidence and edits the royalty ledger whenever its confidence exceeds a prompt-defined threshold.",
+      "D": "Use a bounded read-only agent guided by fresh evidence, with explicit stop or escalation limits and finance-approved corrections executed by the application."
+    },
+    "correct_answer": "D",
+    "explanation": "Số lần tra cứu và chuỗi bằng chứng thay đổi theo từng sai lệch, nên agent điều hướng theo kết quả phù hợp hơn một luồng cố định. Quyền tự chủ vẫn phải có giới hạn: thiếu bằng chứng hoặc vượt số truy vấn thì dừng hay chuyển cấp; mọi điều chỉnh tài chính phải chờ phê duyệt. Các phương án khác làm mất tính thích ứng, khả năng tiếp tục thu thập bằng chứng hoặc ranh giới trách nhiệm.",
+    "source": "certlab.io.vn"
+  },
+  {
+    "question": "A program drafts data-migration cutover plans for varied legacy systems. A stable rubric measures rollback completeness, owner coverage, and downtime limits; targeted critique has improved drafts in trials. Plans must ship by a deadline, exhausted refinement must be visible, and no model may approve or execute a cutover. Which THREE design choices best fit?",
+    "options": {
+      "A": "Separate generation from evaluation and require the evaluator to return feedback tied to the stable rubric.",
+      "B": "Allow the evaluator to redefine passing criteria after each draft based on the prose style it prefers.",
+      "C": "Revise until rubric thresholds are met or a maximum iteration count is reached, then expose remaining gaps.",
+      "D": "Replace the evaluator with an autonomous agent that may add tools and execute migration steps while refining the plan.",
+      "E": "Keep release outside the refinement loop so a human or application approves the plan after reviewing rubric evidence."
+    },
+    "correct_answer": "ACE",
+    "explanation": "Khi tiêu chí đã rõ và việc phản biện đã chứng minh có ích, mô hình evaluator–optimizer là phù hợp. Phản hồi phải gắn với rubric, có điều kiện kết thúc đo được, giới hạn số vòng, hiển thị vấn đề chưa giải quyết và vẫn cần phê duyệt bên ngoài. Thay đổi tiêu chí giữa chừng làm mất khả năng đo lường; dùng agent có quyền thực thi sẽ tạo thêm quyền tự chủ không cần thiết.",
+    "source": "certlab.io.vn"
+  },
+  {
+    "question": "A site-decommissioning assessment receives different equipment lists, contracts, and environmental records for every site. The required specialist analyses cannot be known until the packet is inspected; once identified, they can run independently, and a unified recommendation is needed. Which pattern is the best fit?",
+    "options": {
+      "A": "Predefine workers for every possible specialty and run all of them for every site packet.",
+      "B": "Use a prompt chain that always performs contract, equipment, and environmental review in the same order.",
+      "C": "Use an orchestrator to identify packet-specific subanalyses, delegate them to focused workers, and synthesize their findings.",
+      "D": "Use an autonomous agent that both commissions analyses and approves the final decommissioning action."
+    },
+    "correct_answer": "C",
+    "explanation": "Điểm quan trọng là các tác vụ con thay đổi theo từng đầu vào nên không thể xác định sẵn. Orchestrator có thể quyết định cần phân tích gì, giao cho các worker thực hiện rồi tổng hợp thành khuyến nghị. Worker hoặc chuỗi bước cố định đều giả định trước tác vụ; trao quyền phê duyệt cuối cho hệ thống lại vượt quá thẩm quyền được phép.",
+    "source": "certlab.io.vn"
+  },
+  {
+    "question": "An archive must decide whether two damaged catalog records describe the same artifact. A single model judgment is unstable on rare ambiguous pairs, several independent attempts are affordable, and low agreement must trigger human review. Which pattern is the best fit?",
+    "options": {
+      "A": "Route each record pair to one specialist prompt based on the collection that supplied the older record.",
+      "B": "Run several independent assessments, aggregate them with a defined agreement threshold, and abstain to human review when agreement is low.",
+      "C": "Chain a first judgment into later calls that are instructed to justify and refine that same conclusion.",
+      "D": "Let an agent repeat the assessment until it produces the same answer twice, then treat repetition as consensus."
+    },
+    "correct_answer": "B",
+    "explanation": "Tình huống này cần dạng voting của parallelization: nhiều lần đánh giá độc lập, quy tắc tổng hợp rõ ràng và quyền không kết luận khi độ tin cậy chưa đủ. Routing vẫn chỉ tạo một phán đoán; chaining làm giảm tính độc lập; lặp nhiều lần nhưng không có ngưỡng đồng thuận cụ thể không tạo ra kết quả đáng tin cậy.",
+    "source": "certlab.io.vn"
+  },
+  {
+    "question": "A grant-application acknowledgment process always validates applicant, program, and deadline fields, looks up requirements in an approved program matrix, generates applicant-specific next-step instructions, and waits for a program officer's approval before delivery. The path is stable, auditability is required, measured quality meets target, and extra latency has no demonstrated benefit. Which architecture is best?",
+    "options": {
+      "A": "Use an autonomous agent that chooses which field checks, program rules, and processing order to apply to each application.",
+      "B": "Use orchestrator-workers so a model invents and delegates a new set of acknowledgment checks for every application.",
+      "C": "Add an evaluator-optimizer loop that rewrites next-step instructions until an evaluator prefers the prose, without a measured release threshold.",
+      "D": "Use a predefined workflow with deterministic field validation and program lookup, one bounded instruction-generation call, and an explicit officer-approval gate."
+    },
+    "correct_answer": "D",
+    "explanation": "Workflow định trước phù hợp vì các bước kiểm tra, tra cứu chương trình, tạo nội dung và phê duyệt đều đã biết. Kiểm tra xác định giúp quy trình dễ kiểm toán, lần gọi LLM có giới hạn dùng để cá nhân hóa bước tiếp theo, còn cán bộ chương trình vẫn phê duyệt. Phân rã động, quyền tự chủ hoặc viết lại không được đo lường chỉ làm tăng độ phức tạp.",
+    "source": "certlab.io.vn"
+  },
+  {
+    "question": "A hospital operations team reviews discharge readiness across six wards. Each ward has high-volume clinical notes, medication events, and care-coordination records that are irrelevant to other wards. A single agent loses focus when all records accumulate, while the operations lead needs one prioritized barrier-resolution queue. Which architecture best addresses the demonstrated constraint?",
+    "options": {
+      "A": "Assign each ward to a context-isolated review agent with a common barrier schema, then have a coordinator prioritize the hospital-wide resolution queue.",
+      "B": "Keep one agent, retrieve all ward records into one conversation, and ask it to assess every patient before prioritizing barriers.",
+      "C": "Create sequential extraction, clinical-review, coordination-review, and prioritization agents that pass all six wards at every handoff.",
+      "D": "Launch several agents over the undivided hospital dataset and adopt the first resolution queue that finishes after a format check."
+    },
+    "correct_answer": "A",
+    "explanation": "Vấn đề chính là ngữ cảnh bị nhiễu khi gom nhiều hồ sơ khoa có dung lượng lớn nhưng độc lập. Mỗi agent theo khoa có thể giữ đúng ngữ cảnh để xác định rào cản xuất viện đã được ghi nhận và trả về một gói dữ liệu giới hạn. Coordinator sau đó so sánh mức khẩn cấp, quan hệ phụ thuộc và công sức vận hành giữa các khoa.",
+    "source": "certlab.io.vn"
+  },
+  {
+    "question": "A retailer generates accessibility descriptions for product images through a stable pipeline: load approved product attributes, make one bounded Claude call, reject prohibited claims with deterministic rules, enforce length and format, and publish. Evaluation shows the pipeline meets its quality target. Which design is most appropriate?",
+    "options": {
+      "A": "Create attribute, vision, drafting, policy, and publishing agents that negotiate the processing order for every product.",
+      "B": "Keep the predefined pipeline and deterministic gates; add agents only if evaluation identifies a constraint the workflow cannot meet.",
+      "C": "Replace the deterministic claim and format checks with several agents, publishing whenever a simple majority accepts the description.",
+      "D": "Use an autonomous coordinator that may omit attribute loading or deterministic checks when it predicts they will add latency."
+    },
+    "correct_answer": "B",
+    "explanation": "Kiến trúc đa agent không mặc nhiên tốt hơn. Pipeline mô tả sản phẩm có đường đi rõ ràng, kiểm soát xuất bản bằng quy tắc và một lần sinh nội dung giới hạn vốn đã đạt mục tiêu chất lượng. Workflow định trước vì vậy dễ dự đoán và bảo trì hơn. Chỉ nên thêm agent khi đánh giá chỉ ra hạn chế cụ thể mà thiết kế đơn giản không giải quyết được.",
+    "source": "certlab.io.vn"
+  },
+  {
+    "question": "A due-diligence service must investigate ownership, litigation, cybersecurity, and market evidence in parallel. Each area has distinct sources, and the final report must state coverage gaps and preserve citations. Which TWO design choices best support reliable multi-agent orchestration?",
+    "options": {
+      "A": "Give each evidence area a worker with bounded context, a clear output schema, and area-specific tools.",
+      "B": "Let all workers edit one shared conclusion continuously without ownership boundaries or conflict handling.",
+      "C": "Split planning, searching, citation capture, and writing into separate sequential agents for every evidence area.",
+      "D": "Have the coordinator check required areas, reconcile conflicts, and label missing evidence before synthesis.",
+      "E": "Pass every worker's full source corpus and entire reasoning transcript to every other worker before they begin."
+    },
+    "correct_answer": "AD",
+    "explanation": "Nên phân rã theo từng vùng bằng chứng vì mỗi vùng có nguồn riêng và có thể điều tra độc lập. Mỗi worker cần ngữ cảnh, công cụ và hợp đồng đầu ra tập trung. Coordinator phải kiểm tra độ bao phủ, xử lý mâu thuẫn, giữ trích dẫn và nêu rõ khoảng trống. Dùng kết luận chung có thể bị sửa, chuyển giao tuần tự theo vai trò hoặc chia sẻ toàn bộ transcript sẽ làm giảm tính cô lập và khả năng truy nguồn.",
+    "source": "certlab.io.vn"
+  },
+  {
+    "question": "An agricultural cooperative assistant controls irrigation zones, reconciles cold-storage inventory, and validates supplier invoices. A single agent now sees many similarly named actions and increasingly invokes the wrong system. The domains have clean ownership boundaries, but drought-response requests can require one coordinated plan. What is the best redesign?",
+    "options": {
+      "A": "Keep every action on one agent and expand descriptions, while requiring the agent to reconsider its first system choice.",
+      "B": "Give three agents every cooperative action, run them in parallel, and use whichever complete drought plan arrives first.",
+      "C": "Create irrigation, storage, and invoice specialists with focused actions, and use a coordinator with explicit handoff contracts to combine drought-response work.",
+      "D": "Remove system actions from the assistant and generate instructions for staff to perform every irrigation, storage, and invoice change manually."
+    },
+    "correct_answer": "C",
+    "explanation": "Lỗi đã đo được xuất phát từ việc nhiều thao tác tương tự nằm trong các hệ thống hợp tác nhưng tách biệt. Agent chuyên môn giúp thu hẹp tập hành động và giữ hướng dẫn đúng với trách nhiệm tưới tiêu, lưu trữ hoặc tài chính. Coordinator định tuyến yêu cầu một lĩnh vực và kết hợp hệ quả cho kế hoạch hạn hán. Sao chép mọi quyền cho mọi agent không giải quyết được ranh giới trách nhiệm.",
+    "source": "certlab.io.vn"
+  },
+  {
+    "question": "An agent produces an emergency-evacuation plan from facility records. An independent verifier is required, but earlier verifiers sampled only the busiest floor and approved plans that omitted remote zones or violated blocked-route constraints. Which orchestration design best addresses this failure?",
+    "options": {
+      "A": "Give a verifier the plan, explicit criteria, and authoritative facility records; require structured evidence for every zone and prohibited route before release.",
+      "B": "Give an independent verifier the plan and criteria, but permit it to validate the highest-occupancy zones and extrapolate the result to the rest.",
+      "C": "Require every zone to receive structured pass/fail evidence, but let the verifier derive all reference facts from the generated plan itself.",
+      "D": "Assign one verifier route reachability and another occupancy and assistance coverage, but release as soon as either complementary verifier passes."
+    },
+    "correct_answer": "A",
+    "explanation": "Xác minh là ranh giới đa agent hợp lý vì verifier có thể đánh giá kế hoạch hoàn chỉnh theo tiêu chí rõ ràng mà không cần kế thừa quá trình suy nghĩ của generator. Hợp đồng phải yêu cầu hồ sơ chính thức, đủ mọi khu vực, các trường hợp tuyến bị cấm và bằng chứng có cấu trúc trước khi phát hành. Lấy mẫu hoặc phát hành trước khi xác minh xong vẫn để lại khoảng trống quan trọng.",
+    "source": "certlab.io.vn"
+  },
+  {
+    "question": "Two agents collect technical and commercial evidence for a decision. The commercial worker sometimes times out, and the final answer must not appear complete when required evidence is missing. Which TWO controls address that risk?",
+    "options": {
+      "A": "Retry a timed-out worker indefinitely before the coordinator may return any result.",
+      "B": "Set a timeout for each worker and return an explicit failure marker to the coordinator.",
+      "C": "Let the coordinator invent a commercial conclusion when the worker times out and label the synthesis complete.",
+      "D": "Record which workers ran, but omit failed areas from the final answer to keep it concise.",
+      "E": "Require both evidence areas and label the missing area when one worker fails instead of presenting a complete synthesis."
+    },
+    "correct_answer": "BE",
+    "explanation": "Lựa chọn B giới hạn worker bị lỗi và công khai trạng thái của nó. Lựa chọn E ngăn coordinator trình bày bản tổng hợp hai khu vực là hoàn chỉnh khi còn thiếu một kết quả. Thử lại vô hạn, tự tạo bằng chứng hoặc âm thầm bỏ qua đều không đáp ứng ranh giới an toàn này.",
+    "source": "certlab.io.vn"
+  },
+  {
+    "question": "A consulting firm must assemble a merger-transition dossier with a labor-obligation annex and a facility-hazard annex. The source collections are large and disjoint, loading both into one agent has reduced accuracy, and a fixed dossier manifest defines identifiers and cross-references. Both annexes are due in parallel. Earlier researcher→writer→checker handoffs lost context. Which decomposition is best?",
+    "options": {
+      "A": "Retain researcher, writer, and checker agents for both annexes, but require longer summaries at every phase boundary.",
+      "B": "Assign one agent each annex from source analysis through validation, use the manifest as the interface, and verify cross-references when the coordinator assembles the dossier.",
+      "C": "Let both agents edit both annexes and the manifest concurrently, then resolve identifier and cross-reference conflicts after drafting.",
+      "D": "Keep one agent, retrieve one annex at a time, and compact between annexes to avoid coordination overhead despite the measured accuracy loss and parallel deadline."
+    },
+    "correct_answer": "B",
+    "explanation": "Phân rã hiệu quả phải theo ranh giới ngữ cảnh, không phải chức danh. Hai phụ lục dùng nguồn tách biệt và manifest cố định; tình huống cũng cho thấy chất lượng giảm khi trộn ngữ cảnh và có hạn chót phù hợp chạy song song. Mỗi agent nên phụ trách trọn vẹn một phụ lục, còn coordinator kiểm tra mã manifest và tham chiếu chéo khi ghép.",
+    "source": "certlab.io.vn"
+  },
+  {
+    "question": "A video-captioning service delegates independent language packages to workers. After a coordinator restart, every package is currently recomputed, including work that had completed before the failure. Which coordinator-worker design best makes the fan-out resumable?",
+    "options": {
+      "A": "Keep completion status only in coordinator memory and reconstruct prior results from non-authoritative, best-effort worker logs after restart.",
+      "B": "Serialize all language workers and assign a new task identifier after every restart so previous identifiers cannot be reused.",
+      "C": "Give each language package a stable logical task ID, durably commit its completion state, and replay only tasks without committed completion after recovery.",
+      "D": "After restart, rerun every language package twice and retain a delivery only when both new executions match exactly."
+    },
+    "correct_answer": "C",
+    "explanation": "Fan-out có thể tiếp tục sau sự cố cần mã định danh tác vụ logic ổn định và trạng thái hoàn tất đã commit bền vững. Khi khôi phục, coordinator tái sử dụng gói đã xong và chỉ giao lại phần chưa có xác nhận hoàn tất. Theo dõi trong bộ nhớ, dùng log không bảo đảm, tạo mã mới hoặc tính lại tất cả sẽ không nhận diện và tận dụng được công việc đã hoàn thành.",
+    "source": "certlab.io.vn"
+  },
+  {
+    "question": "An enterprise configures a Managed Agents service with procurement, facilities, and finance specialists. The session vault contains credentials used across the service, while each specialist has different responsibilities and systems. Which THREE configuration choices best preserve focused capabilities and predictable cross-agent handoffs?",
+    "options": {
+      "A": "Declare only the tools and MCP servers required by each specialist's responsibility.",
+      "B": "Use the session vault for credentials and expose every connected server to every specialist, relying on prompts alone to prevent out-of-domain calls.",
+      "C": "Pin specialist versions in the coordinator roster and update the coordinator deliberately when a newer agent configuration should be adopted.",
+      "D": "Define bounded task payloads, but assume worker context and tool results automatically appear in the coordinator thread, so workers return no explicit result.",
+      "E": "Have the coordinator send a bounded task and receive a bounded result containing only the context needed for the cross-domain request.",
+      "F": "Use identical self-copies with the complete toolset and provide domain-specific task instructions per call to avoid maintaining versioned specialist configurations."
+    },
+    "correct_answer": "ACE",
+    "explanation": "Ranh giới managed agent phải được khai báo rõ. Mỗi specialist tự khai báo tool và MCP server dù thông tin đăng nhập được cấp ở cấp phiên. Danh sách của coordinator phải cố định phiên bản agent và chỉ nhận thay đổi cấu hình có chủ đích. Việc trao đổi giữa agent cần payload tác vụ và kết quả giới hạn vì ngữ cảnh và năng lực không tự động được chia sẻ.",
+    "source": "certlab.io.vn"
+  },
+  {
+    "question": "A policy team has selected a predefined workflow for converting approved standards into employee instructions. First, one authoritative obligation ledger with stable identifiers must be established. Business-unit control mappings can then proceed independently, but drafting must wait until mapping coverage and conflicts are resolved. Which decomposition plan best preserves these dependencies while using safe concurrency?",
+    "options": {
+      "A": "Divide the source by page, have each worker create its own obligations, mappings, and instructions, then merge outputs that share a heading.",
+      "B": "Start one worker per business unit before the obligation ledger is stable, let each infer its own identifiers, then reconcile missing and duplicate obligations after the instructions are drafted.",
+      "C": "Keep extraction, mapping, drafting, and traceability in one unconstrained call because any dependency makes intermediate decomposition unsafe.",
+      "D": "Create and validate the obligation ledger, fan out bounded unit mappings, join them through coverage and conflict gates, then draft and trace-check the instructions."
+    },
+    "correct_answer": "D",
+    "explanation": "Việc phân rã phải theo đồ thị phụ thuộc, không chọn cực đoan hoàn toàn tuần tự hoặc hoàn toàn song song. Sổ nghĩa vụ đã xác thực là điều kiện chung. Sau đó có thể fan-out việc ánh xạ đơn vị kinh doanh theo cùng schema, nhưng phải có join gate kiểm tra độ bao phủ và giải quyết xung đột trước khi soạn thảo. Cuối cùng mới kiểm tra khả năng truy vết trên tài liệu đã ghép.",
+    "source": "certlab.io.vn"
+  },
+  {
+    "question": "A food manufacturer already uses a router for batch records from three production lines. A record header normally identifies the line reliably, but corrupted headers occur. Each line has a different schema and approved hazard checks, while downstream analytics require one normalized batch-release record. Which routing boundary is best?",
+    "options": {
+      "A": "Validate the header, route a confident record to its line-specific validation workflow, quarantine uncertain records, and normalize accepted outputs to the common release schema.",
+      "B": "Route by anomaly severity so records with similar warning counts share a workflow even when their line schemas and hazard rules differ.",
+      "C": "Send every record to all three line workflows, archive the slower results, and accept the first output whose fields can be converted to the common release schema.",
+      "D": "Route confident records by line but pass each workflow's native result directly to analytics, adding normalization only after consumers report incompatibilities."
+    },
+    "correct_answer": "A",
+    "explanation": "Sau khi chọn routing, cần thiết kế kỹ ranh giới phân loại, cách xử lý độ không chắc chắn và hợp đồng đầu ra chung. Dây chuyền sản xuất quyết định cả schema lẫn kiểm tra nguy cơ nên là khóa định tuyến phù hợp. Header lỗi phải được cách ly hoặc đưa cho người xem xét, không được đoán. Kết quả thành công cần được chuẩn hóa trước khi chuyển sang analytics.",
+    "source": "certlab.io.vn"
+  },
+  {
+    "question": "A publisher freezes a magazine-issue revision. Citation review, image-rights clearance, and print-layout preflight use different authoritative inputs and tools and can proceed independently. Publication requires every mandated review, and failure evidence must preserve the exact issue and source revisions. Which TWO decomposition choices best satisfy the publication contract?",
+    "options": {
+      "A": "Split each review into separate preparation, analysis, and reporting agents that hand the evolving issue context forward at every phase.",
+      "B": "Give each review one worker that owns input verification through evidence capture against the same immutable issue revision and pinned source snapshots.",
+      "C": "Allow a review worker to revise the shared issue when it finds a failure and let the remaining reviews continue on whichever revision they hold.",
+      "D": "Run three workers on the entire issue and authorize publication when two independently report overall success.",
+      "E": "Use a join barrier that records each required review's status and evidence revision, blocking publication on missing or failed results."
+    },
+    "correct_answer": "BE",
+    "explanation": "Đơn vị độc lập là các lượt rà soát bắt buộc trước xuất bản, không phải các vai trò chuẩn bị, phân tích và báo cáo. Mỗi worker giữ ngữ cảnh rà soát riêng nhưng dùng cùng bản issue bất biến và nguồn chính thức đã cố định. Join barrier phải nhận đủ mọi lượt rà soát và chặn khi có kết quả thiếu hoặc lỗi. Quyết định theo đa số không đáp ứng yêu cầu phải hoàn tất tất cả.",
+    "source": "certlab.io.vn"
+  },
+  {
+    "question": "A publisher has selected an orchestrator for preparing a tabletop-game expansion. Playtest reports and the component manifest can reveal an unpredictable mix of rule conflicts, component-count changes, illustration-license gaps, and localization effects. Some changes have prerequisites, and every completed package must update a master release specification. Which subtask-generation contract should the orchestrator use?",
+    "options": {
+      "A": "Create one open-ended worker per specialty, let workers spawn any follow-up work, and have all of them edit the release specification directly.",
+      "B": "Build a dependency graph of bounded artifact-centered tasks with an owner, prerequisites, success criteria, and result schema; schedule ready tasks and replan from returned evidence.",
+      "C": "Always divide expansion work into discovery, design, production, and review agents, passing the complete project history through each phase regardless of the discovered issue.",
+      "D": "Create one independent task for every playtest comment and mark it complete when its local note is written, even if it changes another package's prerequisite."
+    },
+    "correct_answer": "B",
+    "explanation": "Orchestrator phân rã động vẫn cần hợp đồng tác vụ rõ ràng. Tác vụ xoay quanh artifact phải nêu chủ sở hữu, điều kiện tiên quyết, tiêu chí thành công và kết quả giới hạn. Đồ thị phụ thuộc giúp coordinator chỉ lên lịch phần đã sẵn sàng, cập nhật đặc tả chính và điều chỉnh tác vụ bị ảnh hưởng khi bằng chứng thay đổi.",
+    "source": "certlab.io.vn"
+  },
+  {
+    "question": "A hospital is redesigning a chemotherapy-day schedule. Chair capacity, nurse certification, drug preparation timing, and patient-specific sequencing constrain one another. Separate scheduling agents currently revise their own plans after every change, producing oscillation and missed dependencies. An authoritative constraint set and a complete schedule validator are available. Which redesign best addresses the failure?",
+    "options": {
+      "A": "Keep four specialist agents with independent plans, increase synchronization frequency until a deadline, and require each agent to republish its full resource assumptions after every proposed adjustment.",
+      "B": "Freeze the first specialist plan that satisfies its local constraints, reserve its resources, and require later specialists to adapt without reopening the earlier allocation.",
+      "C": "Keep the coupled scheduling decisions in one context owner using the authoritative constraints, then pass the complete schedule to an independent black-box validator before release.",
+      "D": "Partition work by morning and afternoon shifts, although patients, nurses, chairs, and drug preparations can cross the boundary, and reconcile overlaps after publication."
+    },
+    "correct_answer": "C",
+    "explanation": "Các biến lập lịch dùng chung trạng thái và cần liên tục suy luận qua nhiều ràng buộc; chia chúng cho nhiều chủ sở hữu sẽ gây mất phối hợp và dao động. Một chủ ngữ cảnh nên tối ưu toàn bộ kế hoạch theo tập ràng buộc chính thức. Việc xác minh hộp đen hoàn chỉnh có thể tách riêng vì verifier chỉ cần kiểm tra artifact cuối và các điều kiện cấm.",
+    "source": "certlab.io.vn"
+  },
+  {
+    "question": "A transit agency already uses a bounded generator-evaluator loop for disruption messages. Inputs include authoritative station closures and times, a required passenger action, and channel-specific character limits. Current failures include both invalid facts and semantically unclear actions. How should evaluation work be decomposed inside the loop?",
+    "options": {
+      "A": "Use one model evaluator to score facts, length, and action clarity subjectively, average those dimensions into one value, then revise whenever its overall confidence falls below a threshold.",
+      "B": "Use deterministic validators for station identifiers, times, and length, then release whenever those checks pass without assessing whether the required action is understandable.",
+      "C": "Let fact and clarity evaluators edit the draft concurrently, then give the generator their merged comments without criterion identifiers or conflict handling.",
+      "D": "Run deterministic validators for exact constraints and a rubric-based evaluator for action clarity; return criterion-labeled defects and require the combined gate to pass within the attempt limit."
+    },
+    "correct_answer": "D",
+    "explanation": "Vòng lặp nên tách đánh giá theo bản chất yêu cầu. Mã ga, thời gian và giới hạn ký tự có thể kiểm tra bằng chương trình; mức dễ hiểu của hướng dẫn hành khách cần đánh giá ngữ nghĩa theo rubric. Phản hồi gắn nhãn tiêu chí giúp generator sửa đúng lỗi; cổng đạt tổng hợp và giới hạn số lần bảo đảm quy trình kết thúc.",
+    "source": "certlab.io.vn"
+  },
+  {
+    "question": "A museum is moving six galleries to a temporary site. Each gallery has distinct object and handling records, but the assembled move must share a freight elevator, climate-controlled vehicles, and staging windows. Leadership also requires an independent rehearsal covering every gallery and an elevator-outage case. Which THREE decomposition choices should the architect adopt?",
+    "options": {
+      "A": "Give each gallery one worker that owns its inventory-to-move packet under a common handoff schema.",
+      "B": "Split every gallery into cataloging, packing, and scheduling agents, transferring the full object history between roles before each decision.",
+      "C": "Let gallery workers reserve shared elevators, vehicles, and staging slots directly, then reconcile collisions after loading begins.",
+      "D": "Have the coordinator reconcile shared-resource capacity, inter-gallery dependencies, and staging order before issuing the assembled move plan.",
+      "E": "Generate several complete move plans and select the first one that meets the move date without comparing gallery coverage or resource-failure behavior.",
+      "F": "Give an independent verifier the assembled plan, authoritative constraints, all-gallery criteria, and the required elevator-outage rehearsal before approval."
+    },
+    "correct_answer": "ADF",
+    "explanation": "Mỗi phòng trưng bày là một ranh giới ngữ cảnh độc lập, nên một worker có thể xử lý trọn gói theo schema chung. Coordinator phải dung hòa thang máy hàng, xe kiểm soát khí hậu, khung giờ bố trí và phụ thuộc để tạo một kế hoạch khả thi. Verifier độc lập sau đó kiểm thử mọi phòng và tình huống thang máy hỏng theo ràng buộc chính thức.",
+    "source": "certlab.io.vn"
+  },
+  {
+    "question": "An online marketplace has selected a bounded agent to investigate suspected coordinated return fraud. New clues from transaction logs, device links, and policy records determine which inquiry is useful next. The agent may not change account state, must justify its findings, and must stop on sufficient evidence, an explicit gap, or an iteration limit. Which internal decomposition is best?",
+    "options": {
+      "A": "Maintain a hypothesis-evidence graph, create bounded probe tasks for unresolved claims, update the graph only from tool results, and return supported findings plus unresolved gaps at a stopping condition.",
+      "B": "Run a fixed exhaustive chain that retrieves every available record for every suspected account before evaluating whether each source is relevant.",
+      "C": "Assign one worker to each data tool with the full investigation transcript, ask every worker for an independent conclusion, then accept the hypothesis supported by the largest number of summaries.",
+      "D": "Choose one fraud category from the first anomaly, execute only that category's checklist, and prohibit replanning when later evidence contradicts the initial route."
+    },
+    "correct_answer": "A",
+    "explanation": "Sau khi chọn agent, đơn vị phân rã hữu ích là một lần thăm dò bằng chứng gắn với giả thuyết chưa được giải quyết, không phải từng công cụ hay danh sách bước cố định. Kết quả công cụ là dữ liệu thực để cập nhật đồ thị giả thuyết–bằng chứng và chọn bước thăm dò tiếp theo. Kết quả cuối phải tách điều đã chứng minh khỏi khoảng trống và dừng theo giới hạn rõ ràng.",
+    "source": "certlab.io.vn"
+  },
+  {
+    "question": "A retailer maintains one merchandising taxonomy for apparel, homeware, and electronics. Category teams need distinct detailed work, but they share attribute definitions, parent-child relationships, and stable term identifiers. Direct edits to the taxonomy have caused duplicate identifiers and stale relationships. Which decomposition best preserves specialist work without uncontrolled shared state?",
+    "options": {
+      "A": "Give every category team a private copy of the complete taxonomy and attribute catalog, allow independent finalization, and merge conflicting identifiers, definitions, and relationships immediately before quarterly publication.",
+      "B": "Pass the entire taxonomy sequentially from apparel to homeware to electronics, letting each team overwrite earlier definitions when its own category model requires a change.",
+      "C": "Have a taxonomy steward own the versioned term and relationship registry; delegate bounded category tasks against a named snapshot, then serialize accepted proposals and reissue stale tasks.",
+      "D": "Let all category teams edit the shared taxonomy directly, but require more frequent synchronization messages and a final vote when two edits conflict."
+    },
+    "correct_answer": "C",
+    "explanation": "Các nhóm danh mục có công việc chuyên môn tách biệt nhưng dùng chung mã, định nghĩa và quan hệ. Một taxonomy steward phải sở hữu registry chính thức có phiên bản. Nhóm nhận tác vụ gắn với snapshot cụ thể và trả đề xuất kèm phiên bản gốc; steward tuần tự hóa cập nhật được duyệt và cấp lại tác vụ đã cũ.",
+    "source": "certlab.io.vn"
+  },
+  {
+    "question": "A retailer summarizes high-volume replenishment exceptions for store planners. Most records are straightforward, but a small ambiguous subset requires stronger reasoning. The business target combines a p95 response SLA, a maximum cost per accepted summary, and a verified field-accuracy threshold. Which model architecture should the team evaluate first?",
+    "options": {
+      "A": "Evaluate an efficient model on actual records, accept outputs that pass the accuracy contract, and escalate only ambiguous or failed cases to a more capable model.",
+      "B": "Use the most capable available model for every record, add a full reasoning review even for approved templates, and treat the resulting cost or latency as unavoidable because some cases are ambiguous.",
+      "C": "Use the least expensive model for every record and lower the field-accuracy threshold until the cost ceiling is met.",
+      "D": "Select a model from published benchmark rankings alone and estimate production latency and acceptance without testing the retailer's prompts and records."
+    },
+    "correct_answer": "A",
+    "explanation": "Chọn mô hình phải cân bằng năng lực, tốc độ và chi phí bằng đánh giá trên dữ liệu thật của ứng dụng. Vì đa số hồ sơ đơn giản, luồng phổ biến ưu tiên hiệu quả là giả thuyết khởi đầu hợp lý chứ chưa phải kết luận. Nhóm phải kiểm thử prompt và hồ sơ thực, bảo đảm độ chính xác trường dữ liệu rồi chỉ chuyển ca khó sang mô hình mạnh hơn.",
+    "source": "certlab.io.vn"
+  },
+  {
+    "question": "An engineering advisory service answers repeated project questions using a large, approved standards handbook, a stable system instruction, and unchanged tool definitions. Only the project facts and question vary. Input processing dominates both latency and cost, and requests arrive in active bursts. Which prompt design best supports the stated objective?",
+    "options": {
+      "A": "Place project-specific facts before the handbook and cache everything through the project question so the longest possible prefix is stored.",
+      "B": "Place stable tools, system instructions, and handbook content in a consistent prefix through a cache breakpoint, then append project-specific facts and the question.",
+      "C": "Create a separate cache entry for every sentence in the handbook and choose sentence caches after Claude has generated the answer.",
+      "D": "Cache only the short project question and resend the full stable handbook after it on every request."
+    },
+    "correct_answer": "B",
+    "explanation": "Prompt caching tái sử dụng phần tiền tố hoàn toàn giống nhau. Tool, system instruction và nội dung sổ tay ổn định nên được đặt theo thứ tự nhất quán trước breakpoint; dữ liệu dự án thay đổi và câu hỏi đặt phía sau. Khi lưu lượng đến theo đợt, cache có khả năng được dùng lại nhưng vẫn phải đo cache read/write, độ trễ và chi phí.",
+    "source": "certlab.io.vn"
+  },
+  {
+    "question": "A design studio's monthly Claude spend increased after it added research, concept, and revision workflows. Output volume also increased, but leadership cannot tell which workflow creates accepted client work or misses its turnaround SLA. Which TWO measurement changes are prerequisites for a defensible architecture decision?",
+    "options": {
+      "A": "Map each workflow to a controlled workspace or internal deployment identifier, group API reports by supported workspace and configuration dimensions, and join them to that mapping.",
+      "B": "Track only the organization's total monthly bill and reduce the largest prompt file whenever the bill rises.",
+      "C": "Use output-token count as the acceptance metric because longer responses necessarily provide more client value.",
+      "D": "Join attributed usage and cost with accepted-deliverable rate, revision burden, and SLA attainment for the same workflow period.",
+      "E": "Replace every workflow with the lowest-cost model before collecting outcome baselines, then declare any spend reduction successful."
+    },
+    "correct_answer": "AD",
+    "explanation": "Dữ liệu sử dụng và chi phí chỉ hỗ trợ quyết định khi truy được về đúng workflow và cấu hình, rồi được so sánh với kết quả kinh doanh và SLA trong cùng giai đoạn. Hóa đơn tăng có thể do tăng trưởng có giá trị hoặc do lãng phí; tổng chi phí không phân biệt được hai trường hợp. Cắt prompt hay hạ cấp mô hình trước khi có baseline sẽ làm mất bằng chứng cần thiết.",
+    "source": "certlab.io.vn"
+  },
+  {
+    "question": "A campaign-analytics product has two promised deliverables from the same daily data. Deterministic analytics produces verified anomaly metrics, and evaluation shows a faster model summarizes them within five seconds without missing the anomaly threshold. Strategists also need a causal memo within thirty minutes; only a stronger model meets its interaction-analysis rubric, and the budget supports that model only for the memo. Which architecture best aligns the deliverables?",
+    "options": {
+      "A": "Use the validated metrics and faster model for both deliverables, add a disclaimer that causal interactions may be incomplete, and keep the list and memo within five seconds.",
+      "B": "Start the stronger model synchronously for both deliverables, show its first detected anomaly within five seconds, and reuse the completed response as the causal memo.",
+      "C": "Produce the anomaly list from validated metrics and an evaluated fast summary, then run the capability-first causal memo asynchronously with linked data provenance and its own acceptance gate.",
+      "D": "Run both models concurrently for both deliverables, publish the faster anomaly list, and select the causal memo by whichever model reports higher confidence."
+    },
+    "correct_answer": "C",
+    "explanation": "Tình huống có hai sản phẩm khác nhau, không phải một yêu cầu cần dùng chung một mô hình. Luồng tương tác có thể kết hợp số liệu đã xác thực với bản tóm tắt nhanh đã qua đánh giá; bản ghi nhớ nhân quả có thể dùng mô hình mạnh hơn với SLA dài hơn và cổng chất lượng riêng. Cả hai vẫn phải giữ nguồn gốc dữ liệu.",
+    "source": "certlab.io.vn"
+  },
+  {
+    "question": "A university facilities team uses planner, analyst, writer, and reviewer agents for standardized monthly energy-variance narratives. A controlled comparison with a bounded single-call design and the same deterministic arithmetic checks shows identical approval and correction rates, three times the cost, and a missed p95 turnaround SLA. No tested segment benefits from the extra roles. What should the architect do?",
+    "options": {
+      "A": "Keep the multi-agent path and redefine approval to reward the number of internal perspectives, even though facilities staff do not use them.",
+      "B": "Remove only the writer agent, retain the planner-to-analyst and reviewer handoffs, and assume one fewer role will restore both cost and latency without another controlled comparison or rollback threshold.",
+      "C": "Run the four agents concurrently on every narrative and publish the first output that passes the arithmetic checks.",
+      "D": "Retire the multi-agent path, adopt the validated bounded design with its deterministic checks, and monitor the same approval, correction, cost, and turnaround measures with a rollback threshold."
+    },
+    "correct_answer": "D",
+    "explanation": "Các vai trò bổ sung không tạo lợi ích đo được nhưng làm tăng đáng kể chi phí và thời gian. Vì vậy nên loại bỏ phần phức tạp không hiệu quả, giữ kiểm soát số học xác định và tiếp tục theo dõi cùng chỉ số kết quả, SLA cùng ngưỡng rollback sau triển khai.",
+    "source": "certlab.io.vn"
+  },
+  {
+    "question": "A benefits platform serves several employers. Every request includes a large common instruction set and shared plan catalog, followed by an employer policy block and member-specific facts. Employer policies change independently, requests arrive in bursts, and a stale policy must never be applied. Which TWO prompt-caching choices best balance correctness, latency, and cost?",
+    "options": {
+      "A": "Place member facts before all shared content and use one cache breakpoint after the full request so requests from different members can reuse it.",
+      "B": "Keep the common tools, instructions, and catalog in a stable prefix, then place a versioned employer-policy segment before member-specific content with deliberate breakpoints.",
+      "C": "After a policy update, continue sending the previous policy prefix with a short correction in the member-specific suffix until the cached prefix expires.",
+      "D": "Default every employer policy segment to the one-hour TTL based on catalog size, without measuring whether requests repeat during that hour.",
+      "E": "Version policy content, monitor cache reads and writes plus hit latency, and select breakpoints and TTLs from each layer's change and reuse pattern."
+    },
+    "correct_answer": "BE",
+    "explanation": "Kiến trúc có hai lớp tái sử dụng và một phần riêng theo yêu cầu. Tool, hướng dẫn và catalog chung tạo tiền tố ổn định đầu tiên; chính sách có phiên bản của chủ lao động tạo đoạn tái sử dụng tiếp theo; dữ liệu thành viên nằm ở phần động. Khi chính sách đổi phải đổi tiền tố ngay và dùng số liệu cache thực tế để chọn breakpoint, TTL.",
+    "source": "certlab.io.vn"
+  },
+  {
+    "question": "A custom furniture maker sends build packets to the shop floor from approved drawings, material substitutions, and finish samples. A token-minimizing design retrieves only the latest change note. It meets the inference budget but misses joinery and finish dependencies, causing manual rework and a late production start. Evaluation shows targeted retrieval of relevant records raises input cost but lowers total cost per accepted packet and meets the start-time SLA. Which decision best aligns with business value?",
+    "options": {
+      "A": "Keep the latest-change-note design because API input cost is the only architecture cost that can be measured consistently.",
+      "B": "Use targeted relevant retrieval and govern the design by accepted-packet cost, dependency coverage, and production start SLA rather than input tokens alone.",
+      "C": "Attach the complete unfiltered project history to every prompt so no possible detail is excluded, regardless of latency or relevance.",
+      "D": "Upgrade the model for the latest-change-note prompt and assume stronger reasoning can reconstruct drawing, material, and finish facts that were never provided."
+    },
+    "correct_answer": "B",
+    "explanation": "Giá trị kinh doanh là gói build đúng hạn và được chấp nhận, không phải số token API đầu vào thấp nhất. Retrieval có mục tiêu giúp bao phủ phụ thuộc, giảm làm lại, đạt SLA khởi động và giảm tổng chi phí cho mỗi gói được duyệt. Gửi toàn bộ lịch sử không tương đương truy xuất đúng dữ liệu; đổi mô hình cũng không thể bù thông tin bị bỏ sót.",
+    "source": "certlab.io.vn"
+  },
+  {
+    "question": "A marketplace runs one Claude platform for two paths: an interactive listing assistant that sellers abandon when response time is high, and a nightly catalog-quality audit whose value depends on completed coverage by morning. Leadership wants lower spend without reducing accepted listings or audit findings. Which THREE actions best support a value-aligned redesign?",
+    "options": {
+      "A": "Define path-specific success criteria and SLAs, including seller acceptance and tail latency for the interactive path and completed coverage and findings for the nightly path.",
+      "B": "Adopt one organization-wide average-latency target and optimize both paths until that average falls, regardless of abandonment or morning completion.",
+      "C": "Evaluate supported model and effort settings separately for each path, and apply caching only where measured prefix reuse makes it applicable.",
+      "D": "Move both paths to the lowest-cost configuration immediately and treat lower spend as success unless users file complaints.",
+      "E": "Use the same cache breakpoint and TTL for both paths because the nightly audit has repeated catalog context, without confirming reuse in the interactive prefix.",
+      "F": "Compare candidate configurations for each path on actual data and retain only those that meet that path's outcome, SLA, and spend targets together."
+    },
+    "correct_answer": "ACF",
+    "explanation": "Các luồng khác nhau về giá trị, thời gian và tải công việc nên cần hợp đồng kết quả, SLA, cấu hình và bộ đánh giá riêng. Mô hình và effort phải được kiểm thử trên từng tải; caching chỉ áp dụng khi có tiền tố tái sử dụng và nhịp yêu cầu phù hợp. Dùng một số trung bình hoặc một cấu hình chung có thể cải thiện chỉ số cục bộ nhưng phá cam kết thực tế.",
+    "source": "certlab.io.vn"
+  },
+  {
+    "question": "A board-report service enabled a one-hour prompt cache for a large governance manual. Reports are requested only once every several hours, the manual changes monthly, and monitoring shows frequent cache writes but almost no reads. The cache write premium increased cost without improving the p95 completion time. What is the best response?",
+    "options": {
+      "A": "Keep the one-hour cache and add more breakpoints throughout the manual so each report writes additional reusable segments.",
+      "B": "Move report-specific data into the cached prefix so each cache entry contains everything needed for the next request.",
+      "C": "Ignore cache reads and compare only total input tokens and manual stability, because unchanged content is assumed to guarantee that caching will eventually become economical across reporting cycles.",
+      "D": "Reassess caching from observed timing and read/write cost; disable it for this path unless its access pattern changes enough to create reuse within a supported TTL."
+    },
+    "correct_answer": "D",
+    "explanation": "Prompt caching chỉ có lợi khi tiền tố được đọc lại đủ nhiều trong TTL hỗ trợ để bù chi phí ghi cache. Sổ tay ổn định nhưng khoảng cách giữa các yêu cầu gần như không tạo cache read. Cần so sánh TTL và nhịp truy cập bằng số liệu read/write, độ trễ, chi phí; nếu điều kiện không đổi thì nên tắt cache cho luồng này.",
+    "source": "certlab.io.vn"
+  },
+  {
+    "question": "A payroll provider's current Claude model passes its explanation rubric, p95 SLA, edge-case set, and production budget. Before a scheduled release, a newly available candidate advertises lower latency and price, but the provider has not tested it with actual payroll prompts or data. Which decision best protects the release while evaluating the opportunity?",
+    "options": {
+      "A": "Keep the qualified current model for the release and evaluate the candidate on the same actual prompts, data, edge cases, quality, latency, and cost criteria before switching.",
+      "B": "Switch before the release because lower advertised latency and price are sufficient evidence when the model comes from the same provider.",
+      "C": "Replace the current edge-case set with the candidate's public benchmark so both models can be compared on a larger dataset.",
+      "D": "Run one demonstration prompt against the candidate and switch if its answer is faster, deferring quality and cost measurement until after release."
+    },
+    "correct_answer": "A",
+    "explanation": "Chỉ nên đổi mô hình dựa trên bằng chứng ứng dụng có thể so sánh. Mô hình hiện tại đã đạt các cổng chất lượng, trường hợp biên, độ trễ và ngân sách; ứng viên mới mới chỉ có tuyên bố quảng bá. Hãy giữ lựa chọn phát hành hiện tại và kiểm thử ứng viên bằng đúng prompt, dữ liệu và tiêu chí trước khi quyết định.",
+    "source": "certlab.io.vn"
+  },
+  {
+    "question": "A game studio uses Claude to convert approved narrative briefs into quest specifications with branching state, prerequisite, and continuity rules. Two efficient candidates pass style checks but fail the studio's dependency-consistency gate. A capability-leading candidate passes all gates, the job runs offline, and its measured cost is within the release budget. Which model decision is justified?",
+    "options": {
+      "A": "Release an efficient candidate and ask designers to repair broken prerequisites after generation because its style already passes.",
+      "B": "Select the capability-leading candidate for release, preserve the dependency-consistency evaluation, and test any later supported efficiency changes against the same gate.",
+      "C": "Select the efficient candidate with the fewest generated tokens because shorter quest specifications are less likely to contain continuity defects.",
+      "D": "Combine sections from both failed efficient candidates and accept the result when their style scores agree, without rerunning dependency checks."
+    },
+    "correct_answer": "B",
+    "explanation": "Quyết định phát hành phải theo cổng đánh giá của studio, không chỉ dựa vào giá, token hoặc phong cách. Hai mô hình tiết kiệm đều trượt tiêu chí nhất quán phụ thuộc; mô hình mạnh nhất đạt mọi cổng và vẫn trong ngân sách batch offline nên phù hợp. Mọi tối ưu sau này cũng phải vượt cùng bộ tiêu chí.",
+    "source": "certlab.io.vn"
+  },
+  {
+    "question": "A mortgage-servicing team must select a Claude model for drafting customer explanations. Leaders disagree because one candidate is cheaper, another is faster, and a third scores highest on a general benchmark. Which TWO actions are prerequisites for a defensible selection?",
+    "options": {
+      "A": "Define required capabilities, a response-quality rubric, the p95 response target, and the development and production budget before comparing candidates.",
+      "B": "Adopt the model with the highest public benchmark score and infer that it will also meet the servicing team's latency and tone requirements.",
+      "C": "Choose the model with the lowest input-token price and treat any later editing work as outside the model-selection decision.",
+      "D": "Evaluate candidates with actual prompts and representative data, including edge cases, and compare quality, latency, and cost against the defined criteria.",
+      "E": "Let each developer use a preferred model during the pilot and select the one that receives the fewest informal complaints."
+    },
+    "correct_answer": "AD",
+    "explanation": "Chọn mô hình có cơ sở cần xác định rõ tiêu chí năng lực, tốc độ, chi phí và effort rồi kiểm thử prompt, dữ liệu và ca biên thực tế. Benchmark công khai hay đơn giá chỉ giúp lập danh sách ứng viên, không chứng minh chất lượng, độ trễ đuôi hay tổng chi phí của workflow. Kết luận phải dựa trên bộ đánh giá riêng và mục tiêu đo được.",
+    "source": "certlab.io.vn"
+  },
+  {
+    "question": "A coding agent uses a high-capability Claude model and passes repository-specific correctness and security evaluations. It narrowly misses a p95 latency target and its cost per merged change is above budget. The same model supports an effort control, and a lower setting passes the same evaluations while meeting both operational targets. A smaller model has not yet been tested on security edge cases. What should the team do?",
+    "options": {
+      "A": "Move immediately to the untested smaller model because changing model families always reduces cost more than tuning effort.",
+      "B": "Keep the current effort unchanged because any reduction in reasoning effort necessarily invalidates the earlier correctness evaluation.",
+      "C": "Adopt the evaluated lower effort setting for the current model, monitor the same gates and SLAs, and test the smaller model separately before any later switch.",
+      "D": "Raise effort to maximize intelligence and offset the additional latency by excluding slow runs from the p95 calculation."
+    },
+    "correct_answer": "C",
+    "explanation": "Điều chỉnh effort có thể đổi mức thông minh lấy độ trễ và chi phí ngay trong cùng mô hình, đôi khi phù hợp hơn đổi model. Ở đây effort thấp đã vượt bộ kiểm thử chính xác và bảo mật của repository, đồng thời đạt p95 và chi phí; có thể triển khai với cùng giám sát. Mô hình nhỏ hơn vẫn phải vượt ca biên bảo mật trước.",
+    "source": "certlab.io.vn"
+  },
+  {
+    "question": "A multilingual travel service evaluates three Claude models on its live-chat prompts. Model P has the highest average answer score but exceeds both the p95 response SLA and budget. Model Q meets the quality threshold in every tested language and edge-case group, the p95 SLA, and budget. Model R is fastest and cheapest but fails the disruption-handling rubric. Which model should the team select for this release?",
+    "options": {
+      "A": "Select Model P because the highest average quality score should override latency and cost once it is statistically significant.",
+      "B": "Select Model R because speed and cost are directly observable, while failed disruption cases can be handled after launch.",
+      "C": "Select Model P for half of requests and Model R for the rest without defining routing criteria, then judge success from the combined average.",
+      "D": "Select Model Q because application-specific evaluation shows it satisfies the required capability, edge-case, speed, and cost criteria together."
+    },
+    "correct_answer": "D",
+    "explanation": "Mô hình Claude phù hợp phải đồng thời đáp ứng năng lực, tốc độ và chi phí. Chất lượng trung bình cao không bù được việc trượt p95 và ngân sách; rẻ và nhanh cũng không bù được rubric gián đoạn thất bại. Model Q là ứng viên duy nhất vượt toàn bộ cổng trên prompt, nhóm ngôn ngữ và ca biên thực tế.",
+    "source": "certlab.io.vn"
+  },
+  {
+    "question": "A publisher uses a capability-leading Claude model to extract structured metadata from routine manuscripts. A controlled evaluation shows that an efficient model matches the required field accuracy and edge-case threshold, reduces p95 latency, and lowers cost per accepted record by 60%. Which decision best follows the results?",
+    "options": {
+      "A": "Select the evaluated efficient model because it meets the same quality and edge-case gates while improving the measured latency and accepted-record cost.",
+      "B": "Keep the capability-leading model indefinitely because a stronger model should be preferred even when measured outcomes are equivalent.",
+      "C": "Switch to an even cheaper untested model because the first downgrade succeeded and therefore further downgrades will also preserve accuracy.",
+      "D": "Adopt the efficient model and remove the accuracy checks so the lower-cost path is not delayed by validation."
+    },
+    "correct_answer": "A",
+    "explanation": "Mô hình hiệu quả là lựa chọn hợp lý khi kiểm thử đúng use case chứng minh nó đạt chất lượng và ca biên trong khi cải thiện tốc độ, chi phí. Dữ liệu hiện có đã chứng minh điều đó cho ứng viên được đánh giá. Danh tiếng model, kết quả của ứng viên khác hoặc bỏ cổng kiểm thử không thay thế được bằng chứng này.",
+    "source": "certlab.io.vn"
+  },
+  {
+    "question": "A bank is evaluating replacements for a Claude model used to draft credit-review narratives. Candidate X improves the overall rubric average but regresses on a rare, high-loss collateral category. Candidate Y has a slightly lower average, yet passes every mandatory category gate and meets the current latency and budget limits. Which TWO actions best support a defensible migration decision?",
+    "options": {
+      "A": "Select Candidate X from the overall average and treat the rare collateral regression as acceptable because it affects few records.",
+      "B": "Keep category-level acceptance gates and weight the collateral edge cases by their business impact rather than relying on the overall average alone.",
+      "C": "Lower the collateral-category threshold until Candidate X passes, then document the new average as an improvement.",
+      "D": "Deploy both candidates randomly and compare only monthly average reviewer scores without recording category, latency, or cost.",
+      "E": "Compare Candidate Y and any revised Candidate X on actual narratives and edge cases, and migrate only a candidate that meets every mandatory quality gate plus latency and budget limits.",
+      "F": "Use only overall averages for future candidate comparisons and omit category labels now that Candidate Y has passed the current evaluation."
+    },
+    "correct_answer": "BE",
+    "explanation": "Điểm trung bình cao có thể che giấu suy giảm hiếm nhưng hậu quả lớn. Ngân hàng cần giữ cổng theo từng nhóm phản ánh tác động kinh doanh rồi so sánh trên narrative, ca biên, độ trễ và chi phí thật. Candidate Y hiện đạt; X cần cải thiện và kiểm thử lại trước khi chuyển đổi.",
+    "source": "certlab.io.vn"
+  },
+  {
+    "question": "A streaming service selects a Claude model for subtitle-style summaries governed by a house glossary. Model L leads a public language benchmark but violates required glossary terms on the service's rare genres. Model M scores slightly lower on that benchmark, passes the service's actual prompt and genre evaluation, and meets both latency and budget limits. Which selection is best supported?",
+    "options": {
+      "A": "Select Model L because a higher public benchmark score is more transferable than the service's genre-specific results.",
+      "B": "Select Model M because it passes the actual glossary and genre evaluation while meeting the service's latency and budget requirements.",
+      "C": "Alternate both models and publish whichever summary is generated first, without checking which one preserved required glossary terms.",
+      "D": "Select the least expensive untested model in the family because all language benchmarks should transfer equally to the house glossary."
+    },
+    "correct_answer": "B",
+    "explanation": "Prompt, dữ liệu và ca biên của chính ứng dụng có giá trị hơn benchmark chung. Model M đạt thuật ngữ, thể loại hiếm, độ trễ và ngân sách của dịch vụ. Lợi thế benchmark của Model L không sửa được lỗi thuật ngữ đã biết; chạy đua hoặc suy rộng từ model chưa kiểm thử cũng không chứng minh được hành vi đầu ra.",
+    "source": "certlab.io.vn"
+  },
+  {
+    "question": "A language-learning product must select a Claude configuration for live coaching from text and learner-uploaded images. The current model at high effort passes feedback and image-grounding rubrics but misses p95 latency and cost targets. At lower effort it meets both operational targets but fails nuanced error correction. A faster candidate has not been evaluated on learner images. Which THREE actions are justified before release?",
+    "options": {
+      "A": "Conclude that no tested configuration currently satisfies the complete release contract and keep the release gate closed.",
+      "B": "Release the lower-effort configuration because latency and cost are user-visible, and document nuanced correction as a later enhancement.",
+      "C": "Optimize the prompt for the lower-effort configuration and rerun the same feedback, image, latency, and cost evaluation.",
+      "D": "Release the high-effort configuration and exclude its slowest coaching turns from the p95 calculation until usage grows.",
+      "E": "Select the faster candidate from its text results and infer that image-grounded feedback will transfer without separate testing.",
+      "F": "Evaluate the faster candidate on actual learner text and images, including feedback edge cases, and compare it against the same p95 and cost criteria."
+    },
+    "correct_answer": "ACF",
+    "explanation": "Chưa cấu hình nào đạt mọi tiêu chí bắt buộc: effort cao trượt p95 và chi phí, effort thấp trượt sửa lỗi tinh tế, model nhanh chưa được đánh giá hình ảnh. Vì vậy phải giữ cổng phát hành đóng, tối ưu và kiểm thử lại prompt effort thấp, đồng thời hoàn tất đánh giá văn bản lẫn hình ảnh cho ứng viên.",
+    "source": "certlab.io.vn"
+  },
+  {
+    "question": "A clinic uses Claude to turn appointment notes into patient-facing follow-up messages. The current template produces inconsistent tone, sometimes omits the next action, and adds unrequested background. The approved output must contain a brief empathetic opening, a numbered action list, and no diagnosis beyond the supplied note. Which prompt revision best addresses the failure?",
+    "options": {
+      "A": "Add a system role that says only 'You are a clinician' and let Claude infer the message structure and information boundary.",
+      "B": "Tell Claude not to be verbose, not to omit anything, and not to sound cold, without defining the desired output.",
+      "C": "Set an appropriate patient-communication role, state the allowed source boundary, and explicitly require the opening and numbered action-list format.",
+      "D": "Insert several unrelated medical messages into the template and ask Claude to imitate whichever one seems most relevant."
+    },
+    "correct_answer": "C",
+    "explanation": "Prompt cần nêu vai trò và ngữ cảnh giao tiếp với bệnh nhân, giới hạn phát biểu theo ghi chú được cung cấp và mô tả định dạng đầu ra. Chỉ dẫn tích cực, rõ ràng giải quyết hành động bị thiếu và giọng điệu không nhất quán; ranh giới nguồn ngăn mô hình tự suy đoán chẩn đoán.",
+    "source": "certlab.io.vn"
+  },
+  {
+    "question": "A procurement team sends Claude a template containing evaluation instructions, a scoring rubric, three vendor proposals, and a final question. Reviewers find that proposal text is occasionally treated as an instruction and scores are assigned to the wrong vendor. Which redesign best targets both failures?",
+    "options": {
+      "A": "Remove the scoring rubric and ask Claude to use professional judgment so proposal text has less competition for attention.",
+      "B": "Repeat the final question after every paragraph of every proposal so Claude cannot forget the requested task.",
+      "C": "Place all material in one longer system prompt because system content is always interpreted as data rather than instruction.",
+      "D": "Use consistent descriptive tags for instructions, rubric, and each indexed proposal, then place the final evaluation query after the structured documents."
+    },
+    "correct_answer": "D",
+    "explanation": "Prompt phức tạp nên có cấu trúc rõ. Template mua sắm cần tách hướng dẫn đáng tin cậy, rubric chấm điểm và từng đề xuất bằng tag, mã nhất quán; câu hỏi cuối đặt sau tài liệu. Bỏ rubric, lặp câu hỏi hoặc nhét mọi thứ vào một system block không phân biệt sẽ không giải quyết nhầm vai trò nội dung và nguồn nhà cung cấp.",
+    "source": "certlab.io.vn"
+  },
+  {
+    "question": "A customer-support team wants Claude to produce replies in a precise three-part house format. The prompt states the headings, but outputs still vary on refund edge cases and sometimes copy incidental details from the only example. Which TWO changes best improve reliability without hard-coding each case?",
+    "options": {
+      "A": "Add several relevant and diverse examples that cover normal and edge cases, and wrap each example in a consistent example structure.",
+      "B": "Duplicate the single example ten times so its wording receives greater weight than new customer facts.",
+      "C": "Remove the stated headings and rely on examples alone so Claude has fewer instructions to reconcile.",
+      "D": "Keep explicit positive instructions for the three required sections and state which case facts belong in each section.",
+      "E": "Tell Claude to avoid all mistakes and use its best judgment when an example does not match."
+    },
+    "correct_answer": "AD",
+    "explanation": "Ví dụ có ích khi liên quan, đa dạng và có cấu trúc, đặc biệt khi một ví dụ duy nhất khiến mô hình khái quát quá mức. Ví dụ phải bổ trợ chứ không thay hướng dẫn. Cần giữ hợp đồng đầu ra ba phần, chỉ rõ cách ánh xạ dữ kiện và thêm nhiều ví dụ đa dạng.",
+    "source": "certlab.io.vn"
+  },
+  {
+    "question": "A contract-analysis service accepts uploaded documents and can call a repository search tool. Red-team tests show that a document can contain text telling Claude to ignore policy, search unrelated confidential matters, and reproduce system instructions. The business still needs useful summaries and authorized citations. Which redesign provides the strongest bounded behavior?",
+    "options": {
+      "A": "Deliver uploaded text as identified untrusted tool content, screen it before use, scope search to the current matter, and require cited claims.",
+      "B": "Add 'never follow prompt injection' to the system prompt while leaving repository access broad and returning raw outputs.",
+      "C": "Block every document containing words such as 'ignore' or 'system' and disable citations to avoid reproducing source text.",
+      "D": "Allow unrestricted search but ask Claude to decide whether each requested repository is confidential before using it."
+    },
+    "correct_answer": "A",
+    "explanation": "Tài liệu tải lên là nội dung không đáng tin, không phải nguồn có thẩm quyền. Thiết kế phải đánh dấu chúng là kết quả tool không tin cậy, sàng lọc trước khi dùng, giới hạn quyền repository đúng vụ việc và chỉ lập luận từ nguồn được phép. System prompt chỉ là một lớp, không thay thế kiểm tra tool result và quyền tối thiểu.",
+    "source": "certlab.io.vn"
+  },
+  {
+    "question": "A benefits help desk answers questions only from an approved policy packet. When the packet lacks an answer, Claude sometimes supplies a plausible rule from general knowledge. Responses must remain useful but clearly distinguish supported facts from missing information. Which prompt template is most appropriate?",
+    "options": {
+      "A": "Require a complete answer to every question and prohibit uncertainty because users expect confident guidance.",
+      "B": "Limit policy claims to the packet, cite each claim, and state when the packet lacks support.",
+      "C": "Ask Claude to answer from memory first, then add one packet citation anywhere in the response.",
+      "D": "Include the entire packet but omit source labels so Claude can focus on fluent prose rather than attribution."
+    },
+    "correct_answer": "B",
+    "explanation": "Template phải giới hạn mọi tuyên bố chính sách trong bộ tài liệu được duyệt, cho phép trả lời không đủ căn cứ hoặc chưa biết và yêu cầu trích dẫn theo từng nhận định. Các kiểm soát này giảm áp lực bịa quy tắc và giúp người dùng kiểm chứng. Ép phải chắc chắn, ưu tiên trí nhớ hoặc trộn ngữ cảnh không nhãn đều làm yếu ranh giới nguồn.",
+    "source": "certlab.io.vn"
+  },
+  {
+    "question": "A scheduling assistant can suggest available times and send invitations. It sometimes sends an invitation when the user asks only for options and sometimes includes an unconfirmed invitee. Which TWO changes correct the boundary? Choose 2.",
+    "options": {
+      "A": "Treat any scheduling question as authorization to send the earliest available invitation.",
+      "B": "Return choices for availability questions and require an explicit send request before using the invitation tool.",
+      "C": "Give the assistant access to all company calendars so it can infer who should attend.",
+      "D": "Remove the invitation tool even when the user explicitly requests scheduling.",
+      "E": "Require the selected time and invitee list to be confirmed before the invitation is sent.",
+      "F": "Send whenever the assistant reports high confidence, without an explicit action request."
+    },
+    "correct_answer": "BE",
+    "explanation": "B phân biệt yêu cầu cung cấp thông tin với yêu cầu thực hiện hành động. E xác nhận thời gian và người nhận trước khi tác động ra bên ngoài. Tăng quyền truy cập, dựa vào độ tự tin hoặc bỏ tool không đồng thời giữ được tính hữu ích và quyền cho phép.",
+    "source": "certlab.io.vn"
+  },
+  {
+    "question": "A warehouse assistant receives exception records and drafts a supervisor's morning priority list. The current prompt says only 'summarize the exceptions,' so it treats a cosmetic label mismatch like a shipment that will miss today's carrier cutoff. Supervisors need the top three actions, ordered by service impact and deadline, in no more than 120 words. Which prompt change best addresses the failure?",
+    "options": {
+      "A": "Ask for a more thoughtful summary and let Claude infer warehouse urgency from general logistics knowledge.",
+      "B": "Add the title 'Senior Operations Planner' but leave impact, deadline, item count, and length unspecified.",
+      "C": "State that service impact and carrier cutoff outrank cosmetic defects; require three referenced actions within 120 words.",
+      "D": "Tell Claude not to be vague, too long, or focused on low-priority records, without defining those terms."
+    },
+    "correct_answer": "C",
+    "explanation": "Trợ lý thiếu cả lý do xếp hạng và hợp đồng đầu ra cụ thể. Prompt phải nêu ưu tiên tác động dịch vụ và giờ chốt của kho, yêu cầu đúng ba hành động theo thứ tự gắn với mã hồ sơ và giới hạn 120 từ. Yêu cầu chung, chỉ định vai trò hoặc chỉ nêu điều cấm vẫn để các ràng buộc quan trọng ở dạng ngầm.",
+    "source": "certlab.io.vn"
+  },
+  {
+    "question": "A market-research assistant is told to use every search tool and produce a long narrative for every request. Evaluation shows repeated searches, missed latency and cost targets, and no quality gain on routine work. Which TWO prompt revisions best address the behavior? Choose 2.",
+    "options": {
+      "A": "Search only to resolve a defined evidence gap, and stop when the required evidence is sufficient or no new information appears.",
+      "B": "Repeat the exhaustive-search instruction in stronger language so it applies consistently to routine and complex requests.",
+      "C": "Define a maximum number of searches, but still require every tool to be called once before stopping.",
+      "D": "Forbid all search tools and require answers from the initial prompt, even when current external evidence is necessary.",
+      "E": "Ask the assistant to continue until it feels completely certain, without defining evidence or a maximum research scope.",
+      "F": "Request a concise decision and source list for routine questions, reserving a longer research narrative for defined complex cases."
+    },
+    "correct_answer": "AF",
+    "explanation": "A kết hợp tìm kiếm có điều kiện với quy tắc dừng dựa trên bằng chứng; F điều chỉnh độ sâu đầu ra theo yêu cầu. Ép tìm toàn diện hơn, bắt buộc gọi tool dù có giới hạn, cấm hoàn toàn hoặc dựa vào cảm giác chắc chắn sẽ giữ nguyên lỗi đã đo hoặc làm mất nghiên cứu hữu ích.",
+    "source": "certlab.io.vn"
+  },
+  {
+    "question": "An internal finance assistant uses stable calculation instructions and a variable employee question. A test question imitates template commands and asks the assistant to reveal internal instructions. The assistant must still answer legitimate expense questions from approved data. Which guardrail design is most appropriate?",
+    "options": {
+      "A": "Interpolate the employee question into the middle of the stable instruction text so all content is processed in one concise block.",
+      "B": "Add a secret phrase to the system prompt and reveal the instructions whenever the employee provides that phrase.",
+      "C": "Reject every question containing words used in the template, even when it is a valid question about an expense rule.",
+      "D": "Keep finance rules in a hardened system policy, screen employee input for injection patterns, and enforce approved-data access outside the model."
+    },
+    "correct_answer": "D",
+    "explanation": "Prompt injection trực tiếp từ người dùng cần nhiều lớp bảo vệ hơn ranh giới định dạng. Quy tắc tài chính ổn định phải nằm trong system policy được bảo vệ, đầu vào nhân viên cần được sàng lọc và ứng dụng phải giới hạn truy cập dữ liệu được duyệt. Secret trong prompt không phải cơ chế phân quyền; chặn mọi từ khóa lại phá use case hợp lệ.",
+    "source": "certlab.io.vn"
+  },
+  {
+    "question": "A distributor uses Claude to assign one of four inventory-status labels from short, normalized records. A clear zero-shot instruction defines each label and the exact response field. Evaluation passes all normal and boundary cases, and the p95 and cost targets have little headroom. What should the prompt engineer do?",
+    "options": {
+      "A": "Keep the evaluated zero-shot prompt and treat examples or extra reasoning as changes that require evidence of a remaining failure.",
+      "B": "Add five examples for every label because few-shot prompting is always more accurate than a passing zero-shot design.",
+      "C": "Require a long step-by-step explanation before the label so reviewers can infer whether the classification was easy.",
+      "D": "Replace the label definitions with a role description and allow Claude to invent new statuses when a record is unusual."
+    },
+    "correct_answer": "A",
+    "explanation": "Kỹ thuật prompt phải xử lý lỗi đã quan sát. Zero-shot rõ ràng hiện đã vượt ca thường và ca biên, đạt mục tiêu vận hành chặt. Thêm ví dụ, suy luận hiển thị hoặc vai trò mở sẽ tăng phức tạp hay phá hợp đồng đầu ra mà không có bằng chứng lợi ích. Chỉ đánh giá lại khi xuất hiện khoảng trống đo được.",
+    "source": "certlab.io.vn"
+  },
+  {
+    "question": "A service insurer classifies claim notes as routine service, safety escalation, coverage dispute, or insufficient information. The zero-shot definitions work on common notes but confuse polite coverage disputes and urgent notes with indirect safety language. Four curated examples cover those boundaries and improve every category without changing latency beyond the SLA. Which approach is best supported?",
+    "options": {
+      "A": "Keep zero-shot and add more label-definition prose instead of the evaluated examples, assuming wording alone resolves both boundaries.",
+      "B": "Use the curated few-shot examples with the explicit label definitions and retain the same category-level evaluation.",
+      "C": "Include only one obvious routine-service example so the prompt remains short and infer that it represents all categories.",
+      "D": "Use the four curated examples but remove the explicit label definitions to reduce prompt length."
+    },
+    "correct_answer": "B",
+    "explanation": "Lỗi xảy ra tại ranh giới phân loại và bộ ví dụ tuyển chọn đã trực tiếp bao phủ chúng trong SLA, nên few-shot là hợp lý bên cạnh định nghĩa nhãn rõ ràng. Cần giữ đánh giá theo từng nhóm để biết ví dụ cải thiện đúng phân biệt mong muốn mà không tạo thiên lệch mới.",
+    "source": "certlab.io.vn"
+  },
+  {
+    "question": "A medical-device service workflow has two Claude subtasks. Serial-number and date extraction passes its acceptance set with a direct instruction. Root-cause analysis still mixes observations with hypotheses, and engineers must approve the evidence set before a final diagnosis is drafted. Which TWO prompting decisions fit the measured needs?",
+    "options": {
+      "A": "Keep the direct zero-shot extraction prompt because it already meets the field contract and has no observed technique gap.",
+      "B": "Add manual chain-of-thought to serial-number extraction so every copied character receives an explanation.",
+      "C": "Ask for one uninterrupted root-cause answer and hide all intermediate evidence so engineers see only a polished diagnosis.",
+      "D": "Chain evidence extraction and hypothesis generation as separate calls, with the engineer's evidence gate between them.",
+      "E": "Use a single root-cause example from one device family and apply its failure sequence to every product."
+    },
+    "correct_answer": "AD",
+    "explanation": "Hai tác vụ cần mức cấu trúc prompt khác nhau. Trích xuất zero-shot trực tiếp nên giữ vì đã đạt kiểm thử từng trường. Phân tích nguyên nhân gốc cần artifact bằng chứng trung gian và cổng người duyệt, nên tách thành chuỗi call phù hợp hơn giấu reasoning trong một phản hồi.",
+    "source": "certlab.io.vn"
+  },
+  {
+    "question": "A power-grid outage planner has moved to a current Claude model with adaptive thinking. Its inherited prompt forces a fourteen-step reasoning recipe written for radial networks. On meshed sites, evaluation shows that the recipe misses alternate feeds, revisits completed checks, and breaches p95 latency. A general constraint-based prompt at medium effort passes topology, safety, and latency tests without changing the final plan schema. Which action best follows the evidence?",
+    "options": {
+      "A": "Keep the radial-network recipe and append another mandatory reasoning step after every newly observed failure.",
+      "B": "Retain the fourteen-step recipe and raise effort to maximum so Claude can compensate for its missing topology branch.",
+      "C": "Use the tested general constraint prompt with adaptive thinking at medium effort, retaining the plan schema and regression set.",
+      "D": "Disable thinking and require the planner to imitate the radial plan closest to each meshed site."
+    },
+    "correct_answer": "C",
+    "explanation": "Công thức suy luận cố định chứa giả định sai với site dạng lưới và còn tăng độ trễ. Prompt tổng quát đã kiểm thử nêu topology, ràng buộc an toàn và cho phép adaptive thinking chọn đường suy luận phù hợp. Medium effort, schema đầu ra cũ và cùng bộ hồi quy giữ kiểm soát vận hành.",
+    "source": "certlab.io.vn"
+  },
+  {
+    "question": "A logistics application migrates a machine-read status generator from an earlier Claude model to a current model that rejects a partially completed final assistant message. The old request prefills the opening of the status object, now returns an HTTP 400, and the downstream parser contract cannot change. Evaluation shows that explicit format instructions produce valid objects on the target model. What should the team do?",
+    "options": {
+      "A": "Retry the rejected request until the target model eventually accepts the final assistant prefill.",
+      "B": "Move the partial status object into the system role and allow Claude to choose the remaining field names.",
+      "C": "Keep the old request format and route production traffic back to the earlier model without evaluating supported migration controls.",
+      "D": "Remove the prefill, specify the complete object contract in the prompt, and regression-test the unchanged parser on the target model."
+    },
+    "correct_answer": "D",
+    "explanation": "Model đích không hỗ trợ assistant prefill ở cuối, nên retry hay chuyển một phần object sang vị trí khác không tạo continuation hợp lệ. Thay thế đã đánh giá là mô tả toàn bộ hợp đồng định dạng trong prompt và kiểm chứng parser cũ vẫn hoạt động trên model mới.",
+    "source": "certlab.io.vn"
+  },
+  {
+    "question": "A board-report assistant turns meeting transcripts into a table of decisions, owners, and deadlines. Evaluation finds that it assigns an owner when speakers discuss a task but never accept it, and it invents a deadline when only a target month is mentioned. Which TWO prompt controls best preserve useful output without presenting inference as transcript evidence?",
+    "options": {
+      "A": "Require every row to contain an owner and exact date, using the most frequently mentioned person and the final day of any target month.",
+      "B": "Require each populated owner and deadline to include the supporting transcript timestamp, and mark the field unresolved when no explicit commitment exists.",
+      "C": "Ask Claude for a confidence percentage and accept any owner or date above a fixed threshold without retaining transcript support.",
+      "D": "Provide an example where active discussion counts as ownership and instruct Claude to imitate that decision rule.",
+      "E": "Define commitment language and date precision explicitly, and require the output schema to distinguish confirmed, proposed, and unresolved values.",
+      "F": "Remove unresolved rows from the report so stakeholders see only complete-looking assignments."
+    },
+    "correct_answer": "BE",
+    "explanation": "Prompt phải định nghĩa thế nào là cam kết được chấp nhận và coi transcript là ranh giới bằng chứng. Timestamp giúp truy vết trường đã điền; trạng thái đã xác nhận, đề xuất và chưa giải quyết tránh ép hoàn tất. Điểm tin cậy, ví dụ quá thoáng hoặc ngày tháng tự bịa sẽ biến suy luận thành sự thật.",
+    "source": "certlab.io.vn"
+  },
+  {
+    "question": "A naming assistant receives three old campaign examples before proposing names for new product launches. Evaluation shows that it repeatedly copies their metaphors and word shapes, reducing the required diversity. A direct prompt that states audience, prohibited terms, and diversity criteria produces a broader set that passes review. What should the team do?",
+    "options": {
+      "A": "Use the evaluated direct prompt and remove the anchoring examples, preserving the explicit audience, prohibition, and diversity constraints.",
+      "B": "Add more copies of the three old campaigns so Claude learns the preferred metaphors more consistently.",
+      "C": "Keep the examples and remove the diversity criteria because the examples already imply the desired range.",
+      "D": "Keep the old examples and add a diversity instruction, without testing whether their observed anchoring remains."
+    },
+    "correct_answer": "A",
+    "explanation": "Few-shot không mặc nhiên có lợi. Ở đây ví dụ gây neo và thiếu đa dạng, trong khi prompt trực tiếp nêu đối tượng, thuật ngữ cấm và yêu cầu đa dạng đã vượt đánh giá. Nên dùng cách đơn giản đã kiểm chứng thay vì lặp thêm ví dụ hoặc giữ nguyên nguồn gây neo.",
+    "source": "certlab.io.vn"
+  },
+  {
+    "question": "A data-center incident assistant handles simple status lookups and complex recoveries. A blanket manual step-by-step prompt adds visible narration and latency to every request. In complex cases, two recovery tools have overlapping descriptions, and evaluation shows frequent selection of the wrong one. Which THREE revisions best align prompting with the two workloads?",
+    "options": {
+      "A": "Use supported adaptive thinking and calibrate effort against separate simple and complex incident evaluations.",
+      "B": "Require maximum visible reasoning for status lookups so their treatment matches complex recoveries.",
+      "C": "Give the overlapping tools distinct descriptions, explicit selection criteria, and contrasting valid-use examples.",
+      "D": "Rename both recovery tools to the same generic action so Claude can choose based on parameter count.",
+      "E": "Treat longer visible narration as the quality metric and remove the incident-resolution rubric.",
+      "F": "Keep simple final responses concise and evaluate quality, latency, and tool behavior separately for both workload classes."
+    },
+    "correct_answer": "ACF",
+    "explanation": "Các workload cần độ sâu suy luận khác nhau. Adaptive thinking và effort đã đánh giá giúp tra cứu thường đi thẳng nhưng vẫn đào sâu cho khôi phục phức tạp. Mô tả tool, tiêu chí chọn và ví dụ riêng xử lý chồng lấn; đánh giá riêng chất lượng, độ trễ và hành vi tool ngăn ca phức tạp làm nặng mọi yêu cầu.",
+    "source": "certlab.io.vn"
+  },
+  {
+    "question": "A construction planner asks Claude to sequence six activities subject to crew availability, inspection order, and a fixed handover date. Direct answers frequently violate one constraint. A tested prompt that asks Claude to reason through the dependencies and then return only the final schedule passes the constraint set within the SLA. Which choice best follows the evidence?",
+    "options": {
+      "A": "Keep the failing direct prompt because reasoning prompts are unsuitable whenever the final output is short.",
+      "B": "Use the evaluated reason-through prompt with a clear final-schedule field and retain the same dependency and SLA tests.",
+      "C": "Add examples that each omit a different constraint so Claude learns to improvise when the schedule is infeasible.",
+      "D": "Remove the handover date from evaluation so the direct prompt's remaining activities appear consistent."
+    },
+    "correct_answer": "B",
+    "explanation": "Lập kế hoạch có nhiều ràng buộc tương tác và prompt trực tiếp đã thất bại trên tập phụ thuộc thật. Cách reason-through đã đánh giá đạt cả ràng buộc lẫn SLA, đồng thời vẫn đặt lịch cuối trong trường đầu ra rõ ràng. Đầu ra ngắn không có nghĩa suy luận đơn giản; hạ chuẩn kiểm thử không sửa được lỗi lập lịch.",
+    "source": "certlab.io.vn"
+  },
+  {
+    "question": "A legal-intake service accepts a system policy, tool definitions, and user-uploaded PDFs. Some large submissions are rejected even though a character-count rule predicts they will fit, and the service must reserve enough space for a complete structured decision. Which control best addresses the failure?",
+    "options": {
+      "A": "Reuse the token count measured on the previous model because the prompt text and parser have not changed.",
+      "B": "Count only the extracted PDF text and ignore the system prompt, tools, images, and requested output allowance.",
+      "C": "Pre-count the complete target-model request, then enforce an input budget that preserves the evaluated output allowance.",
+      "D": "Send every request first and truncate the newest user content only after the API reports that the prompt is too long."
+    },
+    "correct_answer": "C",
+    "explanation": "Số ký tự không thay thế được phép đo token của model đích. Preflight phải đại diện toàn bộ request gồm system prompt, tool, PDF hoặc ảnh và message, đồng thời chừa dung lượng cho đầu ra đã đánh giá. Dùng count của model khác, chỉ đếm một phần hoặc cắt bằng chứng sau khi bị từ chối đều không bảo đảm vừa context.",
+    "source": "certlab.io.vn"
+  },
+  {
+    "question": "A compliance assistant sends a large policy prefix on every turn. Prompt caching has reduced input cost and latency, but long investigations still approach the context limit and lose focus. A product lead proposes a longer cache lifetime as the context fix. What should the architect recommend?",
+    "options": {
+      "A": "Increase the cache lifetime because cached tokens no longer occupy the model's context window.",
+      "B": "Disable caching and resend the same full policy prefix uncached so Claude treats it as fresh context.",
+      "C": "Split the cached policy into duplicate blocks across the conversation so each investigation turn has a nearby copy.",
+      "D": "Retain caching for the stable prefix, but manage growing history separately with evaluated compaction or selective context editing."
+    },
+    "correct_answer": "D",
+    "explanation": "Prompt caching giảm chi phí và độ trễ cho tiền tố lặp ổn định nhưng token đã cache vẫn chiếm context window. Vì vậy cần thêm kiểm soát quản lý ngữ cảnh phù hợp workflow, như compaction cho phiên dài hoặc chỉnh chọn lọc nội dung cũ. Tăng TTL, tắt cache hay nhân đôi policy không giải phóng active context.",
+    "source": "certlab.io.vn"
+  },
+  {
+    "question": "A chemical-safety research assistant opens large database records, web pages, and PDFs while building a cited evidence ledger. Raw tool payloads are useful during selection, but accepted quotations, source versions, and record IDs are stored durably outside the conversation. Auditors must be able to reproduce a later claim. Which TWO context policies best reduce active tokens without weakening reproducibility?",
+    "options": {
+      "A": "Keep every raw tool payload in the conversation because reproducibility requires all source bytes to remain in model context.",
+      "B": "After evidence selection, persist accepted quotations, source versions, and record IDs, then clear superseded raw payloads at the stage boundary.",
+      "C": "Clear each raw payload immediately after retrieval, before the assistant selects evidence or records its provenance.",
+      "D": "Keep stable record IDs and make cleared payloads reloadable from the system of record when a later claim needs rechecking.",
+      "E": "Replace every raw payload with an uncited model summary and discard the source version and record identifier."
+    },
+    "correct_answer": "BD",
+    "explanation": "Chỉ nên xóa nội dung khỏi context sau khi bằng chứng đã chọn và nguồn gốc được đưa vào ledger bền vững. Payload thô đã bị thay thế có thể rời active context; mã hồ sơ ổn định giúp tải lại đúng nguồn khi kiểm toán. Xóa sớm làm mất dữ liệu; chỉ giữ tóm tắt không trích dẫn làm mất khả năng tái lập.",
+    "source": "certlab.io.vn"
+  },
+  {
+    "question": "A security code-review service reuses one authenticated conversation across separate client cases. Messages, tool results, and thinking from a closed case consume context and sometimes anchor the next client's review. Approved findings and provenance are stored in the case system, each new case must be isolated, and an active tool cycle still requires its signed thinking block. Tests show that a clean case context hydrated from approved state preserves quality. Which design best satisfies the constraints?",
+    "options": {
+      "A": "Start each client case with clean context, hydrate only its approved state, and preserve the active tool-cycle block until completion.",
+      "B": "Delete every thinking block before returning a tool result, including the signed block associated with the active request.",
+      "C": "Clear only prior thinking while retaining the previous client's messages and tool results in the new review.",
+      "D": "Copy all prior thinking into new user messages so it becomes an explicit cross-client review history."
+    },
+    "correct_answer": "A",
+    "explanation": "Ranh giới giữa hồ sơ khách hàng cần context sạch, không chỉ tắt thinking. Ứng dụng chỉ hydrate trạng thái và nguồn gốc được duyệt cho hồ sơ hiện tại, nhưng phải giữ signed thinking block đang hoạt động trong chu kỳ tool. Giữ message khách cũ phá cô lập; xóa block đang dùng vi phạm hợp đồng tool-cycle.",
+    "source": "certlab.io.vn"
+  },
+  {
+    "question": "A construction-program assistant supports a six-month conversation in which approved scope decisions, unresolved permits, and owner commitments must remain coherent. Client-side FIFO truncation causes contradictions as old decisions disappear. A pilot on a supported model shows server-side compaction preserves the required state within the latency target. What should the team do?",
+    "options": {
+      "A": "Keep FIFO truncation and ask users to restate any missing decision after a contradiction appears.",
+      "B": "Use server-side compaction at the tested trigger, preserve required decision fields, and pass its block into later requests.",
+      "C": "Cache the complete raw conversation and assume cached turns will be omitted from the context window.",
+      "D": "Start a blank conversation at the threshold and ask Claude to reconstruct approvals from the current user message."
+    },
+    "correct_answer": "B",
+    "explanation": "Workflow cần tính liên tục dài hạn chứ không phải giữ mọi lịch sử thô. Compaction phía server đã hỗ trợ và đánh giá sẽ thay nội dung cũ bằng tóm tắt tập trung, rồi tiếp tục khi compaction block được gửi lại. Tóm tắt phải giữ các trường quyết định; FIFO, giả định cache hoặc khởi động trắng không giữ được trạng thái.",
+    "source": "certlab.io.vn"
+  },
+  {
+    "question": "A regulated claims agent may cross a compaction threshold during a long investigation. Before continuation, the application must confirm that the claim ID, evidence decisions, and pending human approval survive; the latest signed authorization record must remain exact; and every resumed turn must be auditable. Which THREE controls satisfy the design?",
+    "options": {
+      "A": "Assume the model can still inspect all raw messages that preceded the latest compaction block whenever the summary is ambiguous.",
+      "B": "Use the default summary without a preservation rubric because any compaction summary is equivalent for regulated state.",
+      "C": "Define compaction instructions for the required identifiers, decisions, and approval state, then evaluate the generated summary against that preservation rubric.",
+      "D": "Place the trigger at the context limit with no output headroom so the workflow performs fewer compactions.",
+      "E": "Pause after compaction so the application can validate the summary and add the current exact authorization record before generation resumes.",
+      "F": "Pass the returned compaction block on subsequent requests and log the compaction stop reason, validated state, and resume event."
+    },
+    "correct_answer": "CEF",
+    "explanation": "Ứng dụng phải coi compaction là chuyển trạng thái có kiểm soát. Hướng dẫn tùy chỉnh và rubric bảo toàn giữ đúng trạng thái claim; tạm dừng cho phép xác thực tóm tắt và gắn hồ sơ ủy quyền chính xác. Gửi lại compaction block và ghi log chuyển đổi giúp việc tiếp tục có thể tái lập.",
+    "source": "certlab.io.vn"
+  },
+  {
+    "question": "A media-production agent runs on a Claude model with automatic context awareness. Its controller also injects guessed remaining-context warnings derived from character counts. Image-heavy jobs make those guesses inaccurate, and evaluation shows the agent wraps up early even though the API reports substantial capacity remaining. Which correction best addresses the conflicting budget signals?",
+    "options": {
+      "A": "Lower every guessed remaining-context value so the agent finishes even earlier and cannot exceed the window.",
+      "B": "Tell Claude to ignore the API's context awareness whenever the controller's character estimate disagrees.",
+      "C": "Remove fabricated warnings; use automatic context awareness for model behavior and token or usage data for application budgets.",
+      "D": "Inject the same character-based warning after every tool call so repetition resolves any discrepancy."
+    },
+    "correct_answer": "C",
+    "explanation": "Với model có context awareness, API tự cung cấp tín hiệu dung lượng của model, kể cả ảnh. Ứng dụng không nên chèn ước lượng cạnh tranh dựa trên số ký tự. Vẫn có thể dùng token count đúng model và response usage cho admission, chi phí và ngân sách vận hành.",
+    "source": "certlab.io.vn"
+  },
+  {
+    "question": "A global procurement assistant sends definitions for 120 regional compliance tools before analyzing large vendor bid documents. Each request names one or two jurisdictions, yet token measurement shows the full tool catalog displaces bid evidence and causes incomplete comparisons. Rare regional tools must remain available, and p95 cannot increase. Which change best fits?",
+    "options": {
+      "A": "Shorten every tool description to a regional code so the full catalog remains beside the bid documents.",
+      "B": "Delete every low-frequency regional tool because the current request usually names common jurisdictions.",
+      "C": "Prompt-cache all definitions and assume cache reads reserve more context for the bid evidence.",
+      "D": "Discover tools from jurisdiction metadata, load only the relevant definitions, and regression-test bid completeness, tokens, and latency."
+    },
+    "correct_answer": "D",
+    "explanation": "Định nghĩa tool chiếm context ngay cả khi không gọi. Metadata về jurisdiction là khóa khám phá giới hạn, cho phép trì hoãn catalog đầy đủ và chỉ nạp định nghĩa liên quan mà không xóa năng lực hiếm. Đánh giá phải chứng minh context thu hồi giúp hồ sơ đầy đủ hơn mà không làm xấu độ trễ.",
+    "source": "certlab.io.vn"
+  },
+  {
+    "question": "Two notification services must produce the same 12-line escalation format and tone. The deployment is not permitted to enable the code-execution capability required to use Skills, and the workflow needs no scripts or resource files. The language contract changes by product release. Which reuse design is most appropriate?",
+    "options": {
+      "A": "Maintain a versioned prompt module with explicit variables and contract tests, then compose it into both services at release.",
+      "B": "Package the format as a custom Skill and enable code execution only for these requests despite the deployment restriction.",
+      "C": "Keep independent copies in both services and rely on release notes to remind owners to synchronize every change.",
+      "D": "Create one broad Skill containing all notification, billing, and support capabilities so future reuse needs no new design."
+    },
+    "correct_answer": "A",
+    "explanation": "Môi trường không thể bật khả năng thực thi cần cho Skills, còn tài sản cần tái sử dụng chỉ là hợp đồng hành vi bằng văn bản. Prompt module có phiên bản, biến rõ và contract test cho phép hai dịch vụ dùng cùng định dạng đã duyệt. Bật năng lực bị cấm, giữ bản sao riêng hoặc tạo Skill phổ quát không phù hợp.",
+    "source": "certlab.io.vn"
+  },
+  {
+    "question": "A claims service is cutting over to a corrected version of a large cached decision prompt. Random instances currently switch in place, so both versions serve traffic and two hundred workers cold-write the new prefix in parallel. The output contract is unchanged and must be verified before the full cohort runs. Which sequence is best?",
+    "options": {
+      "A": "Overwrite the prompt on random instances and let all first requests write their own entry until one version becomes dominant.",
+      "B": "Publish one versioned prefix, observe one validation response start, verify its contract, then release the cohort and confirm cache reads.",
+      "C": "Put the new version label after the cache boundary while changing the instructions before it so both versions share one entry.",
+      "D": "Wait for every old entry to expire, then switch all instances simultaneously without validating the unchanged output contract."
+    },
+    "correct_answer": "B",
+    "explanation": "Sửa prompt tạo một tiền tố tái sử dụng mới. Dịch vụ phải phát hành một phiên bản có mã, chờ phản hồi xác thực bắt đầu để cache entry mới tồn tại, kiểm tra hợp đồng đầu ra không đổi rồi mới mở cohort song song. Cache-read usage xác nhận tái sử dụng; thay ngẫu nhiên tại chỗ sẽ trộn phiên bản.",
+    "source": "certlab.io.vn"
+  },
+  {
+    "question": "Five service teams maintain copied prompts for the same eligibility decision. Policy wording and output fields are shared, but each team supplies different case data and a small approved regional rule. Fixes to the shared logic reach teams inconsistently. Which TWO changes create a safer modular prompt strategy?",
+    "options": {
+      "A": "Let each team continue editing its full copy and reconcile differences only when production outputs conflict.",
+      "B": "Create a versioned core for shared policy and output fields, with defined interfaces for case and regional modules.",
+      "C": "Merge case data, regional rules, and shared instructions into one free-form variable so teams can add fields without coordination.",
+      "D": "Freeze the first team's prompt as universal and prohibit regional modules even where an approved rule differs.",
+      "E": "Place tagged case data and approved regional rules in explicit variable modules after the shared core."
+    },
+    "correct_answer": "BE",
+    "explanation": "Thiết kế module cần cả hợp đồng dùng chung ổn định và ranh giới rõ cho biến thể hợp lệ. Core có phiên bản sở hữu logic chính sách và trường đầu ra chung; dữ liệu vụ việc và quy tắc khu vực đã duyệt nằm ở module biến riêng có tag. Cấu trúc này hỗ trợ tái sử dụng mà không trộn mọi thứ vào một khối tự do.",
+    "source": "certlab.io.vn"
+  },
+  {
+    "question": "A global invoice service copies tax rules into three places: a prompt module that defines the response contract, a custom Skill containing validation scripts, and request templates fed by the tax system. Updates now diverge, cached requests can preserve an obsolete copy, and auditors must reproduce each calculation. Current tax tables change independently of the executable workflow. Which redesign best fits?",
+    "options": {
+      "A": "Create one long-lived cached prompt containing the response contract, validation script text, and current tax tables.",
+      "B": "Put the current tax tables inside the Skill and let its execution container retrieve regulatory changes directly.",
+      "C": "Keep the response contract in the prompt module, version the executable Skill, inject authorized current tables per request, and record the composition.",
+      "D": "Allow each region to keep all three copies and reconcile differences only when two generated invoices disagree."
+    },
+    "correct_answer": "C",
+    "explanation": "Ba tài sản có trách nhiệm và vòng đời khác nhau: prompt module quản lý tương tác và hợp đồng đầu ra; Skill có phiên bản quản lý validation thực thi; ứng dụng cung cấp bảng thuế hiện hành đã cấp quyền. Ghi đúng phiên bản cả ba giúp tái lập phép tính. Cache chỉ tối ưu lớp ổn định, không giải quyết quyền sở hữu hay dữ liệu động.",
+    "source": "certlab.io.vn"
+  },
+  {
+    "question": "An insurer must reproduce an approved actuarial workbook six months later. The source-data snapshot is recorded, but the job stored only `latest` for its custom Skill; a subsequent Skill update now produces a different workbook. Corrections must apply prospectively without rewriting the approved record. What should the team change?",
+    "options": {
+      "A": "Store only the generated workbook because the artifact alone proves which Skill implementation created it.",
+      "B": "Replace the historical job's Skill reference with the current latest version immediately before each audit replay.",
+      "C": "Archive the user prompt but omit the Skill identity because the same prompt should always generate the same workbook.",
+      "D": "Pin and record the exact Skill version in each approved job manifest, retain it for replay, and use new manifests for fixes."
+    },
+    "correct_answer": "D",
+    "explanation": "Snapshot nguồn chưa đủ khi kết quả còn phụ thuộc Skill thực thi. Mỗi job được duyệt cần manifest bất biến ghi đúng phiên bản Skill và giữ phiên bản đó để replay. Skill sửa lỗi phải đi vào manifest mới cho tương lai, không viết lại lịch sử. Workbook, prompt hay bản latest mới không tái tạo được lần chạy cũ.",
+    "source": "certlab.io.vn"
+  },
+  {
+    "question": "A public-sector grant service combines an analysis Skill and a document Skill. Queue delays can trigger retries after `latest` has changed, and a pooled cross-agency container has exposed stale files from another job. Each released report must use an approved Skill combination and be reproducible. Which THREE controls best fit?",
+    "options": {
+      "A": "Resolve `latest` again on every retry so delayed jobs automatically receive the newest approved behavior.",
+      "B": "Use one pooled container for all agencies and overwrite common filenames before each report begins.",
+      "C": "Create an immutable job manifest with exact Skill IDs and versions, the input snapshot, and the approved composition ID.",
+      "D": "Allocate a fresh container per agency job, reuse it only across that job's turns, and export required artifacts.",
+      "E": "Keep only the final PDF checksum because identical output bytes reveal every Skill and input used to create it.",
+      "F": "Validate the report contract against the manifest on release and retry, rejecting any dependency mismatch."
+    },
+    "correct_answer": "CDF",
+    "explanation": "Retry tái lập được cần manifest job bất biến cố định snapshot đầu vào và thành phần Skill đã duyệt. Container chỉ thuộc một job của một cơ quan, có thể tái dùng trong job nhưng không xuyên tenant; artifact bắt buộc phải export. Handler phát hành và retry phải tuân manifest, không âm thầm lấy dependency mới nhất.",
+    "source": "certlab.io.vn"
+  },
+  {
+    "question": "A quality team pastes a long manufacturing procedure and its validation scripts into every system prompt, although only a small class of deviation investigations needs them. Maintenance is duplicated, ordinary requests slow down, and the specialized workflow is reusable across plants. What should the architect do?",
+    "options": {
+      "A": "Package the procedure, scripts, and resources as a scoped custom Skill with precise metadata, then evaluate activation in eligible workflows.",
+      "B": "Split the same procedure across more system messages so each ordinary request still carries every instruction and script.",
+      "C": "Create one broadly described Skill containing every plant procedure and attach it to all requests.",
+      "D": "Prompt-cache the pasted procedure and keep separate script copies in each plant's request template."
+    },
+    "correct_answer": "A",
+    "explanation": "Custom Skill là gói có tổ chức gồm hướng dẫn, script và tài nguyên. Metadata chính xác cùng phạm vi khả dụng giúp Claude chỉ nạp đầy đủ năng lực khi cuộc điều tra phù hợp cần đến, trong khi một phiên bản được duy trì có thể phục vụ nhiều nhà máy. Prompt rời, Skill phổ quát hay bản cache sao chép không tạo cùng ranh giới progressive disclosure.",
+    "source": "certlab.io.vn"
+  },
+  {
+    "question": "A document service has three reliable request classes: spreadsheet-only, presentation-only, and a combined workflow. It currently attaches eight Skills to every request, adding overhead; operators also change the list ad hoc, disrupting reuse. Classification before invocation is reliable. Which design is best?",
+    "options": {
+      "A": "Attach all eight Skills to every request so routing never risks omitting an infrequently used capability.",
+      "B": "Define three evaluated workflow profiles with only the required Skills, keep each list stable, and route before invocation.",
+      "C": "Build a different list from arbitrary words in each document and resolve every referenced Skill to latest.",
+      "D": "Combine all spreadsheet and presentation behavior into one universal custom Skill for every future request."
+    },
+    "correct_answer": "B",
+    "explanation": "Phân loại trước đáng tin cậy cho phép dùng ba profile năng lực giới hạn. Mỗi profile chỉ chứa Skill cần cho workflow, ổn định giữa yêu cầu tương đương và được đánh giá như một tổ hợp. Cách này giảm overhead và tránh phá cache do danh sách Skill đổi liên tục.",
+    "source": "certlab.io.vn"
+  },
+  {
+    "question": "A refund assistant makes one sequential payment-tool call only after a human approval. Its tool is configured for both direct and programmatic callers, so every request also enables code execution. There is no batching or intermediate filtering, latency increased, and the team incorrectly treats caller configuration as the approval boundary. What is the best correction?",
+    "options": {
+      "A": "Use a direct-only refund path, remove the unused programmatic execution capability, and enforce the approval and authorization in the application.",
+      "B": "Keep both caller modes and accept any invocation bearing a code-execution caller as proof of human approval.",
+      "C": "Move the refund into an autonomous agent with both callers so it can choose whether an approval is necessary.",
+      "D": "Create a second refund tool for programmatic calls while leaving the original available directly on every request."
+    },
+    "correct_answer": "A",
+    "explanation": "Yêu cầu chỉ có một lần gọi tuần tự cần phê duyệt, nên programmatic execution làm tăng năng lực và độ trễ mà không có lợi ích xử lý hàng loạt. Tool nên đi theo đường trực tiếp của workflow. Phê duyệt con người và phân quyền server vẫn do ứng dụng kiểm soát vì `allowed_callers` chỉ hướng dẫn cách gọi, không thực thi đặc quyền.",
+    "source": "certlab.io.vn"
+  },
+  {
+    "question": "After a merger, a service agent receives both legacy client tools and a new MCP toolset for the same CRM actions. Equivalent capabilities have different names and retry semantics, and traces show alternating choices that sometimes duplicate side effects. New traffic should use MCP, but the legacy path must remain available for rollback during cutover. Which configuration is best?",
+    "options": {
+      "A": "Expose both complete surfaces to every request and tell the model to prefer MCP unless a legacy name looks more familiar.",
+      "B": "Assign each traffic cohort one authoritative capability surface, remove its duplicate from active context, and retain the legacy integration outside the cohort for measured rollback.",
+      "C": "Wrap both integrations in a third agent that can call either surface and retry whichever one returns first.",
+      "D": "Rename legacy and MCP tools identically so either backend can satisfy the same model call without recording which one executed."
+    },
+    "correct_answer": "B",
+    "explanation": "Phần dư thừa nằm ở năng lực thực thi bị trùng, không phải thiếu mô tả. Mỗi nhóm chuyển đổi chỉ nên thấy một giao diện CRM chính thức với hành vi retry đã biết, đo kết quả và giữ tích hợp cũ bên ngoài profile đang hoạt động để rollback. Hiển thị hoặc bọc cả hai khiến mô hình phải tự quyết quyền sở hữu hạ tầng và có thể lặp tác động.",
+    "source": "certlab.io.vn"
+  },
+  {
+    "question": "A grant assistant is configured with web search, internal retrieval, memory, and fourteen action tools. The team suspects that three capabilities are unnecessary but cannot remove required low-frequency behavior or weaken safety. Which TWO findings provide the strongest evidence that a capability is bloat?",
+    "options": {
+      "A": "The governed task inventory contains no required scenario or dependency for it, and representative traces never activate it.",
+      "B": "Its definition uses more tokens than the shortest tool in the catalog, even though it uniquely serves a required quarterly workflow.",
+      "C": "A stakeholder dislikes its name, but no task evaluation or call trace has been reviewed.",
+      "D": "It is used less often than another capability, although the rare cases have mandatory safety checks.",
+      "E": "A controlled ablation preserves task success and safety coverage while reducing wrong calls, latency, or failure rate."
+    },
+    "correct_answer": "AE",
+    "explanation": "Muốn kết luận capability bị dư thừa cần xem cả mức bao phủ trách nhiệm và bằng chứng so sánh. Năng lực không gắn với tác vụ được quản trị, dependency hoặc lần kích hoạt quan sát được là ứng viên loại bỏ. Sau đó ablation có kiểm soát phải chứng minh cấu hình gọn hơn vẫn giữ thành công, an toàn và cải thiện lỗi gọi, độ trễ hoặc tỷ lệ thất bại.",
+    "source": "certlab.io.vn"
+  },
+  {
+    "question": "A fleet-maintenance assistant has two valid paths to an approved work order: one composite planning tool or a sequence of telemetry, parts, and work-order tools. Its evaluator hard-codes the sequence as the only success, so teams add wrappers when correct composite outcomes are marked wrong. Tool count and selection errors rise, while approved work orders remain unchanged. Safety and audit requirements are path-independent. Which redesign best fits?",
+    "options": {
+      "A": "Keep the expected call sequence and add one wrapper for every alternative path so each can imitate the required trace.",
+      "B": "Score only the number of tools called because a longer trace demonstrates more complete reasoning and auditability.",
+      "C": "Verify the approved work order and safety invariants, allow valid tool paths, inspect traces for real failures, and ablate redundant wrappers.",
+      "D": "Remove the composite tool immediately because any path that differs from the original evaluator must be unsafe."
+    },
+    "correct_answer": "C",
+    "explanation": "Đánh giá tool nên kiểm tra kết quả kinh doanh và thuộc tính an toàn, không loại một chiến lược hợp lệ chỉ vì call trace khác. Trace viết cứng ở đây tạo lỗi giả và khuyến khích wrapper trùng. Cần chấp nhận cả hai đường bảo trì hợp lệ, dùng trace để chẩn đoán lỗi thật và chạy ablation trước khi bỏ wrapper.",
+    "source": "certlab.io.vn"
+  },
+  {
+    "question": "A warranty agent exposes `lookup_claim_v1`, `lookup_claim_v2`, and two compatibility wrappers indefinitely. Version 2 is required for all new cases, but version 1 must replay archived decisions that recorded it. Selection errors rise as the active catalog grows, and each replay already carries the recorded tool version. What should the team do?",
+    "options": {
+      "A": "Keep every version and wrapper active for all cases because historical reproducibility requires universal visibility.",
+      "B": "Delete version 1 immediately and rewrite archived manifests to version 2 so the catalog becomes smaller.",
+      "C": "Add a version-selection agent with all four tools and let it infer whether a case is historical from the claim narrative.",
+      "D": "Expose only version 2 to new cases, resolve version 1 from the archived manifest for replay, and retire wrappers after measured dependency checks."
+    },
+    "correct_answer": "D",
+    "explanation": "Một capability có thể được giữ cho vòng đời giới hạn mà không xuất hiện trong mọi catalog. Ca mới chỉ thấy hợp đồng v2; replay lịch sử tải đúng phiên bản đã ghi bên ngoài lựa chọn thường. Chỉ bỏ wrapper tương thích sau khi kiểm tra usage và dependency. Hiển thị mọi phiên bản hoặc viết lại lịch sử sẽ nhầm giữa khả dụng và đang hoạt động.",
+    "source": "certlab.io.vn"
+  },
+  {
+    "question": "A university exposes forty capabilities to every assistant, and evaluations show wrong calls across enrollment, financial-aid, and housing tasks. Which TWO deployment controls best reduce the active tool surface? Choose 2.",
+    "options": {
+      "A": "Keep all forty capabilities active because rollback and emergency readiness require every tool to be model-visible at all times.",
+      "B": "Compose one profile per task family from a shared core plus only that family's required capabilities.",
+      "C": "Route by application-owned task type, but let the model add tools after the profile is selected.",
+      "D": "Activate exactly one selected profile per request and include its identity and tool calls in operational traces.",
+      "E": "Allow any assistant to activate an unlisted tool when it claims the task is important, then review the grant monthly.",
+      "F": "Attach all three routine profiles plus the emergency profile after routing so no downstream capability can be missing."
+    },
+    "correct_answer": "BD",
+    "explanation": "B tạo profile tối thiểu cho từng nhóm tác vụ đã biết; D chỉ kích hoạt một profile cho mỗi request và vẫn truy vết được. Giữ mọi tool hiển thị, cho model tự mở rộng hoặc gắn tất cả profile đều giữ nguyên tình trạng capability bloat.",
+    "source": "certlab.io.vn"
+  },
+  {
+    "question": "A utility-billing assistant exposes separate tools for date normalization, unit conversion, account-ID cleanup, tariff lookup, charge calculation, and invoice creation. The first three are deterministic preprocessing steps used in the same order before every calculation; making the model select and call them separately adds round trips and occasional ordering errors. What is the best redesign?",
+    "options": {
+      "A": "Move deterministic normalization into the application or a bounded billing operation, expose the meaningful calculation contract, and keep its inputs and outputs validated.",
+      "B": "Add more normalization agents so each deterministic transformation has an independent reviewer.",
+      "C": "Keep all six tools and ask the model to remember the correct order without an application check.",
+      "D": "Merge every billing and account operation into one free-form executor with no typed parameters."
+    },
+    "correct_answer": "A",
+    "explanation": "Không phải hàm nội bộ nào cũng nên thành capability cho model. Chuẩn hóa ngày, đơn vị và mã là bước xác định, luôn theo một thứ tự, nên do ứng dụng hoặc thao tác billing giới hạn quản lý. Claude chỉ cần hợp đồng tính toán có ý nghĩa với đầu vào đã xác thực và đầu ra rõ ràng.",
+    "source": "certlab.io.vn"
+  },
+  {
+    "question": "An operations framework wraps a two-category support assistant with a planner, request rewriter, router, memory layer, and reviewer. Traces show only the router improves category accuracy; the planner and rewriter obscure the actual prompt, memory repeats ticket state, and the reviewer adds latency without changing acceptance. Incident teams cannot reproduce failures. Which configuration best fits the evidence?",
+    "options": {
+      "A": "Retain every layer and add another tracing agent because framework components are safer when no one can remove them.",
+      "B": "Keep the validated router, remove or inline layers with no measured benefit, expose underlying prompts and tool traces, and rerun the same evaluation.",
+      "C": "Remove the router because simplicity requires deleting the only layer with measured outcome benefit.",
+      "D": "Replace the framework with one autonomous agent that has no route contract, traces, or acceptance evaluation."
+    },
+    "correct_answer": "B",
+    "explanation": "Cần giảm capability có chọn lọc. Router đã chứng minh giá trị cho hai nhóm riêng; các lớp khác chỉ tăng độ trễ, lặp trạng thái hoặc biến đổi prompt khó quan sát mà không tăng tỷ lệ chấp nhận. Giữ router, bỏ hoặc inline lớp không hiệu quả và công khai prompt, tool trace để khôi phục khả năng tái lập.",
+    "source": "certlab.io.vn"
+  },
+  {
+    "question": "A logistics SaaS replaces a shared Claude API key with Workload Identity Federation for its batch workers. The job payload still contains a tenant ID supplied by an upstream queue, and every federated worker can submit requests for any tenant because the service trusts that field without checking its workload claims. The requirements are to eliminate long-lived Claude secrets and preserve strict tenant isolation. What is the most important remaining security gap?",
+    "options": {
+      "A": "The short-lived Claude access token should be refreshed more frequently, because token lifetime alone determines tenant access.",
+      "B": "The system prompt should instruct Claude not to process another tenant's data, while the service continues trusting the payload tenant ID.",
+      "C": "Federation authenticates the workload, but the service still lacks server-side authorization that binds trusted workload identity to permitted tenants before processing.",
+      "D": "An IP allowlist should replace tenant authorization because all approved workers run inside the same network."
+    },
+    "correct_answer": "C",
+    "explanation": "Workload Identity Federation loại khóa Claude dài hạn và dùng token ngắn hạn, nhưng không cung cấp phân quyền tenant của sản phẩm. Dịch vụ phải suy ra hoặc xác minh tenant từ claim đáng tin cùng policy phân quyền trước khi gửi dữ liệu tới Claude hay thực hiện hành động. TTL token, prompt và mạng không đóng được lỗ hổng xuyên tenant này.",
+    "source": "certlab.io.vn"
+  },
+  {
+    "question": "An HR assistant connects to a remote MCP server with each employee's valid OAuth token. The server exposes profile reading, compensation updates, and employee deletion, and the team has enabled every tool with automatic execution. Policy permits all employees to read their own profile, managers to update compensation for direct reports, and only HR administrators to delete an employee after confirmation. Which design best closes the authorization gap?",
+    "options": {
+      "A": "Treat successful OAuth authentication as authorization for every exposed MCP tool because the token identifies an employee.",
+      "B": "Expose all tools but add policy text to the system prompt so Claude can infer the employee's role.",
+      "C": "Require confirmation for every read and write while leaving the MCP server without role or resource checks.",
+      "D": "Enforce current role, resource, and action authorization at the application or MCP server, expose only applicable tools, and require confirmation for employee deletion."
+    },
+    "correct_answer": "D",
+    "explanation": "OAuth token xác thực danh tính nhưng bài toán cần phân quyền theo hành động và tài nguyên. Ứng dụng hoặc MCP server phải kiểm tra vai trò hiện tại và quan hệ với đối tượng, chỉ cấp tool đúng vai trò; thao tác xóa phải dừng để xác nhận. Prompt hoặc xác nhận đơn thuần không thể cấp hay chứng minh quyền nghiệp vụ.",
+    "source": "certlab.io.vn"
+  },
+  {
+    "question": "A customer-support product stores one MCP credential vault per support agent. Vaults are workspace-scoped, and the session endpoint currently accepts a vault ID supplied by the browser without checking ownership. Agents may act only on tickets in their assigned queue. An audit finds that one agent started a session with another agent's vault. Which TWO controls address the root authentication and authorization gaps?",
+    "options": {
+      "A": "Authenticate the product user, resolve the permitted vault server-side from that identity, and reject any client-supplied cross-user vault reference.",
+      "B": "Rename vault display names with random strings and continue accepting any vault ID from the browser.",
+      "C": "Rely on credential values being write-only because a user who cannot read a token cannot use its vault.",
+      "D": "Set every MCP tool to require confirmation and let the agent decide whether the selected vault belongs to the browser user.",
+      "E": "Create a new workspace for every request so that no credential persists long enough to be misused.",
+      "F": "Authorize each downstream action against the current support principal and assigned queue, and record the principal, vault, server, tool, and target in the audit event."
+    },
+    "correct_answer": "AF",
+    "explanation": "Giữ bí mật vault và chọn đúng vault là hai kiểm soát khác nhau. Vì vault thuộc workspace, sản phẩm phải xác thực caller rồi ánh xạ vault do họ sở hữu ở server, không tin ID do trình duyệt gửi. Hành động sau đó cũng phải được kiểm tra theo ticket queue hiện tại và ghi log danh tính, mục tiêu.",
+    "source": "certlab.io.vn"
+  },
+  {
+    "question": "A fintech managed agent uses an authenticated MCP payment server and a separate public foreign-exchange data source. At session creation, the payment credential is expired. The session still starts, emits an MCP authentication failure, and the agent continues researching rates. Operations requires public research to remain available, but no payment may execute or be reported as completed without authenticated access, and the incident trail must remain intact. What should the integration do?",
+    "options": {
+      "A": "Treat the authentication event as a failed payment dependency, isolate and block the payment path, record the event, rotate or refresh the credential, and resume payment only after successful authentication.",
+      "B": "Retry the payment tool after every rate lookup because a later session transition may make the expired credential valid.",
+      "C": "Replace the MCP payment tool with a custom tool that embeds a fallback administrator token when authentication fails.",
+      "D": "Let the agent mark the payment as completed from the requested intent, then reconcile the transaction after credentials recover."
+    },
+    "correct_answer": "A",
+    "explanation": "Phiên managed agent vẫn tiếp tục khi credential MCP lỗi, nên sản phẩm phải ánh xạ lỗi tới đúng capability thay vì coi cả phiên đã xác thực. Đường thanh toán phải fail closed, giữ hồ sơ lỗi và chỉ tiếp tục sau khi credential phục hồi, xác thực thành công. Đường nghiên cứu công khai độc lập có thể tiếp tục nếu không thể đại diện hoặc kích hoạt thanh toán.",
+    "source": "certlab.io.vn"
+  },
+  {
+    "question": "A deployment pipeline authenticates to the Claude API with one non-expiring API key stored as a build variable. A diagnostic step accidentally printed the key, and the CI platform now provides an OIDC workload identity. Security requires immediate containment, removal of long-lived Claude secrets from future jobs, and continued environment-level access separation. Which response best satisfies all requirements?",
+    "options": {
+      "A": "Add an expiration date to the exposed key and let existing jobs use it until that date.",
+      "B": "Revoke the exposed key, configure WIF from the trusted CI issuer to environment-scoped Claude identities, and audit the upstream IdP rules and token exchange.",
+      "C": "Place the exposed key in the system prompt so only the model, rather than the build script, can access it.",
+      "D": "Move one replacement organization-wide key into a secret manager and use it for every environment."
+    },
+    "correct_answer": "B",
+    "explanation": "Khóa đã in ra phải coi là bị lộ và thu hồi ngay, không chỉ chờ hết hạn. CI đã có OIDC workload identity nên WIF có thể đổi lấy quyền Claude ngắn hạn mà không phân phối khóa tĩnh. Danh tính riêng theo môi trường và rà soát issuer, federation rule giữ quyền tối thiểu; vẫn phải bảo vệ chuỗi tin cậy đầu nguồn.",
+    "source": "certlab.io.vn"
+  },
+  {
+    "question": "A procurement service authenticates its batch workers to the Claude API through Workload Identity Federation. A purchasing MCP server uses one corporate OAuth credential with organization-wide rights. Each queued request contains a requester name, cost center, and amount copied from untrusted task text, and purchase execution is automatic. Requirements say purchases must be attributable to an authenticated employee, limited to that employee's delegated cost centers, and approved by a second authorized person above a threshold. Which THREE controls form the strongest design?",
+    "options": {
+      "A": "Treat the federated batch-worker identity as the human requester and authorize every cost center available to the corporate MCP credential.",
+      "B": "Ask Claude to compare the requester and cost center strings in the task text before it decides whether the purchase is authorized.",
+      "C": "Authenticate the employee when the job is accepted and attach a server-generated, immutable requester and cost-center context instead of trusting task text.",
+      "D": "Have the procurement service authorize the current employee, cost center, action, and amount on every purchase call, treating the corporate OAuth credential only as connector authentication.",
+      "E": "For above-threshold purchases, require confirmation from a distinct authenticated approver before execution and audit the employee, workload, approver, tool target, and outcome."
+    },
+    "correct_answer": "CDE",
+    "explanation": "Hệ thống có hai lớp xác thực máy nhưng thiếu ranh giới ủy quyền con người đáng tin. Ingress phải gắn job với nhân viên đã xác thực bằng ngữ cảnh do server tạo. Dịch vụ mua sắm kiểm tra cost center, hành động và số tiền; vượt ngưỡng cần người duyệt khác xác thực. Audit phải nối con người, workload, phê duyệt và kết quả.",
+    "source": "certlab.io.vn"
+  },
+  {
+    "question": "A warehouse agent invokes a custom application tool that releases quarantined inventory. The team added an `always_ask` policy to its Managed Agents tool configuration, but the application automatically executes every custom-tool event it receives. Policy requires both current order-level authorization and supervisor approval. What is the security gap?",
+    "options": {
+      "A": "The tool needs a longer description so Claude can decide whether the caller has supervisor authority.",
+      "B": "The application should return success before execution so the model does not retry the release.",
+      "C": "Managed permission policies do not govern application-executed custom tools; the application must authorize the order, obtain supervisor approval, and only then execute and return the result.",
+      "D": "The `always_ask` setting is sufficient, so the automatic executor can remain unchanged."
+    },
+    "correct_answer": "C",
+    "explanation": "Managed permission policy áp dụng cho agent và MCP tool do server thực thi, không áp dụng custom tool do ứng dụng chạy. Ứng dụng phải coi event là yêu cầu, gắn principal đã xác thực, kiểm tra đúng lệnh cách ly, lấy phê duyệt giám sát rồi mới thực thi. Mô tả tool hay policy không phù hợp không đóng được ranh giới này.",
+    "source": "certlab.io.vn"
+  },
+  {
+    "question": "A records service revokes an investigator's export role and updates the managed-agent template to disable the export MCP tool. The investigator still has a long-running session created under the prior configuration and a referenced credential vault. Requirements say revocation must take effect immediately and every export must be checked against current entitlement. Which response best closes the gap?",
+    "options": {
+      "A": "Wait for the investigator to start a new session because the template update will apply at that time.",
+      "B": "Rename the export tool to indicate that only authorized investigators should use it.",
+      "C": "Change the future template from automatic execution to confirmation and let the revoked investigator approve any pending export.",
+      "D": "Enforce current export entitlement at the records boundary on every call, archive the credential, and terminate the existing session in addition to changing future sessions."
+    },
+    "correct_answer": "D",
+    "explanation": "Cập nhật cấu hình agent không bảo vệ ngược các phiên cũ. Muốn thu hồi ngay, dịch vụ hồ sơ hoặc ứng dụng phải kiểm tra quyền hiện tại ở mọi lần export, archive credential để xóa secret và lan truyền thay đổi vòng đời, đồng thời kết thúc phiên còn giữ toolset cũ. Chỉ tắt tool cho phiên tương lai là chưa đủ.",
+    "source": "certlab.io.vn"
+  },
+  {
+    "question": "A shipping service compares two extraction configurations. Configuration X returns a first response in 0.6 seconds on average, but 18% fail field validation and trigger a retry; its P95 time to the first valid result is 2.6 seconds. Configuration Y returns in 1.1 seconds on average, passes validation on 99% of first attempts, and has a 1.5-second P95 to a valid result. Both meet the accepted-result accuracy target. Production requires a valid result within 1.8 seconds at P95. Which decision is best supported?",
+    "options": {
+      "A": "Use Configuration Y and monitor validation failures, retries, accepted accuracy, and valid-result P95 as one end-to-end outcome.",
+      "B": "Use Configuration X because its average first-response time is lower, and exclude retry time from the SLA.",
+      "C": "Use Configuration X and accept failed validation on the first attempt so retries no longer affect latency.",
+      "D": "Alternate X and Y and report the average of their first-response times as the production P95."
+    },
+    "correct_answer": "A",
+    "explanation": "Độ trễ phải đo tại điểm người dùng nhận được kết quả hợp lệ đầu tiên. X chỉ có vẻ nhanh nếu bỏ chi phí validation và retry; P95 kết quả hợp lệ của nó trượt yêu cầu. Y đạt cả độ chính xác được chấp nhận và P95 1,8 giây. Production phải tiếp tục giám sát lỗi validation, retry, accuracy và end-to-end latency.",
+    "source": "certlab.io.vn"
+  },
+  {
+    "question": "A compliance-report service has a large stable prefix and a required 2,000-token report. Prompt-cache metrics show a 97% hit rate, and caching reduced time to first token below its target. Full completion still takes 11 seconds because output generation dominates, against an 8-second completion SLA. The current report passes accuracy and completeness checks. Which next step best follows the evidence?",
+    "options": {
+      "A": "Move the cache breakpoint deeper into the already identical prefix because a higher hit rate will reduce output-token generation.",
+      "B": "Keep the working cache and evaluate a faster model or lower supported effort on the unchanged report task, accepting a change only if accuracy, completeness, and full-completion P95 all pass.",
+      "C": "Switch from the 5-minute cache to a 1-hour cache because a longer TTL generates output tokens faster.",
+      "D": "Add streaming and declare the 8-second full-completion SLA met as soon as the first token is visible."
+    },
+    "correct_answer": "B",
+    "explanation": "Cache đang hoạt động và đã giải quyết TTFT phía input. Prompt caching không tăng tốc sinh output token nên đổi breakpoint hay TTL không thu hẹp thời gian hoàn tất. Cần giữ tác vụ cố định rồi đánh giá model hoặc effort tăng tốc generation, chỉ dùng nếu độ chính xác, đầy đủ và P95 completion đều đạt.",
+    "source": "certlab.io.vn"
+  },
+  {
+    "question": "A contact-center summarizer compares two configurations on representative transcripts. Configuration X achieves 96% accuracy, a 0.9-second mean completion time, and a 4.2-second P95 because long calls form a slow tail. Configuration Y achieves 95.5% accuracy, a 1.3-second mean, and a 2.0-second P95. Release requires at least 95% accuracy and no more than 2.5 seconds at P95. Which TWO conclusions are justified?",
+    "options": {
+      "A": "Release X because its mean completion is lower and the P95 requirement can be interpreted as an average.",
+      "B": "Y is the supported release candidate because it meets both the accuracy floor and the P95 latency ceiling, despite its slower mean.",
+      "C": "Redefine the P95 ceiling above 4.2 seconds after observing X so its higher accuracy can qualify.",
+      "D": "Stream X and count first-token time as completion, even though the requirement measures the finished summary.",
+      "E": "Average X and Y together so the combined P95 falls between their reported percentiles.",
+      "F": "For further optimization, keep the accuracy and P95 gates, test controlled variants on the same transcript-length mix, and inspect the slow-tail distribution rather than only the mean."
+    },
+    "correct_answer": "BF",
+    "explanation": "Mục tiêu vận hành là P95 completion, không phải mean. X có trung bình nhanh và accuracy nhỉnh hơn nhưng trượt trần đuôi chậm. Y là cấu hình duy nhất vượt cả hai cổng. Tối ưu tiếp phải giữ cùng hỗn hợp độ dài transcript, sàn accuracy và chỉ số P95, không được đổi sang TTFT hay trung bình.",
+    "source": "certlab.io.vn"
+  },
+  {
+    "question": "An industrial-maintenance workflow extracts a machine identifier, retrieves two required manuals, and then synthesizes a repair plan. A high-effort capable configuration at every stage reaches 97% final accuracy but takes 18 seconds at P95 against a 12-second SLA. Stage evaluations show that a faster configuration matches identifier and lookup-selection quality, while a staged candidate using the capable configuration only for final synthesis finishes in 10.5 seconds. The faster configuration reaches only 89% on synthesis; the capable configuration reaches the required 96%. A plan must not be issued if either lookup fails. Which configuration is strongest?",
+    "options": {
+      "A": "Use the capable high-effort configuration sequentially at every stage because final accuracy is the only meaningful requirement.",
+      "B": "Use the faster configuration for the entire workflow because it satisfies the extraction and lookup-selection evaluations.",
+      "C": "Use the faster configuration for identifier and lookup planning, use the capable configuration for final synthesis only after both lookups succeed, and evaluate stage, failure, and end-to-end metrics.",
+      "D": "Start final synthesis as soon as the first manual returns and append the second lookup later if it becomes available."
+    },
+    "correct_answer": "C",
+    "explanation": "Bằng chứng ủng hộ cấu hình riêng theo từng stage. Cấu hình nhanh đủ cho trích mã và lập kế hoạch lookup; cấu hình mạnh dành cho tổng hợp cuối vì chỉ nó đạt repair accuracy. Tổng hợp chỉ bắt đầu sau khi cả hai kết quả cần thiết thành công; mọi metric stage, end-to-end, lỗi dependency và P95 phải nằm trong cổng đánh giá.",
+    "source": "certlab.io.vn"
+  },
+  {
+    "question": "An incident-classification service must return a short response containing every required field. To reduce P95 completion time, the team lowered `max_tokens`; latency improved, but 6% of responses now end mid-field and fail validation. Generation time, not input processing, remains the dominant latency component. What is the best next change?",
+    "options": {
+      "A": "Accept truncated responses when their first field is correct because P95 latency has improved.",
+      "B": "Increase temperature so the model is more likely to finish the required fields early.",
+      "C": "Add prompt caching to the unique incident body and leave the truncating output limit unchanged.",
+      "D": "Remove nonessential prose from the response contract, set the output limit with measured completion headroom, validate all required fields, and remeasure latency and accuracy."
+    },
+    "correct_answer": "D",
+    "explanation": "Giới hạn output cứng là cách kiểm soát độ trễ thô và dữ liệu truncation cho thấy nó thấp hơn độ dài hợp lệ. Trước hết loại văn xuôi thừa, sau đó đặt giới hạn có headroom từ phân bố phản hồi hợp lệ và giữ validation từng trường làm cổng. Phải đo lại latency lẫn accuracy.",
+    "source": "certlab.io.vn"
+  },
+  {
+    "question": "A financial-analysis service has research-preview access and uses a fast-mode-supported Claude Opus model on the Claude API with an evaluated high-effort configuration and fixed prompt. Accuracy passes, but output-dominated P95 latency is 16 seconds against a 9-second peak-hours target. The organization can fund premium fast mode only for the interactive peak cohort; overnight reports may take longer. The prompt, effort, and model may not change until a separate validation cycle. Which THREE steps form the strongest release plan?",
+    "options": {
+      "A": "Enable fast mode for both interactive and overnight reports because using the same model removes the need for a separate premium-cost gate.",
+      "B": "Use fast mode for the peak cohort and rely only on default SDK retries after rate limits, treating eventual success as proof that the 9-second SLA holds.",
+      "C": "Run a controlled fast-mode comparison on the same peak workload, verifying report accuracy and measuring P95 completion rather than assuming the advertised speedup meets the SLA.",
+      "D": "If the comparison passes, enable fast mode only for the interactive peak cohort and retain the validated standard mode for overnight reports.",
+      "E": "Monitor accuracy, P95 completion, `usage.speed`, premium cost, and fast capacity errors; test retry versus standard-speed fallback, including its cache miss, and define rollback gates.",
+      "F": "On any fast-mode rate limit, retry immediately at standard speed and assume the fast-mode cache remains warm and the 9-second target still holds."
+    },
+    "correct_answer": "CDE",
+    "explanation": "Fast mode chạy Claude Opus được hỗ trợ với output nhanh hơn nhưng giá cao; nhóm vẫn phải kiểm thử workload báo cáo rủi ro và giữ accuracy là cổng cứng. Nếu đạt, chỉ dùng fast mode cho cohort tương tác giờ cao điểm để đáp ứng 9 giây, còn batch đêm dùng chuẩn. Cần theo dõi `usage.speed`, P95, chất lượng, chi phí và lỗi capacity.",
+    "source": "certlab.io.vn"
+  },
+  {
+    "question": "A contract-review assistant produces correct complete analyses in 8 seconds. Users need visible progress within 1 second, but a downstream workflow may act only after the complete response passes citation and field validation. The team does not need to reduce total generation time in this iteration. Which configuration best meets the actual latency requirement?",
+    "options": {
+      "A": "Stream incremental output to the interface, measure TTFT and completion separately, and keep downstream actions blocked until the final response validates.",
+      "B": "Execute downstream actions as soon as the first streamed sentence appears because streaming implies the response is complete.",
+      "C": "Disable validation so the workflow can act before the 8-second response finishes.",
+      "D": "Report only total completion latency because time to first visible output is not a distinct metric."
+    },
+    "correct_answer": "A",
+    "explanation": "Yêu cầu là hiển thị tiến độ đầu tiên sớm hơn, không phải hoàn tất nhanh hơn. Streaming giảm cảm giác chờ và TTFT dù toàn bộ vẫn mất 8 giây. Tích hợp phải tách nội dung tạm hiển thị khỏi kết quả đã validation dùng cho hành động, đồng thời báo cả TTFT và completion latency.",
+    "source": "certlab.io.vn"
+  },
+  {
+    "question": "A safety-triage team changes the model, shortens the prompt, and lowers the output limit in one release. Average latency improves, but accuracy drops on rare high-risk cases. The prior system had no recorded TTFT or slice-specific baseline, so the team cannot attribute the regression. What is the best recovery plan?",
+    "options": {
+      "A": "Keep the release because average latency improved and rare cases contribute little to the aggregate score.",
+      "B": "Restore the known accurate configuration, establish TTFT, completion, overall, and high-risk-slice baselines, then change and evaluate one latency lever at a time.",
+      "C": "Increase the output limit while retaining the new model and prompt, then assume any recovered accuracy came from the limit.",
+      "D": "Optimize latency further before defining quality criteria so the team can discover the fastest possible configuration."
+    },
+    "correct_answer": "B",
+    "explanation": "Nhiều thay đổi cùng lúc và thiếu baseline khiến không thể quy nguyên nhân suy giảm. Cần quay lại cấu hình từng đạt chất lượng, xác định accuracy tổng thể và lát cắt quan trọng cùng TTFT, completion, rồi thử từng đòn bẩy latency trên dữ liệu đại diện. Cách này bảo vệ yêu cầu rủi ro cao và tạo bằng chứng cho từng đánh đổi.",
+    "source": "certlab.io.vn"
+  },
+  {
+    "question": "A parcel-claims assistant calls Claude, an inventory service, and a refund service. The Claude API dashboard shows 99.7% successful responses, yet 8% of customers report that claims never complete. Each component has separate logs, and the team cannot tell whether a failure occurred during generation, inventory lookup, refund execution, or UI delivery. Which observability change best addresses the gap?",
+    "options": {
+      "A": "Alert only when the Claude API's organization-wide HTTP error rate exceeds 1%, because provider success represents workflow success.",
+      "B": "Store only the complete prompt and response for failed sessions, then have operators infer the failed component manually.",
+      "C": "Propagate an application trace ID through every stage; record the Claude request-id, attempt, tool-stage result, terminal workflow state, and customer-visible completion against that trace.",
+      "D": "Map every inventory or refund failure to an Anthropic overloaded_error so all failures share one dashboard category."
+    },
+    "correct_answer": "C",
+    "explanation": "Tính khả dụng nhà cung cấp chỉ là một lớp. Một application trace chung phải nối request-id Claude, số lần thử, kết quả từng stage tool và kết quả khách hàng thực thấy. Nhờ vậy phân biệt lỗi Claude API với lỗi tool hoặc giao hàng và không coi HTTP success là hoàn tất nghiệp vụ.",
+    "source": "certlab.io.vn"
+  },
+  {
+    "question": "A batch document pipeline shows a ten-minute spike in cache-creation and output tokens in the organization Usage report, although the number of submitted jobs is unchanged. A job can retry one page or repeat the synthesis stage, but current logs store only the job ID and final success. Which monitoring change best distinguishes cache misses, duplicate attempts, and longer outputs?",
+    "options": {
+      "A": "Divide the organization token total by the number of successful jobs and attribute the same average to every page and stage.",
+      "B": "Record only the final job latency, because a successful terminal state proves that no intermediate stage was retried.",
+      "C": "Query the Cost API for a request-level list containing each page, stage, cache event, and retry reason.",
+      "D": "For every Claude attempt, record root job, page, stage, prompt version, retry reason, outcome, and response usage fields for uncached input, cache creation, cache reads, and output; aggregate by minute and reconcile with the Usage report's key, workspace, and model buckets."
+    },
+    "correct_answer": "D",
+    "explanation": "Usage API có token theo thời gian và chiều tổ chức nhưng không biết page, stage hay chuỗi retry của ứng dụng. Usage từng lần gọi phải nối với root job, stage, prompt version và lý do retry để phân biệt call lặp, cache và output dài. Đối chiếu tổng này với bucket Usage tương ứng giúp phát hiện telemetry thiếu hoặc đếm đôi.",
+    "source": "certlab.io.vn"
+  },
+  {
+    "question": "A support platform receives 429 responses during short campaign bursts even though its hourly average request rate is below the published limit. A recent prompt-cache change may also have shifted token consumption. Which THREE monitoring and response measures best diagnose and contain the issue?",
+    "options": {
+      "A": "Capture RPM, ITPM, and OTPM headroom together with the remaining, reset, and retry-after response headers by model.",
+      "B": "Use only the monthly spend total, because remaining budget determines whether a short burst receives a 429.",
+      "C": "Track uncached input, cache creation, cache reads, output tokens, and cache rate by model and workload.",
+      "D": "Immediately retry every 429 in parallel so the next replenishment window is fully utilized.",
+      "E": "Infer capacity solely from hourly average RPM and omit shorter time windows.",
+      "F": "Graph short-window peaks, pace traffic and ramp-ups, and use bounded backoff that honors retry-after while measuring retry volume."
+    },
+    "correct_answer": "ACF",
+    "explanation": "Trung bình có thể che việc chạm giới hạn trong cửa sổ ngắn. Cần headroom cho cả ba chiều rate limit của Messages API, header phản hồi giới hạn và token field có cache để biết request, uncached input, cache creation hay output đang nghẽn. Biểu đồ cửa sổ ngắn và pacing giới hạn tuân `retry-after` tránh retry storm.",
+    "source": "certlab.io.vn"
+  }
+]
