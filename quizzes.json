@@ -176,6 +176,14 @@
     "subcategory": "Anthropic"
   },
   {
+    "id": "ccar-p-standard",
+    "title": "Anthropic Claude Certified Architect – Professional (CCAR-P) - Standard",
+    "icon": "🧩",
+    "count": 99,
+    "category": "Chứng chỉ",
+    "subcategory": "Anthropic"
+  },
+  {
     "id": "ja_bunpo_1",
     "title": "Tiếng Nhật — Ngữ pháp N1",
     "icon": "✍️",
