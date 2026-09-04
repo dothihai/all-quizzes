@@ -237,7 +237,7 @@
       "No",
       "No"
     ],
-    "explanation": "\nCâu hỏi: \n\n---\nGiải thích: Không có giải thích tiếng Việt.\n---\nYes, Yes, Yes, No, No Dense vector retrieval represents semantic similarity, making it suitable for matching paraphrases and conceptually related language even when the query and source do not share identical words.\nSparse lexical retrieval, including BM25-style matching, retains strong sensitivity to exact tokens and is therefore valuable for identifiers, product codes, technical names, and uncommon terminology.\nStructured query retrieval is appropriate when the required operation depends on explicit fields, predicates, joins, counts, grouping, or aggregation over a relational schema. In that situation, generating or invoking a constrained database query is more precise than approximating the operation through semantic similarity.\nHybrid retrieval is not identical to dense retrieval. It combines semantic and lexical candidate sets, typically followed by rank fusion or reranking. Anthropic's contextual-retrieval guidance explains that semantic search captures meaning and paraphrases, while BM25 captures exact terminology; combining them improves coverage. Contextual Retrieval , Contextual Retrieval Cookbook Random sampling is not a relevance strategy. It provides no systematic relationship between the query and selected evidence, producing unstable coverage and preventable hallucination risk. Production Q & A requires deterministic or evaluated relevance mechanisms, access filters, suitable indexes, and measurable retrieval metrics such as recall at k .\nStudy Guide references/topics: Dense retrieval; sparse retrieval; structured queries; hybrid search; rank fusion; retrieval evaluation; production RAG design.",
+    "explanation": "\nCâu hỏi: Đánh giá các retrieval strategy\nA: Có - Có - Có - Không - Không\n---\nGiải thích: Dense retrieval dựa trên semantic similarity nên bắt được paraphrase. Sparse/BM25 giữ độ nhạy với exact token, code và thuật ngữ hiếm. Structured query chính xác hơn semantic search khi cần predicate, join, count, grouping hay aggregation. Hybrid kết hợp dense và lexical candidate, thường có rank fusion hoặc reranking nên không giống dense-only. Random sampling không gắn có hệ thống với relevance và dễ gây thiếu bằng chứng hoặc hallucination.\n---\nYes, Yes, Yes, No, No Dense vector retrieval represents semantic similarity, making it suitable for matching paraphrases and conceptually related language even when the query and source do not share identical words.\nSparse lexical retrieval, including BM25-style matching, retains strong sensitivity to exact tokens and is therefore valuable for identifiers, product codes, technical names, and uncommon terminology.\nStructured query retrieval is appropriate when the required operation depends on explicit fields, predicates, joins, counts, grouping, or aggregation over a relational schema. In that situation, generating or invoking a constrained database query is more precise than approximating the operation through semantic similarity.\nHybrid retrieval is not identical to dense retrieval. It combines semantic and lexical candidate sets, typically followed by rank fusion or reranking. Anthropic's contextual-retrieval guidance explains that semantic search captures meaning and paraphrases, while BM25 captures exact terminology; combining them improves coverage. Contextual Retrieval , Contextual Retrieval Cookbook Random sampling is not a relevance strategy. It provides no systematic relationship between the query and selected evidence, producing unstable coverage and preventable hallucination risk. Production Q & A requires deterministic or evaluated relevance mechanisms, access filters, suitable indexes, and measurable retrieval metrics such as recall at k .\nStudy Guide references/topics: Dense retrieval; sparse retrieval; structured queries; hybrid search; rank fusion; retrieval evaluation; production RAG design.",
     "source": "https://test-for-ha.onrender.com/quiz"
   },
   {
@@ -290,7 +290,7 @@
       "No",
       "Yes"
     ],
-    "explanation": "\nCâu hỏi: \n\n---\nGiải thích: Không có giải thích tiếng Việt.\n---\n* Drafting first-pass investigative reports from semi-structured incident logs for analyst review - Yes\n* Computing real-time fraud scores at sub-50-millisecond latency on a streaming pipeline - No\n* Long-context contract review with structured clause extraction and deviation flagging - Yes\n* Replacing a vector index for semantic retrieval over a multi-million-document corpus - No\n* Routing inbound support tickets into 30 categories with reasoning for the selected route - Yes Claude is well suited to language-intensive analysis, summarization, extraction, classification, and drafting.\nInvestigative-report drafting, contract analysis, and support-ticket routing all require interpretation of unstructured or semi-structured language and can incorporate human review. A sub-50-millisecond fraud- scoring path requires deterministic, specialized real-time processing and should not place LLM inference on the critical path. Claude also does not replace the retrieval index used to search millions of documents; it consumes the results produced by that infrastructure. The correct architectural decision separates tasks requiring semantic language reasoning from deterministic computation and information-retrieval infrastructure. Model selection and evaluation must then confirm that the chosen Claude model satisfies quality, latency, and cost requirements.",
+    "explanation": "\nCâu hỏi: Đánh dấu Có nếu Claude phù hợp làm giải pháp chính ở cấp kiến trúc, ngược lại chọn Không.\nA: Có - Không - Có - Không - Có\n---\nGiải thích: Claude phù hợp với phân tích ngôn ngữ, tóm tắt, trích xuất, phân loại và soạn thảo, nhất là khi có human review. Fraud scoring dưới 50 ms cần xử lý chuyên biệt, nhanh và mang tính quyết định nên không nên đặt LLM trên critical path. Claude cũng không thay thế hạ tầng retrieval/index ở quy mô hàng triệu tài liệu; model sử dụng kết quả do hạ tầng đó truy xuất.\n---\n* Drafting first-pass investigative reports from semi-structured incident logs for analyst review - Yes\n* Computing real-time fraud scores at sub-50-millisecond latency on a streaming pipeline - No\n* Long-context contract review with structured clause extraction and deviation flagging - Yes\n* Replacing a vector index for semantic retrieval over a multi-million-document corpus - No\n* Routing inbound support tickets into 30 categories with reasoning for the selected route - Yes Claude is well suited to language-intensive analysis, summarization, extraction, classification, and drafting.\nInvestigative-report drafting, contract analysis, and support-ticket routing all require interpretation of unstructured or semi-structured language and can incorporate human review. A sub-50-millisecond fraud- scoring path requires deterministic, specialized real-time processing and should not place LLM inference on the critical path. Claude also does not replace the retrieval index used to search millions of documents; it consumes the results produced by that infrastructure. The correct architectural decision separates tasks requiring semantic language reasoning from deterministic computation and information-retrieval infrastructure. Model selection and evaluation must then confirm that the chosen Claude model satisfies quality, latency, and cost requirements.",
     "source": "https://test-for-ha.onrender.com/quiz"
   },
   {
@@ -307,12 +307,48 @@
     "source": "https://test-for-ha.onrender.com/quiz"
   },
   {
-    "type": "single",
-    "question": "You are classifying chunking strategies by the corpus type each is best suited to.\nFor each chunking strategy, select the appropriate corpus type: \"Long Structured Documents,\" \"Heterogeneous Short Records,\" or \"Code or Hierarchical Specifications.\"",
+    "type": "dropdown",
+    "question": "You are classifying chunking strategies by the corpus type each is best suited to.\nFor each chunking strategy, select the appropriate corpus type: \"Long Structured Documents,\" \"Heterogeneous Short Records,\" or \"Code or Hierarchical Specifications.\"\n[dropdown1]\n[dropdown2]\n[dropdown3]\n[dropdown4]\n[dropdown5]\n[dropdown6]",
     "options": {
-      "A": "Code or Hierarchical Specs · Code or Hierarchical Specs · Heterogeneous Short Records · Long Structured Documents · Heterogeneous Short Records · Long Structured Documents"
+      "dropdown1": [
+        "Long Structured Documents",
+        "Heterogeneous Short Records",
+        "Code or Hierarchical Specs"
+      ],
+      "dropdown2": [
+        "Long Structured Documents",
+        "Heterogeneous Short Records",
+        "Code or Hierarchical Specs"
+      ],
+      "dropdown3": [
+        "Long Structured Documents",
+        "Heterogeneous Short Records",
+        "Code or Hierarchical Specs"
+      ],
+      "dropdown4": [
+        "Long Structured Documents",
+        "Heterogeneous Short Records",
+        "Code or Hierarchical Specs"
+      ],
+      "dropdown5": [
+        "Long Structured Documents",
+        "Heterogeneous Short Records",
+        "Code or Hierarchical Specs"
+      ],
+      "dropdown6": [
+        "Long Structured Documents",
+        "Heterogeneous Short Records",
+        "Code or Hierarchical Specs"
+      ]
     },
-    "correct_answer": "A",
+    "correct_answer": {
+      "dropdown1": 2,
+      "dropdown2": 2,
+      "dropdown3": 1,
+      "dropdown4": 0,
+      "dropdown5": 1,
+      "dropdown6": 0
+    },
     "explanation": "\nCâu hỏi: \n\n---\nGiải thích: Không có giải thích tiếng Việt.\n---\n* Function-level or section-level chunking for code modules - Code or Hierarchical Specifications\n* Tree-aware chunking that follows code or specification hierarchy - Code or Hierarchical Specifications\n* Per-record chunking where each record is one chunk - Heterogeneous Short Records\n* Semantic chunking along clause or paragraph boundaries - Long Structured Documents\n* Fixed-size chunking with overlap for short records of similar length - Heterogeneous Short Records\n* Hierarchical chunking that mirrors document section structure - Long Structured Documents Chunking must preserve the structural unit that carries meaning in the source corpus. Code and hierarchical specifications are best divided at function, module, class, or tree boundaries because arbitrary token cuts can separate definitions from their implementation or parent context.\nHeterogeneous short-record collections should generally preserve each record as an independent chunk. Fixed-size overlapping chunks are also effective when records have broadly similar lengths and lack meaningful internal hierarchy. Long structured documents benefit from semantic boundaries such as clauses and paragraphs, while hierarchical chunking preserves relationships among sections, subsections, and parent headings. Anthropic notes that chunk size, boundaries, and overlap materially affect retrieval performance; therefore, one universal chunking method is inappropriate. Anthropic Contextual Retrieval",
     "source": "https://test-for-ha.onrender.com/quiz"
   },
@@ -339,7 +375,7 @@
       "Yes",
       "No"
     ],
-    "explanation": "\nCâu hỏi: \n\n---\nGiải thích: Không có giải thích tiếng Việt.\n---\nYes, Yes, No, Yes, No Zero-shot prompting is a reasonable baseline for a clearly defined closed-set classifier because the model receives both the permissible labels and their meanings. Performance should then be measured against an evaluation set before additional prompt complexity is introduced. Few-shot examples are also sound for extraction because examples containing the exact field names demonstrate the required schema and reduce formatting ambiguity. Anthropic identifies examples as one of the most reliable methods for steering output format, structure, and consistency. Prompting Best Practices Chain-of-thought is not an unconditional default. Additional reasoning is appropriate when the task requires substantive decomposition or complex judgment, but routine classification and extraction may gain little while consuming more tokens and increasing latency. The technique should be selected according to evaluated task requirements.\nAn even-handed comparison governed by explicit criteria mitigates leading-question bias by requiring symmetrical treatment of alternatives rather than presupposing a preferred conclusion. Finally, prompt validation is model-specific. New model versions may follow instructions differently, change formatting behavior, alter tool selection, or produce different latency and cost characteristics.\nAnthropic's migration guidance consequently recommends reevaluating prompts and workloads against the new baseline. Model Migration Guide Study Guide references/topics: Zero-shot prompting; few-shot examples; reasoning techniques; neutral framing; model migration and regression evaluation.",
+    "explanation": "\nCâu hỏi: Lưu ý: trang không hiển thị danh sách claim trong phần văn bản. Các claim dưới đây được tái dựng từ lời giải đi kèm, không phải nguyên văn.\nA: Có - Có - Không - Có - Không\n---\nGiải thích: Zero-shot là điểm xuất phát hợp lý và cần được đo trên eval set trước khi tăng độ phức tạp. Few-shot giúp minh họa schema, format và cấu trúc mong muốn. Reasoning dài chỉ nên dùng khi tác vụ thực sự cần decomposition hoặc judgment phức tạp vì nó tăng token và latency. Neutral framing giúp tránh thiên vị phương án. Khi đổi model version, phải đánh giá lại prompt vì instruction following, formatting, tool selection, latency và cost đều có thể thay đổi.\n---\nYes, Yes, No, Yes, No Zero-shot prompting is a reasonable baseline for a clearly defined closed-set classifier because the model receives both the permissible labels and their meanings. Performance should then be measured against an evaluation set before additional prompt complexity is introduced. Few-shot examples are also sound for extraction because examples containing the exact field names demonstrate the required schema and reduce formatting ambiguity. Anthropic identifies examples as one of the most reliable methods for steering output format, structure, and consistency. Prompting Best Practices Chain-of-thought is not an unconditional default. Additional reasoning is appropriate when the task requires substantive decomposition or complex judgment, but routine classification and extraction may gain little while consuming more tokens and increasing latency. The technique should be selected according to evaluated task requirements.\nAn even-handed comparison governed by explicit criteria mitigates leading-question bias by requiring symmetrical treatment of alternatives rather than presupposing a preferred conclusion. Finally, prompt validation is model-specific. New model versions may follow instructions differently, change formatting behavior, alter tool selection, or produce different latency and cost characteristics.\nAnthropic's migration guidance consequently recommends reevaluating prompts and workloads against the new baseline. Model Migration Guide Study Guide references/topics: Zero-shot prompting; few-shot examples; reasoning techniques; neutral framing; model migration and regression evaluation.",
     "source": "https://test-for-ha.onrender.com/quiz"
   },
   {
@@ -450,12 +486,48 @@
     "source": "https://test-for-ha.onrender.com/quiz"
   },
   {
-    "type": "single",
-    "question": "You are sequencing decomposed components in an invoice-processing pipeline.\nFor each of the decomposed components, select the execution layer it belongs to: \"Pre-Processing,\" \"Model Stage,\" or \"Post-Processing.\"",
+    "type": "dropdown",
+    "question": "You are sequencing decomposed components in an invoice-processing pipeline.\nFor each of the decomposed components, select the execution layer it belongs to: \"Pre-Processing,\" \"Model Stage,\" or \"Post-Processing.\"\n[dropdown1]\n[dropdown2]\n[dropdown3]\n[dropdown4]\n[dropdown5]\n[dropdown6]",
     "options": {
-      "A": "Model Stage · Post-Processing · Post-Processing · Model Stage · Pre-Processing · Pre-Processing"
+      "dropdown1": [
+        "Pre-Processing",
+        "Model Stage",
+        "Post-Processing"
+      ],
+      "dropdown2": [
+        "Pre-Processing",
+        "Model Stage",
+        "Post-Processing"
+      ],
+      "dropdown3": [
+        "Pre-Processing",
+        "Model Stage",
+        "Post-Processing"
+      ],
+      "dropdown4": [
+        "Pre-Processing",
+        "Model Stage",
+        "Post-Processing"
+      ],
+      "dropdown5": [
+        "Pre-Processing",
+        "Model Stage",
+        "Post-Processing"
+      ],
+      "dropdown6": [
+        "Pre-Processing",
+        "Model Stage",
+        "Post-Processing"
+      ]
     },
-    "correct_answer": "A",
+    "correct_answer": {
+      "dropdown1": 1,
+      "dropdown2": 2,
+      "dropdown3": 2,
+      "dropdown4": 1,
+      "dropdown5": 0,
+      "dropdown6": 0
+    },
     "explanation": "\nCâu hỏi: \n\n---\nGiải thích: Không có giải thích tiếng Việt.\n---\nModel Stage, Post-Processing, Post-Processing, Model Stage, Pre-Processing, Pre-Processing Preprocessing prepares source material before Claude receives it. Optical character recognition converts scanned invoice images into machine-readable text. Because PII redaction is explicitly performed before model invocation, it also belongs in pre-processing. Additional activities at this layer can include file validation, malware scanning, normalization, page separation, and metadata extraction.\nThe model stage contains tasks requiring Claude's language-understanding capability. Classifying the invoice type involves interpreting textual and contextual features, while extracting structured invoice fields requires mapping unstructured content into defined business attributes.\nPost-processing verifies and commits the model's result. Schema validation confirms that required fields exist, data types are correct, enumerated values are permitted, and structural constraints are satisfied.\nPersistence must occur only after validation and any required human review because the system of record should not receive malformed or unapproved model output.\nThis decomposition separates probabilistic inference from deterministic processing. OCR, redaction, validation, and persistence do not need to be delegated to Claude when conventional components can execute them more predictably. The resulting architecture reduces model workload, strengthens privacy controls, improves auditability, and prevents unvalidated output from directly changing authoritative records.\nStudy Guide references/topics: Task decomposition; pre-processing; model inference; postprocessing; deterministic validation; privacy-by-design; system-of-record protection.",
     "source": "https://test-for-ha.onrender.com/quiz"
   },
@@ -523,7 +595,7 @@
       "No",
       "Yes"
     ],
-    "explanation": "\nCâu hỏi: Một tính năng tạo hồ sơ pháp lý cần quy trình soạn thảo cố định, có ví dụ đi kèm, không gọi hệ thống bên ngoài theo thời gian thực và phải dùng được ở nhiều môi trường Claude. Yếu tố nào nghiêng mạnh nhất về Claude Skill?\nA: Phải truy vấn cơ sở dữ liệu trực tiếp.\nB: Phải gọi được từ CLI của lập trình viên.\nC: Phải xác thực trực tiếp với hệ thống danh tính doanh nghiệp.\nD: Đây là tri thức/quy trình đóng gói sẵn và không cần gọi hệ thống bên ngoài.\n---\nGiải thích: Skill phù hợp để đóng gói hướng dẫn, quy trình, template, ví dụ và tài nguyên tái sử dụng. MCP phù hợp hơn khi Claude cần kết nối API, database hoặc dịch vụ doanh nghiệp đang hoạt động. Việc hỗ trợ CLI không tự nó quyết định kiến trúc, còn nhu cầu xác thực trực tiếp thường nghiêng về integration hoặc MCP.\n---\nYes, No, Yes, No, Yes Least privilege requires each retained tool to be necessary for the agent's assigned responsibility and restricted to the minimum action level needed. Catalog lookup is appropriate because vendor and SKU information is needed to prepare an accurate request. The policy-document tool is similarly justified because the agent must ground the draft in applicable procurement rules. The draft-write tool is also aligned because it writes only to a review queue, preserving the required human approval boundary.\nThe inbox-send tool exceeds the stated responsibility. Sending a request directly to a vendor converts a drafting assistant into an externally acting purchasing agent and bypasses the review stage. The production- database administrator tool is unrelated to procurement and introduces unnecessary destructive capability, privilege-escalation exposure, and potential data-access risk.\nAnthropic's prompt-injection guidance recommends limiting access to sensitive data and actions and applying least privilege so that a compromised agent can cause minimal damage. Claude Code also supports tool- specific allow, ask, and deny rules that are enforced outside the model. Prompt -Injection Mitigation , Claude Code Permissions Study Guide references/topics: Capability-bloat auditing; least privilege; tool scoping; human review gates; separation of drafting and execution authority.",
+    "explanation": "\nCâu hỏi: Agent chỉ có trách nhiệm soạn purchase request để con người review. Tool nào nên giữ lại?\n\nNội dung bảng dưới đây được đọc trực tiếp từ hình ảnh Answer Area trên trang.\nA: Có - Không - Có - Không - Có\n---\nGiải thích: Least privilege chỉ giữ capability cần thiết và giới hạn action ở mức tối thiểu. Catalog và policy lookup cần để tạo draft chính xác; draft-write vào review queue duy trì human approval boundary. Gửi thẳng cho vendor biến assistant soạn thảo thành purchasing agent có quyền hành động bên ngoài. Quyền quản trị production database không liên quan và tạo rủi ro phá hoại, privilege escalation cùng truy cập dữ liệu quá mức.\n---\nYes, No, Yes, No, Yes Least privilege requires each retained tool to be necessary for the agent's assigned responsibility and restricted to the minimum action level needed. Catalog lookup is appropriate because vendor and SKU information is needed to prepare an accurate request. The policy-document tool is similarly justified because the agent must ground the draft in applicable procurement rules. The draft-write tool is also aligned because it writes only to a review queue, preserving the required human approval boundary.\nThe inbox-send tool exceeds the stated responsibility. Sending a request directly to a vendor converts a drafting assistant into an externally acting purchasing agent and bypasses the review stage. The production- database administrator tool is unrelated to procurement and introduces unnecessary destructive capability, privilege-escalation exposure, and potential data-access risk.\nAnthropic's prompt-injection guidance recommends limiting access to sensitive data and actions and applying least privilege so that a compromised agent can cause minimal damage. Claude Code also supports tool- specific allow, ask, and deny rules that are enforced outside the model. Prompt -Injection Mitigation , Claude Code Permissions Study Guide references/topics: Capability-bloat auditing; least privilege; tool scoping; human review gates; separation of drafting and execution authority.",
     "source": "https://test-for-ha.onrender.com/quiz"
   },
   {
@@ -549,7 +621,7 @@
       "Yes",
       "No"
     ],
-    "explanation": "\nCâu hỏi: Một tính năng tạo hồ sơ pháp lý cần quy trình soạn thảo cố định, có ví dụ đi kèm, không gọi hệ thống bên ngoài theo thời gian thực và phải dùng được ở nhiều môi trường Claude. Yếu tố nào nghiêng mạnh nhất về Claude Skill?\nA: Phải truy vấn cơ sở dữ liệu trực tiếp.\nB: Phải gọi được từ CLI của lập trình viên.\nC: Phải xác thực trực tiếp với hệ thống danh tính doanh nghiệp.\nD: Đây là tri thức/quy trình đóng gói sẵn và không cần gọi hệ thống bên ngoài.\n---\nGiải thích: Skill phù hợp để đóng gói hướng dẫn, quy trình, template, ví dụ và tài nguyên tái sử dụng. MCP phù hợp hơn khi Claude cần kết nối API, database hoặc dịch vụ doanh nghiệp đang hoạt động. Việc hỗ trợ CLI không tự nó quyết định kiến trúc, còn nhu cầu xác thực trực tiếp thường nghiêng về integration hoặc MCP.\n---\nYes, Yes, No, Yes, No More capable reasoning configurations generally require greater computation, produce higher latency, and may consume larger token or rate-limit allocations than lighter alternatives. This makes the first statement generally accurate, although actual performance must be measured under the organization's specific provider and service tier.\nRepresentative workload testing is essential because generic benchmark rankings do not establish performance on the organization's prompts, data, edge cases, tools, or required output format.\nAnthropic recommends benchmark tests specific to the use case, using actual prompts and data, followed by comparison of accuracy, quality, edge-case behavior, and cost. Choosing the Right Model The strongest model is not automatically the correct production choice. Model selection must balance capability, speed, cost, throughput, and operational constraints. Tiered routing implements this principle by serving predictable requests with an efficient model and escalating difficult cases to a more capable model.\nAnthropic documents multi-model strategies in which lower-cost workers handle most traffic while harder decisions are escalated.\nRecency is also not a valid selection criterion. A newly announced model must pass the workload's existing evaluation, security, latency, and cost gates before replacing a validated production model.\nStudy Guide references/topics: Model trade-offs; representative evaluations; tiered routing; escalation architectures; cost-capability optimization; model migration validation.",
+    "explanation": "\nCâu hỏi: \n\n---\nGiải thích: Không có giải thích tiếng Việt.\n---\nYes, Yes, No, Yes, No More capable reasoning configurations generally require greater computation, produce higher latency, and may consume larger token or rate-limit allocations than lighter alternatives. This makes the first statement generally accurate, although actual performance must be measured under the organization's specific provider and service tier.\nRepresentative workload testing is essential because generic benchmark rankings do not establish performance on the organization's prompts, data, edge cases, tools, or required output format.\nAnthropic recommends benchmark tests specific to the use case, using actual prompts and data, followed by comparison of accuracy, quality, edge-case behavior, and cost. Choosing the Right Model The strongest model is not automatically the correct production choice. Model selection must balance capability, speed, cost, throughput, and operational constraints. Tiered routing implements this principle by serving predictable requests with an efficient model and escalating difficult cases to a more capable model.\nAnthropic documents multi-model strategies in which lower-cost workers handle most traffic while harder decisions are escalated.\nRecency is also not a valid selection criterion. A newly announced model must pass the workload's existing evaluation, security, latency, and cost gates before replacing a validated production model.\nStudy Guide references/topics: Model trade-offs; representative evaluations; tiered routing; escalation architectures; cost-capability optimization; model migration validation.",
     "source": "https://test-for-ha.onrender.com/quiz"
   },
   {
@@ -1557,12 +1629,48 @@
     "source": "https://test-for-ha.onrender.com/quiz"
   },
   {
-    "type": "single",
-    "question": "You are classifying token-management tactics by where each tactic applies in the request lifecycle: \"Input Preparation,\" \"Prompt Construction,\" or \"Output Handling.\"",
+    "type": "dropdown",
+    "question": "You are classifying token-management tactics by where each tactic applies in the request lifecycle: \"Input Preparation,\" \"Prompt Construction,\" or \"Output Handling.\"\n[dropdown1]\n[dropdown2]\n[dropdown3]\n[dropdown4]\n[dropdown5]\n[dropdown6]",
     "options": {
-      "A": "Output Handling · Prompt Construction · Input Preparation · Output Handling · Prompt Construction · Input Preparation"
+      "dropdown1": [
+        "Input Preparation",
+        "Prompt Construction",
+        "Output Handling"
+      ],
+      "dropdown2": [
+        "Input Preparation",
+        "Prompt Construction",
+        "Output Handling"
+      ],
+      "dropdown3": [
+        "Input Preparation",
+        "Prompt Construction",
+        "Output Handling"
+      ],
+      "dropdown4": [
+        "Input Preparation",
+        "Prompt Construction",
+        "Output Handling"
+      ],
+      "dropdown5": [
+        "Input Preparation",
+        "Prompt Construction",
+        "Output Handling"
+      ],
+      "dropdown6": [
+        "Input Preparation",
+        "Prompt Construction",
+        "Output Handling"
+      ]
     },
-    "correct_answer": "A",
+    "correct_answer": {
+      "dropdown1": 2,
+      "dropdown2": 1,
+      "dropdown3": 0,
+      "dropdown4": 2,
+      "dropdown5": 1,
+      "dropdown6": 0
+    },
     "explanation": "\nCâu hỏi: \n\n---\nGiải thích: Không có giải thích tiếng Việt.\n---\n* Persist the validated output for downstream consumption and audit - Output Handling\n* Order prompt sections so cacheable content appears before per-request content - Prompt Construction\n* Summarize prior conversation history when full history is no longer needed - Input Preparation\n* Validate the model's structured output against the expected schema - Output Handling\n* Move stable repeated content into a cacheable prefix at the beginning of the prompt - Prompt Construction\n* Trim retrieved passages to spans relevant to the user's question - Input Preparation Input preparation determines what evidence and history should enter the request, so summarization and retrieval trimming belong there. Prompt construction determines ordering and cache boundaries; stable repeated instructions must precede dynamic per-request content to maximize cache reuse.\nOutput handling begins after generation and includes schema validation, persistence, auditing, and downstream delivery.\nMixing these responsibilities creates inefficient prompts and weak validation boundaries. Anthropic's context guidance emphasizes curating the smallest useful context because unnecessary tokens can reduce recall and accuracy. Prompt caching similarly depends on a stable reusable prefix, while structured outputs or schema validation protect downstream systems from malformed responses.\nContext windows ; prompt caching",
     "source": "https://test-for-ha.onrender.com/quiz"
   },
