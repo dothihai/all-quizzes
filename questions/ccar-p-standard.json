@@ -308,7 +308,7 @@
   },
   {
     "type": "dropdown",
-    "question": "You are classifying chunking strategies by the corpus type each is best suited to.\nFor each chunking strategy, select the appropriate corpus type: \"Long Structured Documents,\" \"Heterogeneous Short Records,\" or \"Code or Hierarchical Specifications.\"\n[dropdown1]\n[dropdown2]\n[dropdown3]\n[dropdown4]\n[dropdown5]\n[dropdown6]",
+    "question": "You are classifying chunking strategies by the corpus type each is best suited to.\nFor each chunking strategy, select the appropriate corpus type: \"Long Structured Documents,\" \"Heterogeneous Short Records,\" or \"Code or Hierarchical Specifications.\"\nfunction-level or section-level chunking for code modules: [dropdown1]\ntree-aware chunking that follows code or specification hierarchy: [dropdown2]\nper-record chunking where each record is one chunk: [dropdown3]\nsemantic chunking along clause or paragraph boundaries: [dropdown4]\nfixed-size chunking with overlap for short records of similar length: [dropdown5]\nhierarchical chunking that mirrors document section structure: [dropdown6]",
     "options": {
       "dropdown1": [
         "Long Structured Documents",
@@ -487,7 +487,7 @@
   },
   {
     "type": "dropdown",
-    "question": "You are sequencing decomposed components in an invoice-processing pipeline.\nFor each of the decomposed components, select the execution layer it belongs to: \"Pre-Processing,\" \"Model Stage,\" or \"Post-Processing.\"\n[dropdown1]\n[dropdown2]\n[dropdown3]\n[dropdown4]\n[dropdown5]\n[dropdown6]",
+    "question": "You are sequencing decomposed components in an invoice-processing pipeline.\nFor each of the decomposed components, select the execution layer it belongs to: \"Pre-Processing,\" \"Model Stage,\" or \"Post-Processing.\"\nClaude-based classification of invoice type: [dropdown1]\npersistence of validated records to the system of record: [dropdown2]\nschema validation of the extracted fields: [dropdown3]\nClaude-based extraction of structured invoice fields: [dropdown4]\nPII redaction on extracted text prior to model invocation: [dropdown5]\noptical character recognition on scanned invoice images: [dropdown6]",
     "options": {
       "dropdown1": [
         "Pre-Processing",
@@ -1630,7 +1630,7 @@
   },
   {
     "type": "dropdown",
-    "question": "You are classifying token-management tactics by where each tactic applies in the request lifecycle: \"Input Preparation,\" \"Prompt Construction,\" or \"Output Handling.\"\n[dropdown1]\n[dropdown2]\n[dropdown3]\n[dropdown4]\n[dropdown5]\n[dropdown6]",
+    "question": "You are classifying token-management tactics by where each tactic applies in the request lifecycle: \"Input Preparation,\" \"Prompt Construction,\" or \"Output Handling.\"\nPersist the validated output for downstream consumption and audit.: [dropdown1]\nOrder the prompt sections so cacheable content sits before per-request content.: [dropdown2]\nSummarize prior conversation history when full history is no longer needed.: [dropdown3]\nValidate the model's structured output against the expected schema.: [dropdown4]\nMove stable repeated content into a cacheable prefix at the head of the prompt.: [dropdown5]\nTrim retrieved passages to spans relevant to the user's question.: [dropdown6]",
     "options": {
       "dropdown1": [
         "Input Preparation",
