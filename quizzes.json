@@ -198,6 +198,13 @@
     "count": 141,
     "category": "Chứng chỉ",
     "subcategory": "PMI"
+  },{
+    "id": "mla_c01",
+    "title": "AWS Certified Machine Learning Engineer - Associate MLA-C01",
+    "icon": "🤖",
+    "count": 285,
+    "category": "Chứng chỉ",
+    "subcategory":"AWS"
   },
   {
     "id": "ja_bunpo_1",
